@@ -23,3 +23,11 @@ I configured the frontend to be deployed to a firebase hosting solution. For thi
 ## Linting
 
 The frontend (and hopefully also soon the backend) should be linted. Use [this article](https://medium.com/@pppped/extend-create-react-app-with-airbnbs-eslint-config-prettier-flow-and-react-testing-library-96627e9a9672) for guidance
+
+Edit:
+# usage 
+backend nodemon server
+frontend npm start
+
+(firebase login)
+
