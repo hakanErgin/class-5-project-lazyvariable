@@ -7,6 +7,9 @@ import initializeDb from './db';
 import middleware from './middleware';
 import api from './api';
 import config from './config.json';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 app.server = http.createServer(app);
@@ -15,16 +18,20 @@ app.server = http.createServer(app);
 app.use(morgan('dev'));
 
 // 3rd party middleware
-app.use(cors({
-  exposedHeaders: config.corsHeaders,
-}));
+app.use(
+  cors({
+    exposedHeaders: config.corsHeaders,
+  }),
+);
 
-app.use(bodyParser.json({
-  limit: config.bodyLimit,
-}));
+app.use(
+  bodyParser.json({
+    limit: config.bodyLimit,
+  }),
+);
 
 // connect to db
-initializeDb((db) => {
+initializeDb(db => {
   // internal middleware
   app.use(middleware({ config, db }));
 
