@@ -1,9 +1,10 @@
 import React from 'react';
 
 import withFirebaseAuth from 'react-with-firebase-auth';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase'
 import 'firebase/auth';
 import firebaseConfig from './firebaseConfig';
+
 
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -16,7 +17,7 @@ const providers = {
 function App() {
   return (
 <div>
-  <p>HEllo</p>
+  <h1>IT'S WORKING</h1>
 </div>
   );
 }
