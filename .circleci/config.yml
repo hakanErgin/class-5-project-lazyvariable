@@ -74,7 +74,7 @@ jobs:
   ## ----------------
   backend_install:
     executor: node
-    working_directory: ~/project/
+    working_directory: ~/project
     steps:
       - checkout:
           path: ~/project
@@ -87,9 +87,7 @@ jobs:
 
       - run: yarn install
       - persist_to_workspace:
-          paths:
-          - ~/project/
-          root: ~/project
+          path: ~/project
       - save_cache:
           paths:
             - node_modules
@@ -97,7 +95,7 @@ jobs:
       
   backend_test:
     executor: node
-    working_directory: ~/project/
+    working_directory: ~/project
     steps:
       - attach_workspace:
           at: ~/project/
@@ -112,15 +110,14 @@ jobs:
           path: reports/
   backend_build:
     executor: node
-    working_directory: ~/project/
+    working_directory: ~/project
     steps:
       - attach_workspace:
           at: ~/project/
       - run: yarn build
       - persist_to_workspace:
-          paths:
-          - ~/project
-          root: ~/project
+          path: ~/project
+          
       # https://circleci.com/docs/2.0/configuration-reference/#store_artifacts
       # not needed because we manage the deployment artifacts on the firebase side
       # - store_artifacts:
