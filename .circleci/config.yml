@@ -87,6 +87,8 @@ jobs:
 
       - run: yarn install
       - persist_to_workspace:
+          paths:
+          - ~/project/
           root: ~/project
       - save_cache:
           paths:
@@ -116,6 +118,8 @@ jobs:
           at: ~/project/
       - run: yarn build
       - persist_to_workspace:
+          paths:
+          - ~/project
           root: ~/project
       # https://circleci.com/docs/2.0/configuration-reference/#store_artifacts
       # not needed because we manage the deployment artifacts on the firebase side
