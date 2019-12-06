@@ -1,17 +1,11 @@
 {
   "name": "express-es6-rest-api",
   "version": "0.3.0",
+  "engines": {
+    "node": "12.13.0"
+  },
   "description": "Starter project for an ES6 RESTful Express API",
   "main": "dist",
-  "scripts": {
-    "dev": "nodemon -w src --exec \"babel-node src --presets '@babel/env'\"",
-    "build": "babel src -s -D -d dist",
-    "start": "node dist",
-    "prestart": "npm run -s build",
-    "lint": "eslint src",
-    "db": "scripts/start_db.sh",
-    "test": "jest"
-  },
   "eslintConfig": {
     "extends": "eslint:recommended",
     "parserOptions": {
