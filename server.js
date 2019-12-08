@@ -16,16 +16,8 @@ connection.once('open', () => {
   console.log('MangoDB database connection established successfully');
 });
 
-const exercisesRouter = require('./routes/exercises');
-const usersRouter = require('./routes/users');
-
-app.use('/exercises', exercisesRouter);
-app.use('/users', usersRouter);
+const rootRouter = require('./routes/root');
+app.use('/', rootRouter);
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
-// create a GET route
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-});
