@@ -1,33 +1,261 @@
-.App {
+html{
+  font-family: 'Poppins', sans-serif;
+  color:#6B748F;
+}
+
+header{
+  margin-top:36px !important;
+  position: relative;
+  width: 100%;
+  margin:0 auto;
+  width:1366px;
+}
+.topBar{
+  padding-bottom:148px;
+
+}
+.navMenu{
+  list-style: none;
+  padding:0;
+  display: inline;
+  color:#082371;
+}
+
+.menuItem{
+  display: inline;
+  padding-left:32px;
+  color:#082371;
+}
+a{
+  text-decoration: none;
+
+}
+.leftTop{
+  float:left;
+}
+.rightTop{
+  float: right;
+}
+.loginInButton{
+  border: 2px solid #F96156;
+  border-radius: 3px;
+  width:134px;
+  height:39px;
+  background-color:white;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color:#F96156;
+  margin-left:44px;
+  cursor: pointer;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.loginInButton:hover{
+  background: #F96156 0% 0% no-repeat padding-box;
+  color:#ffffff;
+}
+.signUpButton{
+  background: #F96156 0% 0% no-repeat padding-box;
+  border-radius: 3px;
+  width:134px;
+  height:39px;
+  border: none;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #FFFFFF;
+  margin-left:23px;
+  cursor: pointer;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+.signUpButton:hover{
+  border: 2px solid #F96156;
+  color:#F96156;
+  background-color:white;
+}
+
+
+.heroTitle{
+  float:left;
+  margin-top:90px;
+
+}
+.subTitle{
+  font-size:28px;
+  color: #F96156;
+  }
+ .title{
+  font-size: 51px;
+  color:#082371;
+  font-weight: bold;
+ } 
+ .titleEndPoint{
+  color:#F96156;
+  font-size:100px;
+  line-height: 0px;
+ }
+.getStartedButton{
+  background: #082371 0% 0% no-repeat padding-box;
+  box-shadow: 0px 12px 30px #C1D1FFB3;
+  opacity: 1;
+  color:white;
+  border: none;
+  width: 225px;
+  height: 61px;
+  text-align: center;
+  font-size:21px;
+  border-radius: 5px;
+  margin-top:57px;
+  cursor: pointer;
+}
+.getStartedButton:hover{
+  background: #F96156 0% 0% no-repeat padding-box;
+  box-shadow: 0px 12px 30px #C1D1FFB3;
+  color:white;
+
+}
+.heroPicture{
+  float: right;
+  }
+
+.heroSection{
+  width:100%;
+  display:flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+
+.subTitle2{
+  font-size:28px;
+  color: #F96156;
+  text-align: center;
+  }
+
+  .title2{
+    font-size: 51px;
+    color:#082371;
+    font-weight: bold;
+    text-align: center;
+   } 
+   .features{
+    margin:0 auto;
+    width:1366px;
+    text-align: center;
+
+   }
+   .featuresContainer{
+    text-align: center;
+    margin:0 100px;
+
+   }
+   .firstRowFeatures{
+    margin-top:53px;    
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+   }
+   .secondRowFeatures{
+     margin-top:80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+
+  }
+  .feature1{
+padding-right:160px;
+  }
+
+  footer{
+    background: #F9F9F9 0% 0% no-repeat padding-box;
+    text-align: center;
+    margin-top:150px;
+    padding-bottom: 20px;
+    margin-left:0px;
+    
+  }
+
+  .logoMin{
+    vertical-align: center;
+    padding-top: 35px;
+  
+  }
+.copyrightText{
+display: inline;
+margin-left: 20px;
+}
+
+/* signup page */
+.headerSignUp{
+  padding-top: 28px;
+  position: relative;
+  width: 100%;
+  margin:0 auto;
+  width:1366px;
+  height: 600px;
+  display: table;
+}
+.titleSection{
+  top:253px;
+  position: absolute;
+
+}
+.leftSide{
+  width: 100%;
+  height: 800px;
+  background: transparent url('https://i.ibb.co/q1BCD8Y/blob-shape-2x.png') 0% 0% no-repeat padding-box;
+  float:left;
+}
+
+.rightSide{
+  top:140px;
+  position: absolute;
+  right: 230px;
+
+}
+.signUpText{
+font-size: 28px;
+font-weight: bold;
+color:#082371;
+}
+
+.signUpInput{
+  background: #F9F9F9 0% 0% no-repeat padding-box;
+border: 1px solid #6B748F;
+width: 396.58px;
+height: 45px;
+border-radius: 3px;
+padding-left: 10px;
+padding-right: 10px;
+color:#6B748F;
+}
+.signUpInput:hover{
+  border: 1px solid #082371;
+}
+.signUpInput:focus {
+  border: 1px solid #082371;
+  outline: none;
+}
+.signUpLabel{
+  margin-top:29px;
+}
+.signUpLabel:focus-within{
+color:#082371
+}
+
+.signUpSubmit{
+  background: #082371 0% 0% no-repeat padding-box;
+  color:white;
+  border: none;
+  width: 144px;
+  height: 46px;
+  border-radius: 3px;
+  margin-top:43px;
+}
+
+.signUpSubmit:hover{
+  background:#F96156;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  cursor: pointer;
 }
