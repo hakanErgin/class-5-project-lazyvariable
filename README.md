@@ -62,10 +62,16 @@ or just write our [heroku app name](https://mighty-reaches-37532.herokuapp.com/)
 
 ```
 $ git add .
+$ git status     //for you to see which changes are added
 $ git commit -m "commit message"
 $ git push heroku master
 $ heroku open
 ```
+
+NOTE: Here you should see on your cli after long lines of build, this :
+"remote: Verifying deploy... done.
+To https://git.heroku.com/mighty-reaches-37532.git"
+after seeing that you can "\$ heroku open" on your cli
 
 Your app should now be running on server with the name of your app [fierce-depths-02024](https://fierce-depths-02024.herokuapp.com/).
 
