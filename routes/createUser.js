@@ -11,10 +11,10 @@ require('dotenv').config();
 // @access  Public
 
 router.post('/', (req, res) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   // Simple validation
-  if (!email || !password) {
+  if (!name || !email || !password) {
     return res.status(400).json({ msg: 'Please enter all fields' });
   }
 
@@ -45,36 +45,6 @@ router.post('/', (req, res) => {
     });
   });
 });
-// // @route   POST /auth
-// // @desc    Auth user
-// // @access  Public
-// router.post('/', (req, res) => {
-//   const { email, password } = req.body;
-
-//   if (!email || !password) {
-//     return res.status(400).json({ msg: 'Please enter all fields' });
-//   }
-
-//   User.findOne({ email }).then(user => {
-//     if (!user) return res.status(400).json({ msg: 'User does not exist' });
-
-//     //validate password
-//     bcrypt.compare(password, user.password).then(isMatch => {
-//       if (!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
-
-//       jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 3600 }, (err, token) => {
-//         if (err) throw err;
-//         res.json({
-//           token,
-//           user: {
-//             id: user.id,
-//             email: user.email,
-//           },
-//         });
-//       });
-//     });
-//   });
-// });
 
 // @route   GET /auth/user
 // @desc    get user data
@@ -84,21 +54,5 @@ router.get('/user', auth, (req, res) => {
     .select('-password')
     .then(user => res.json(user));
 });
-
-// router.route('/').get((req, res) => {
-//   User.find()
-//     .then(users => res.json(users))
-//     .catch(err => res.status(400).json('Error: ' + err));
-// });
-
-// router.route('/add').post((req, res) => {
-//   const username = req.body.username;
-
-//   const newUser = new User({username});
-
-//   newUser.save()
-//     .then(() => res.json('User added!'))
-//     .catch(err => res.status(400).json('Error: ' + err));
-// });
 
 module.exports = router;
