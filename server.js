@@ -21,7 +21,7 @@ const userRouter = require('./routes/createUser'); // to register
 app.use('/user', userRouter);
 
 const authRouter = require('./routes/loginUser'); // to login
-app.use('/auth', userRouter);
+app.use('/auth', authRouter);
 
 // const rootRouter = require('./routes/root'); // to list the users
 // app.use('/', rootRouter);
