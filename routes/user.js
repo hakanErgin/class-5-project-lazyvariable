@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const auth = require('../middleware/auth');
+const auth = require('../middleware/auth');
 
 const User = require('../models/user.model');
 require('dotenv').config();
@@ -76,12 +76,12 @@ router.post('/', (req, res) => {
 //   });
 // });
 
-// @route   GET /user
+// @route   GET /auth/user
 // @desc    get user data
 // @access  Private
-router.get('/user', (req, res) => {
+router.get('/user', auth, (req, res) => {
   User.findById(req.user.id)
-    // .select('-password')
+    .select('-password')
     .then(user => res.json(user));
 });
 
