@@ -17,10 +17,10 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
 
-const userRouter = require('./routes/user'); // to list the users
+const userRouter = require('./routes/user'); // to register
 app.use('/user', userRouter);
 
-const authRouter = require('./routes/user'); // to list the users
+const authRouter = require('./routes/auth'); // to login
 app.use('/auth', userRouter);
 
 // const rootRouter = require('./routes/root'); // to list the users
@@ -46,7 +46,7 @@ app.use('/auth', userRouter);
 //});
 
 app
-  //  .use(express.static(path.join(__dirname, 'public')))
-  //  .set('views', path.join(__dirname, 'views'))
-  //  .set('view engine', 'ejs')
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
   .listen(port, () => console.log(`Listening on port ${port}`));
