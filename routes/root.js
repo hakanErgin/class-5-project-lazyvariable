@@ -10,14 +10,19 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   const username = req.body.username;
 
-  const newUser = new User({username});
+  const newUser = new User({ username });
 
-  newUser.save()
+  newUser
+    .save()
     .then(() => res.json('User added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-
+// router.route('/:id').get((req, res) => {
+//   User.findById(req.params.id)
+//     .then(exercise => res.json(exercise))
+//     .catch(err => res.status(400).json('Error: ' + err));
+// });
 
 // router.route('/:id').delete((req, res) => {
 //   User.findByIdAndDelete(req.params.id)

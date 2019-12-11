@@ -46,7 +46,7 @@ app.use('/auth', userRouter);
 //});
 
 app
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
+  //  .use(express.static(path.join(__dirname, 'public')))
+  //  .set('views', path.join(__dirname, 'views'))
+  //  .set('view engine', 'ejs')
   .listen(port, () => console.log(`Listening on port ${port}`));

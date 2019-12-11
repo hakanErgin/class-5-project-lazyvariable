@@ -1,9 +1,10 @@
 import React from 'react';
-
 import withFirebaseAuth from 'react-with-firebase-auth';
 import firebase from 'firebase'
 import 'firebase/auth';
 import firebaseConfig from './firebaseConfig';
+import Homepage from "./components/homepage"
+import SignUp from './components/signUp'
 
 
 
@@ -16,9 +17,10 @@ const providers = {
 
 function App() {
   return (
-<div>
-  <h1>IT'S fasdfasdfkjhaa</h1>
+    <div>
+<Homepage />
 </div>
+
   );
 }
 

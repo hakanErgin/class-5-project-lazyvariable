@@ -33,18 +33,18 @@ router.route('/add').post((req, res) => {
 });
 
 // getting a gitHub repo by ID
-router.route('/:id').get((req, res) => {
-  GitHub.findById(req.params.id)
-    .then(gitHub => res.json(gitHub))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+// router.route('/:id').get((req, res) => {
+//   GitHub.findById(req.params.id)
+//     .then(gitHub => res.json(gitHub))
+//     .catch(err => res.status(400).json('Error: ' + err));
+// });
 
 // deleting gitHub by ID
-router.route('/:id').delete((req, res) => {
-  GitHub.findByIdAndDelete(req.params.id)
-    .then(() => res.json('GitHub info successfully deleted.'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+// router.route('/:id').delete((req, res) => {
+//   GitHub.findByIdAndDelete(req.params.id)
+//     .then(() => res.json('GitHub info successfully deleted.'))
+//     .catch(err => res.status(400).json('Error: ' + err));
+// });
 
 // updating gitHub data by ID
 router.route('/update/:id').post((req, res) => {
