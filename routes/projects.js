@@ -33,11 +33,11 @@ router.route('/add').post((req, res) => {
 });
 
 // getting a project by ID
-router.route('/:id').get((req, res) => {
-  Project.findById(req.params.id)
-    .then(project => res.json(project))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+// router.route('/:id').get((req, res) => {
+//   Project.findById(req.params.id)
+//     .then(project => res.json(project))
+//     .catch(err => res.status(400).json('Error: ' + err));
+// });
 
 // deleting project by ID
 router.route('/:id').delete((req, res) => {
