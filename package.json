@@ -5,7 +5,7 @@
     "node": "12.13.0"
   },
   "description": "Starter project for an ES6 RESTful Express API",
-  "main": "dist",
+  "main": "server.js",
   "eslintConfig": {
     "extends": "eslint:recommended",
     "parserOptions": {
