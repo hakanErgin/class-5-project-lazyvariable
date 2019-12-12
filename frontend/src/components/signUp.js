@@ -1,9 +1,56 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../App.css'
+import { Redirect } from 'react-router';
+
+import Homepage from "./homepage"
 
 const SignUp = ()=>{
+
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [name, setName] = useState('');
+const [registered, setRegistered] = useState(false);
+
+const submitForm = ()=>{
+    axios
+    .post('http://localhost:5000/user', { email, password, name })
+    .then(e => {
+
+      console.log(e.data);
+      if (e.data) {
+        localStorage.setItem('user', e.data);
+        setRegistered(true);
+      } else {
+        setRegistered(false);
+      }
+    })
+    .then(
+        <Homepage />
+    )
+    .catch(err => {
+      console.log(err);
+    });
+
     return(
-        <body>
+        <Homepage />
+    )
+}
+const handleEmailChange = e => {
+  setEmail(e.target.value);
+};
+const handlePasswordChange = p => {
+  setPassword(p.target.value);
+};
+const handleNameChange = p => {
+    setName(p.target.value);
+  };
+    return(
+        <div>
+      {registered ? (
+        <Redirect to="/" />
+      ) : (
+        <div>
             <div className="headerSignUp">
             <div className="leftSide">
             <a href="/"><img src="https://i.ibb.co/cDXz5vG/logo.png" alt="logo" border="0"/></a>
@@ -22,14 +69,18 @@ const SignUp = ()=>{
             </div>
             </div>
             <div className="rightSide">
-            <form>
-                <div className="signUpText">Sign up</div>
+            <form
+          onSubmit={e => {
+            e.preventDefault();
+            submitForm();
+          }}
+        >                <div className="signUpText">Sign up</div>
                 <div className="signUpLabel">Name</div>
-                <input className="signUpInput" type="text" required></input>
+                <input className="signUpInput" type="text" required onChange={handleNameChange} value={name}></input>
                 <div className="signUpLabel">Email</div>
-                <input className="signUpInput" type="email" required></input>
+                <input className="signUpInput" type="email" required onChange={handleEmailChange} value={email}></input>
                 <div className="signUpLabel">Password</div>
-                <input className="signUpInput" type="password" required></input>
+                <input className="signUpInput" type="password" required onChange={handlePasswordChange} value={password}></input>
                 <br></br>
                 <button className="signUpSubmit" type="submit">Submit</button>
             </form>
@@ -42,8 +93,10 @@ const SignUp = ()=>{
           <div className="copyrightText">All rights are reserved</div>
           </div>
         </footer>
-        </body>
-    )
+        </div>
+              )}
+              </div>
+    );
 }
 
 export default SignUp;

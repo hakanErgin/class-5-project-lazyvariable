@@ -1,17 +1,11 @@
 import React from 'react'
 import "../App.css"
-import SignUp from './signUp'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";const Homepage = ()=>{
+
+  const Homepage = ()=>{
 
     return(
-        <Router>
 
-        <body>
+        <div>
             <header>
             <div className="topBar">
                 <div className="leftTop">
@@ -82,8 +76,7 @@ import {
           <div className="copyrightText">All rights are reserved</div>
           </div>
         </footer>
-        </body>
-        </Router>
+        </div>
 
 
     )
