@@ -18,6 +18,7 @@ router.route('/').get((req, res) => {
 // Adding new data
 router.route('/add').post((req, res) => {
   const name = req.body.name;
+  const surname = req.body.surname;
   const title = req.body.title;
   const picture = req.body.picture;
   const phone = Number(req.body.phone);
@@ -25,8 +26,32 @@ router.route('/add').post((req, res) => {
   const email = req.body.email;
   const city = req.body.city;
   const website = req.body.website;
+  const education = req.body;
+  const workExperience = req.body;
+  const skill = req.body;
+  const certificate = req.body;
+  const language = req.body;
+  const gitHub = req.body;
+  const project = req.body;
 
-  const newPersonal = new Personal({ name, title, picture, phone, country, city, website, email });
+  const newPersonal = new Personal({
+    name,
+    surname,
+    title,
+    picture,
+    phone,
+    country,
+    city,
+    website,
+    email,
+    education,
+    workExperience,
+    skill,
+    certificate,
+    language,
+    gitHub,
+    project,
+  });
 
   newPersonal
     .save()
@@ -46,6 +71,7 @@ router.route('/update/:id').post((req, res) => {
   Personal.findById(req.params.id)
     .then(info => {
       info.name = req.body.name;
+      info.surname = req.body.surname;
       info.title = req.body.title;
       info.phone = Number(req.body.phone);
       info.picture = req.body.picture;

@@ -26,9 +26,9 @@ app.use('/auth', authRouter);
 // const rootRouter = require('./routes/root'); // to list the users
 // app.use('/', rootRouter);
 
-// // Adding the route to the server
-// const personalRouter = require('./routes/personal');
-// app.use('/personal', personalRouter);
+// Adding the route to the server
+const personalRouter = require('./routes/personal');
+app.use('/personal', personalRouter);
 
 // const certificateRouter = require('./routes/certificate');
 // app.use('/certificate', certificateRouter);
