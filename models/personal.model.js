@@ -14,15 +14,15 @@ const personalSchema = new Schema(
     city: 'string',
     website: 'string',
 
-    // education: [
-    //   {
-    //     institution: { type: String, required: true },
-    //     fieldOfStudy: 'string',
-    //     degree: { type: String, required: true },
-    //     startDate: { type: Date, required: true },
-    //     endDate: { type: Date, required: true },
-    //   },
-    // ],
+    education: [
+      {
+        institution: { type: String, required: true },
+        fieldOfStudy: 'string',
+        // degree: { type: String, required: true },
+        // startDate: { type: Date, required: true },
+        // endDate: { type: Date, required: true },
+      },
+    ],
     // workExperience: [
     //   {
     //     companyName: { type: String, required: true },

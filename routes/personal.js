@@ -26,6 +26,24 @@ router.route('/add').post((req, res) => {
   const email = req.body.email;
   const city = req.body.city;
   const website = req.body.website;
+  const education = (educationArray, key, value) => {
+    // let educationArray = [];
+    let filteredArr = educationArray.filter(item => item[key] == value);
+    if (filteredArr.length !== 0) {
+      filteredArr.map(element => {
+        let educationObject = {};
+        educationObject.institution = element.institution;
+        // educationObject.fieldOfStudy = element.fieldOfStudy;
+        // educationObject.degree = element.degree;
+        // educationObject.startDate = element.startDate;
+        // educationObject.endDate = element.endDate;
+        educationArray.push(educationObject);
+      });
+      return educationArray;
+    } else {
+      return educationArray;
+    }
+  };
   // const education = req.body;
   // const workExperience = req.body;
   // const skill = req.body;
@@ -44,7 +62,7 @@ router.route('/add').post((req, res) => {
     city,
     website,
     email,
-    // education,
+    education,
     // workExperience,
     // skill,
     // certificate,
