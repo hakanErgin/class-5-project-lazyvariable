@@ -3,13 +3,13 @@ import React from 'react'
 
 const SignUp = () => {
   return (
-    <body>
+    <div>
       <div className="headerSignUp">
         <div className="leftSide">
           <a href="/"><img src="https://i.ibb.co/cDXz5vG/logo.png" alt="logo" border="0" /></a>
           <div className="rightTop">
             <ul className="navMenu">
-              <a href="/">   <li className="menuItem">Home</li></a>
+              <a href="/"><li className="menuItem">Home</li></a>
               <li className="menuItem">About us</li>
               <li className="menuItem">Contact us</li>
             </ul>
@@ -42,7 +42,7 @@ const SignUp = () => {
           <div className="copyrightText">All rights are reserved</div>
         </div>
       </footer>
-    </body>
+    </div>
   )
 }
 
