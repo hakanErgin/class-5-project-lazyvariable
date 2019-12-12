@@ -4,8 +4,7 @@ import firebase from 'firebase'
 import 'firebase/auth';
 import firebaseConfig from './firebaseConfig';
 import Homepage from "./components/homepage"
-import SignUp from './components/signUp'
-
+// import SignUp from './components/signUp'
 
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -18,8 +17,8 @@ const providers = {
 function App() {
   return (
     <div>
-<Homepage />
-</div>
+      <Homepage />
+    </div>
 
   );
 }
