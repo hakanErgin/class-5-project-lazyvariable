@@ -9,53 +9,33 @@ router.route('/').get((req, res) => {
 });
 
 // Getting specified data by ID
-// router.route('/:id').get((req, res) => {
-//     Personal.findById(req.params.id)
-//       .then(info => res.json(info))
-//       .catch(err => res.status(400).json('Error: ' + err));
-//   });
+router.route('/:id').get((req, res) => {
+  Personal.findById(req.params.id)
+    .then(info => res.json(info))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 // Adding new data
 router.route('/add').post((req, res) => {
   const name = req.body.name;
   const surname = req.body.surname;
-  const title = req.body.title;
   const picture = req.body.picture;
   const phone = Number(req.body.phone);
   const country = req.body.country;
   const email = req.body.email;
   const city = req.body.city;
   const website = req.body.website;
-  const education = (educationArray, key, value) => {
-    // let educationArray = [];
-    let filteredArr = educationArray.filter(item => item[key] == value);
-    if (filteredArr.length !== 0) {
-      filteredArr.map(element => {
-        let educationObject = {};
-        educationObject.institution = element.institution;
-        // educationObject.fieldOfStudy = element.fieldOfStudy;
-        // educationObject.degree = element.degree;
-        // educationObject.startDate = element.startDate;
-        // educationObject.endDate = element.endDate;
-        educationArray.push(educationObject);
-      });
-      return educationArray;
-    } else {
-      return educationArray;
-    }
-  };
-  // const education = req.body;
-  // const workExperience = req.body;
-  // const skill = req.body;
-  // const certificate = req.body;
-  // const language = req.body;
-  // const gitHub = req.body;
-  // const project = req.body;
+  const education = req.body.education;
+  const workExperience = req.body.workExperience;
+  const skill = req.body.skill;
+  const certificate = req.body.certificate;
+  const language = req.body.certificate;
+  const gitHub = req.body.gitHub;
+  const project = req.body.project;
 
   const newPersonal = new Personal({
     name,
     surname,
-    title,
     picture,
     phone,
     country,
@@ -63,12 +43,12 @@ router.route('/add').post((req, res) => {
     website,
     email,
     education,
-    // workExperience,
-    // skill,
-    // certificate,
-    // language,
-    // gitHub,
-    // project,
+    workExperience,
+    skill,
+    certificate,
+    language,
+    gitHub,
+    project,
   });
 
   newPersonal
@@ -90,13 +70,19 @@ router.route('/update/:id').post((req, res) => {
     .then(info => {
       info.name = req.body.name;
       info.surname = req.body.surname;
-      info.title = req.body.title;
       info.phone = Number(req.body.phone);
       info.picture = req.body.picture;
       info.country = req.body.country;
-      info.email = req.body.email;
       info.city = req.body.city;
       info.website = req.body.website;
+      info.email = req.body.email;
+      info.education = req.body.education;
+      info.workExperience = req.body.workExperience;
+      info.skill = req.body.skill;
+      info.certificate = req.body.certificate;
+      info.language = req.body.language;
+      info.gitHub = req.body.gitHub;
+      info.project = req.body.project;
       info
         .save()
         .then(() => res.json('Personal updated!'))
