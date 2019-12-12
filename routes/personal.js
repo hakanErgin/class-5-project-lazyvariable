@@ -26,13 +26,13 @@ router.route('/add').post((req, res) => {
   const email = req.body.email;
   const city = req.body.city;
   const website = req.body.website;
-  const education = req.body;
-  const workExperience = req.body;
-  const skill = req.body;
-  const certificate = req.body;
-  const language = req.body;
-  const gitHub = req.body;
-  const project = req.body;
+  // const education = req.body;
+  // const workExperience = req.body;
+  // const skill = req.body;
+  // const certificate = req.body;
+  // const language = req.body;
+  // const gitHub = req.body;
+  // const project = req.body;
 
   const newPersonal = new Personal({
     name,
@@ -44,13 +44,13 @@ router.route('/add').post((req, res) => {
     city,
     website,
     email,
-    education,
-    workExperience,
-    skill,
-    certificate,
-    language,
-    gitHub,
-    project,
+    // education,
+    // workExperience,
+    // skill,
+    // certificate,
+    // language,
+    // gitHub,
+    // project,
   });
 
   newPersonal
