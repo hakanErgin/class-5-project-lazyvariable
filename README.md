@@ -141,4 +141,5 @@ frontend npm start
 
 -firebase deploy
 
+
 nav component https://portfolio-d9052.firebaseapp.com/nav
