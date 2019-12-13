@@ -14,6 +14,8 @@ import 'antd/dist/antd.css'
 
 const Nav = () => {
 
+  const Logout = () => { return ('logout') }
+
   return (
     <Router>
       <div>
@@ -23,6 +25,8 @@ const Nav = () => {
           <Route path="/nav/dashboard"><Dashboard /></Route>
           <Route path="/nav/profile"><Profile /></Route>
           <Route path="/nav/settings"><Settings /></Route>
+          <Route path="/nav/logout"><Logout /></Route>
+
         </Switch>
       </Col>
       <Col span={5} pull={17}>
