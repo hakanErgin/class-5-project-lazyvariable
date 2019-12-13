@@ -140,3 +140,6 @@ frontend npm start
 -npm run build
 
 -firebase deploy
+(firebase login)
+
+nav component https://portfolio-d9052.firebaseapp.com/nav

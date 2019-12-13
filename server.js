@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
@@ -26,9 +26,9 @@ app.use('/auth', authRouter);
 // const rootRouter = require('./routes/root'); // to list the users
 // app.use('/', rootRouter);
 
-// // Adding the route to the server
-// const personalRouter = require('./routes/personal');
-// app.use('/personal', personalRouter);
+// Adding the route to the server
+const personalRouter = require('./routes/personal');
+app.use('/personal', personalRouter);
 
 // const certificateRouter = require('./routes/certificate');
 // app.use('/certificate', certificateRouter);
