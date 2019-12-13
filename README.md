@@ -133,4 +133,10 @@ backend nodemon server
 
 frontend npm start
 
-(firebase login)
+### Firebase deploy
+
+-firebase login
+
+-npm run build
+
+-firebase deploy
