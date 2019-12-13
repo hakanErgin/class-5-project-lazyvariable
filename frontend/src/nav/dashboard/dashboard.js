@@ -1,0 +1,47 @@
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Personal from './personal'
+import Experience from './experience'
+import Education from './education'
+// import Projects from './projects' // in this case maybe we can leave this out?
+import Skills from './skills'
+
+
+import { Menu } from 'antd'
+import 'antd/dist/antd.css'
+
+const Dashboard = () => {
+
+  function handleClick(e) {
+    console.log('click', e);
+  }
+
+  return (
+    <Router>
+      <div>
+        <Menu onClick={handleClick} mode="horizontal">
+            <Menu.Item><Link to="/nav/dashboard/personal">Personal Info</Link></Menu.Item>
+            <Menu.Item><Link to="/nav/dashboard/experience">Experience</Link></Menu.Item>
+            <Menu.Item><Link to="/nav/dashboard/education">Education</Link></Menu.Item>
+            {/* <Menu.Item><Link to="/nav/dashboard/projects">Projects</Link></Menu.Item> */}
+            <Menu.Item><Link to="/nav/dashboard/skills">Skills</Link></Menu.Item>
+        </Menu>
+        <Switch>
+          <Route path="/nav/dashboard/personal"><Personal /></Route>
+          <Route path="/nav/dashboard/experience"><Experience /></Route>
+          <Route path="/nav/dashboard/education"><Education /></Route>
+          {/* <Route path="/nav/dashboard/projects"><Projects /></Route> */}
+          <Route path="/nav/dashboard/skills"><Skills /></Route>
+        </Switch>
+
+      </div>
+    </Router>
+  )
+}
+
+export default Dashboard;
