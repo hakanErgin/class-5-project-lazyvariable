@@ -134,3 +134,5 @@ backend nodemon server
 frontend npm start
 
 (firebase login)
+
+nav component https://portfolio-d9052.firebaseapp.com/nav
