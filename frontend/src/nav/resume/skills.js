@@ -8,6 +8,10 @@ const ProfileSkills = () => {
     skills: '',
   });
 
+  const handleOnclick = () => {
+    alert('Successfully saved!');
+  };
+
   return (
     <div>
       Skills
@@ -22,8 +26,8 @@ const ProfileSkills = () => {
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit">
-            <a href="../settings">Next</a>
+          <Button type="primary submit" onClick={handleOnclick}>
+            <a href="../settings">Save</a>
           </Button>
         </Form.Item>
       </Form>
