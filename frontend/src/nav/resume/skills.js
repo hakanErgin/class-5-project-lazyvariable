@@ -1,18 +1,20 @@
+import React from 'react';
+import useSignUpForm from '../dashboard/InputHooks';
 
-import useSignUpForm from './InputHooks';
-import React from 'react'
+import { Form, Input, Button } from 'antd';
 
-import { Form, Input, Button, Typography } from 'antd'
-const { Title } = Typography
-
-const Skills = () => {
+const ProfileSkills = () => {
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
     skills: '',
   });
 
+  const handleOnclick = () => {
+    alert('Successfully saved!');
+  };
+
   return (
     <div>
-    <Title level={3}>Skills</Title>
+      Skills
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Describe Your Skills">
           <Input
@@ -24,8 +26,8 @@ const Skills = () => {
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit">
-            <a href="../profile">Next</a>
+          <Button type="primary submit" onClick={handleOnclick}>
+            <a href="../settings">Save</a>
           </Button>
         </Form.Item>
       </Form>
@@ -33,4 +35,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default ProfileSkills;

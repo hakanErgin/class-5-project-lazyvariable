@@ -1,50 +1,63 @@
-import React from 'react'
-import "../App.css"
+import React from 'react';
+import '../App.css';
 // import SignUp from './signUp'
 import {
   BrowserRouter as Router,
   // Switch,
   // Route,
   // Link
-} from "react-router-dom";
+} from 'react-router-dom';
 
 const Homepage = () => {
-
   return (
     <Router>
       <div>
         <header>
           <div className="topBar">
             <div className="leftTop">
-              <a href="/"><img src="https://i.ibb.co/cDXz5vG/logo.png" alt="logo" border="0" /></a>
+              <a href="/">
+                <img src="https://i.ibb.co/cDXz5vG/logo.png" alt="logo" border="0" />
+              </a>
             </div>
             <div className="rightTop">
               <ul className="navMenu">
-                <a href="/"><li className="menuItem">Home</li></a>
+                <a href="/">
+                  <li className="menuItem">Home</li>
+                </a>
                 <li className="menuItem">About us</li>
                 <li className="menuItem">Contact us</li>
               </ul>
-              <button className="loginInButton">Login in</button>
-              <a href="/signup"> <button className="signUpButton">Get started</button></a>
+              <button className="loginInButton">Log in</button>
+              <a href="/signup">
+                {' '}
+                <button className="signUpButton">Get started</button>
+              </a>
             </div>
           </div>
 
           <div className="heroSection">
             <div className="heroTitle">
               <div className="subTitle">Are you a developer?</div>
-              <div className="title">Build your generated <br />portfolio in few clicks<span className="titleEndPoint">.</span></div>
-              <a href="/signup">    <button className="getStartedButton">Get started</button> </a>
+              <div className="title">
+                Build your generated <br />
+                portfolio in few clicks<span className="titleEndPoint">.</span>
+              </div>
+              <a href="/signup">
+                {' '}
+                <button className="getStartedButton">Get started</button>{' '}
+              </a>
             </div>
             <div className="heroPicture">
               <img src="https://i.ibb.co/3vQC1vV/Group-58-2x.png" alt="Group-58-2x" border="0" />
             </div>
           </div>
-
         </header>
         <main>
           <div>
             <div className="subTitle2">Features that we have</div>
-            <div className="title2">Why GitPro?<span className="titleEndPoint">.</span></div>
+            <div className="title2">
+              Why GitPro?<span className="titleEndPoint">.</span>
+            </div>
             <div className="features">
               <div className="featuresContainer">
                 <div className="firstRowFeatures">
@@ -64,7 +77,11 @@ const Homepage = () => {
 
                 <div className="secondRowFeatures">
                   <div className="feature1">
-                    <img src="https://i.ibb.co/gzd76pT/management.png" alt="Group-58-2x" border="0" />
+                    <img
+                      src="https://i.ibb.co/gzd76pT/management.png"
+                      alt="Group-58-2x"
+                      border="0"
+                    />
                     <p>Edit your repository information</p>
                   </div>
                   <div className="feature">
@@ -85,7 +102,7 @@ const Homepage = () => {
         </footer>
       </div>
     </Router>
-  )
-}
+  );
+};
 
 export default Homepage;

@@ -1,14 +1,13 @@
-import React from 'react'
+import React from 'react';
+
+import ResumeDashboard from './resume/dashboard';
 
 const Profile = () => {
-
   return (
     <div>
-      Profile
-      {console.log('Profile')
-      }
+      <ResumeDashboard />
     </div>
-  )
-}
+  );
+};
 
 export default Profile;
