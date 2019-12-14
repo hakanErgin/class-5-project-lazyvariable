@@ -1,13 +1,14 @@
 import React from 'react'
 
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, Typography } from 'antd'
+const { Title } = Typography
 
 
 const Skills = () => {
 
   return (
     <div>
-      Skills
+    <Title level={3}>Skills</Title>
       <Form>
         <Form.Item label="Describe">
           <Input placeholder="input placeholder" />
