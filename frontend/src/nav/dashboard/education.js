@@ -54,13 +54,11 @@ const Education = () => {
           <DatePicker
             onChange={onDateChange}
             name="education_startDate"
-            onChange={handleInputChange}
             value={inputs.education_startDate}
           />
           <RangePicker
             onChange={onDateChange}
             name="education_endDate"
-            onChange={handleInputChange}
             value={inputs.education_endDate}
           />
         </Form.Item>

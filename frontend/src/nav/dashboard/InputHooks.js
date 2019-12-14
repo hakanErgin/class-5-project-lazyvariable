@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react'; // removed React from here just to get rid of warnings
 
 const useSignUpForm = (initialValues, callback) => {
   const [inputs, setInputs] = useState(initialValues);
