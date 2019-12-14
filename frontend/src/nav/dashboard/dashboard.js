@@ -24,12 +24,12 @@ const Dashboard = () => {
   return (
     <Router>
       <div>
-        <Menu onClick={handleClick} mode="horizontal">
-            <Menu.Item><Link to="/nav/dashboard/personal">Personal Info</Link></Menu.Item>
-            <Menu.Item><Link to="/nav/dashboard/experience">Experience</Link></Menu.Item>
-            <Menu.Item><Link to="/nav/dashboard/education">Education</Link></Menu.Item>
+        <Menu defaultSelectedKeys="1" onClick={handleClick} mode="horizontal">
+            <Menu.Item key="1"><Link to="/nav/dashboard/personal">Personal Info</Link></Menu.Item>
+            <Menu.Item key="2"><Link to="/nav/dashboard/experience">Experience</Link></Menu.Item>
+            <Menu.Item key="3"><Link to="/nav/dashboard/education">Education</Link></Menu.Item>
             {/* <Menu.Item><Link to="/nav/dashboard/projects">Projects</Link></Menu.Item> */}
-            <Menu.Item><Link to="/nav/dashboard/skills">Skills</Link></Menu.Item>
+            <Menu.Item key="4"><Link to="/nav/dashboard/skills">Skills</Link></Menu.Item>
         </Menu>
         <Switch>
           <Route path="/nav/dashboard/personal"><Personal /></Route>
@@ -38,7 +38,6 @@ const Dashboard = () => {
           {/* <Route path="/nav/dashboard/projects"><Projects /></Route> */}
           <Route path="/nav/dashboard/skills"><Skills /></Route>
         </Switch>
-
       </div>
     </Router>
   )

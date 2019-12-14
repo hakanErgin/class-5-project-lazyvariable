@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Form, Input, Button, DatePicker } from 'antd'
-
+import { Form, Input, Button, DatePicker, Typography } from 'antd'
+const { Title } = Typography
 const { RangePicker } = DatePicker;
 
 const Education = () => {
@@ -12,7 +12,7 @@ const Education = () => {
 
   return (
     <div>
-      Education
+      <Title level={3}>Education</Title>
       <Form>
         <Form.Item label="School">
           <Input placeholder="input placeholder" />
