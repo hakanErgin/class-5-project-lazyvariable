@@ -68,13 +68,11 @@ const Experience = () => {
           <DatePicker
             onChange={onDateChange}
             name="startDate"
-            onChange={handleInputChange}
-            value={inputs.startDate}
+                        value={inputs.startDate}
           />
           <RangePicker
             onChange={onDateChange}
             name="endDate"
-            onChange={handleInputChange}
             value={inputs.endDate}
           />
         </Form.Item>
