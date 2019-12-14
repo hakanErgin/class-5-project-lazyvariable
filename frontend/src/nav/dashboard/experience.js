@@ -1,7 +1,8 @@
 import React from 'react';
 import useSignUpForm from './InputHooks';
 
-import { Form, Input, Button, DatePicker } from 'antd';
+import { Form, Input, Button, DatePicker, Typography } from 'antd'
+const { Title } = Typography
 
 const { RangePicker } = DatePicker;
 
@@ -21,7 +22,7 @@ const Experience = () => {
 
   return (
     <div>
-      Work experience
+      <Title level={3}>Work experience</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Title">
           <Input

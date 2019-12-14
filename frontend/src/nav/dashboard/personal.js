@@ -1,7 +1,8 @@
 import React from 'react';
 import useSignUpForm from './InputHooks';
 
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Typography } from 'antd'
+const { Title } = Typography
 
 const Personal = () => {
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
@@ -14,7 +15,7 @@ const Personal = () => {
   });
   return (
     <div>
-      Personal & Contact information
+      <Title level={3}>Personal & Contact information</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Your general title">
           <Input

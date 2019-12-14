@@ -1,9 +1,10 @@
 import React from 'react';
 import useSignUpForm from './InputHooks';
 
-import { Form, Input, Button, DatePicker } from 'antd';
 
-const { RangePicker } = DatePicker;
+import { Form, Input, Button, DatePicker, Typography } from 'antd'
+const { Title } = Typography
+const { RangePicker } = DatePicker
 
 const Education = () => {
   function onDateChange(date, dateString) {
@@ -22,7 +23,7 @@ const Education = () => {
 
   return (
     <div>
-      Education
+      <Title level={3}>Education</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="School">
           <Input placeholder="" name="school" onChange={handleInputChange} value={inputs.school} />

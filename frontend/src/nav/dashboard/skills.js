@@ -1,7 +1,9 @@
-import React from 'react';
-import useSignUpForm from './InputHooks';
 
-import { Form, Input, Button } from 'antd';
+import useSignUpForm from './InputHooks';
+import React from 'react'
+
+import { Form, Input, Button, Typography } from 'antd'
+const { Title } = Typography
 
 const Skills = () => {
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
@@ -10,7 +12,7 @@ const Skills = () => {
 
   return (
     <div>
-      Skills
+    <Title level={3}>Skills</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Describe Your Skills">
           <Input
