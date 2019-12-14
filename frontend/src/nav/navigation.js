@@ -24,7 +24,7 @@ const Nav = () => {
     <div>
       <Router>
         <Layout>
-          <Sider theme="light" style={{ margin: 10 }}>
+          <Sider theme="light" style={{ paddingTop: 40 }}>
             <Menu selectable={false} mode="vertical">
               <Menu.ItemGroup title="HERE: Gitpro and logo" />
               <Menu.ItemGroup title="HERE: Person and Icon">
