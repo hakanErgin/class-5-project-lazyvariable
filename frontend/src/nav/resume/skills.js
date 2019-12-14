@@ -1,9 +1,9 @@
 import React from 'react';
-import useSignUpForm from './InputHooks';
+import useSignUpForm from '../dashboard/InputHooks';
 
 import { Form, Input, Button } from 'antd';
 
-const Skills = () => {
+const ProfileSkills = () => {
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
     skills: '',
   });
@@ -23,7 +23,7 @@ const Skills = () => {
         </Form.Item>
         <Form.Item>
           <Button type="primary submit">
-            <a href="../profile">Next</a>
+            <a href="../settings">Next</a>
           </Button>
         </Form.Item>
       </Form>
@@ -31,4 +31,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default ProfileSkills;

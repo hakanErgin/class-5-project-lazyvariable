@@ -1,40 +1,77 @@
-import React from 'react'
+import React from 'react';
+import useSignUpForm from './InputHooks';
 
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button } from 'antd';
 
 const Personal = () => {
-
+  const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
+    title: '',
+    about: '',
+    email: '',
+    telephone: '',
+    city: '',
+    country: '',
+  });
   return (
     <div>
       Personal & Contact information
-      <Form>
+      <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Your general title">
-          <Input placeholder="input placeholder" />
+          <Input
+            placeholder=""
+            name="title"
+            onChange={handleInputChange}
+            value={inputs.title}
+            required
+          />
         </Form.Item>
         <Form.Item label="About you">
-          <Input placeholder="input placeholder" />
+          <Input placeholder="" name="about" onChange={handleInputChange} value={inputs.about} />
         </Form.Item>
         <Form.Item label="Email">
-          <Input placeholder="input placeholder" />
+          <Input
+            placeholder=""
+            name="email"
+            onChange={handleInputChange}
+            value={inputs.email}
+            required
+          />
         </Form.Item>
         <Form.Item label="Telephone">
-          <Input placeholder="input placeholder" />
+          <Input
+            placeholder=""
+            name="telephone"
+            onChange={handleInputChange}
+            value={inputs.telephone}
+          />
         </Form.Item>
         <Form.Item label="City">
-          <Input placeholder="input placeholder" />
+          <Input placeholder="" name="city" onChange={handleInputChange} value={inputs.city} />
         </Form.Item>
         <Form.Item label="Country">
-          <Input placeholder="input placeholder" />
+          <Input
+            placeholder=""
+            name="country"
+            onChange={handleInputChange}
+            value={inputs.country}
+          />
         </Form.Item>
         <Form.Item label="Website">
-          <Input placeholder="input placeholder" />
+          <Input
+            placeholder=""
+            name="website"
+            onChange={handleInputChange}
+            value={inputs.website}
+          />
         </Form.Item>
         <Form.Item>
-          <Button type="primary">Next</Button>
+          <Button type="primary submit">
+            <a href="./experience">Next</a>
+          </Button>
         </Form.Item>
       </Form>
     </div>
-  )
-}
+  );
+};
 
 export default Personal;
