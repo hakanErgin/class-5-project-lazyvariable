@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Input, Button } from 'antd';
-import { Redirect } from 'react-router';
 
 const CreateComponent = () => {
   const [city, setCity] = useState('');

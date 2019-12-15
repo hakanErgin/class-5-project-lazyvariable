@@ -1,5 +1,5 @@
-html{
-  font-family: 'Poppins', sans-serif;
+body{
+  font-family: 'Poppins', sans-serif !important;
   color:#6B748F;
 }
 
@@ -14,6 +14,11 @@ header{
   padding-bottom:148px;
 
 }
+
+p {
+  margin-top:14px !important;
+}
+
 .navMenu{
   list-style: none;
   padding:0;

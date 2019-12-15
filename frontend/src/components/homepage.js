@@ -20,9 +20,10 @@ const Homepage = () => {
                 <li className="menuItem">About us</li>
                 <li className="menuItem">Contact us</li>
               </ul>
+              <a href="/login">
               <button className="loginInButton">Log in</button>
+              </a>
               <a href="/signup">
-                {' '}
                 <button className="signUpButton">Get started</button>
               </a>
             </div>
