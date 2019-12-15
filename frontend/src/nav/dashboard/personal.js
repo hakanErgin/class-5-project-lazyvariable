@@ -1,8 +1,8 @@
 import React from 'react';
 import useSignUpForm from './InputHooks';
 
-import { Form, Input, Button, Typography } from 'antd'
-const { Title } = Typography
+import { Form, Input, Button, Typography } from 'antd';
+const { Title } = Typography;
 
 const Personal = () => {
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm({

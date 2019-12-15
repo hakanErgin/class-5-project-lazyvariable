@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+import useSignUpForm from './InputHooks';
+
 import Personal from './personal';
 import Experience from './experience';
 import Education from './education';
@@ -14,15 +17,32 @@ const Dashboard = () => {
     console.log('click', e);
   }
 
+  const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
+    title: '',
+    about: '',
+    email: '',
+    telephone: '',
+    city: '',
+    country: '',
+  });
+
   return (
     <Router>
       <div>
         <Menu defaultSelectedKeys="1" onClick={handleClick} mode="horizontal">
-            <Menu.Item key="1"><Link to="/nav/dashboard/personal">Personal Info</Link></Menu.Item>
-            <Menu.Item key="2"><Link to="/nav/dashboard/experience">Experience</Link></Menu.Item>
-            <Menu.Item key="3"><Link to="/nav/dashboard/education">Education</Link></Menu.Item>
-            {/* <Menu.Item><Link to="/nav/dashboard/projects">Projects</Link></Menu.Item> */}
-            <Menu.Item key="4"><Link to="/nav/dashboard/skills">Skills</Link></Menu.Item>
+          <Menu.Item key="1">
+            <Link to="/nav/dashboard/personal">Personal Info</Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="/nav/dashboard/experience">Experience</Link>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <Link to="/nav/dashboard/education">Education</Link>
+          </Menu.Item>
+          {/* <Menu.Item><Link to="/nav/dashboard/projects">Projects</Link></Menu.Item> */}
+          <Menu.Item key="4">
+            <Link to="/nav/dashboard/skills">Skills</Link>
+          </Menu.Item>
         </Menu>
         <Switch>
           <Route path="/nav/dashboard/personal">

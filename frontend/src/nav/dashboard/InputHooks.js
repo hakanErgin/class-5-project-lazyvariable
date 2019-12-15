@@ -6,6 +6,7 @@ const useSignUpForm = (initialValues, callback) => {
     if (event) {
       event.preventDefault();
     }
+    console.log(inputs);
     callback();
   };
   const handleInputChange = event => {
