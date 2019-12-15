@@ -1,23 +1,27 @@
-import React from 'react';
-import '../App.css';
-// import SignUp from './signUp'
-import {
-  BrowserRouter as Router,
-  // Switch,
-  // Route,
-  // Link
-} from 'react-router-dom';
 
-const Homepage = () => {
-  return (
-    <Router>
-      <div>
-        <header>
-          <div className="topBar">
-            <div className="leftTop">
-              <a href="/">
-                <img src="https://i.ibb.co/cDXz5vG/logo.png" alt="logo" border="0" />
-              </a>
+import React from 'react'
+import "../App.css"
+
+  const Homepage = ()=>{
+
+    return(
+
+        <div>
+            <header>
+            <div className="topBar">
+                <div className="leftTop">
+                <a href="/"><img src="https://i.ibb.co/cDXz5vG/logo.png" alt="logo" border="0"/></a>
+                </div>
+                <div className="rightTop">
+                    <ul className="navMenu">
+                    <a href="/"><li className="menuItem">Home</li></a>
+                        <li className="menuItem">About us</li>
+                        <li className="menuItem">Contact us</li>
+                    </ul>
+                    <button className="loginInButton">Login in</button>
+                    <a href="/signup"> <button className="signUpButton">Get started</button></a>
+                 </div>
+
             </div>
             <div className="rightTop">
               <ul className="navMenu">
@@ -100,9 +104,12 @@ const Homepage = () => {
             <div className="copyrightText">All rights are reserved</div>
           </div>
         </footer>
-      </div>
-    </Router>
-  );
-};
+
+        </div>
+
+
+    )
+}
+
 
 export default Homepage;
