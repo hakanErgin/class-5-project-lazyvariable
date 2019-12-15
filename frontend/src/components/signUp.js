@@ -26,14 +26,14 @@ const submitForm = ()=>{
       }
     })
     .then(
-        <Homepage />
-    )
+      <Redirect to="/nav" />
+      )
     .catch(err => {
       console.log(err);
     });
 
     return(
-        <Homepage />
+      <Redirect to="/nav" />
     )
 }
 const handleEmailChange = e => {
