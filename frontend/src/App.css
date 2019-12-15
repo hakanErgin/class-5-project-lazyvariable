@@ -167,10 +167,11 @@ footer {
   padding-bottom: 20px;
   margin-left: 0px;
 }
-
+.footerContainer {
+  padding-top: 20px;
+}
 .logoMin {
   vertical-align: center;
-  padding-top: 35px;
 }
 .copyrightText {
   display: inline;
