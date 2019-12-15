@@ -26,7 +26,7 @@ $ git remote -v
 This command must give this result:
 
 ```
-heroku https://git.heroku.com/mighty-reaches-37532.git (fetch) or
+heroku https://git.heroku.com/mighty-reaches-37532.git (fetch)
 heroku https://git.heroku.com/mighty-reaches-37532.git (push)
 origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (fetch)
 origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (push)
@@ -73,7 +73,7 @@ NOTE: Here you should see on your cli after long lines of build, this :
 To https://git.heroku.com/mighty-reaches-37532.git"
 after seeing that you can "\$ heroku open" on your cli
 
-Your app should now be running on server with the name of your app [fierce-depths-02024](https://fierce-depths-02024.herokuapp.com/).
+Your app should now be running on server with the name of your app [mighty-reaches-37532](https://mighty-reaches-37532.herokuapp.com/).
 
 or
 
@@ -133,4 +133,13 @@ backend nodemon server
 
 frontend npm start
 
-(firebase login)
+### Firebase deploy
+
+-firebase login
+
+-npm run build
+
+-firebase deploy
+
+
+nav component https://portfolio-d9052.firebaseapp.com/nav

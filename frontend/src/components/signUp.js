@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css'
@@ -87,16 +88,19 @@ const handleNameChange = p => {
             </div>
             </div>
 
-            <footer>
-                <div className="footerContainer">
+
+      <footer>
+        <div className="footerContainer">
           <img className="logoMin" src="https://i.ibb.co/jgJW3wx/logomin.png" alt="logomin" />
           <div className="copyrightText">All rights are reserved</div>
+
           </div>
         </footer>
         </div>
               )}
               </div>
     );
+
 }
 
 export default SignUp;
