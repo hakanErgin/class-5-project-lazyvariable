@@ -8,54 +8,52 @@ const CreateComponent = () => {
   const [phone, setPhone] = useState('');
 
   const submitForm = () => {
-    axios.post(
-      'http://localhost:5000/personal/add',
-      {
-        city,
-        country,
-        phone
-      },
-      {
-        headers: {
-          'x-auth-token': localStorage.getItem("token"),
-          'Content-Type': 'application/json'
+    axios
+      .post(
+        'http://localhost:5000/personal/add',
+        {
+          city,
+          country,
+          phone,
         },
-      },
-    )
-    .then(e => {
-      console.log(e);
-
-    })
-    .catch(err => {
-      console.log(err);
-    });
+        {
+          headers: {
+            'x-auth-token': localStorage.getItem('token'),
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      .then(e => {
+        console.log(e);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
   const handleCityChange = e => {
     setCity(e.target.value);
   };
   const handleCountryChange = p => {
     setCountry(p.target.value);
-  };  
-  
+  };
+
   const handlePhoneChange = p => {
     setPhone(p.target.value);
   };
   return (
     <div>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          submitForm();
+        }}
+      >
+        <Input placeholder="input city" onChange={handleCityChange} value={city} />
+        <Input placeholder="input country" onChange={handleCountryChange} value={country} />
+        <Input placeholder="input phone" onChange={handlePhoneChange} value={phone} />
 
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            submitForm();
-          }}
-        >
-          <Input placeholder="input city" onChange={handleCityChange} value={city} />
-          <Input placeholder="input country" onChange={handleCountryChange} value={country} />
-          <Input placeholder="input phone" onChange={handlePhoneChange} value={phone} />
-
-          <Button htmlType={'submit'}>Submit</Button>
-        </form>
-
+        <Button htmlType={'submit'}>Submit</Button>
+      </form>
     </div>
   );
 };
