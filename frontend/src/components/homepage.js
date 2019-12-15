@@ -1,16 +1,9 @@
-import React from 'react';
-import '../App.css';
-// import SignUp from './signUp'
-import {
-  BrowserRouter as Router,
-  // Switch,
-  // Route,
-  // Link
-} from 'react-router-dom';
+
+import React from 'react'
+import "../App.css"
 
 const Homepage = () => {
   return (
-    <Router>
       <div>
         <header>
           <div className="topBar">
@@ -101,7 +94,6 @@ const Homepage = () => {
           </div>
         </footer>
       </div>
-    </Router>
   );
 };
 
