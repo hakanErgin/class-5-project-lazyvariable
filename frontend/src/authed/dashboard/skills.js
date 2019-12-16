@@ -1,5 +1,5 @@
 
-import useSignUpForm from './InputHooks';
+import useSignUpForm from './handlers/InputHooks';
 import React from 'react'
 
 import { Form, Input, Button, Typography } from 'antd'
@@ -9,6 +9,11 @@ const Skills = () => {
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
     skills: '',
   });
+
+  const handleOnclick = () => {
+    alert('Successfully saved!');
+  };
+
 
   return (
     <div>
@@ -24,8 +29,8 @@ const Skills = () => {
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit">
-            <a href="../profile">Next</a>
+          <Button type="primary submit" onClick={handleOnclick}>
+            <a href="../settings">Next</a>
           </Button>
         </Form.Item>
       </Form>

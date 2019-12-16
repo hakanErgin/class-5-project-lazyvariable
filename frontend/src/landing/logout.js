@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 const LogoutComponent = () => {
   useEffect(() => {
     localStorage.clear();
-    return () => {};
+    return () => { };
   });
 
   return <Redirect to="/" />;
