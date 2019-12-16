@@ -1,37 +1,25 @@
 import React, { useState, Fragment } from 'react';
-import useSignUpForm from './InputHooks';
+import useSignUpForm from './handlers/InputHooks';
 
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
-
 const { RangePicker } = DatePicker;
 
-const Experience = () => {
+const Education = () => {
   function onDateChange(date, dateString) {
     console.log(date, dateString);
   }
   const [inputFields, setInputFields] = useState([
-    {
-      work_title: '',
-      company: '',
-      location: '',
-      employmentType: '',
-      description: '',
-      country: '',
-      Date: '',
-    },
+    { school: '', field: '', degree: '', education_startDate: '', education_endDate: '' },
   ]);
-
   const handleAddFields = () => {
     const values = [...inputFields];
     values.push({
-      work_title: '',
-      company: '',
-      location: '',
-      employmentType: '',
-      description: '',
-      country: '',
-      Date: '',
+      institution: '',
+      fieldOfStudy: '',
+      degree: '',
+      education_startDate: '',
+      education_endDate: '',
     });
     setInputFields(values);
   };
@@ -42,63 +30,70 @@ const Experience = () => {
     setInputFields(values);
   };
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
-    work_title: '',
-    company: '',
-    location: '',
-    employmentType: '',
-    description: '',
-    country: '',
+    school: '',
+    degree: '',
+    fieldOfStudy: '',
+    // grade: '',
+    // education_description: '',
+    education_startDate: '',
+    education_endDate: '',
   });
 
   return (
     <div>
-      <Title level={3}>Work experience</Title>
+      <Title level={3}>Education</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         {inputFields.map((inputField, index) => (
           <Fragment key={`${inputField}~${index}`}>
-            <Form.Item label="Title">
+            <Form.Item label="School">
               <Input
                 placeholder=""
-                name="work_title"
+                name="school"
                 onChange={handleInputChange}
-                value={inputs.work_title}
+                value={inputs.school}
               />
             </Form.Item>
-            <Form.Item label="Company">
+            <Form.Item label="Degree">
               <Input
                 placeholder=""
-                name="company"
+                name="degree"
                 onChange={handleInputChange}
-                value={inputs.company}
+                value={inputs.degree}
               />
             </Form.Item>
-            <Form.Item label="Location">
+            <Form.Item label="Field of study">
               <Input
                 placeholder=""
-                name="location"
+                name="fieldOfStudy"
                 onChange={handleInputChange}
-                value={inputs.location}
+                value={inputs.fieldOfStudy}
               />
             </Form.Item>
-            <Form.Item label="Employment type">
-              <Input
-                placeholder=""
-                name="employmentType"
-                onChange={handleInputChange}
-                value={inputs.employmentType}
-              />
-            </Form.Item>
-            <Form.Item label="Description">
-              <Input
-                placeholder=""
-                name="description"
-                onChange={handleInputChange}
-                value={inputs.description}
-              />
-            </Form.Item>
+
+            {/* We don't have description&grade in our data model, so I commented them out*/}
+
+            {/* <Form.Item label="Grade">
+          <Input placeholder="" name="grade" onChange={handleInputChange} value={inputs.grade} />
+        </Form.Item>
+        <Form.Item label="Description">
+          <Input
+            placeholder=""
+            name="education_description"
+            onChange={handleInputChange}
+            value={inputs.education_description}
+          />
+        </Form.Item> */}
             <Form.Item label="Date">
-              <DatePicker onChange={onDateChange} name="startDate" value={inputs.startDate} />
-              <RangePicker onChange={onDateChange} name="endDate" value={inputs.endDate} />
+              <DatePicker
+                onChange={onDateChange}
+                name="education_startDate"
+                value={inputs.education_startDate}
+              />
+              <RangePicker
+                onChange={onDateChange}
+                name="education_endDate"
+                value={inputs.education_endDate}
+              />
             </Form.Item>
             <Form.Item>
               <Button
@@ -116,14 +111,9 @@ const Experience = () => {
             <Icon type="plus" /> Add field
           </Button>
         </Form.Item>
-
-        {/* Since there are 2 next button, I deleted one of them */}
-        {/* <Form.Item>
-          <Button type="primary">Next</Button>
-        </Form.Item> */}
         <Form.Item>
           <Button type="primary submit">
-            <a href="./education">Next</a>
+            <a href="./skills">Next</a>
           </Button>
         </Form.Item>
       </Form>
@@ -131,4 +121,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Education;
