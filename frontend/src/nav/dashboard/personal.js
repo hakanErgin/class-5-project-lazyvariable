@@ -58,7 +58,7 @@ const Personal = ({ inputs, ref, handleSubmit, handleInputChange }) => {
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" target="/nav/dashboard/experience">
+          <Button type="primary" target="/nav/dashboard/experience" onClick={handleSubmit}>
             <a href="./experience">Next</a>
           </Button>
         </Form.Item>

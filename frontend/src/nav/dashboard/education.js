@@ -38,7 +38,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onDateChange }) =>
           <RangePicker onChange={onDateChange} name="educationDate" value={inputs.educationDate} />
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit">
+          <Button type="primary submit" onClick={handleSubmit}>
             <a href="./skills">Next</a>
           </Button>
         </Form.Item>

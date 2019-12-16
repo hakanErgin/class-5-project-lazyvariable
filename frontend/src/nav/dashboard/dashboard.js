@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import axios from 'axios';
 
 import useSignUpForm from './InputHooks';
 
@@ -18,8 +19,29 @@ const Dashboard = () => {
   }
 
   const handleOnclick = () => {
-    alert('Successfully saved!');
-    //  axios.post("") //it will send data to mongodb after modifying it
+    //  axios.post("") //it will send data to backend/mongodb after modifying it
+
+    axios
+      .post(
+        'http://localhost:5000/personal/add',
+        {
+          inputs,
+        },
+        {
+          headers: {
+            'x-auth-token': localStorage.getItem('token'),
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      .then(e => {
+        console.log(e);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    //alert('Successfully saved!');
   };
 
   const { ref, inputs, handleInputChange, handleSubmit, onDateChange } = useSignUpForm(

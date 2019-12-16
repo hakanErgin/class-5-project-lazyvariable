@@ -22,7 +22,7 @@ const useSignUpForm = (initialValues, callback) => {
     if (event) {
       event.preventDefault();
       //event.persist();
-      console.log('last values', ref);
+      console.log('last values', ref, inputs);
       callback();
     }
   };
@@ -30,7 +30,9 @@ const useSignUpForm = (initialValues, callback) => {
     event.persist();
 
     //setInputs(ref => ({ ...ref, [event.target.name]: event.target.value }));
-    setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }));
+
+    const { name, value } = event.target;
+    setInputs(inputs => ({ ...inputs, [name]: value }));
 
     console.log('changed inputs', inputs);
     console.log('ref', ref);

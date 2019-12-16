@@ -58,7 +58,7 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit" target="/nav/dashboard/education">
+          <Button type="primary submit" onClick={handleSubmit}>
             <a href="./education">Next</a>
           </Button>
         </Form.Item>
