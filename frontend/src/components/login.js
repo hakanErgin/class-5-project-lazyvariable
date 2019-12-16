@@ -1,43 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../App.css';
 import { Redirect } from 'react-router';
 
-const SignUp = () => {
+const LoginComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [registered, setRegistered] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  const submitForm = () => {
+  function submitForm() {
     axios
-      .post('http://localhost:5000/user', { email, password, name })
+      .post('http://localhost:5000/auth', { email, password })
       .then(e => {
-        console.log(e.data);
         if (e.data.token) {
           localStorage.setItem('token', e.data.token);
-          setRegistered(true);
+          setLoggedIn(true);
+          console.log(e.data.token);
         } else {
-          setRegistered(false);
+          setLoggedIn(false);
         }
       })
-
       .catch(err => {
         console.log(err);
       });
-  };
+  }
   const handleEmailChange = e => {
     setEmail(e.target.value);
   };
   const handlePasswordChange = p => {
     setPassword(p.target.value);
   };
-  const handleNameChange = p => {
-    setName(p.target.value);
-  };
+
   return (
     <div>
-      {registered ? (
+      {loggedIn ? (
         <Redirect to="/nav" />
       ) : (
         <div>
@@ -78,15 +73,7 @@ const SignUp = () => {
                 }}
               >
                 {' '}
-                <div className="signUpText">Sign up</div>
-                <div className="signUpLabel">Name</div>
-                <input
-                  className="signUpInput"
-                  type="text"
-                  required
-                  onChange={handleNameChange}
-                  value={name}
-                ></input>
+                <div className="signUpText">Sign in</div>
                 <div className="signUpLabel">Email</div>
                 <input
                   className="signUpInput"
@@ -122,6 +109,4 @@ const SignUp = () => {
     </div>
   );
 };
-
-
-export default SignUp;
+export default LoginComponent;
