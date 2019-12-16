@@ -4,15 +4,8 @@ import useSignUpForm from './InputHooks';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
-const Personal = () => {
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
-    title: '',
-    about: '',
-    email: '',
-    telephone: '',
-    city: '',
-    country: '',
-  });
+const Personal = ({ inputs, handleSubmit, handleInputChange }) => {
+  console.log('inputs', inputs);
   return (
     <div>
       <Title level={3}>Personal & Contact information</Title>

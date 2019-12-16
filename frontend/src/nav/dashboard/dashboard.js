@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import useSignUpForm from './InputHooks';
@@ -17,14 +17,40 @@ const Dashboard = () => {
     console.log('click', e);
   }
 
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
-    title: '',
-    about: '',
-    email: '',
-    telephone: '',
-    city: '',
-    country: '',
-  });
+  const handleOnclick = () => {
+    alert('Successfully saved!'); //it will send data to mongodb
+  };
+
+  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
+    {
+      title: '',
+      about: '',
+      email: '',
+      telephone: '',
+      city: '',
+      country: '',
+      work_title: '',
+      company: '',
+      location: '',
+      employmentType: '',
+      description: '',
+      experienceDate: '',
+      school: '',
+      degree: '',
+      fieldOfStudy: '',
+      grade: '',
+      education_description: '',
+      education_startDate: '',
+      education_endDate: '',
+      skills: '',
+    },
+    handleOnclick,
+  );
+  console.log('dash inputs', inputs); // It is logging here, no problem, but still I am trying to send state to components
+
+  /* useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  }); */
 
   return (
     <Router>
@@ -46,17 +72,17 @@ const Dashboard = () => {
         </Menu>
         <Switch>
           <Route path="/nav/dashboard/personal">
-            <Personal />
+            <Personal state={(inputs, handleSubmit, handleInputChange)} />
           </Route>
           <Route path="/nav/dashboard/experience">
-            <Experience />
+            <Experience state={(inputs, handleSubmit, handleInputChange)} />
           </Route>
           <Route path="/nav/dashboard/education">
-            <Education />
+            <Education state={(inputs, handleSubmit, handleInputChange)} />
           </Route>
           {/* <Route path="/nav/dashboard/projects"><Projects /></Route> */}
           <Route path="/nav/dashboard/skills">
-            <Skills />
+            <Skills state={(inputs, handleSubmit, handleInputChange)} />
           </Route>
         </Switch>
       </div>

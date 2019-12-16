@@ -4,17 +4,13 @@ import React from 'react';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
-const Skills = () => {
-  const handleOnclick = () => {
-    alert('Successfully saved!'); //it will send data to mongodb
-  };
-
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
+const Skills = ({ inputs, handleSubmit, handleInputChange }) => {
+  /* const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
     {
       skills: '',
     },
     handleOnclick,
-  );
+  ); */
 
   return (
     <div>

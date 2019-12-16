@@ -1,25 +1,14 @@
 import React from 'react';
 import useSignUpForm from './InputHooks';
 
+import { Form, Input, Button, DatePicker, Typography } from 'antd';
+const { Title } = Typography;
+const { RangePicker } = DatePicker;
 
-import { Form, Input, Button, DatePicker, Typography } from 'antd'
-const { Title } = Typography
-const { RangePicker } = DatePicker
-
-const Education = () => {
+const Education = ({ inputs, handleSubmit, handleInputChange }) => {
   function onDateChange(date, dateString) {
     console.log(date, dateString);
   }
-
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
-    school: '',
-    degree: '',
-    fieldOfStudy: '',
-    grade: '',
-    education_description: '',
-    education_startDate: '',
-    education_endDate: '',
-  });
 
   return (
     <div>

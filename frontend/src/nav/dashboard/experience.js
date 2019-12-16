@@ -1,24 +1,15 @@
 import React from 'react';
 import useSignUpForm from './InputHooks';
 
-import { Form, Input, Button, DatePicker, Typography } from 'antd'
-const { Title } = Typography
+import { Form, Input, Button, DatePicker, Typography } from 'antd';
+const { Title } = Typography;
 
 const { RangePicker } = DatePicker;
 
-const Experience = () => {
-  function onDateChange(date, dateString) {
+const Experience = ({ inputs, handleSubmit, handleInputChange }) => {
+  /*function onDateChange(date, dateString) {
     console.log(date, dateString);
-  }
-
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
-    work_title: '',
-    company: '',
-    location: '',
-    employmentType: '',
-    description: '',
-    country: '',
-  });
+  }*/
 
   return (
     <div>
@@ -65,20 +56,16 @@ const Experience = () => {
           />
         </Form.Item>
         <Form.Item label="Date">
-          <DatePicker
-            onChange={onDateChange}
-            name="startDate"
-                        value={inputs.startDate}
-          />
           <RangePicker
-            onChange={onDateChange}
-            name="endDate"
-            value={inputs.endDate}
+            onChange={handleInputChange}
+            name="startEndDate"
+            value={inputs.experienceDate}
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit">
-            <a href="./education">Next</a>
+          <Button type="primary submit" target="/nav/dashboard/education">
+            {/*<a href="./education"></a>*/}
+            Next
           </Button>
         </Form.Item>
       </Form>
