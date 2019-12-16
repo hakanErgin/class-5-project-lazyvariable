@@ -1,5 +1,4 @@
 import React from 'react';
-import useSignUpForm from './InputHooks';
 
 import { Form, Input, Button, DatePicker, Typography } from 'antd';
 const { Title } = Typography;
@@ -64,8 +63,7 @@ const Experience = ({ inputs, handleSubmit, handleInputChange }) => {
         </Form.Item>
         <Form.Item>
           <Button type="primary submit" target="/nav/dashboard/education">
-            {/*<a href="./education"></a>*/}
-            Next
+            <a href="./education">Next</a>
           </Button>
         </Form.Item>
       </Form>

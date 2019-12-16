@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import useSignUpForm from './InputHooks';
@@ -18,7 +18,7 @@ const Dashboard = () => {
   }
 
   const handleOnclick = () => {
-    alert('Successfully saved!'); //it will send data to mongodb
+    alert('Successfully saved!'); //it will send data to mongodb after modifying it
   };
 
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
@@ -72,17 +72,33 @@ const Dashboard = () => {
         </Menu>
         <Switch>
           <Route path="/nav/dashboard/personal">
-            <Personal state={(inputs, handleSubmit, handleInputChange)} />
+            <Personal
+              inputs={inputs}
+              handleInputChange={handleInputChange}
+              handleSubmit={handleSubmit}
+            />
           </Route>
           <Route path="/nav/dashboard/experience">
-            <Experience state={(inputs, handleSubmit, handleInputChange)} />
+            <Experience
+              inputs={inputs}
+              handleInputChange={handleInputChange}
+              handleSubmit={handleSubmit}
+            />
           </Route>
           <Route path="/nav/dashboard/education">
-            <Education state={(inputs, handleSubmit, handleInputChange)} />
+            <Education
+              inputs={inputs}
+              handleInputChange={handleInputChange}
+              handleSubmit={handleSubmit}
+            />
           </Route>
           {/* <Route path="/nav/dashboard/projects"><Projects /></Route> */}
           <Route path="/nav/dashboard/skills">
-            <Skills state={(inputs, handleSubmit, handleInputChange)} />
+            <Skills
+              inputs={inputs}
+              handleInputChange={handleInputChange}
+              handleSubmit={handleSubmit}
+            />
           </Route>
         </Switch>
       </div>

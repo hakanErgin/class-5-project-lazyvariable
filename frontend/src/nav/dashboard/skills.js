@@ -1,4 +1,3 @@
-import useSignUpForm from './InputHooks';
 import React from 'react';
 
 import { Form, Input, Button, Typography } from 'antd';

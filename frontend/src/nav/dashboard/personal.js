@@ -1,11 +1,10 @@
 import React from 'react';
-import useSignUpForm from './InputHooks';
 
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
 const Personal = ({ inputs, handleSubmit, handleInputChange }) => {
-  console.log('inputs', inputs);
+  console.log('personal inputs', inputs);
   return (
     <div>
       <Title level={3}>Personal & Contact information</Title>

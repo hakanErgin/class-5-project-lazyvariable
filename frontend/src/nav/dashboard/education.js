@@ -1,5 +1,4 @@
 import React from 'react';
-import useSignUpForm from './InputHooks';
 
 import { Form, Input, Button, DatePicker, Typography } from 'antd';
 const { Title } = Typography;
