@@ -12,6 +12,7 @@ import LoggedIn from './authed/main';
 import LoginComponent from './landing/login';
 import LogoutComponent from './landing/logout';
 import CreateComponent from './landing/create';
+import Preview from './nav/Preview/Preview';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" component={LoginComponent} />
         <Route path="/logout" component={LogoutComponent} />
         <Route path="/create" component={CreateComponent} />
+        <Route path="/preview" component={Preview} />
       </div>
     </Router>
   );
