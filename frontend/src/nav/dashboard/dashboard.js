@@ -18,10 +18,11 @@ const Dashboard = () => {
   }
 
   const handleOnclick = () => {
-    alert('Successfully saved!'); //it will send data to mongodb after modifying it
+    alert('Successfully saved!');
+    //  axios.post("") //it will send data to mongodb after modifying it
   };
 
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
+  const { ref, inputs, handleInputChange, handleSubmit, onDateChange } = useSignUpForm(
     {
       title: '',
       about: '',
@@ -29,24 +30,24 @@ const Dashboard = () => {
       telephone: '',
       city: '',
       country: '',
-      work_title: '',
+      website: '',
+      workTitle: '',
       company: '',
       location: '',
       employmentType: '',
-      description: '',
+      jobDescription: '',
       experienceDate: '',
       school: '',
       degree: '',
       fieldOfStudy: '',
       grade: '',
-      education_description: '',
-      education_startDate: '',
-      education_endDate: '',
+      educationDescription: '',
+      educationDate: '',
       skills: '',
     },
     handleOnclick,
   );
-  console.log('dash inputs', inputs); // It is logging here, no problem, but still I am trying to send state to components
+  //console.log('dash inputs', inputs);
 
   /* useEffect(() => {
     document.title = `You clicked ${count} times`;
@@ -74,6 +75,7 @@ const Dashboard = () => {
           <Route path="/nav/dashboard/personal">
             <Personal
               inputs={inputs}
+              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
             />
@@ -81,21 +83,26 @@ const Dashboard = () => {
           <Route path="/nav/dashboard/experience">
             <Experience
               inputs={inputs}
+              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
+              onDateChange={onDateChange}
             />
           </Route>
           <Route path="/nav/dashboard/education">
             <Education
               inputs={inputs}
+              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
+              onDateChange={onDateChange}
             />
           </Route>
           {/* <Route path="/nav/dashboard/projects"><Projects /></Route> */}
           <Route path="/nav/dashboard/skills">
             <Skills
               inputs={inputs}
+              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
             />

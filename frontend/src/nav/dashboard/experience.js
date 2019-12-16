@@ -5,11 +5,7 @@ const { Title } = Typography;
 
 const { RangePicker } = DatePicker;
 
-const Experience = ({ inputs, handleSubmit, handleInputChange }) => {
-  /*function onDateChange(date, dateString) {
-    console.log(date, dateString);
-  }*/
-
+const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange }) => {
   return (
     <div>
       <Title level={3}>Work experience</Title>
@@ -17,9 +13,9 @@ const Experience = ({ inputs, handleSubmit, handleInputChange }) => {
         <Form.Item label="Title">
           <Input
             placeholder=""
-            name="work_title"
+            name="workTitle"
             onChange={handleInputChange}
-            value={inputs.work_title}
+            value={inputs.workTitle}
           />
         </Form.Item>
         <Form.Item label="Company">
@@ -49,15 +45,15 @@ const Experience = ({ inputs, handleSubmit, handleInputChange }) => {
         <Form.Item label="Description">
           <Input
             placeholder=""
-            name="description"
+            name="jobDescription"
             onChange={handleInputChange}
-            value={inputs.description}
+            value={inputs.jobDescription}
           />
         </Form.Item>
         <Form.Item label="Date">
           <RangePicker
-            onChange={handleInputChange}
-            name="startEndDate"
+            onChange={onDateChange}
+            name="experienceDate"
             value={inputs.experienceDate}
           />
         </Form.Item>

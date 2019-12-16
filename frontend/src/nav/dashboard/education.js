@@ -4,11 +4,7 @@ import { Form, Input, Button, DatePicker, Typography } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
-const Education = ({ inputs, handleSubmit, handleInputChange }) => {
-  function onDateChange(date, dateString) {
-    console.log(date, dateString);
-  }
-
+const Education = ({ inputs, handleSubmit, handleInputChange, onDateChange }) => {
   return (
     <div>
       <Title level={3}>Education</Title>
@@ -33,22 +29,13 @@ const Education = ({ inputs, handleSubmit, handleInputChange }) => {
         <Form.Item label="Description">
           <Input
             placeholder=""
-            name="education_description"
+            name="educationDescription"
             onChange={handleInputChange}
-            value={inputs.education_description}
+            value={inputs.educationDescription}
           />
         </Form.Item>
         <Form.Item label="Date">
-          <DatePicker
-            onChange={onDateChange}
-            name="education_startDate"
-            value={inputs.education_startDate}
-          />
-          <RangePicker
-            onChange={onDateChange}
-            name="education_endDate"
-            value={inputs.education_endDate}
-          />
+          <RangePicker onChange={onDateChange} name="educationDate" value={inputs.educationDate} />
         </Form.Item>
         <Form.Item>
           <Button type="primary submit">

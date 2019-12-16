@@ -3,7 +3,7 @@ import React from 'react';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
-const Personal = ({ inputs, handleSubmit, handleInputChange }) => {
+const Personal = ({ inputs, ref, handleSubmit, handleInputChange }) => {
   console.log('personal inputs', inputs);
   return (
     <div>
@@ -58,7 +58,7 @@ const Personal = ({ inputs, handleSubmit, handleInputChange }) => {
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit">
+          <Button type="primary" target="/nav/dashboard/experience">
             <a href="./experience">Next</a>
           </Button>
         </Form.Item>
