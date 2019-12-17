@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -21,19 +21,16 @@ const Dashboard = () => {
   const handleOnclick = () => {
     //  axios.post("") //it will send data to backend/mongodb after modifying it
 
+    console.log('inputs', inputs);
+    console.log('ref', ref);
+
     axios
-      .post(
-        'http://localhost:5000/personal/add',
-        {
-          inputs,
+      .post('http://localhost:5000/personal/add', inputs, {
+        headers: {
+          'x-auth-token': localStorage.getItem('token'),
+          'Content-Type': 'application/json',
         },
-        {
-          headers: {
-            'x-auth-token': localStorage.getItem('token'),
-            'Content-Type': 'application/json',
-          },
-        },
-      )
+      })
       .then(e => {
         console.log(e);
       })
@@ -52,6 +49,7 @@ const Dashboard = () => {
       telephone: '',
       country: '',
       city: '',
+      language: '',
       website: '',
       workTitle: '',
       company: '',
@@ -75,10 +73,12 @@ const Dashboard = () => {
     document.title = `You clicked ${count} times`;
   }); */
 
+  const [selected, setSelected] = useState('1');
+
   return (
     <Router>
       <div>
-        <Menu defaultSelectedKeys="1" onClick={handleClick} mode="horizontal">
+        <Menu defaultSelectedKeys={selected} onClick={handleClick} mode="horizontal">
           <Menu.Item key="1">
             <Link to="/auth/dashboard/personal">Personal Info</Link>
           </Menu.Item>
@@ -96,6 +96,7 @@ const Dashboard = () => {
         <Switch>
           <Route path="/auth/dashboard/personal">
             <Personal
+              setSelected={setSelected}
               inputs={inputs}
               ref={ref}
               handleInputChange={handleInputChange}
@@ -104,6 +105,7 @@ const Dashboard = () => {
           </Route>
           <Route path="/auth/dashboard/experience">
             <Experience
+              setSelected={setSelected}
               inputs={inputs}
               ref={ref}
               handleInputChange={handleInputChange}
@@ -113,6 +115,7 @@ const Dashboard = () => {
           </Route>
           <Route path="/auth/dashboard/education">
             <Education
+              setSelected={setSelected}
               inputs={inputs}
               ref={ref}
               handleInputChange={handleInputChange}
@@ -123,6 +126,7 @@ const Dashboard = () => {
           {/* <Route path="/auth/dashboard/projects"><Projects /></Route> */}
           <Route path="/auth/dashboard/skills">
             <Skills
+              setSelected={setSelected}
               inputs={inputs}
               ref={ref}
               handleInputChange={handleInputChange}

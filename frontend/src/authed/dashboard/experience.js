@@ -8,13 +8,12 @@ const { RangePicker } = DatePicker;
 const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange }) => {
   const [inputFields, setInputFields] = useState([
     {
-      workTitle: '',
+      work_title: '',
       company: '',
       location: '',
       employmentType: '',
       jobDescription: '',
-      country: '',
-      Date: '',
+      experienceDate: '',
     },
   ]);
 
@@ -26,8 +25,7 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange
       location: '',
       employmentType: '',
       jobDescription: '',
-      country: '',
-      Date: '',
+      experienceDate: '',
     });
     setInputFields(values);
   };
@@ -68,7 +66,7 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange
                 value={inputs.location}
               />
             </Form.Item>
-            <Form.Item label="Employment type">
+            <Form.Item label="Employment type" autoComplete="on">
               <Input
                 placeholder=""
                 name="employmentType"
@@ -108,8 +106,10 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange
           </Button>
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit" onClick={handleSubmit}>
-            <a href="./education">Next</a>
+          <Button type="primary">
+            {/* <a href="./experience"> */}
+            Save
+            {/* </a> */}
           </Button>
         </Form.Item>
       </Form>

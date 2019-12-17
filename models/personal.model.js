@@ -5,8 +5,9 @@ const Schema = mongoose.Schema;
 const personalSchema = new Schema(
   {
     name: { type: String },
+    about: { type: String },
     picture: { type: String },
-    phone: { type: String },
+    telephone: { type: String },
     email: { type: String },
     country: { type: String },
     city: { type: String },
@@ -14,17 +15,20 @@ const personalSchema = new Schema(
 
     education: [
       {
-        institution: { type: String },
-        fieldOfStudy: { type: String },
+        school: { type: String },
         degree: { type: String },
-        startDate: { type: Date },
-        endDate: { type: Date },
+        fieldOfStudy: { type: String },
+        grade: { type: String },
+        educationDescription: { type: String },
+        educationDate: { type: String },
       },
     ],
     workExperience: [
       {
-        companyName: { type: String },
+        work_title: { type: String },
+        company: { type: String },
         companyUrl: { type: String },
+        location: { type: String },
         employmentType: {
           type: String,
           enum: [
@@ -38,19 +42,18 @@ const personalSchema = new Schema(
           ],
         },
         is_current: { type: Boolean },
-        startDate: { type: Date },
-        endDate: { type: Date },
-        description: { type: String },
+        jobDescription: { type: String },
+        experienceDate: { type: String },
       },
     ],
-    skill: { type: String },
+    skills: { type: String },
     certificate: [
       {
         certificateName: { type: String },
         date: { type: Date },
       },
     ],
-    language: [
+    languages: [
       {
         language: { type: String },
         fluencyLevelOption: {

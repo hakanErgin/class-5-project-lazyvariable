@@ -3,8 +3,9 @@ import React from 'react';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
-const Personal = ({ inputs, ref, handleSubmit, handleInputChange }) => {
+const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange }) => {
   console.log('personal inputs', inputs);
+
   return (
     <div>
       <Title level={3}>Personal & Contact information</Title>
@@ -49,6 +50,14 @@ const Personal = ({ inputs, ref, handleSubmit, handleInputChange }) => {
         <Form.Item label="City">
           <Input placeholder="" name="city" onChange={handleInputChange} value={inputs.city} />
         </Form.Item>
+        <Form.Item label="Languages">
+          <Input
+            placeholder=""
+            name="language"
+            onChange={handleInputChange}
+            value={inputs.language}
+          />
+        </Form.Item>
         <Form.Item label="Website">
           <Input
             placeholder=""
@@ -58,8 +67,10 @@ const Personal = ({ inputs, ref, handleSubmit, handleInputChange }) => {
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" target="/nav/dashboard/experience" onClick={handleSubmit}>
-            <a href="./experience">Next</a>
+          <Button type="primary" onClick={() => (setSelected = '2')}>
+            {/* <a href="./experience"> */}
+            Save
+            {/* </a> */}
           </Button>
         </Form.Item>
       </Form>
