@@ -13,6 +13,7 @@ const LoginComponent = () => {
       .then(e => {
         if (e.data.token) {
           localStorage.setItem('token', e.data.token);
+
           localStorage.setItem('username', e.data.user.username);
           localStorage.setItem('ID', e.data.user.id);
 

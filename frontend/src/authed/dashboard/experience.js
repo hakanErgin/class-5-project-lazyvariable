@@ -1,24 +1,20 @@
 import React, { useState, Fragment } from 'react';
-import useSignUpForm from './handlers/InputHooks';
 
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
 
 const { RangePicker } = DatePicker;
 
-const Experience = () => {
-  function onDateChange(date, dateString) {
-    console.log(date, dateString);
-  }
+const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange }) => {
+
   const [inputFields, setInputFields] = useState([
     {
       work_title: '',
       company: '',
       location: '',
       employmentType: '',
-      description: '',
-      country: '',
-      Date: '',
+      jobDescription: '',
+      experienceDate: '',
     },
   ]);
 
@@ -29,9 +25,8 @@ const Experience = () => {
       company: '',
       location: '',
       employmentType: '',
-      description: '',
-      country: '',
-      Date: '',
+      jobDescription: '',
+      experienceDate: '',
     });
     setInputFields(values);
   };
@@ -41,14 +36,6 @@ const Experience = () => {
     values.splice(index, 1);
     setInputFields(values);
   };
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
-    work_title: '',
-    company: '',
-    location: '',
-    employmentType: '',
-    description: '',
-    country: '',
-  });
 
   return (
     <div>
@@ -59,9 +46,9 @@ const Experience = () => {
             <Form.Item label="Title">
               <Input
                 placeholder=""
-                name="work_title"
+                name="workTitle"
                 onChange={handleInputChange}
-                value={inputs.work_title}
+                value={inputs.workTitle}
               />
             </Form.Item>
             <Form.Item label="Company">
@@ -80,7 +67,7 @@ const Experience = () => {
                 value={inputs.location}
               />
             </Form.Item>
-            <Form.Item label="Employment type">
+            <Form.Item label="Employment type" autoComplete="on">
               <Input
                 placeholder=""
                 name="employmentType"
@@ -91,14 +78,17 @@ const Experience = () => {
             <Form.Item label="Description">
               <Input
                 placeholder=""
-                name="description"
+                name="jobDescription"
                 onChange={handleInputChange}
-                value={inputs.description}
+                value={inputs.jobDescription}
               />
             </Form.Item>
             <Form.Item label="Date">
-              <DatePicker onChange={onDateChange} name="startDate" value={inputs.startDate} />
-              <RangePicker onChange={onDateChange} name="endDate" value={inputs.endDate} />
+              <RangePicker
+                onChange={onDateChange}
+                name="experienceDate"
+                value={inputs.experienceDate}
+              />
             </Form.Item>
             <Form.Item>
               <Button
@@ -116,14 +106,11 @@ const Experience = () => {
             <Icon type="plus" /> Add field
           </Button>
         </Form.Item>
-
-        {/* Since there are 2 next button, I deleted one of them */}
-        {/* <Form.Item>
-          <Button type="primary">Next</Button>
-        </Form.Item> */}
         <Form.Item>
-          <Button type="primary submit">
-            <a href="./education">Next</a>
+          <Button type="primary">
+            {/* <a href="./experience"> */}
+            Save
+            {/* </a> */}
           </Button>
         </Form.Item>
       </Form>

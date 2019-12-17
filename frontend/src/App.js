@@ -32,6 +32,7 @@ function App() {
         <Route path="/create" component={CreateComponent} />
         <Route path="/preview" component={Preview} />
         <Route path="/github" component={GithubComponent} />
+
       </div>
     </Router>
   );

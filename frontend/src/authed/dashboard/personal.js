@@ -1,28 +1,21 @@
 import React from 'react';
-import useSignUpForm from './handlers/InputHooks';
 
-import { Form, Input, Button, Typography } from 'antd'
-const { Title } = Typography
+import { Form, Input, Button, Typography } from 'antd';
+const { Title } = Typography;
 
-const Personal = () => {
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm({
-    title: '',
-    about: '',
-    email: '',
-    telephone: '',
-    city: '',
-    country: '',
-  });
+const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange }) => {
+  console.log('personal inputs', inputs);
+
   return (
     <div>
       <Title level={3}>Personal & Contact information</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
-        <Form.Item label="Your general title">
+        <Form.Item label="Name">
           <Input
             placeholder=""
-            name="title"
+            name="name"
             onChange={handleInputChange}
-            value={inputs.title}
+            value={inputs.name}
             required
           />
         </Form.Item>
@@ -46,15 +39,23 @@ const Personal = () => {
             value={inputs.telephone}
           />
         </Form.Item>
-        <Form.Item label="City">
-          <Input placeholder="" name="city" onChange={handleInputChange} value={inputs.city} />
-        </Form.Item>
         <Form.Item label="Country">
           <Input
             placeholder=""
             name="country"
             onChange={handleInputChange}
             value={inputs.country}
+          />
+        </Form.Item>
+        <Form.Item label="City">
+          <Input placeholder="" name="city" onChange={handleInputChange} value={inputs.city} />
+        </Form.Item>
+        <Form.Item label="Languages">
+          <Input
+            placeholder=""
+            name="language"
+            onChange={handleInputChange}
+            value={inputs.language}
           />
         </Form.Item>
         <Form.Item label="Website">
@@ -66,8 +67,10 @@ const Personal = () => {
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit">
-            <a href="./experience">Next</a>
+          <Button type="primary" onClick={() => (setSelected = '2')}>
+            {/* <a href="./experience"> */}
+            Save
+            {/* </a> */}
           </Button>
         </Form.Item>
       </Form>

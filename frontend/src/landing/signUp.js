@@ -6,12 +6,13 @@ import { Redirect } from 'react-router';
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const [username, setUsername] = useState('');
   const [registered, setRegistered] = useState(false);
 
   const submitForm = () => {
     axios
-      .post('http://localhost:5000/user', { username, email, password })
+      .post('http://localhost:5000/user', { username, email, password }) // BEFORE MERGE: .post('http://localhost:5000/user', { email, password, name })
       .then(e => {
         console.log(e.data);
         if (e.data.token) {
@@ -35,7 +36,8 @@ const SignUp = () => {
   const handlePasswordChange = p => {
     setPassword(p.target.value);
   };
-  const handleUsernameChange = p => {
+
+  const handleUsernameChange = p => { // BEFORE MERGE: const handleNameChange = p => { setName(p.target.value)};
     setUsername(p.target.value);
   };
 

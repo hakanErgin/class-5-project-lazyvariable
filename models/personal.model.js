@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const personalSchema = new Schema(
   {
+
     User: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     name: { type: String },
     picture: { type: String },
@@ -26,6 +27,7 @@ const personalSchema = new Schema(
       {
         companyName: { type: String },
         companyUrl: { type: String },
+        location: { type: String },
         employmentType: {
           type: String,
           enum: [
@@ -51,7 +53,7 @@ const personalSchema = new Schema(
         date: { type: Date },
       },
     ],
-    language: [
+    languages: [
       {
         language: { type: String },
         fluencyLevelOption: {
