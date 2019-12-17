@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const personalSchema = new Schema(
   {
+    User: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     name: { type: String },
     picture: { type: String },
     phone: { type: String },
