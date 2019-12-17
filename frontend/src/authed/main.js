@@ -7,6 +7,7 @@ import Settings from './settings';
 import Logout from '../landing/logout';
 
 import { Menu, Layout } from 'antd';
+
 const { Header, Footer, Sider, Content } = Layout;
 
 const Main = () => {
@@ -30,6 +31,7 @@ const Main = () => {
                 <Menu.Item>
                   <Link to="/auth/logout">Logout</Link>
                 </Menu.Item>
+
               </Menu.ItemGroup>
             </Menu>
           </Sider>

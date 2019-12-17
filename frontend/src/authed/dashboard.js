@@ -7,7 +7,6 @@ import useSignUpForm from './dashboard/handlers/InputHooks';
 import Personal from './dashboard/personal';
 import Experience from './dashboard/experience';
 import Education from './dashboard/education';
-// import Projects from './projects' // in this case maybe we can leave this out?
 import Skills from './dashboard/skills';
 
 import { Menu } from 'antd';
@@ -18,7 +17,7 @@ const Dashboard = () => {
     console.log('click', e);
   }
 
-  const handleOnclick = () => {
+ const handleOnclick = () => {
     //  axios.post("") //it will send data to backend/mongodb after modifying it
 
     console.log('inputs', inputs);

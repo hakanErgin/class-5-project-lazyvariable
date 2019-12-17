@@ -6,6 +6,7 @@ const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
 const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange }) => {
+
   const [inputFields, setInputFields] = useState([
     {
       work_title: '',

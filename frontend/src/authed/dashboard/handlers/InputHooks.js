@@ -49,6 +49,7 @@ const useSignUpForm = (initialValues, callback) => {
     inputs,
     ref,
     onDateChange,
+
   };
 };
 export default useSignUpForm;

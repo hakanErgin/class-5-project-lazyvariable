@@ -19,7 +19,8 @@ router.route('/:id').get((req, res) => {
 router.route('/add').post((req, res) => {
   const name = req.body.name;
   const picture = req.body.picture;
-  const about = req.body.about;
+  const phone = req.body.phone;
+  const country = req.body.country;
   const email = req.body.email;
   const telephone = req.body.telephone;
   const country = req.body.country;
@@ -74,7 +75,7 @@ router.route('/add').post((req, res) => {
 });
 
 // Deleting data by ID
-router.route('/:id').delete((req, res) => {
+router.route('delete/:id').delete((req, res) => {
   Personal.findByIdAndDelete(req.params.id)
     .then(() => res.json('Personal deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
@@ -85,6 +86,7 @@ router.route('/update/:id').post((req, res) => {
   Personal.findById(req.params.id)
     .then(info => {
       info.name = req.body.name;
+      info.phone = req.body.phone;
       info.picture = req.body.picture;
       info.about = req.body.about;
       info.email = req.body.email;

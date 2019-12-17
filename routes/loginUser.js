@@ -33,6 +33,7 @@ router.post('/', (req, res) => {
           user: {
             id: user.id,
             email: user.email,
+            username: user.username,
           },
         });
       });

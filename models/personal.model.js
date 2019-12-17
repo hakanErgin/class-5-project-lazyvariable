@@ -4,10 +4,11 @@ const Schema = mongoose.Schema;
 
 const personalSchema = new Schema(
   {
+
+    User: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     name: { type: String },
-    about: { type: String },
     picture: { type: String },
-    telephone: { type: String },
+    phone: { type: String },
     email: { type: String },
     country: { type: String },
     city: { type: String },
@@ -15,18 +16,16 @@ const personalSchema = new Schema(
 
     education: [
       {
-        school: { type: String },
-        degree: { type: String },
+        institution: { type: String },
         fieldOfStudy: { type: String },
-        grade: { type: String },
-        educationDescription: { type: String },
-        educationDate: { type: String },
+        degree: { type: String },
+        startDate: { type: Date },
+        endDate: { type: Date },
       },
     ],
     workExperience: [
       {
-        work_title: { type: String },
-        company: { type: String },
+        companyName: { type: String },
         companyUrl: { type: String },
         location: { type: String },
         employmentType: {
@@ -42,11 +41,12 @@ const personalSchema = new Schema(
           ],
         },
         is_current: { type: Boolean },
-        jobDescription: { type: String },
-        experienceDate: { type: String },
+        startDate: { type: Date },
+        endDate: { type: Date },
+        description: { type: String },
       },
     ],
-    skills: { type: String },
+    skill: { type: String },
     certificate: [
       {
         certificateName: { type: String },
