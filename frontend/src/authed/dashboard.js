@@ -23,7 +23,7 @@ const Dashboard = () => {
 
     axios
       .post(
-        'http://localhost:5000/update/:id',
+        'http://localhost:5000/personal/add',
         {
           inputs,
         },
@@ -80,21 +80,21 @@ const Dashboard = () => {
       <div>
         <Menu defaultSelectedKeys="1" onClick={handleClick} mode="horizontal">
           <Menu.Item key="1">
-            <Link to="/nav/dashboard/personal">Personal Info</Link>
+            <Link to="/auth/dashboard/personal">Personal Info</Link>
           </Menu.Item>
           <Menu.Item key="2">
-            <Link to="/nav/dashboard/experience">Experience</Link>
+            <Link to="/auth/dashboard/experience">Experience</Link>
           </Menu.Item>
           <Menu.Item key="3">
-            <Link to="/nav/dashboard/education">Education</Link>
+            <Link to="/auth/dashboard/education">Education</Link>
           </Menu.Item>
-          {/* <Menu.Item><Link to="/nav/dashboard/projects">Projects</Link></Menu.Item> */}
+          {/* <Menu.Item><Link to="/auth/dashboard/projects">Projects</Link></Menu.Item> */}
           <Menu.Item key="4">
-            <Link to="/nav/dashboard/skills">Skills</Link>
+            <Link to="/auth/dashboard/skills">Skills</Link>
           </Menu.Item>
         </Menu>
         <Switch>
-          <Route path="/nav/dashboard/personal">
+          <Route path="/auth/dashboard/personal">
             <Personal
               inputs={inputs}
               ref={ref}
@@ -102,7 +102,7 @@ const Dashboard = () => {
               handleSubmit={handleSubmit}
             />
           </Route>
-          <Route path="/nav/dashboard/experience">
+          <Route path="/auth/dashboard/experience">
             <Experience
               inputs={inputs}
               ref={ref}
@@ -111,7 +111,7 @@ const Dashboard = () => {
               onDateChange={onDateChange}
             />
           </Route>
-          <Route path="/nav/dashboard/education">
+          <Route path="/auth/dashboard/education">
             <Education
               inputs={inputs}
               ref={ref}
@@ -120,8 +120,8 @@ const Dashboard = () => {
               onDateChange={onDateChange}
             />
           </Route>
-          {/* <Route path="/nav/dashboard/projects"><Projects /></Route> */}
-          <Route path="/nav/dashboard/skills">
+          {/* <Route path="/auth/dashboard/projects"><Projects /></Route> */}
+          <Route path="/auth/dashboard/skills">
             <Skills
               inputs={inputs}
               ref={ref}
