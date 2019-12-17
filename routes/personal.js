@@ -23,7 +23,6 @@ router.route('/add').post((req, res) => {
   const country = req.body.country;
   const email = req.body.email;
   const telephone = req.body.telephone;
-  const country = req.body.country;
   const city = req.body.city;
   const website = req.body.website;
   const workTitle = req.body.workTitle;
