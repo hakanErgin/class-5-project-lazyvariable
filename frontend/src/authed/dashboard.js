@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
-import useSignUpForm from './InputHooks';
+import useSignUpForm from './dashboard/handlers/InputHooks';
 
-import Personal from './personal';
-import Experience from './experience';
-import Education from './education';
+import Personal from './dashboard/personal';
+import Experience from './dashboard/experience';
+import Education from './dashboard/education';
 // import Projects from './projects' // in this case maybe we can leave this out?
-import Skills from './skills';
+import Skills from './dashboard/skills';
 
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
@@ -23,7 +23,7 @@ const Dashboard = () => {
 
     axios
       .post(
-        'http://localhost:5000/personal/add',
+        'http://localhost:5000/update/:id',
         {
           inputs,
         },
@@ -46,12 +46,12 @@ const Dashboard = () => {
 
   const { ref, inputs, handleInputChange, handleSubmit, onDateChange } = useSignUpForm(
     {
-      title: '',
+      name: '',
       about: '',
       email: '',
       telephone: '',
-      city: '',
       country: '',
+      city: '',
       website: '',
       workTitle: '',
       company: '',

@@ -4,31 +4,29 @@ const Schema = mongoose.Schema;
 
 const personalSchema = new Schema(
   {
-    name: { type: String, required: true },
-    surname: { type: String, required: true },
-    picture: 'string',
-    phone: 'Number',
-    email: 'string',
-    country: 'string',
-    city: 'string',
-    website: 'string',
+    name: { type: String },
+    picture: { type: String },
+    phone: { type: String },
+    email: { type: String },
+    country: { type: String },
+    city: { type: String },
+    website: { type: String },
 
     education: [
       {
-        institution: { type: String, required: true },
-        fieldOfStudy: 'string',
-        degree: { type: String, required: true },
-        startDate: { type: Date, required: true },
-        endDate: { type: Date, required: true },
+        institution: { type: String },
+        fieldOfStudy: { type: String },
+        degree: { type: String },
+        startDate: { type: Date },
+        endDate: { type: Date },
       },
     ],
     workExperience: [
       {
-        companyName: { type: String, required: true },
+        companyName: { type: String },
         companyUrl: { type: String },
         employmentType: {
           type: String,
-          required: true,
           enum: [
             'Full-Time',
             'Part-Time',
@@ -40,24 +38,23 @@ const personalSchema = new Schema(
           ],
         },
         is_current: { type: Boolean },
-        startDate: { type: Date, required: true },
-        endDate: { type: Date, required: true },
-        description: { type: String, required: true },
+        startDate: { type: Date },
+        endDate: { type: Date },
+        description: { type: String },
       },
     ],
-    skill: { required: true, type: 'string' },
+    skill: { type: String },
     certificate: [
       {
-        certificateName: { type: String, required: true },
-        date: Date,
+        certificateName: { type: String },
+        date: { type: Date },
       },
     ],
     language: [
       {
-        language: { type: String, required: true },
+        language: { type: String },
         fluencyLevelOption: {
           type: String,
-          required: true,
           enum: [
             'Native Speaker',
             'Fluent',
@@ -71,22 +68,22 @@ const personalSchema = new Schema(
 
     gitHub: [
       {
-        title: { type: String, required: true },
-        photo: String,
-        video: String,
-        repository: String,
-        deployedSite: String,
-        description: String,
+        title: { type: String },
+        photo: { type: String },
+        video: { type: String },
+        repository: { type: String },
+        deployedSite: { type: String },
+        description: { type: String },
       },
     ],
     project: [
       {
-        name: { type: String, required: true },
-        role: String,
-        startDate: Date,
-        endDate: Date,
-        projectURL: String,
-        description: { type: String, required: true },
+        name: { type: String },
+        role: { type: String },
+        startDate: { type: Date },
+        endDate: { type: Date },
+        projectURL: { type: String },
+        description: { type: String },
       },
     ],
   },

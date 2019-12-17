@@ -18,35 +18,51 @@ router.route('/:id').get((req, res) => {
 // Adding new data
 router.route('/add').post((req, res) => {
   const name = req.body.name;
-  const surname = req.body.surname;
   const picture = req.body.picture;
-  const phone = Number(req.body.phone);
-  const country = req.body.country;
+  const about = req.body.about;
   const email = req.body.email;
+  const telephone = req.body.telephone;
+  const country = req.body.country;
   const city = req.body.city;
   const website = req.body.website;
-  const education = req.body.education;
-  const workExperience = req.body.workExperience;
-  const skill = req.body.skill;
-  const certificate = req.body.certificate;
-  const language = req.body.certificate;
+  const workTitle = req.body.workTitle;
+  const company = req.body.company;
+  const location = req.body.location;
+  const employmentType = req.body.employmentType;
+  const jobDescription = req.body.jobDescription;
+  const experienceDate = req.body.experienceDate;
+  const school = req.body.school;
+  const degree = req.body.degree;
+  const fieldOfStudy = req.body.fieldOfStudy;
+  const grade = req.body.grade;
+  const educationDescription = req.body.educationDescription;
+  const educationDate = req.body.educationDate;
+  const skills = req.body.skills;
   const gitHub = req.body.gitHub;
   const project = req.body.project;
 
   const newPersonal = new Personal({
     name,
-    surname,
     picture,
-    phone,
+    about,
+    email,
+    telephone,
     country,
     city,
     website,
-    email,
-    education,
-    workExperience,
-    skill,
-    certificate,
-    language,
+    workTitle,
+    company,
+    location,
+    employmentType,
+    jobDescription,
+    experienceDate,
+    school,
+    degree,
+    fieldOfStudy,
+    grade,
+    educationDescription,
+    educationDate,
+    skills,
     gitHub,
     project,
   });
@@ -69,18 +85,26 @@ router.route('/update/:id').post((req, res) => {
   Personal.findById(req.params.id)
     .then(info => {
       info.name = req.body.name;
-      info.surname = req.body.surname;
-      info.phone = Number(req.body.phone);
       info.picture = req.body.picture;
+      info.about = req.body.about;
+      info.email = req.body.email;
+      info.telephone = req.body.telephone;
       info.country = req.body.country;
       info.city = req.body.city;
       info.website = req.body.website;
-      info.email = req.body.email;
-      info.education = req.body.education;
-      info.workExperience = req.body.workExperience;
-      info.skill = req.body.skill;
-      info.certificate = req.body.certificate;
-      info.language = req.body.language;
+      info.workTitle = req.body.workTitle;
+      info.company = req.body.company;
+      info.location = req.body.location;
+      info.employmentType = req.body.employmentType;
+      info.jobDescription = req.body.jobDescription;
+      info.experienceDate = req.body.experienceDate;
+      info.school = req.body.school;
+      info.degree = req.body.degree;
+      info.fieldOfStudy = req.body.fieldOfStudy;
+      info.grade = req.body.grade;
+      info.educationDescription = req.body.educationDescription;
+      info.educationDate = req.body.educationDate;
+      info.skills = req.body.skills;
       info.gitHub = req.body.gitHub;
       info.project = req.body.project;
       info

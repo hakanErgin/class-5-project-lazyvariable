@@ -17,7 +17,7 @@ const Skills = ({ inputs, handleSubmit, handleInputChange }) => {
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Describe Your Skills">
           <Input
-            placeholder="Team player, ..."
+            placeholder="Team player, Javascript, ..."
             name="skills"
             onChange={handleInputChange}
             value={inputs.skills}

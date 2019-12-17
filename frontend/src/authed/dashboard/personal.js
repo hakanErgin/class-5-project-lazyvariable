@@ -9,12 +9,12 @@ const Personal = ({ inputs, ref, handleSubmit, handleInputChange }) => {
     <div>
       <Title level={3}>Personal & Contact information</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
-        <Form.Item label="Your general title">
+        <Form.Item label="Name">
           <Input
             placeholder=""
-            name="title"
+            name="name"
             onChange={handleInputChange}
-            value={inputs.title}
+            value={inputs.name}
             required
           />
         </Form.Item>
@@ -38,9 +38,6 @@ const Personal = ({ inputs, ref, handleSubmit, handleInputChange }) => {
             value={inputs.telephone}
           />
         </Form.Item>
-        <Form.Item label="City">
-          <Input placeholder="" name="city" onChange={handleInputChange} value={inputs.city} />
-        </Form.Item>
         <Form.Item label="Country">
           <Input
             placeholder=""
@@ -48,6 +45,9 @@ const Personal = ({ inputs, ref, handleSubmit, handleInputChange }) => {
             onChange={handleInputChange}
             value={inputs.country}
           />
+        </Form.Item>
+        <Form.Item label="City">
+          <Input placeholder="" name="city" onChange={handleInputChange} value={inputs.city} />
         </Form.Item>
         <Form.Item label="Website">
           <Input
