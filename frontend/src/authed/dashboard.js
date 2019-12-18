@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,7 +8,6 @@ import Personal from './dashboard/personal';
 import Experience from './dashboard/experience';
 import Education from './dashboard/education';
 import Skills from './dashboard/skills';
-import workExperience from './dashboard/experience';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 
@@ -19,7 +18,6 @@ const Dashboard = () => {
 
   const handleOnclick = () => {
     //  axios.post("") //it will send data to backend/mongodb after modifying it
-    const country = inputs.country;
     console.log('ref', ref);
     axios
       .post(`http://localhost:5000/user/${localStorage.getItem('ID')}`, inputs, {
