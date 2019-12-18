@@ -66,6 +66,10 @@ const Main = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <Link to="/preview">Preview</Link>
+                  <Link to="/auth/github">GitHub</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/portfolio">Portfolio</Link>
                 </Menu.Item>
                 <Menu.Item>
                   <Link to="/auth/logout">Logout</Link>
