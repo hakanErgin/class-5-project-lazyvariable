@@ -13,7 +13,6 @@ import Portfolio from './portfolio';
 
 import { Menu, Layout } from 'antd';
 import './profile/customStyle.css';
-import Preview from '../landing/Preview/Preview';
 
 const { Footer, Sider, Content } = Layout;
 
@@ -104,9 +103,6 @@ const Main = () => {
                 </Route>
                 <Route path="/auth/portfolio">
                   <Portfolio />
-                </Route>
-                <Route path="/preview">
-                  <Preview />
                 </Route>
                 <Route path="/auth/logout">
                   <LogoutComponent />
