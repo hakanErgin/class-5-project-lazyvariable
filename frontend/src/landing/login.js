@@ -37,7 +37,7 @@ const LoginComponent = () => {
   return (
     <div>
       {loggedIn ? (
-        <Redirect to="/auth" />
+        <Redirect to="/auth/dashboard" />
       ) : (
         <div>
           <div className="headerSignUp">
