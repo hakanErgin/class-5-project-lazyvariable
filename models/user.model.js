@@ -30,7 +30,7 @@ const userSchema = new Schema(
     workEndDate: { type: String },
     jobDescription: { type: String },
 
-    skill: { type: String },
+    skills: { type: String },
 
     gitHub: [
       {
