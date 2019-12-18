@@ -4,7 +4,7 @@ import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
-const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange }) => {
+const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateChange }) => {
   const [inputFields, setInputFields] = useState([
     {
       workTitle: '',
@@ -83,9 +83,8 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange
             </Form.Item>
             <Form.Item label="Date">
               <RangePicker
-                onChange={onDateChange}
+                onChange={onExpDateChange}
                 name="experienceDate"
-                value={inputs.experienceDate}
               />
             </Form.Item>
             <Form.Item>
