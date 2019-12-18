@@ -17,8 +17,8 @@ const userSchema = new Schema(
     institution: { type: String },
     fieldOfStudy: { type: String },
     degree: { type: String },
-    educationStartDate: { type: Date },
-    educationEndDate: { type: Date },
+    educationStartDate: { type: String },
+    educationEndDate: { type: String },
     educationDescription: { type: String },
 
     workTitle: { type: String },
@@ -26,11 +26,11 @@ const userSchema = new Schema(
     companyLocation: { type: String },
     employmentType: { type: String },
     is_current: { type: Boolean },
-    workStartDate: { type: Date },
-    workEndDate: { type: Date },
+    workStartDate: { type: String },
+    workEndDate: { type: String },
     jobDescription: { type: String },
 
-    skill: { type: String },
+    skills: { type: String },
 
     gitHub: [
       {

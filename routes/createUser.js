@@ -92,7 +92,7 @@ router.route('/:id').post(auth, (req, res) => {
       info.workStartDate = req.body.workStartDate;
       info.workEndDate = req.body.workEndDate;
       info.jobDescription = req.body.jobDescription;
-      info.skill = req.body.skill;
+      info.skills = req.body.skills;
       info
         .save()
         .then(() => res.json('Added successfully!'))
@@ -137,7 +137,7 @@ router.route('/update/:id').put(auth, (req, res) => {
       info.workStartDate = req.body.workStartDate;
       info.workEndDate = req.body.workEndDate;
       info.jobDescription = req.body.jobDescription;
-      info.skill = req.body.skill;
+      info.skills = req.body.skills;
       info
         .save()
         .then(() => res.json('Added successfully!'))
