@@ -31,14 +31,21 @@ const useSignUpForm = (initialValues, callback) => {
 
   function onEduDateChange(date, educationDate) {
     console.log(date, educationDate);
+    const educationStartDate = educationDate[0]
+    const educationEndDate = educationDate[1]
 
-    setInputs(inputs => ({ ...inputs, educationDate }));
+    setInputs(inputs => ({ ...inputs, educationStartDate }))
+    setInputs(inputs => ({ ...inputs, educationEndDate }))
+
   }
 
   function onExpDateChange(date, experienceDate) {
     console.log(date, experienceDate);
+    const workStartDate = experienceDate[0]
+    const workEndDate = experienceDate[1]
 
-    setInputs(inputs => ({ ...inputs, experienceDate }));
+    setInputs(inputs => ({ ...inputs, workStartDate }));
+    setInputs(inputs => ({ ...inputs, workEndDate }));
   }
 
   return {
