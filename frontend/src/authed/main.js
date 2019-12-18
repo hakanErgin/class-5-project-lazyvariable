@@ -34,6 +34,12 @@ const Main = () => {
                   <Link to="/auth/settings">Settings</Link>
                 </Menu.Item>
                 <Menu.Item>
+                  <Link to="/auth/github">GitHub</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/portfolio">Portfolio</Link>
+                </Menu.Item>
+                <Menu.Item>
                   <Link to="/auth/logout">Logout</Link>
                 </Menu.Item>
               </Menu.ItemGroup>
@@ -54,9 +60,6 @@ const Main = () => {
                 </Route>
                 <Route path="/auth/settings">
                   <Settings />
-                </Route>
-                <Route path="/auth/logout">
-                  <Logout />
                 </Route>
                 <Route path="/auth/github">
                   <GithubComponent />
