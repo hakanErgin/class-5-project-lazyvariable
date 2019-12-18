@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,7 +8,6 @@ import Personal from './dashboard/personal';
 import Experience from './dashboard/experience';
 import Education from './dashboard/education';
 import Skills from './dashboard/skills';
-
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 
@@ -17,14 +16,11 @@ const Dashboard = () => {
     console.log('click', e);
   }
 
- const handleOnclick = () => {
+  const handleOnclick = () => {
     //  axios.post("") //it will send data to backend/mongodb after modifying it
-
-    console.log('inputs', inputs);
     console.log('ref', ref);
-
     axios
-      .post('http://localhost:5000/personal/add', inputs, {
+      .post(`http://localhost:5000/user/${localStorage.getItem('ID')}`, inputs, {
         headers: {
           'x-auth-token': localStorage.getItem('token'),
           'Content-Type': 'application/json',
@@ -43,29 +39,25 @@ const Dashboard = () => {
   const { ref, inputs, handleInputChange, handleSubmit, onEduDateChange, onExpDateChange } = useSignUpForm(
     {
       name: '',
-      about: '',
-      email: '',
-      telephone: '',
+      phone: '',
       country: '',
       city: '',
-      language: '',
       website: '',
       workTitle: '',
-      company: '',
-      location: '',
+      companyName: '',
+      companyLocation: '',
       employmentType: '',
       jobDescription: '',
+      institution: '',
       experienceDate: '',
-      school: '',
       degree: '',
       fieldOfStudy: '',
-      grade: '',
       educationDescription: '',
-      educationDate: '',
       skills: '',
     },
     handleOnclick,
   );
+
   //console.log('dash inputs', inputs);
 
   /* useEffect(() => {

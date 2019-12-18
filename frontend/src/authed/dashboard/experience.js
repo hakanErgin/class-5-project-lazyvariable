@@ -2,16 +2,14 @@ import React, { useState, Fragment } from 'react';
 
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
-
 const { RangePicker } = DatePicker;
 
 const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateChange }) => {
-
   const [inputFields, setInputFields] = useState([
     {
-      work_title: '',
-      company: '',
-      location: '',
+      workTitle: '',
+      companyName: '',
+      companyLocation: '',
       employmentType: '',
       jobDescription: '',
       experienceDate: '',
@@ -21,9 +19,9 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateCha
   const handleAddFields = () => {
     const values = [...inputFields];
     values.push({
-      work_title: '',
-      company: '',
-      location: '',
+      workTitle: '',
+      companyName: '',
+      companyLocation: '',
       employmentType: '',
       jobDescription: '',
       experienceDate: '',
@@ -51,20 +49,20 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateCha
                 value={inputs.workTitle}
               />
             </Form.Item>
-            <Form.Item label="Company">
+            <Form.Item label="companyName">
               <Input
                 placeholder=""
-                name="company"
+                name="companyName"
                 onChange={handleInputChange}
-                value={inputs.company}
+                value={inputs.companyName}
               />
             </Form.Item>
-            <Form.Item label="Location">
+            <Form.Item label="companyLocation">
               <Input
                 placeholder=""
-                name="location"
+                name="companyLocation"
                 onChange={handleInputChange}
-                value={inputs.location}
+                value={inputs.companyLocation}
               />
             </Form.Item>
             <Form.Item label="Employment type" autoComplete="on">
