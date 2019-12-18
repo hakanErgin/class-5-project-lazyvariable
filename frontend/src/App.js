@@ -12,8 +12,8 @@ import LoggedIn from './authed/main';
 import LoginComponent from './landing/login';
 import CreateComponent from './landing/create';
 import Preview from '../src/landing/Preview/Preview';
-import GithubComponent from './authed/dashboard/github';
-import PortfolioComponent from './authed/dashboard/portfolio';
+import GithubComponent from './authed/github';
+import PortfolioComponent from './authed/portfolio';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
