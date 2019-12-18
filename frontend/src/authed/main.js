@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Dashboard from './profile';
 import Profile from './dashboard';
 import Settings from './settings';
-import Logout from './logout';
+import LogoutComponent from './logout';
 import Projects from './projects';
 import GithubComponent from './github';
 import Portfolio from './portfolio';
+
 import { Menu, Layout } from 'antd';
+import Preview from '../landing/Preview/Preview';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -40,6 +42,9 @@ const Main = () => {
                   <Link to="/auth/portfolio">Portfolio</Link>
                 </Menu.Item>
                 <Menu.Item>
+                  <Link to="/preview">Preview</Link>
+                </Menu.Item>
+                <Menu.Item>
                   <Link to="/auth/logout">Logout</Link>
                 </Menu.Item>
               </Menu.ItemGroup>
@@ -67,8 +72,11 @@ const Main = () => {
                 <Route path="/auth/portfolio">
                   <Portfolio />
                 </Route>
+                <Route path="/preview">
+                  <Preview />
+                </Route>
                 <Route path="/auth/logout">
-                  <Logout />
+                  <LogoutComponent />
                 </Route>
               </Switch>
             </Content>
