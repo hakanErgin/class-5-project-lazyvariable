@@ -73,17 +73,26 @@ router.get('/user', auth, (req, res) => {
 router.route('/:id').post(auth, (req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
+      info.name = req.body.name;
       info.phone = req.body.phone;
       info.picture = req.body.picture;
       info.country = req.body.country;
       info.city = req.body.city;
       info.website = req.body.website;
-      info.education = req.body.education;
-      info.workExperience = req.body.workExperience;
+      info.institution = req.body.institution;
+      info.fieldOfStudy = req.body.fieldOfStudy;
+      info.degree = req.body.degree;
+      info.educationStartDate = req.body.educationStartDate;
+      info.educationEndDate = req.body.educationEndDate;
+      info.educationDescription = req.body.educationDescription;
+      info.workTitle = req.body.workTitle;
+      info.companyName = req.body.companyName;
+      info.companyLocation = req.body.companyLocation;
+      info.employmentType = req.body.employmentType;
+      info.workStartDate = req.body.workStartDate;
+      info.workEndDate = req.body.workEndDate;
+      info.jobDescription = req.body.jobDescription;
       info.skill = req.body.skill;
-      info.certificate = req.body.certificate;
-      info.language = req.body.language;
-      info.project = req.body.project;
       info
         .save()
         .then(() => res.json('Added successfully!'))
@@ -109,18 +118,26 @@ router.route('/github/:id').post(auth, (req, res) => {
 router.route('/update/:id').put(auth, (req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
+      info.name = req.body.name;
       info.phone = req.body.phone;
       info.picture = req.body.picture;
       info.country = req.body.country;
       info.city = req.body.city;
       info.website = req.body.website;
-      info.education = req.body.education;
-      info.workExperience = req.body.workExperience;
+      info.institution = req.body.institution;
+      info.fieldOfStudy = req.body.fieldOfStudy;
+      info.degree = req.body.degree;
+      info.educationStartDate = req.body.educationStartDate;
+      info.educationEndDate = req.body.educationEndDate;
+      info.educationDescription = req.body.educationDescription;
+      info.workTitle = req.body.workTitle;
+      info.companyName = req.body.companyName;
+      info.companyLocation = req.body.companyLocation;
+      info.employmentType = req.body.employmentType;
+      info.workStartDate = req.body.workStartDate;
+      info.workEndDate = req.body.workEndDate;
+      info.jobDescription = req.body.jobDescription;
       info.skill = req.body.skill;
-      info.certificate = req.body.certificate;
-      info.language = req.body.language;
-      info.gitHub = req.body.gitHub;
-      info.project = req.body.project;
       info
         .save()
         .then(() => res.json('Added successfully!'))

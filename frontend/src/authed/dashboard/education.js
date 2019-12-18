@@ -7,10 +7,9 @@ const { RangePicker } = DatePicker;
 const Education = ({ inputs, handleSubmit, handleInputChange, onDateChange }) => {
   const [inputFields, setInputFields] = useState([
     {
-      school: '',
-      degree: '',
+      institution: '',
       fieldOfStudy: '',
-      grade: '',
+      degree: '',
       educationDescription: '',
       educationDate: '',
     },
@@ -18,10 +17,9 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onDateChange }) =>
   const handleAddFields = () => {
     const values = [...inputFields];
     values.push({
-      school: '',
-      degree: '',
+      institution: '',
       fieldOfStudy: '',
-      grade: '',
+      degree: '',
       educationDescription: '',
       educationDate: '',
     });
@@ -40,20 +38,12 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onDateChange }) =>
       <Form onSubmit={handleSubmit} autoComplete="off">
         {inputFields.map((inputField, index) => (
           <Fragment key={`${inputField}~${index}`}>
-            <Form.Item label="School">
+            <Form.Item label="institution">
               <Input
                 placeholder=""
-                name="school"
+                name="institution"
                 onChange={handleInputChange}
-                value={inputs.school}
-              />
-            </Form.Item>
-            <Form.Item label="Degree">
-              <Input
-                placeholder=""
-                name="degree"
-                onChange={handleInputChange}
-                value={inputs.degree}
+                value={inputs.institution}
               />
             </Form.Item>
             <Form.Item label="Field of study">
@@ -64,12 +54,12 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onDateChange }) =>
                 value={inputs.fieldOfStudy}
               />
             </Form.Item>
-            <Form.Item label="Grade">
+            <Form.Item label="Degree">
               <Input
                 placeholder=""
-                name="grade"
+                name="degree"
                 onChange={handleInputChange}
-                value={inputs.grade}
+                value={inputs.degree}
               />
             </Form.Item>
             <Form.Item label="Description">
