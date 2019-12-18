@@ -44,7 +44,7 @@ router.route('/add').post((req, res) => {
   const newPersonal = new Personal({
     name,
     picture,
-    about,
+    // about,
     email,
     telephone,
     country,
@@ -59,8 +59,8 @@ router.route('/add').post((req, res) => {
     school,
     degree,
     fieldOfStudy,
-    grade,
-    educationDescription,
+    // grade,
+    // educationDescription,
     educationDate,
     skills,
     gitHub,
@@ -87,7 +87,7 @@ router.route('/update/:id').post((req, res) => {
       info.name = req.body.name;
       info.phone = req.body.phone;
       info.picture = req.body.picture;
-      info.about = req.body.about;
+      // info.about = req.body.about;
       info.email = req.body.email;
       info.telephone = req.body.telephone;
       info.country = req.body.country;
@@ -102,8 +102,8 @@ router.route('/update/:id').post((req, res) => {
       info.school = req.body.school;
       info.degree = req.body.degree;
       info.fieldOfStudy = req.body.fieldOfStudy;
-      info.grade = req.body.grade;
-      info.educationDescription = req.body.educationDescription;
+      // info.grade = req.body.grade;
+      // info.educationDescription = req.body.educationDescription;
       info.educationDate = req.body.educationDate;
       info.skills = req.body.skills;
       info.gitHub = req.body.gitHub;
