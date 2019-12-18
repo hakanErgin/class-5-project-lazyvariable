@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './profile/customStyle.css';
+
 const GithubComponent = () => {
   const [repos, setRepos] = useState([]);
   const [show, toggleShow] = useState(false);

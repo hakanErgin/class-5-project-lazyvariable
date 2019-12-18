@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react';
+import './customStyle.css';
 
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
@@ -36,7 +37,7 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateCha
   };
 
   return (
-    <div>
+    <div className="customStyle">
       <Title level={3}>Work experience</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         {inputFields.map((inputField, index) => (
@@ -82,10 +83,7 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateCha
               />
             </Form.Item>
             <Form.Item label="Date">
-              <RangePicker
-                onChange={onExpDateChange}
-                name="experienceDate"
-              />
+              <RangePicker onChange={onExpDateChange} name="experienceDate" />
             </Form.Item>
             <Form.Item>
               <Button
@@ -93,14 +91,14 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateCha
                 style={{ width: '60%' }}
                 onClick={() => handleRemoveFields(index)}
               >
-                <Icon type="plus" /> Remove Field
+                <Icon type="plus" /> Remove work
               </Button>
             </Form.Item>
           </Fragment>
         ))}
         <Form.Item>
           <Button type="dashed" style={{ width: '60%' }} onClick={() => handleAddFields()}>
-            <Icon type="plus" /> Add field
+            <Icon type="plus" /> Add work
           </Button>
         </Form.Item>
         <Form.Item>

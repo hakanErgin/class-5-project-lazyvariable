@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react';
+import './customStyle.css';
 
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
@@ -33,7 +34,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
   };
 
   return (
-    <div>
+    <div className="customStyle">
       <Title level={3}>Education</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         {inputFields.map((inputField, index) => (
@@ -71,10 +72,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
               />
             </Form.Item>
             <Form.Item label="Date">
-              <RangePicker
-                onChange={onEduDateChange}
-                name="educationDate"
-              />
+              <RangePicker onChange={onEduDateChange} name="educationDate" />
             </Form.Item>
             <Form.Item>
               <Button
@@ -82,14 +80,14 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
                 style={{ width: '60%' }}
                 onClick={() => handleRemoveFields(index)}
               >
-                <Icon type="plus" /> Remove Field
+                <Icon type="plus" /> Remove education
               </Button>
             </Form.Item>
           </Fragment>
         ))}
         <Form.Item>
           <Button type="dashed" style={{ width: '60%' }} onClick={() => handleAddFields()}>
-            <Icon type="plus" /> Add field
+            <Icon type="plus" /> Add education
           </Button>
         </Form.Item>
         <Form.Item>

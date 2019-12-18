@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './customStyle.css';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
@@ -7,7 +7,7 @@ const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange })
   console.log('personal inputs', inputs);
 
   return (
-    <div>
+    <div className="customStyle">
       <Title level={3}>Personal & Contact information</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Name">

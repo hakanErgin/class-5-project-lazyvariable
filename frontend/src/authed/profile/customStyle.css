@@ -1,0 +1,177 @@
+.ant-typography {
+  color: #082371 !important;
+  margin-top: 25px;
+}
+
+.customStyle {
+  width: 70%;
+  margin-left: 80px;
+}
+
+.ant-menu.ant-menu-light.ant-menu-root.ant-menu-horizontal {
+  width: 70%;
+  margin-left: 80px;
+}
+.ant-form label {
+  color: #6b748f !important;
+  font-size: 16px !important;
+}
+.ant-input {
+  background: #f9f9f9 0% 0% no-repeat padding-box !important;
+  border: 1px solid #6b748f !important;
+  width: 396.58px;
+  height: 45px !important;
+  border-radius: 3px !important;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #6b748f !important;
+}
+
+.ant-input:hover {
+  border: 1px solid #082371 !important;
+}
+.ant-input:focus {
+  border: 1px solid #082371 !important;
+  outline: none !important;
+}
+.ant-menu-horizontal > .ant-menu-item-selected > a {
+  color: #f96156 !important;
+}
+.ant-menu-horizontal > .ant-menu-item-selected {
+  border-color: #f96156 !important;
+}
+.ant-menu-horizontal > .ant-menu-item > a {
+  color: #6b748f !important;
+}
+
+.ant-btn.ant-btn-primary {
+  box-shadow: 0px 12px 30px #c1d1ffb3;
+  opacity: 1;
+  color: white;
+  border: none;
+  width: 144px;
+  height: 46px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.ant-btn-primary {
+  background-color: #082371 !important;
+}
+.ant-btn-primary:hover {
+  background-color: #f96156 !important;
+}
+.ant-layout-sider.ant-layout-sider-light {
+  width: 350px !important;
+  min-width: 350px !important;
+  max-width: 350px !important;
+  flex: 0 0 350px !important;
+  margin-left: 0px !important;
+  height: 100vw;
+}
+.ant-layout-sider-light {
+  background: #f9f9f9 !important;
+}
+.ant-menu {
+  background: #f9f9f9 !important;
+  font-size: 16px !important;
+}
+.ant-menu-vertical .ant-menu-item {
+  font-size: 18px !important;
+  padding-left: 60px !important;
+  height: 60px !important;
+  line-height: 67px !important;
+}
+.ant-menu-vertical .ant-menu-item:nth-child(1) {
+  margin-top: 30px;
+}
+
+.ant-layout-header {
+  margin-left: 90px !important;
+}
+.ant-layout {
+  background: white !important;
+}
+.ant-menu-horizontal > .ant-menu-item:hover {
+  border-color: #f96156 !important;
+}
+.ant-menu-item > a {
+  color: #082371 !important;
+}
+
+.ant-menu-item > a:hover {
+  color: #f96156 !important;
+}
+.ant-menu-item > a:focus {
+  color: #f96156 !important;
+}
+.ant-menu-vertical .ant-menu-item:hover {
+  background: white;
+}
+.ant-menu-vertical .ant-menu-item:focus {
+  background: white !important;
+}
+
+.logoDashboard {
+  padding-left: 60px;
+  margin-bottom: 100px;
+}
+.ant-layout-footer {
+  background: white !important;
+}
+.ant-layout.ant-layout-has-sider {
+  height: 100%;
+}
+.iconNumber {
+  margin-bottom: 40px;
+  margin-left: -75px;
+}
+.signUpSubmit {
+  display: block;
+  margin-top: 30px !important;
+}
+
+.signUpText {
+  display: inline;
+  margin-left: 20px;
+}
+.paraTitle {
+  margin-top: -30px !important;
+  font-size: 16px !important;
+  color: #6b748f !important;
+}
+.steps2 {
+  margin-top: 50px;
+}
+.profileHeader {
+  height: 170px;
+  margin-top: 60px;
+  margin-left: 80px;
+}
+.ant-menu-vertical {
+  border-right: none !important;
+}
+.btn-github {
+  background: #444;
+  color: white !important;
+  border-radius: 3px;
+  height: 46px;
+  outline: none;
+  border: none;
+  padding-left: 21px;
+  padding-right: 21px;
+}
+.importTitle {
+  padding-left: 17px;
+  font-size: 16px;
+}
+.userName {
+  padding-left: 150px;
+  font-size: 18px;
+  color: #f96156;
+}
+.userPhoto {
+  margin-left: 60px;
+  margin-top: -35px;
+}
