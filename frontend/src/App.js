@@ -12,7 +12,7 @@ import LoggedIn from './authed/main';
 import LoginComponent from './landing/login';
 import LogoutComponent from './landing/logout';
 import CreateComponent from './landing/create';
-import Preview from './nav/Preview/Preview';
+import Preview from '../src/landing/Preview/Preview';
 import GithubComponent from './authed/dashboard/github';
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
