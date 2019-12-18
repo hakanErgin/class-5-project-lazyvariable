@@ -36,7 +36,7 @@ const Profile = () => {
     //alert('Successfully saved!');
   };
 
-  const { ref, inputs, handleInputChange, handleSubmit, onDateChange } = useSignUpForm(
+  const { ref, inputs, handleInputChange, handleSubmit, onEduDateChange, onExpDateChange } = useSignUpForm(
     {
       name: '',
       phone: '',
@@ -100,7 +100,7 @@ const Profile = () => {
               ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
-              onDateChange={onDateChange}
+              onExpDateChange={onExpDateChange}
             />
           </Route>
           <Route path="/auth/profile/education">
@@ -110,7 +110,7 @@ const Profile = () => {
               ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
-              onDateChange={onDateChange}
+              onEduDateChange={onEduDateChange}
             />
           </Route>
           <Route path="/auth/profile/skills">
