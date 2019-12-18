@@ -39,7 +39,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
       <Form onSubmit={handleSubmit} autoComplete="off">
         {inputFields.map((inputField, index) => (
           <Fragment key={`${inputField}~${index}`}>
-            <Form.Item label="institution">
+            <Form.Item label="Institution">
               <Input
                 placeholder=""
                 name="institution"
