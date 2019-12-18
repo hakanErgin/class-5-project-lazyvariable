@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import Dashboard from './dashboard';
-import Profile from './profile';
+import Dashboard from './profile';
+import Profile from './dashboard';
 import Settings from './settings';
-import Logout from '../landing/logout';
-
+import Logout from './logout';
+import Projects from './projects';
+import GithubComponent from './github';
+import Portfolio from './portfolio';
 import { Menu, Layout } from 'antd';
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -20,10 +22,13 @@ const Main = () => {
               <Menu.ItemGroup title="HERE: Gitpro and logo" />
               <Menu.ItemGroup title="HERE: Person and Icon">
                 <Menu.Item>
-                  <Link to="/auth/dashboard/personal">Dashboard</Link>
+                  <Link to="/auth/dashboard">Dashboard</Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link to="/auth/profile">Profile</Link>
+                  <Link to="/auth/profile/personal">Profile</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/projects">Projects</Link>
                 </Menu.Item>
                 <Menu.Item>
                   <Link to="/auth/settings">Settings</Link>
@@ -31,7 +36,6 @@ const Main = () => {
                 <Menu.Item>
                   <Link to="/auth/logout">Logout</Link>
                 </Menu.Item>
-
               </Menu.ItemGroup>
             </Menu>
           </Sider>
@@ -40,13 +44,25 @@ const Main = () => {
             <Content style={{ margin: 10 }}>
               <Switch>
                 <Route path="/auth/dashboard">
+                  <Profile />
+                </Route>
+                <Route path="/auth/profile/personal">
                   <Dashboard />
                 </Route>
-                <Route path="/auth/profile">
-                  <Profile />
+                <Route path="/auth/projects">
+                  <Projects />
                 </Route>
                 <Route path="/auth/settings">
                   <Settings />
+                </Route>
+                <Route path="/auth/logout">
+                  <Logout />
+                </Route>
+                <Route path="/auth/github">
+                  <GithubComponent />
+                </Route>
+                <Route path="/auth/portfolio">
+                  <Portfolio />
                 </Route>
                 <Route path="/auth/logout">
                   <Logout />

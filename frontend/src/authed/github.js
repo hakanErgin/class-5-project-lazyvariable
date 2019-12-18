@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 const GithubComponent = () => {
   const [repos, setRepos] = useState([]);
+  const [show, toggleShow] = useState(false);
 
   const gitHub = [];
-
-  useEffect(() => {
+  const FetchButton = () => {
     axios
       .get(`https://api.github.com/users/${localStorage.getItem('username')}/repos`)
       .then(result => {
@@ -14,8 +14,7 @@ const GithubComponent = () => {
       .catch(err => {
         console.log(err);
       });
-  }, []);
-
+  };
   const ImportButton = () => {
     axios.post(
       `http://localhost:5000/user/github/${localStorage.getItem('ID')}`,
@@ -33,6 +32,16 @@ const GithubComponent = () => {
 
   return (
     <div>
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          FetchButton();
+          console.log(gitHub);
+        }}
+      >
+        <input type="submit" value="import from GitHub" onClick={() => toggleShow(!show)} />
+      </form>
+
       {repos.map(function(item) {
         const title = item.name;
         const description = item.description;
@@ -52,14 +61,14 @@ const GithubComponent = () => {
           </div>
         );
       })}
+
       <form
         onSubmit={event => {
-          event.preventDefault();
           ImportButton();
           console.log(gitHub);
         }}
       >
-        <input type="submit" value="import" />
+        {show && <input type="submit" value="import" />}
       </form>
     </div>
   );

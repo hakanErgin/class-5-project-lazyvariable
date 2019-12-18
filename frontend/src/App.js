@@ -10,11 +10,10 @@ import Homepage from './landing/homepage';
 import SignUp from './landing/signUp';
 import LoggedIn from './authed/main';
 import LoginComponent from './landing/login';
-import LogoutComponent from './landing/logout';
 import CreateComponent from './landing/create';
 import Preview from '../src/landing/Preview/Preview';
-import GithubComponent from './authed/dashboard/github';
-import PortfolioComponent from './authed/dashboard/portfolio';
+import GithubComponent from './authed/github';
+import PortfolioComponent from './authed/portfolio';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
@@ -30,7 +29,6 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/auth" component={LoggedIn} />
         <Route path="/login" component={LoginComponent} />
-        <Route path="/logout" component={LogoutComponent} />
         <Route path="/create" component={CreateComponent} />
         <Route path="/preview" component={Preview} />
         <Route path="/github" component={GithubComponent} />
