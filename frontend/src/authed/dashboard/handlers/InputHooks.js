@@ -9,15 +9,6 @@ const useSignUpForm = (initialValues, callback) => {
     ref.current = inputs;
   }, [inputs]);
 
-  // function useStateRef(initialValue) {
-  //const [value, setValue] = useState(initialValue);
-  //const ref = useRef(value);
-  /*useEffect(() => {
-      ref.current = value;
-    }, [value]);*/
-  //return [value, setValue, ref];
-  // }
-
   const handleSubmit = event => {
     if (event) {
       event.preventDefault();
@@ -38,9 +29,16 @@ const useSignUpForm = (initialValues, callback) => {
     console.log('ref', ref);
   };
 
-  function onDateChange(date, dateString) {
-    console.log(date, dateString);
-    setInputs(inputs => ({ ...inputs, [this.name]: this.value.dateString }));
+  function onEduDateChange(date, educationDate) {
+    console.log(date, educationDate);
+
+    setInputs(inputs => ({ ...inputs, educationDate }));
+  }
+
+  function onExpDateChange(date, experienceDate) {
+    console.log(date, experienceDate);
+
+    setInputs(inputs => ({ ...inputs, experienceDate }));
   }
 
   return {
@@ -48,8 +46,9 @@ const useSignUpForm = (initialValues, callback) => {
     handleInputChange,
     inputs,
     ref,
-    onDateChange,
-
+    onEduDateChange,
+    onExpDateChange
   };
 };
+
 export default useSignUpForm;

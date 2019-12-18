@@ -40,7 +40,7 @@ const Dashboard = () => {
     //alert('Successfully saved!');
   };
 
-  const { ref, inputs, handleInputChange, handleSubmit, onDateChange } = useSignUpForm(
+  const { ref, inputs, handleInputChange, handleSubmit, onEduDateChange, onExpDateChange } = useSignUpForm(
     {
       name: '',
       about: '',
@@ -109,7 +109,7 @@ const Dashboard = () => {
               ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
-              onDateChange={onDateChange}
+              onExpDateChange={onExpDateChange}
             />
           </Route>
           <Route path="/auth/dashboard/education">
@@ -119,7 +119,7 @@ const Dashboard = () => {
               ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
-              onDateChange={onDateChange}
+              onEduDateChange={onEduDateChange}
             />
           </Route>
           {/* <Route path="/auth/dashboard/projects"><Projects /></Route> */}
