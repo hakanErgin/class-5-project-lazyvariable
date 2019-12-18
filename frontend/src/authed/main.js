@@ -7,12 +7,12 @@ import Profile from './dashboard';
 import Settings from './settings';
 import LogoutComponent from './logout';
 import Projects from './projects';
+import Preview from '../landing/Preview/Preview';
 import GithubComponent from './github';
 import Portfolio from './portfolio';
 
 import { Menu, Layout } from 'antd';
 import './profile/customStyle.css';
-import Preview from '../landing/Preview/Preview';
 
 const { Footer, Sider, Content } = Layout;
 
@@ -65,12 +65,6 @@ const Main = () => {
                   <Link to="/auth/settings">Settings</Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link to="/auth/github">GitHub</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link to="/auth/portfolio">Portfolio</Link>
-                </Menu.Item>
-                <Menu.Item>
                   <Link to="/preview">Preview</Link>
                 </Menu.Item>
                 <Menu.Item>
@@ -94,14 +88,14 @@ const Main = () => {
                 <Route path="/auth/settings">
                   <Settings />
                 </Route>
+                <Route path="/preview">
+                  <Preview />
+                </Route>
                 <Route path="/auth/github">
                   <GithubComponent />
                 </Route>
                 <Route path="/auth/portfolio">
                   <Portfolio />
-                </Route>
-                <Route path="/preview">
-                  <Preview />
                 </Route>
                 <Route path="/auth/logout">
                   <LogoutComponent />
