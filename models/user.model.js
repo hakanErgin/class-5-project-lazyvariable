@@ -7,65 +7,30 @@ const userSchema = new Schema(
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    name: { type: String },
     picture: { type: String },
     phone: { type: String },
     country: { type: String },
     city: { type: String },
     website: { type: String },
 
-    education: [
-      {
-        institution: { type: String },
-        fieldOfStudy: { type: String },
-        degree: { type: String },
-        startDate: { type: Date },
-        endDate: { type: Date },
-      },
-    ],
-    workExperience: [
-      {
-        companyName: { type: String },
-        companyUrl: { type: String },
-        employmentType: {
-          type: { type: String },
-          enum: [
-            'Full-Time',
-            'Part-Time',
-            'Self-Employed',
-            'Freelance',
-            'Contract',
-            'Internship',
-            'Apprenticeship',
-          ],
-        },
-        is_current: { type: Boolean },
-        startDate: { type: Date },
-        endDate: { type: Date },
-        description: { type: String },
-      },
-    ],
+    institution: { type: String },
+    fieldOfStudy: { type: String },
+    degree: { type: String },
+    educationStartDate: { type: Date },
+    educationEndDate: { type: Date },
+    educationDescription: { type: String },
+
+    workTitle: { type: String },
+    companyName: { type: String },
+    companyLocation: { type: String },
+    employmentType: { type: String },
+    is_current: { type: Boolean },
+    workStartDate: { type: Date },
+    workEndDate: { type: Date },
+    jobDescription: { type: String },
+
     skill: { type: String },
-    certificate: [
-      {
-        certificateName: { type: String },
-        date: { type: Date },
-      },
-    ],
-    language: [
-      {
-        language: { type: String },
-        fluencyLevelOption: {
-          type: { type: String },
-          enum: [
-            'Native Speaker',
-            'Fluent',
-            'Proficient',
-            'Intermediate',
-            'Basic Communication Skills',
-          ],
-        },
-      },
-    ],
 
     gitHub: [
       {
@@ -74,16 +39,6 @@ const userSchema = new Schema(
         video: { type: String },
         repository: { type: String },
         deployedSite: { type: String },
-        description: { type: String },
-      },
-    ],
-    project: [
-      {
-        name: { type: String },
-        role: { type: String },
-        startDate: { type: Date },
-        endDate: { type: Date },
-        projectURL: { type: String },
         description: { type: String },
       },
     ],

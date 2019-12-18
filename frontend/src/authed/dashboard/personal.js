@@ -19,25 +19,8 @@ const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange })
             required
           />
         </Form.Item>
-        <Form.Item label="About you">
-          <Input placeholder="" name="about" onChange={handleInputChange} value={inputs.about} />
-        </Form.Item>
-        <Form.Item label="Email">
-          <Input
-            placeholder=""
-            name="email"
-            onChange={handleInputChange}
-            value={inputs.email}
-            required
-          />
-        </Form.Item>
-        <Form.Item label="Telephone">
-          <Input
-            placeholder=""
-            name="telephone"
-            onChange={handleInputChange}
-            value={inputs.telephone}
-          />
+        <Form.Item label="phone">
+          <Input placeholder="" name="phone" onChange={handleInputChange} value={inputs.phone} />
         </Form.Item>
         <Form.Item label="Country">
           <Input
@@ -49,14 +32,6 @@ const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange })
         </Form.Item>
         <Form.Item label="City">
           <Input placeholder="" name="city" onChange={handleInputChange} value={inputs.city} />
-        </Form.Item>
-        <Form.Item label="Languages">
-          <Input
-            placeholder=""
-            name="language"
-            onChange={handleInputChange}
-            value={inputs.language}
-          />
         </Form.Item>
         <Form.Item label="Website">
           <Input
