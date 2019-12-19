@@ -84,7 +84,7 @@ const SignUp = () => {
                   submitForm();
                 }}
               >
-                <div className="signUpText">Sign up</div>
+                <div className="signupTitle">Sign up</div>
                 <div className="signUpLabel">GitHub username</div>
                 <input
                   className="signUpInput"
