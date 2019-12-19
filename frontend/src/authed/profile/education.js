@@ -5,6 +5,7 @@ import Skills from './skills';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
+const { TextArea } = Input;
 
 const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange }) => {
   const [inputFields, setInputFields] = useState([
@@ -65,7 +66,9 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
               />
             </Form.Item>
             <Form.Item label="Description">
-              <Input
+              <TextArea
+                className="newInput"
+                rows={4}
                 placeholder=""
                 name="educationDescription"
                 onChange={handleInputChange}

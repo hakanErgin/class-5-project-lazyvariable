@@ -5,6 +5,7 @@ import Education from './education';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
+const { TextArea } = Input;
 
 const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }) => {
   const [inputFields, setInputFields] = useState([
@@ -76,7 +77,9 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
               />
             </Form.Item>
             <Form.Item label="Description">
-              <Input
+              <TextArea
+                className="newInput"
+                rows={4}
                 placeholder=""
                 name="jobDescription"
                 onChange={handleInputChange}
