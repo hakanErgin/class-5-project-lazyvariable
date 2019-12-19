@@ -65,16 +65,10 @@ const Main = () => {
                   <Link to="/auth/projects">Projects</Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link to="/auth/settings">Settings</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link to="/auth/github">GitHub</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link to="/auth/portfolio">Portfolio</Link>
-                </Menu.Item>
-                <Menu.Item>
                   <Link to="/preview">Preview</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/settings">Settings</Link>
                 </Menu.Item>
                 <Menu.Item>
                   <Link to="/auth/logout">Logout</Link>
