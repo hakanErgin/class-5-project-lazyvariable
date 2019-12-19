@@ -40,7 +40,7 @@ const Main = () => {
         <Layout>
           <Sider theme="light" style={{ paddingTop: 40 }}>
             <Menu selectable={false} mode="vertical">
-              <img className="logoDashboard" src="https://i.ibb.co/cDXz5vG/logo.png" />
+              <img className="logoDashboard" src="https://i.ibb.co/cDXz5vG/logo.png" alt="element"/>
               <span>
                 <div className="userName">{name}</div>
                 <div
@@ -65,16 +65,10 @@ const Main = () => {
                   <Link to="/auth/projects">Projects</Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link to="/auth/settings">Settings</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link to="/auth/github">GitHub</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link to="/auth/portfolio">Portfolio</Link>
-                </Menu.Item>
-                <Menu.Item>
                   <Link to="/preview">Preview</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/settings">Settings</Link>
                 </Menu.Item>
                 <Menu.Item>
                   <Link to="/auth/logout">Logout</Link>

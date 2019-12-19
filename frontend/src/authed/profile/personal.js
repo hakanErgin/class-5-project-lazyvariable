@@ -1,8 +1,10 @@
 import React from 'react';
+import Experience from './experience';
+import { BrowserRouter as Route, Link } from 'react-router-dom';
+// import Skills from './skills'
 import './customStyle.css';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
-
 const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
   console.log('personal inputs', inputs);
 
@@ -42,11 +44,22 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
           />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" onClick={() => (setSelected = '2')}>
-            {/* <a href="./experience"> */}
-            Save
-            {/* </a> */}
-          </Button>
+          <Link to="/auth/profile/experience">
+            <Button
+              type="primary"
+              onClick={() => {
+                return (
+                  <div>
+                    <Route>
+                      <Experience />
+                    </Route>
+                  </div>
+                );
+              }}
+            >
+              Next
+            </Button>
+          </Link>
         </Form.Item>
       </Form>
     </div>
