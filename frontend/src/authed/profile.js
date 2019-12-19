@@ -47,6 +47,7 @@ const Profile = () => {
   } = useSignUpForm(
     {
       name: '',
+      about: '',
       phone: '',
       country: '',
       city: '',

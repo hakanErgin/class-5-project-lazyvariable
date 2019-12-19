@@ -389,3 +389,8 @@ body {
   color: white;
   cursor: pointer;
 }
+form textarea.ant-input {
+  height: auto !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

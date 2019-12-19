@@ -5,6 +5,8 @@ import { BrowserRouter as Route, Link } from 'react-router-dom';
 import './customStyle.css';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
+const { TextArea } = Input;
+
 const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
   console.log('personal inputs', inputs);
 
@@ -21,6 +23,16 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
             required
           />
         </Form.Item>
+        <Form.Item label="About">
+          <TextArea
+            className="newInput"
+            rows={4}
+            placeholder=""
+            name="about"
+            onChange={handleInputChange}
+            value={inputs.about}
+          />
+        </Form.Item>
         <Form.Item label="Telephone Number">
           <Input placeholder="" name="phone" onChange={handleInputChange} value={inputs.phone} />
         </Form.Item>
@@ -35,6 +47,7 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
         <Form.Item label="City">
           <Input placeholder="" name="city" onChange={handleInputChange} value={inputs.city} />
         </Form.Item>
+
         <Form.Item label="Website">
           <Input
             placeholder=""
