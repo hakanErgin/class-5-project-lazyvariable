@@ -26,7 +26,6 @@ function Preview() {
 
   if (!res.response) {
     return null;
-    return <div>Loading...</div>;
   }
 
   const email = res.response.email;

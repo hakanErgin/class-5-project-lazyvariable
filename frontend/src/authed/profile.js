@@ -19,7 +19,7 @@ const Profile = () => {
 
   const handleOnclick = () => {
     //  axios.post("") //it will send data to backend/mongodb after modifying it
-    console.log('ref', ref);
+    // console.log('ref', ref);
     axios
       .post(`http://localhost:5000/user/${localStorage.getItem('ID')}`, inputs, {
         headers: {
@@ -38,7 +38,7 @@ const Profile = () => {
   };
 
   const {
-    ref,
+    // ref,
     inputs,
     handleInputChange,
     handleSubmit,
@@ -100,7 +100,6 @@ const Profile = () => {
             <Personal
               setSelected={setSelected}
               inputs={inputs}
-              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
             />
@@ -109,7 +108,6 @@ const Profile = () => {
             <Experience
               setSelected={setSelected}
               inputs={inputs}
-              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
               onExpDateChange={onExpDateChange}
@@ -119,7 +117,6 @@ const Profile = () => {
             <Education
               setSelected={setSelected}
               inputs={inputs}
-              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
               onEduDateChange={onEduDateChange}
@@ -129,7 +126,6 @@ const Profile = () => {
             <Skills
               setSelected={setSelected}
               inputs={inputs}
-              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
             />
