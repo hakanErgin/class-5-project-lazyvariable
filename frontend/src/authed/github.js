@@ -7,7 +7,7 @@ const GithubComponent = () => {
   const [show, toggleShow] = useState(false);
 
   const gitHub = [];
-  const FetchButton = () => {
+  useEffect(() => {
     axios
       .get(`https://api.github.com/users/${localStorage.getItem('username')}/repos`)
       .then(result => {
@@ -16,7 +16,7 @@ const GithubComponent = () => {
       .catch(err => {
         console.log(err);
       });
-  };
+  }, []);
   const ImportButton = () => {
     axios.post(
       `http://localhost:5000/user/github/${localStorage.getItem('ID')}`,
