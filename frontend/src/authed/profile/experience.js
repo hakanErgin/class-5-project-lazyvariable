@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import './customStyle.css';
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Education from './education';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
@@ -102,11 +103,22 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateCha
           </Button>
         </Form.Item>
         <Form.Item>
-          <Button type="primary">
-            {/* <a href="./experience"> */}
-            Save
-            {/* </a> */}
-          </Button>
+          <Link to="/auth/profile/education">
+            <Button
+              type="primary"
+              onClick={() => {
+                return (
+                  <div>
+                    <Route>
+                      <Education />
+                    </Route>
+                  </div>
+                );
+              }}
+            >
+              Next
+            </Button>
+          </Link>
         </Form.Item>
       </Form>
     </div>
