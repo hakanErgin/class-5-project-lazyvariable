@@ -5,7 +5,7 @@ import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
-const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateChange }) => {
+const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }) => {
   const [inputFields, setInputFields] = useState([
     {
       workTitle: '',

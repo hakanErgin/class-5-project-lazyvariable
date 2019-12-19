@@ -18,7 +18,7 @@ const LoginComponent = () => {
           localStorage.setItem('ID', e.data.user.id);
 
           setLoggedIn(true);
-          console.log(e.data.token);
+          //console.log(e.data.token);
         } else {
           setLoggedIn(false);
         }

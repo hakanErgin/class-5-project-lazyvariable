@@ -3,7 +3,7 @@ import './customStyle.css';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
-const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange }) => {
+const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
   console.log('personal inputs', inputs);
 
   return (
