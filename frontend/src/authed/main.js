@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+import './Preview.css'; // here is where the magic happens
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Dashboard from './profile';

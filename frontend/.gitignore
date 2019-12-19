@@ -19,7 +19,7 @@ reports/
 .env.test.local
 .env.production.local
 
+frontend/debug.log
 npm-debug.log*
-debug.log
 yarn-debug.log*
 yarn-error.log*
