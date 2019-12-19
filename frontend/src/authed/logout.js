@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-import { Redirect } from 'react-router';
 
 const LogoutComponent = () => {
   useEffect(() => {
-    localStorage.clear();
-    return () => { };
+    localStorage.clear()
+    alert('Logged out!')
+    return () => { }
   });
-  alert('Logged out!')
-  return <Redirect to="/" />;
+  return (
+    <div><h1>Go to <a href="http://localhost:3000">home</a></h1></div>
+  )
 };
 export default LogoutComponent;
