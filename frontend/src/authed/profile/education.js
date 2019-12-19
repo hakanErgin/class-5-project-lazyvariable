@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import './customStyle.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Route, Link } from 'react-router-dom';
 import Skills from './skills';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;

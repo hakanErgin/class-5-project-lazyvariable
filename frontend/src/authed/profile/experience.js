@@ -1,12 +1,12 @@
 import React, { useState, Fragment } from 'react';
 import './customStyle.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Route, Link } from 'react-router-dom';
 import Education from './education';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
-const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateChange }) => {
+const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }) => {
   const [inputFields, setInputFields] = useState([
     {
       workTitle: '',

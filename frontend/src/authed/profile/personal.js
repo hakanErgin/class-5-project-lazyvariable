@@ -1,11 +1,11 @@
 import React from 'react';
 import Experience from './experience';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Skills from './skills'
+import { BrowserRouter as Route, Link } from 'react-router-dom';
+// import Skills from './skills'
 import './customStyle.css';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
-const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange }) => {
+const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
   console.log('personal inputs', inputs);
 
   return (
