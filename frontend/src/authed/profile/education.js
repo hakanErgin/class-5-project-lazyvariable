@@ -91,7 +91,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
             <Icon type="plus" /> Add education
           </Button>
         </Form.Item>
-        <Form.Item>
+        {/* <Form.Item>
           <Link to="/auth/profile/skills">
             <Button
               type="primary"
@@ -108,7 +108,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
               Next
             </Button>
           </Link>
-        </Form.Item>
+        </Form.Item> */}
       </Form>
     </div>
   );

@@ -43,7 +43,7 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
             value={inputs.website}
           />
         </Form.Item>
-        <Form.Item>
+        {/* <Form.Item>
           <Link to="/auth/profile/experience">
             <Button
               type="primary"
@@ -60,7 +60,7 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
               Next
             </Button>
           </Link>
-        </Form.Item>
+        </Form.Item> */}
       </Form>
     </div>
   );
