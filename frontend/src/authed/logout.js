@@ -6,7 +6,7 @@ const LogoutComponent = () => {
     localStorage.clear();
     return () => { };
   });
-
+  alert('Logged out!')
   return <Redirect to="/" />;
 };
 export default LogoutComponent;
