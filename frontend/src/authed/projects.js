@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 import './profile/customStyle.css';
 
 const Projects = () => {
@@ -13,7 +13,7 @@ const Projects = () => {
         <a href="/auth/github">
           <button className="btn-github" type="submit">
             <span>
-              <img src="https://i.ibb.co/6bKCfPT/Octicons-mark-github.png" />
+              <img src="https://i.ibb.co/6bKCfPT/Octicons-mark-github.png" alt="element" />
               <span className="importTitle">GitHub import</span>
             </span>
           </button>
