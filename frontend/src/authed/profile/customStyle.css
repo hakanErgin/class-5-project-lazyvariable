@@ -143,6 +143,7 @@
 }
 .steps2 {
   margin-top: 50px;
+  margin-left: 80px;
 }
 .profileHeader {
   height: 170px;
@@ -161,6 +162,12 @@
   border: none;
   padding-left: 21px;
   padding-right: 21px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-github:hover {
+  background: #f96156;
 }
 .importTitle {
   padding-left: 17px;
@@ -174,4 +181,216 @@
 .userPhoto {
   margin-left: 60px;
   margin-top: -35px;
+}
+.repoTitle {
+  display: inline;
+  font-size: 16px !important;
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+}
+.checkRepo {
+  margin-right: 10px !important;
+  border: 1px solid #6b748f;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.checkRepo:checked {
+  background-color: #082371;
+}
+.titleMin {
+  font-size: 21px;
+  color: #082371;
+  font-weight: bold;
+  margin-top: 70px;
+}
+.repoContainer {
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+  padding: 10px;
+  margin: 10px;
+  width: 754px;
+  border-radius: 3px;
+}
+.repoWrapper {
+  background: #fdfdfd 0% 0% no-repeat padding-box;
+  width: 773px;
+  margin-top: 15px;
+  border-radius: 3px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: #6b748f;
+}
+.selectRepo {
+  font-size: 16px;
+  margin-left: 43px;
+  font-weight: bold;
+  color: #6b748f;
+}
+body {
+  color: #6b748f !important;
+  font-size: 16px !important;
+}
+.importGithubBtn {
+  box-shadow: 0px 12px 30px #c1d1ffb3;
+  opacity: 1;
+  color: white;
+  border: none;
+  width: 144px;
+  height: 46px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #082371;
+  margin-top: 30px;
+}
+.importGithubBtn:hover {
+  background-color: #f96156;
+}
+.githubLabel {
+  margin-top: 15px;
+}
+.repoInput {
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+  border: 1px solid #6b748f;
+  width: 300px;
+  height: 45px;
+  border-radius: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #6b748f;
+}
+.repoInput:hover {
+  border: 1px solid #082371;
+}
+.repoInput:focus {
+  border: 1px solid #082371;
+  outline: none;
+}
+
+.signUpSubmit {
+  background: #082371 0% 0% no-repeat padding-box;
+  color: white;
+  border: none;
+  width: 144px;
+  height: 46px;
+  border-radius: 3px;
+  margin-top: 43px;
+}
+
+.signUpSubmit:hover {
+  background: #f96156;
+  color: white;
+  cursor: pointer;
+}
+
+.signUpLabel:focus-within {
+  color: #082371;
+}
+.repoDetailsContainer {
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+  padding: 10px;
+  margin: 10px;
+  width: 754px;
+  border-radius: 3px;
+}
+
+.repoDetailsWrapper {
+}
+.repoInputDescription {
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+  border: 1px solid #6b748f;
+  width: 680px;
+  height: 90px;
+  border-radius: 3px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  color: #6b748f;
+}
+
+.repoInputDescription:hover {
+  border: 1px solid #082371;
+}
+.repoInputDescription:focus {
+  border: 1px solid #082371;
+  outline: none;
+}
+.repoImage {
+  width: 296px;
+  height: 194px;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  color: #082371 !important;
+}
+.ant-collapse {
+  font-size: 16px !important;
+  margin-top: -20px !important;
+}
+.repoSaveButton {
+  border: 1px solid #6b748f;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 94px;
+  height: 34px;
+  border-radius: 3px;
+  color: #6b748f;
+  margin-top: 15px;
+  background: transparent;
+}
+.repoSaveButton:hover {
+  background: #6b748f;
+  color: white;
+}
+.submitPortfolio {
+  box-shadow: 0px 12px 30px #c1d1ffb3;
+  opacity: 1;
+  color: white;
+  border: none;
+  width: 144px;
+  height: 46px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #082371;
+  margin-top: 15px;
+}
+.submitPortfolio:hover {
+  background-color: #f96156;
+}
+.ant-collapse-content {
+  color: #6b748f !important;
+}
+.theSteps {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+.steps {
+  flex: 1 1 auto;
+}
+.steps:nth-child(1) {
+  margin-left: 80px;
+}
+.editButton {
+  background: #082371 0% 0% no-repeat padding-box;
+  color: white;
+  border: none;
+  width: 144px;
+  height: 46px;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.editButton:hover {
+  background: #f96156;
+  color: white;
+  cursor: pointer;
+}
+form textarea.ant-input {
+  height: auto !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

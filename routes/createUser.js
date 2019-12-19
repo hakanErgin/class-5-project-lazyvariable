@@ -70,10 +70,11 @@ router.get('/user', auth, (req, res) => {
 });
 
 // Entering the data for the first time
-router.route('/:id').post(auth, (req, res) => {
+router.route('/:id').post((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.name = req.body.name;
+      info.about = req.body.about;
       info.phone = req.body.phone;
       info.picture = req.body.picture;
       info.country = req.body.country;
@@ -102,7 +103,7 @@ router.route('/:id').post(auth, (req, res) => {
 });
 
 // Entering Github data
-router.route('/github/:id').post(auth, (req, res) => {
+router.route('/github/:id').post((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.gitHub = req.body.gitHub;
@@ -115,10 +116,11 @@ router.route('/github/:id').post(auth, (req, res) => {
 });
 
 // updating the data
-router.route('/update/:id').put(auth, (req, res) => {
+router.route('/update/:id').put((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.name = req.body.name;
+      info.about = req.body.about;
       info.phone = req.body.phone;
       info.picture = req.body.picture;
       info.country = req.body.country;
