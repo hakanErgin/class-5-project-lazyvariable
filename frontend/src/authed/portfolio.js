@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-
+import { useHistory, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './profile/customStyle.css';
+import { Collapse, Icon } from 'antd';
 
+const { Panel } = Collapse;
 const Portfolio = () => {
   const [repos, setRepos] = useState([]);
   const titleState = [];
@@ -22,7 +23,16 @@ const Portfolio = () => {
         console.log(err);
       });
   }, []);
-
+  const customPanelStyle = {
+    background: '#f9f9f9 0% 0% no-repeat padding-box',
+    borderRadius: 4,
+    marginBottom: 24,
+    border: 0,
+    overflow: 'hidden',
+    width: 754,
+    color: '#f9f9f9',
+    marginTop: 40,
+  };
   const PostButton = () => {
     axios.post(
       `http://localhost:5000/user/github/${localStorage.getItem('ID')}`,
@@ -61,7 +71,9 @@ const Portfolio = () => {
   };
 
   return (
-    <div>
+    <div className="profileHeader">
+      <div className="titleMin">Edit your projects details</div>
+
       {repos.map(function(item) {
         const currentTitle = item.title;
         const currentDescription = item.description;
@@ -70,45 +82,73 @@ const Portfolio = () => {
         const currentPhoto = item.photo;
 
         return (
-          <div>
-            <form
-              onSubmit={event => {
-                event.preventDefault();
-                const title = titleState.slice(-1)[0];
-                const description = descriptionState.slice(-1)[0];
-                const repository = repositoryState.slice(-1)[0];
-                const deployedSite = deployedSiteState.slice(-1)[0];
-                const photo = photoState.slice(-1)[0];
-                gitHub.push({ title, description, repository, deployedSite, photo });
+          <Collapse
+            bordered={false}
+            defaultActiveKey={['0']}
+            expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}
+          >
+            <Panel header={currentTitle} key="1" style={customPanelStyle}>
+              <div className="repoDetailsContainer">
+                <form
+                  onSubmit={event => {
+                    event.preventDefault();
+                    const title = titleState.slice(-1)[0];
+                    const description = descriptionState.slice(-1)[0];
+                    const repository = repositoryState.slice(-1)[0];
+                    const deployedSite = deployedSiteState.slice(-1)[0];
+                    const photo = photoState.slice(-1)[0];
+                    gitHub.push({ title, description, repository, deployedSite, photo });
 
-                console.log(gitHub);
-              }}
-            >
-              <div>Title:</div>
-              <input type="text" defaultValue={currentTitle} onChange={handleTitleChange}></input>
-              <div>Description:</div>
-              <input
-                type="text"
-                defaultValue={currentDescription}
-                onChange={handleDescriptionChange}
-              ></input>
-              <div>GitHub code:</div>
-              <input
-                type="text"
-                defaultValue={currentRepository}
-                onChange={handleRepositoryChange}
-              ></input>
-              <div>deployedSite: </div>
-              <input
-                type="text"
-                defaultValue={currentDeployedSite}
-                onChange={handleDeployedSiteChange}
-              ></input>
-              <div>Photo: </div>
-              <input type="text" defaultValue={currentPhoto} onChange={handlePhotoChange}></input>
-              <input type="submit" value="save" />
-            </form>
-          </div>
+                    console.log(gitHub);
+                  }}
+                >
+                  <div className="repoDetailsWrapper">
+                    <div className="repoField">
+                      <div className="repoLabel">Name:</div>
+                      <input
+                        className="repoInput"
+                        type="text"
+                        defaultValue={currentTitle}
+                        onChange={handleTitleChange}
+                      ></input>
+                    </div>
+
+                    <div className="repoField">
+                      <div className="githubLabel">deployed site: </div>
+                      <input
+                        className="repoInput"
+                        type="text"
+                        defaultValue={currentDeployedSite}
+                        onChange={handleDeployedSiteChange}
+                      ></input>
+                    </div>
+
+                    <div className="repoField">
+                      <div className="githubLabel">Photo: </div>
+                      <input
+                        type="text"
+                        className="repoInput"
+                        defaultValue={currentPhoto}
+                        onChange={handlePhotoChange}
+                      ></input>
+                    </div>
+                    <div className="repoField">
+                      <div className="githubLabel">Description:</div>
+                      <textarea
+                        className="repoInputDescription"
+                        cols="50"
+                        rows="10"
+                        defaultValue={currentDescription}
+                        onChange={handleDescriptionChange}
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <input type="submit" className="repoSaveButton" value="save" />
+                </form>
+              </div>
+            </Panel>
+          </Collapse>
         );
       })}
 
@@ -117,14 +157,10 @@ const Portfolio = () => {
           event.preventDefault();
           console.log(gitHub);
           PostButton();
+          handleClick();
         }}
       >
-        <input type="submit" value="Submit" />
-        return (
-        <button type="button" onClick={handleClick}>
-          Go to Preview
-        </button>
-        );
+        <input type="submit" className="submitPortfolio" value="Submit" />
       </form>
     </div>
   );
