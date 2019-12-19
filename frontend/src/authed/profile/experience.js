@@ -102,7 +102,7 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
             <Icon type="plus" /> Add work
           </Button>
         </Form.Item>
-        <Form.Item>
+        {/* <Form.Item>
           <Link to="/auth/profile/education">
             <Button
               type="primary"
@@ -119,7 +119,7 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
               Next
             </Button>
           </Link>
-        </Form.Item>
+        </Form.Item> */}
       </Form>
     </div>
   );
