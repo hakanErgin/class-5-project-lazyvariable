@@ -1,9 +1,15 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-// import './Preview.css'; // here is where the magic happens
-
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Timeline, Icon, Divider, Card, Col, Row } from 'antd';
+import './Preview.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
@@ -25,8 +31,20 @@ const useFetch = url => {
 };
 
 function Preview() {
+  const [github, setGithub] = React.useState([]);
+  const [avatar, setAvatar] = useState();
+
+  useEffect(() => {
+    axios
+      .get(`https://api.github.com/users/${localStorage.getItem('username')}`)
+      .then(result => {
+        setAvatar(result.data.avatar_url);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
   const res = useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
-  // const res = useFetch(`http://localhost:5000/user/5dfa7169950137091e4a67f2`);
 
   if (!res.response) {
     return null;
@@ -34,7 +52,8 @@ function Preview() {
 
   const email = res.response.email;
   const name = res.response.name;
-  // const picture = res.response.picture;
+  const about = res.response.about;
+  const website = res.response.website;
   const phone = res.response.phone;
   const country = res.response.country;
   const city = res.response.city;
@@ -43,6 +62,7 @@ function Preview() {
   const educationStartDate = res.response.educationStartDate;
   const degree = res.response.degree;
   const educationEndDate = res.response.educationEndDate;
+  const educationDescription = res.response.educationDescription;
   const workTitle = res.response.workTitle;
   const companyName = res.response.companyName;
   const companyLocation = res.response.companyLocation;
@@ -51,181 +71,148 @@ function Preview() {
   const workEndDate = res.response.workEndDate;
   const jobDescription = res.response.jobDescription;
   const skills = res.response.skills;
-
-  // const gitHubTitle1 = res.response.gitHub[0].title;
-  // const gitHubDescription1 = res.response.gitHub[0].gitHubDescription1;
-  // const gitHubRepository1 = res.response.gitHub[0].gitHubRepository1;
-
-  // const gitHubTitle2 = res.response.gitHub[1].title2;
-  // const gitHubDescription2 = res.response.gitHub[1].gitHubDescription2;
-  // const gitHubRepository2 = res.response.gitHub[1].gitHubRepository2;
-
-  // const gitHubTitle3 = res.response.gitHub[2].title3;
-  // const gitHubDescription3 = res.response.gitHub[2].gitHubDescription3;
-  // const gitHubRepository3 = res.response.gitHub[2].gitHubRepository3;
-
+  const projects = res.response.gitHub;
   return (
-    <div className="preview" style={{ textAlign: 'center' }}>
-      <div className="prev profile_preview">
-        <div className="prev-info personal-info">
-          <Divider><h2>Personal Info</h2></Divider>
-          <div style={{ background: '#72A0C1', padding: '30px' }}>
-            <Row type="flex" justify="center" align="middle" gutter={[16, 16]}>
-              <Col span={8}>
-                <Card title="My name:" bordered={false}>
-                  {name}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="My email adress" bordered={false}>
-                  {email}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="My telephone number:" bordered={false}>
-                  {phone}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="My city:" bordered={false}>
-                  {city}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="My country:" bordered={false}>
-                  {country}
-                </Card>
-              </Col>
-            </Row>
+    <div className="preview">
+      <div className="personalContainer">
+        <div
+          className="personPhoto"
+          style={{
+            backgroundImage: `url(${avatar}) `,
+            backgroundSize: 140,
+            borderRadius: 100,
+            height: 140,
+            width: 140,
+            display: 'inline-block',
+          }}
+        ></div>
+        <div className="titleAndName"></div>
+        <div className="name">{name}</div>
+        <div className="workTitle">{workTitle}</div>
+        <div className="icons">
+          <FontAwesomeIcon className="iconn1" icon={faMapMarkerAlt} size="2x" color="#082371" />
+          <FontAwesomeIcon className="iconn2" icon={faPhoneAlt} size="2x" color="#082371" />
+          <FontAwesomeIcon className="iconn3" icon={faEnvelope} size="2x" color="#082371" />
+          <FontAwesomeIcon className="iconn4" icon={faGlobeEurope} size="2x" color="#082371" />
+        </div>
+        <div className="personalInfo">
+          <div className="info">
+            {city}, {country}
           </div>
+          <div className="info">{phone}</div>
+          <div className="info">{email}</div>
+          <div className="info">{website}</div>
         </div>
-        <div className="prev-info education-info">
-          <Divider><h2>Education Info</h2></Divider>
-          <div style={{ background: '#84DE02', padding: '30px' }}>
-            <Row type="flex" justify="center" align="middle" gutter={[16, 16]}>
-              <Col span={8}>
-                <Card title="Instituon:" bordered={false}>
-                  {institution}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="Field Of Study:" bordered={false}>
-                  {fieldOfStudy}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="Degree:" bordered={false}>
-                  {degree}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="Start Date:" bordered={false}>
-                  {educationStartDate}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="End Date:" bordered={false}>
-                  {educationEndDate}
-                </Card>
-              </Col>
-            </Row>
+        <div className="about">{about}</div>
+      </div>
+      <div className="titleWrapper">
+        <img className="numberIcon" src="https://i.ibb.co/mCtK3Df/Component-19-1.png" />
+        <div className="title1">Work Experience</div>
+      </div>
+      <div className="workContainer">
+        <div className="workInfo">
+          <div className="job">
+            <strong>Job title:</strong> {workTitle}
           </div>
-        </div>
-        <div className="prev-info experience-info">
-          <Divider><h2>Experience</h2></Divider>
-          <div style={{ background: '#E52B50', padding: '30px' }}>
-            <Row type="flex" justify="center" align="middle" gutter={[16, 16]}>
-              <Col span={8}>
-                <Card title="Title:" bordered={false}>
-                  {workTitle}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="Company:" bordered={false}>
-                  {companyName}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="Location Of Compan:" bordered={false}>
-                  {companyLocation}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="Type of Employment:" bordered={false}>
-                  {employmentType}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="Start Date:" bordered={false}>
-                  {workStartDate}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="End Date:" bordered={false}>
-                  {workEndDate}
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card title="Description of Job:" bordered={false}>
-                  {jobDescription}
-                </Card>
-              </Col>
-            </Row>
+          <div className="job">
+            <strong>Employment type:</strong> {employmentType}
           </div>
-        </div>
-        <div>
-          <Divider><h2>Timeline</h2></Divider>
-          <Timeline mode="alternate">
-            <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-            <Timeline.Item color="green">Solve initial network problems 2015-09-01</Timeline.Item>
-            <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-              beatae vitae dicta sunt explicabo.
-              </Timeline.Item>
-            <Timeline.Item color="red">Network problems being solved 2015-09-01</Timeline.Item>
-            <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-            <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
-              Technical testing 2015-09-01
-              </Timeline.Item>
-          </Timeline>
-        </div>
-        <div className="prev-info skills-info">
-          <Divider><h2>Skills</h2></Divider>
-          <div style={{ background: '#4DA6FF', padding: '30px' }}>
-            <Row type="flex" justify="center" align="middle" gutter={[16, 16]}>
-              <Col span={8}>
-                <Card title="My Skills:" bordered={false}>
-                  {skills}
-                </Card>
-              </Col>
-            </Row>
+
+          <div className="job">
+            <strong>Company:</strong> {companyName}
+          </div>
+          <div className="job">
+            <strong>Start date: </strong>
+            {workStartDate}
+          </div>
+          <div className="job">
+            <strong>Company location:</strong> {companyLocation}
+          </div>
+          <div className="job">
+            <strong>End date: </strong>
+            {workEndDate}
+          </div>
+          <div className="job">
+            <strong>Description: </strong>
+            <br />
+            {jobDescription}
           </div>
         </div>
       </div>
-      <div className="prev github_preview">
-        <div className="prev-info">
-          <Divider><h2>Github Preview</h2></Divider>
-          <div style={{ background: '#FFBF00', padding: '30px' }}>
-            <Row type="flex" justify="center" align="middle" gutter={[16, 16]}>
-              <Col span={8}>
-                <Card title="Project:" bordered={false}>
-                  github
-                </Card>
-              </Col>
-            </Row>
+      <div className="titleWrapper">
+        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" />
+        <div className="title1">Education</div>
+      </div>
+      <div className="workContainer">
+        <div className="workInfo">
+          <div className="job">
+            <strong>Institution:</strong> {institution}
           </div>
-          {/* <h3>{gitHubTitle1}</h3>
-          <h3>{gitHubDescription1}</h3>
-          <h3>{gitHubRepository1}</h3>
-          <h3>{gitHubTitle2}</h3>
-          <h3>{gitHubDescription2}</h3>
-          <h3>{gitHubRepository2}</h3>
-          <h3>{gitHubTitle3}</h3>
-          <h3>{gitHubDescription3}</h3>
-          <h3>{gitHubRepository3}</h3> */}
+          <div className="job">
+            <strong>Field of study:</strong> {fieldOfStudy}
+          </div>
+
+          <div className="job">
+            <strong>Degree:</strong> {degree}
+          </div>
+          <div className="job">
+            <strong>Start date: </strong>
+            {educationStartDate}
+          </div>
+          <div className="job">
+            <strong>Description: </strong>
+            <br />
+            {educationDescription}
+          </div>
+          <div className="job">
+            <strong>End date: </strong>
+            {educationEndDate}
+          </div>
         </div>
       </div>
+      <div className="titleWrapper">
+        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" />
+        <div className="title1">Skills</div>
+      </div>
+      <div className="workContainer">
+        <div className="workInfo">
+          <div className="job">
+            <strong>Skills:</strong> {skills}
+          </div>
+        </div>
+      </div>
+      <div className="titleWrapper">
+        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" />
+        <div className="title1">Projects</div>
+      </div>
+
+      {projects.map(function(repo) {
+        const repoTitle = repo.title;
+        const repoDescription = repo.description;
+        const repoDeployedSite = repo.deployedSite;
+        const repoPhoto = repo.photo;
+        return (
+          <div>
+            <div className="workContainer">
+              <div className="workInfo">
+                <div className="job">
+                  <strong>Photo:</strong> {repoPhoto}
+                </div>
+                <div className="job">
+                  <strong>Name:</strong> {repoTitle}
+                </div>
+                <div className="job">
+                  <strong>Description:</strong> {repoDescription}
+                </div>
+                <div className="job">
+                  <strong>Deployed site:</strong>
+                  <a href={repoDeployedSite}> {repoDeployedSite} </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
