@@ -8,4 +8,4 @@ reports/
 .env 
 debug.log
 frontend/debug.log
-
+*.log
