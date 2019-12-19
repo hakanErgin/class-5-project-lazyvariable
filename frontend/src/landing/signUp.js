@@ -37,14 +37,15 @@ const SignUp = () => {
     setPassword(p.target.value);
   };
 
-  const handleUsernameChange = p => { // BEFORE MERGE: const handleNameChange = p => { setName(p.target.value)};
+  const handleUsernameChange = p => {
+    // BEFORE MERGE: const handleNameChange = p => { setName(p.target.value)};
     setUsername(p.target.value);
   };
 
   return (
     <div>
       {registered ? (
-        <Redirect to="/auth" />
+        <Redirect to="/auth/dashboard" />
       ) : (
         <div>
           <div className="headerSignUp">
@@ -55,15 +56,15 @@ const SignUp = () => {
               <div className="rightTop">
                 <ul className="navMenu">
                   <a href="/">
-                    {' '}
                     <li className="menuItem">Home</li>
                   </a>
                   <li className="menuItem">About us</li>
                   <li className="menuItem">Contact us</li>
                 </ul>
-                <button className="loginInButton">Login in</button>
+                <a href="/login">
+                  <button className="loginInButton">Log in</button>
+                </a>
                 <a href="/signup">
-                  {' '}
                   <button className="signUpButton">Get started</button>
                 </a>
               </div>
@@ -83,7 +84,6 @@ const SignUp = () => {
                   submitForm();
                 }}
               >
-                {' '}
                 <div className="signUpText">Sign up</div>
                 <div className="signUpLabel">GitHub username</div>
                 <input

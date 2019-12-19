@@ -10,6 +10,7 @@ import Education from './profile/education';
 import Skills from './profile/skills';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
+import './profile/customStyle.css';
 
 const Profile = () => {
   function handleClick(e) {
@@ -36,7 +37,14 @@ const Profile = () => {
     //alert('Successfully saved!');
   };
 
-  const { ref, inputs, handleInputChange, handleSubmit, onEduDateChange, onExpDateChange } = useSignUpForm(
+  const {
+    ref,
+    inputs,
+    handleInputChange,
+    handleSubmit,
+    onEduDateChange,
+    onExpDateChange,
+  } = useSignUpForm(
     {
       name: '',
       phone: '',
@@ -69,6 +77,10 @@ const Profile = () => {
   return (
     <Router>
       <div>
+        <div className="profileHeader">
+          <div className="subTitle">Take your first step!</div>
+          <div className="title">Create your resume</div>
+        </div>
         <Menu defaultSelectedKeys={selected} onClick={handleClick} mode="horizontal">
           <Menu.Item key="1">
             <Link to="/auth/profile/personal">Personal Info</Link>
