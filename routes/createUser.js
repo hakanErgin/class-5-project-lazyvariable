@@ -74,6 +74,7 @@ router.route('/:id').post((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.name = req.body.name;
+      info.about = req.body.about;
       info.phone = req.body.phone;
       info.picture = req.body.picture;
       info.country = req.body.country;
@@ -119,6 +120,7 @@ router.route('/update/:id').put((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.name = req.body.name;
+      info.about = req.body.about;
       info.phone = req.body.phone;
       info.picture = req.body.picture;
       info.country = req.body.country;
