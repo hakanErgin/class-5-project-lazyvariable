@@ -34,7 +34,7 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
   if (!res.response) {
     return null;
   }
-  const email_ = res.response.email_;
+  const email = res.response.email;
   const name = res.response.name;
   const about = res.response.about;
   const website = res.response.website;
@@ -77,10 +77,10 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
         </Form.Item>
         <Form.Item label="Email">
           <Input
-            placeholder={email_}
-            name="email_"
+            placeholder={email}
+            name="email"
             onChange={handleInputChange}
-            value={inputs.email_}
+            value={inputs.email}
           />
         </Form.Item>
         <Form.Item label="Country">
