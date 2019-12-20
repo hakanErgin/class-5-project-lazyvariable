@@ -1,23 +1,4 @@
-body {
-  margin: 1em;
-  padding: 1em;
-  width: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.root-class {
-  /* Small Devices, Tablets */
-  @media only screen and (min-width: 768px) {
-    width: 75%;
-  }
-
-  /* Medium Devices, Desktops */
-  @media only screen and (min-width: 992px) {
-    width: 40%;
-  }
-}

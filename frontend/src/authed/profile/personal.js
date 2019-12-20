@@ -52,7 +52,7 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
           <Input
             name="name"
             onChange={handleInputChange}
-            placeholder={about}
+            placeholder={name}
             value={inputs.name}
             required
           />
