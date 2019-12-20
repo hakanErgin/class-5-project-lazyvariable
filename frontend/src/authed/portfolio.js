@@ -49,7 +49,7 @@ const Portfolio = () => {
   };
   let history = useHistory(); // history object which is used to navigate(to '/preview')
   const handleClick = () => {
-    history.push('/preview');
+    window.location.href = 'http://localhost:3000/preview';
   };
 
   const handleTitleChange = e => {
