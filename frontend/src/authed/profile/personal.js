@@ -34,7 +34,7 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
   if (!res.response) {
     return null;
   }
-  const email = res.response.email;
+  const email_ = res.response.email_;
   const name = res.response.name;
   const about = res.response.about;
   const website = res.response.website;
@@ -50,9 +50,9 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Name">
           <Input
-            placeholder={name}
             name="name"
             onChange={handleInputChange}
+            placeholder={about}
             value={inputs.name}
             required
           />
@@ -77,10 +77,10 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
         </Form.Item>
         <Form.Item label="Email">
           <Input
-            placeholder={email}
-            name="phone"
+            placeholder={email_}
+            name="email_"
             onChange={handleInputChange}
-            value={inputs.email}
+            value={inputs.email_}
           />
         </Form.Item>
         <Form.Item label="Country">

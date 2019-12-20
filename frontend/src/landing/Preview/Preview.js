@@ -50,7 +50,7 @@ function Preview() {
     return null;
   }
 
-  const email = res.response.email;
+  const email_ = res.response.email_;
   const name = res.response.name;
   const about = res.response.about;
   const website = res.response.website;
@@ -100,7 +100,7 @@ function Preview() {
             {city}, {country}
           </div>
           <div className="info">{phone}</div>
-          <div className="info">{email}</div>
+          <div className="info">{email_}</div>
           <div className="info">{website}</div>
         </div>
         <div className="about">{about}</div>
@@ -196,7 +196,7 @@ function Preview() {
             <div className="workContainer">
               <div className="workInfo">
                 <div className="job">
-                  <strong>Photo:</strong> {repoPhoto}
+                  <strong>Photo:</strong> <img src={repoPhoto}></img>
                 </div>
                 <div className="job">
                   <strong>Name:</strong> {repoTitle}

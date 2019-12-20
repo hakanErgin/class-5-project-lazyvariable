@@ -26,7 +26,13 @@ const useFetch = url => {
   return { response, error };
 };
 
-const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }) => {
+const Experience = ({
+  inputs,
+  handleSubmit,
+  handleInputChange,
+  handleInputChangeCascade,
+  onExpDateChange,
+}) => {
   const [inputFields, setInputFields] = useState([
     {
       workTitle: '',
@@ -65,7 +71,7 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
   const workTitle = res.response.workTitle;
   const companyName = res.response.companyName;
   const companyLocation = res.response.companyLocation;
-  //const employmentType = res.response.employmentType;
+  const employmentType = res.response.employmentType;
   //const workStartDate = res.response.workStartDate;
   //const workEndDate = res.response.workEndDate;
   const jobDescription = res.response.jobDescription;
@@ -108,9 +114,9 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
           <Fragment key={`${inputField}~${index}`}>
             <Form.Item label="Title">
               <Input
-                placeholder={workTitle}
                 name="workTitle"
                 onChange={handleInputChange}
+                placeholder={workTitle}
                 value={inputs.workTitle}
               />
             </Form.Item>
@@ -130,22 +136,23 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
                 value={inputs.companyLocation}
               />
             </Form.Item>
-            {/* <Form.Item label="Employment type" autoComplete="on">
+            <Form.Item label="Employment type" autoComplete="on">
               <Input
-                placeholder=""
+                placeholder={employmentType}
                 name="employmentType"
                 onChange={handleInputChange}
                 value={inputs.employmentType}
               />
-            </Form.Item> */}
-            <Form.Item>
+            </Form.Item>
+
+            {/*<Form.Item label="Employment Type">
               <Cascader
                 label="Employment type"
                 options={options}
-                onChange={onChange}
+                onChange={handleInputChangeCascade}
                 placeholder="Please select"
               />
-            </Form.Item>
+            </Form.Item>*/}
 
             <Form.Item label="Description">
               <TextArea

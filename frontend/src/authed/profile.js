@@ -12,6 +12,7 @@ import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 import './profile/customStyle.css';
 
+/*
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
   const [error, setError] = React.useState(null);
@@ -30,6 +31,7 @@ const useFetch = url => {
   }, [url]);
   return { response, error };
 };
+*/
 
 const Profile = () => {
   const [initial, setInitial] = React.useState({});
@@ -38,6 +40,7 @@ const Profile = () => {
     console.log('click', e);
   }
 
+  /*
   React.useEffect(() => {
     const CheckDb = async () => {
       try {
@@ -49,7 +52,7 @@ const Profile = () => {
           country: res.response.country,
           city: res.response.city,
           website: res.response.website,
-          email: res.response.email,
+          email_: res.response.email_,
           workTitle: res.response.workTitle,
           companyName: res.response.companyName,
           companyLocation: res.response.companyLocation,
@@ -68,7 +71,7 @@ const Profile = () => {
           name: '',
           about: '',
           phone: '',
-          email: '',
+          email_: '',
           country: '',
           city: '',
           website: '',
@@ -88,6 +91,7 @@ const Profile = () => {
     };
     CheckDb();
   }, []);
+  */
 
   /*
   const res = useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
@@ -159,6 +163,7 @@ const Profile = () => {
     // ref,
     inputs,
     handleInputChange,
+    handleInputChangeCascade,
     handleSubmit,
     onEduDateChange,
     onExpDateChange,
@@ -207,6 +212,7 @@ const Profile = () => {
               setSelected={setSelected}
               inputs={inputs}
               handleInputChange={handleInputChange}
+              handleInputChangeCascade={handleInputChangeCascade}
               handleSubmit={handleSubmit}
               onExpDateChange={onExpDateChange}
             />
@@ -216,6 +222,7 @@ const Profile = () => {
               setSelected={setSelected}
               inputs={inputs}
               handleInputChange={handleInputChange}
+              handleInputChangeCascade={handleInputChangeCascade}
               handleSubmit={handleSubmit}
               onEduDateChange={onEduDateChange}
             />

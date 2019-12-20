@@ -1,3 +1,15 @@
+.alles {
+  /* Small Devices, Tablets */
+  @media only screen and (min-width: 768px) {
+    width: 75%;
+  }
+
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width: 992px) {
+    width: 40%;
+  }
+}
+
 .ant-typography {
   color: #082371 !important;
   margin-top: 25px;

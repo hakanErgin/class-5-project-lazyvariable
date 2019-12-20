@@ -33,7 +33,7 @@ const Main = () => {
       });
   }, []);
   return (
-    <div>
+    <div className="alles">
       <Router>
         <Layout>
           <Sider theme="light" style={{ paddingTop: 40 }}>
