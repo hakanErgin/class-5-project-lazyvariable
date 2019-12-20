@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Dashboard from './profile';
@@ -39,7 +38,13 @@ const Main = () => {
         <Layout>
           <Sider theme="light" style={{ paddingTop: 40 }}>
             <Menu selectable={false} mode="vertical">
-              <img className="logoDashboard" src="https://i.ibb.co/cDXz5vG/logo.png" alt="element"/>
+              <a href="/">
+                <img
+                  className="logoDashboard"
+                  src="https://i.ibb.co/cDXz5vG/logo.png"
+                  alt="element"
+                />
+              </a>
               <span>
                 <div className="userName">{name}</div>
                 <div

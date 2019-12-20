@@ -2,9 +2,10 @@ import React, { useState, Fragment } from 'react';
 import './customStyle.css';
 import { BrowserRouter as Route, Link } from 'react-router-dom';
 import Education from './education';
-import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
+import { Form, Input, Button, DatePicker, Typography, Icon, Cascader } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
+const { TextArea } = Input;
 
 const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }) => {
   const [inputFields, setInputFields] = useState([
@@ -36,7 +37,36 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
     values.splice(index, 1);
     setInputFields(values);
   };
+  const options = [
+    {
+      value: 'Full-Time',
+      label: 'Full-Time',
+    },
+    {
+      value: 'Part-Time',
+      label: 'Part-Time',
+    },
+    {
+      value: 'Self-Employed',
+      label: 'Self-Employed',
+    },
+    {
+      value: 'Freelance',
+      label: 'Freelance',
+    },
+    {
+      value: 'Internship',
+      label: 'Internship',
+    },
+    {
+      value: 'Apprenticeship',
+      label: 'Apprenticeship',
+    },
+  ];
 
+  function onChange(value) {
+    console.log(value);
+  }
   return (
     <div className="customStyle">
       <Title level={3}>Work experience</Title>
@@ -67,16 +97,27 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
                 value={inputs.companyLocation}
               />
             </Form.Item>
-            <Form.Item label="Employment type" autoComplete="on">
+            {/* <Form.Item label="Employment type" autoComplete="on">
               <Input
                 placeholder=""
                 name="employmentType"
                 onChange={handleInputChange}
                 value={inputs.employmentType}
               />
+            </Form.Item> */}
+            <Form.Item>
+              <Cascader
+                label="Employment type"
+                options={options}
+                onChange={onChange}
+                placeholder="Please select"
+              />
             </Form.Item>
+
             <Form.Item label="Description">
-              <Input
+              <TextArea
+                className="newInput"
+                rows={4}
                 placeholder=""
                 name="jobDescription"
                 onChange={handleInputChange}

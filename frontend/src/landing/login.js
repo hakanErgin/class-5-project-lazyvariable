@@ -55,7 +55,6 @@ const LoginComponent = () => {
                 </ul>
                 <button className="loginInButton">Login in</button>
                 <a href="/signup">
-                  {' '}
                   <button className="signUpButton">Get started</button>
                 </a>
               </div>
@@ -75,7 +74,7 @@ const LoginComponent = () => {
                   submitForm();
                 }}
               >
-                <div className="signUpText">Sign in</div>
+                <div className="signupTitle">Sign in</div>
                 <div className="signUpLabel">Email</div>
                 <input
                   className="signUpInput"

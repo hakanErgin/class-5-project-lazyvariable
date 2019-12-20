@@ -39,7 +39,7 @@ const Projects = () => {
   };
   let history = useHistory();
   const handleClick = () => {
-    history.push('/auth/portfolio');
+    return (window.location.href = './portfolio');
   };
   return (
     <div>
@@ -106,7 +106,6 @@ const Projects = () => {
         >
           {show && <input type="submit" className="importGithubBtn" value="import" />}
         </form>
-
       </div>
     </div>
   );

@@ -1,54 +1,103 @@
 body {
-  background-color: #f3f3f3;
+  font-size: 16px;
 }
 .preview {
-  border: 1px solid rgb(0, 195, 255);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
+  width: 90%;
+  margin-top: 80px;
+  margin-left: 80px;
 }
-.prev {
-  width: calc(100% / 2);
-  height: 100%;
-  text-align: center;
-  border: 1px solid rgb(0, 255, 213);
+.workTitle {
+  font-size: 21px;
+  color: #f96156;
+  left: 210px;
+  top: 105px;
+  display: inline;
+  margin-left: 170px;
+}
+.name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #082371;
+  left: 210px;
+  top: 70px;
+  margin-top: -110px;
+  margin-left: 170px;
+}
+.personalContainer {
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  position: relative;
+  padding: 40px;
+  margin-top: 30px;
+}
+.workContainer {
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  position: relative;
+  padding: 40px;
+  margin-top: 20px;
+}
+.nameAndTitle {
+  float: left;
+  padding-left: 200px;
+}
+.about {
+  top: 220px;
+  margin-top: 70px;
 }
 
-.preview ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  padding-inline-start: 0;
+.personalInfo {
+  float: right;
+}
+.info {
+  display: inline;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #f96156;
+}
+.icons {
+  float: right;
+  margin-top: -40px;
+  margin-right: 100x;
+}
+.iconn1 {
+  margin-right: 100px;
+}
+.iconn2 {
+  margin-left: 90px;
+}
+.iconn3 {
+  margin-left: 170px;
+}
+.iconn4 {
+  margin-left: 170px;
+  margin-right: 128px;
 }
 
-.preview li {
-  list-style: none;
-  display: inline-block;
-  width: calc(100% / 3);
-  height: 120px;
-  text-align: center;
+.title1 {
+  color: #082371;
+  font-size: 21px;
+  font-weight: bold;
+  display: inline;
 }
-.preview li h3 {
-  color: rgb(179, 29, 29);
-  font-weight: 550;
+.numberIcon {
+  margin-right: 10px;
+  vertical-align: text-bottom !important;
 }
-.preview li p {
-  font-weight: 500;
-}
-.prev-info {
+.workInfo {
   display: flex;
   flex-direction: row;
+  flex-flow: space-between;
   flex-wrap: wrap;
-  width: 100%;
-  border: 2px solid;
-  margin: 1em 0;
-  justify-content: space-around;
 }
-.prev-info h2 {
-  color: rgb(42, 165, 89);
-  font-weight: 900;
-  font-size: x-large;
-  padding: 1.3em;
+.job {
+  flex: 1 1 50%;
+  margin-top: 10px;
+}
+.titleWrapper {
+  margin-top: 30px;
+  margin-left: 40px;
+}
+a {
+  color: #082371 !important;
 }
