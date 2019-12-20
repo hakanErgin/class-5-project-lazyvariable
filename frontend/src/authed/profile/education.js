@@ -26,7 +26,13 @@ const useFetch = url => {
   return { response, error };
 };
 
-const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange }) => {
+const Education = ({
+  inputs,
+  handleSubmit,
+  handleInputChange,
+  handleInputChangeCascade,
+  onEduDateChange,
+}) => {
   const [inputFields, setInputFields] = useState([
     {
       institution: '',

@@ -24,7 +24,7 @@ const providers = {
 function App() {
   return (
     <Router>
-      <div>
+      <div className="root-class">
         <Route exact path="/" component={Homepage} />
         <Route path="/signup" component={SignUp} />
         <Route path="/auth" component={LoggedIn} />
