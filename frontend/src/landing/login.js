@@ -9,7 +9,7 @@ const LoginComponent = () => {
 
   function submitForm() {
     axios
-      .post('http://localhost:5000/auth', { email, password })
+      .post('http://mighty-reaches-37532.herokuapp.com/auth', { email, password })
       .then(e => {
         if (e.data.token) {
           localStorage.setItem('token', e.data.token);

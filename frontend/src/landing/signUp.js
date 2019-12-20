@@ -12,7 +12,7 @@ const SignUp = () => {
 
   const submitForm = () => {
     axios
-      .post('http://localhost:5000/user', { username, email, password }) // BEFORE MERGE: .post('http://localhost:5000/user', { email, password, name })
+      .post('http://mighty-reaches-37532.herokuapp.com/user', { username, email, password }) // BEFORE MERGE: .post('http://mighty-reaches-37532.herokuapp.com/user', { email, password, name })
       .then(e => {
         console.log(e.data);
         if (e.data.token) {
