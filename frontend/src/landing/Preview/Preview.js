@@ -171,7 +171,7 @@ function Preview() {
         </div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" alt="3" />
+        <img className="numberIcon" src="https://i.ibb.co/FHJgrLJ/Component-19-1.png" alt="3" />
         <div className="title1">Skills</div>
       </div>
       <div className="workContainer">
@@ -182,7 +182,7 @@ function Preview() {
         </div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" alt="4" />
+        <img className="numberIcon" src="https://i.ibb.co/BC6yWg6/Component-20-1.png" alt="4" />
         <div className="title1">Projects</div>
       </div>
 
