@@ -76,6 +76,7 @@ router.route('/:id').post((req, res) => {
       info.name = req.body.name;
       info.about = req.body.about;
       info.phone = req.body.phone;
+      info.email_ = req.body.email_;
       info.picture = req.body.picture;
       info.country = req.body.country;
       info.city = req.body.city;
