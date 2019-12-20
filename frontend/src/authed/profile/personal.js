@@ -1,14 +1,48 @@
 import React from 'react';
-import Experience from './experience';
-import { BrowserRouter as Route, Link } from 'react-router-dom';
+//import Experience from './experience';
+//import { BrowserRouter as Route, Link } from 'react-router-dom';
 // import Skills from './skills'
 import './customStyle.css';
-import { Form, Input, Button, Typography } from 'antd';
+import { Form, Input, /*Button,*/ Typography } from 'antd';
 const { Title } = Typography;
 const { TextArea } = Input;
 
+const useFetch = url => {
+  const [response, setResponse] = React.useState(null);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    const FetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        setResponse(json);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    FetchData();
+  }, [url]);
+  return { response, error };
+};
+
 const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
-  console.log('personal inputs', inputs);
+  //console.log('personal inputs', inputs);
+
+  const res = useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
+
+  if (!res.response) {
+    return null;
+  }
+  const email = res.response.email;
+  const name = res.response.name;
+  const about = res.response.about;
+  const website = res.response.website;
+  const phone = res.response.phone;
+  const country = res.response.country;
+  const city = res.response.city;
+
+  //console.log(name);
 
   return (
     <div className="customStyle">
@@ -16,7 +50,7 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Name">
           <Input
-            placeholder=""
+            placeholder={name}
             name="name"
             onChange={handleInputChange}
             value={inputs.name}
@@ -27,30 +61,44 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
           <TextArea
             className="newInput"
             rows={4}
-            placeholder=""
+            placeholder={about}
             name="about"
             onChange={handleInputChange}
             value={inputs.about}
           />
         </Form.Item>
         <Form.Item label="Telephone Number">
-          <Input placeholder="" name="phone" onChange={handleInputChange} value={inputs.phone} />
+          <Input
+            placeholder={phone}
+            name="phone"
+            onChange={handleInputChange}
+            value={inputs.phone}
+          />
+        </Form.Item>
+        <Form.Item label="Email">
+          <Input
+            placeholder={email}
+            name="phone"
+            onChange={handleInputChange}
+            value={inputs.email}
+          />
         </Form.Item>
         <Form.Item label="Country">
           <Input
-            placeholder=""
+            placeholder={country}
             name="country"
             onChange={handleInputChange}
             value={inputs.country}
+            //value={inputs.country}
           />
         </Form.Item>
         <Form.Item label="City">
-          <Input placeholder="" name="city" onChange={handleInputChange} value={inputs.city} />
+          <Input placeholder={city} name="city" onChange={handleInputChange} value={inputs.city} />
         </Form.Item>
 
         <Form.Item label="Website">
           <Input
-            placeholder=""
+            placeholder={website}
             name="website"
             onChange={handleInputChange}
             value={inputs.website}

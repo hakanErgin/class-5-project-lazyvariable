@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState /*useEffect*/ } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+//import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './profile/customStyle.css';
-import { useHistory, Redirect } from 'react-router-dom';
+//import { useHistory, Redirect } from 'react-router-dom';
 const Projects = () => {
   const [repos, setRepos] = useState([]);
   const [show, toggleShow] = useState(false);
@@ -37,7 +37,7 @@ const Projects = () => {
     FetchButton();
     toggleShow(!show);
   };
-  let history = useHistory();
+  //let history = useHistory();
   const handleClick = () => {
     return (window.location.href = './portfolio');
   };
@@ -48,19 +48,19 @@ const Projects = () => {
         <div className="title">Create your portfolio</div>
         <div className="theSteps">
           <div className="steps">
-            <img className="iconNumber" src="https://i.ibb.co/9g9Yp53/Component-19-1.png" />
+            <img className="iconNumber" src="https://i.ibb.co/9g9Yp53/Component-19-1.png" alt="1" />
 
             <div className="signUpText">Import your projects</div>
             <p className="paraTitle">Retrieve your repositories from GitHub </p>
             <button className="btn-github" type="submit" onClick={handleFetchClick}>
               <span>
-                <img src="https://i.ibb.co/6bKCfPT/Octicons-mark-github.png" />
+                <img src="https://i.ibb.co/6bKCfPT/Octicons-mark-github.png" alt="github" />
                 <span className="importTitle">GitHub import</span>
               </span>
             </button>
           </div>
           <div className="steps">
-            <img className="iconNumber" src="https://i.ibb.co/cknNkS2/Component-20-1.png" />
+            <img className="iconNumber" src="https://i.ibb.co/cknNkS2/Component-20-1.png" alt="2" />
 
             <div className="signUpText">Edit & customize your projects</div>
             <p className="paraTitle">Edit your projects details to showcase it</p>

@@ -4,6 +4,25 @@ import './customStyle.css';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
+const useFetch = url => {
+  const [response, setResponse] = React.useState(null);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    const FetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        setResponse(json);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    FetchData();
+  }, [url]);
+  return { response, error };
+};
+
 const Skills = ({ inputs, handleSubmit, handleInputChange }) => {
   /* const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
     {
@@ -12,13 +31,20 @@ const Skills = ({ inputs, handleSubmit, handleInputChange }) => {
     handleOnclick,
   ); */
 
+  const res = useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
+
+  if (!res.response) {
+    return null;
+  }
+  const skills = res.response.skills;
+
   return (
     <div className="customStyle">
       <Title level={3}>Skills</Title>
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Item label="Describe Your Skills">
           <Input
-            placeholder="Team player, Javascript, ..."
+            placeholder={skills}
             name="skills"
             onChange={handleInputChange}
             value={inputs.skills}

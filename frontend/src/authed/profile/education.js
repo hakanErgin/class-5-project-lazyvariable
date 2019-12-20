@@ -1,11 +1,30 @@
 import React, { useState, Fragment } from 'react';
 import './customStyle.css';
-import { BrowserRouter as Route, Link } from 'react-router-dom';
-import Skills from './skills';
+//import { BrowserRouter as Route, Link } from 'react-router-dom';
+//import Skills from './skills';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
+
+const useFetch = url => {
+  const [response, setResponse] = React.useState(null);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    const FetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        setResponse(json);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    FetchData();
+  }, [url]);
+  return { response, error };
+};
 
 const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange }) => {
   const [inputFields, setInputFields] = useState([
@@ -35,6 +54,18 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
     setInputFields(values);
   };
 
+  const res = useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
+
+  if (!res.response) {
+    return null;
+  }
+  const institution = res.response.institution;
+  const fieldOfStudy = res.response.fieldOfStudy;
+  //const educationStartDate = res.response.educationStartDate;
+  const degree = res.response.degree;
+  //const educationEndDate = res.response.educationEndDate;
+  const educationDescription = res.response.educationDescription;
+
   return (
     <div className="customStyle">
       <Title level={3}>Education</Title>
@@ -43,7 +74,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
           <Fragment key={`${inputField}~${index}`}>
             <Form.Item label="Institution">
               <Input
-                placeholder=""
+                placeholder={institution}
                 name="institution"
                 onChange={handleInputChange}
                 value={inputs.institution}
@@ -51,7 +82,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
             </Form.Item>
             <Form.Item label="Field of study">
               <Input
-                placeholder=""
+                placeholder={fieldOfStudy}
                 name="fieldOfStudy"
                 onChange={handleInputChange}
                 value={inputs.fieldOfStudy}
@@ -59,7 +90,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
             </Form.Item>
             <Form.Item label="Degree">
               <Input
-                placeholder=""
+                placeholder={degree}
                 name="degree"
                 onChange={handleInputChange}
                 value={inputs.degree}
@@ -69,7 +100,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
               <TextArea
                 className="newInput"
                 rows={4}
-                placeholder=""
+                placeholder={educationDescription}
                 name="educationDescription"
                 onChange={handleInputChange}
                 value={inputs.educationDescription}

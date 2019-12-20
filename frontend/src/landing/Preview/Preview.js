@@ -2,7 +2,7 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Timeline, Icon, Divider, Card, Col, Row } from 'antd';
+//import { Timeline, Icon, Divider, Card, Col, Row } from 'antd';
 import './Preview.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -31,7 +31,7 @@ const useFetch = url => {
 };
 
 function Preview() {
-  const [github, setGithub] = React.useState([]);
+  //const [github, setGithub] = React.useState([]);
   const [avatar, setAvatar] = useState();
 
   useEffect(() => {
@@ -106,7 +106,7 @@ function Preview() {
         <div className="about">{about}</div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/mCtK3Df/Component-19-1.png" />
+        <img className="numberIcon" src="https://i.ibb.co/mCtK3Df/Component-19-1.png" alt="1" />
         <div className="title1">Work Experience</div>
       </div>
       <div className="workContainer">
@@ -140,7 +140,7 @@ function Preview() {
         </div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" />
+        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" alt="2" />
         <div className="title1">Education</div>
       </div>
       <div className="workContainer">
@@ -171,7 +171,7 @@ function Preview() {
         </div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" />
+        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" alt="3" />
         <div className="title1">Skills</div>
       </div>
       <div className="workContainer">
@@ -182,7 +182,7 @@ function Preview() {
         </div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" />
+        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" alt="4" />
         <div className="title1">Projects</div>
       </div>
 

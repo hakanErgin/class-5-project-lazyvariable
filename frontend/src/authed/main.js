@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Dashboard from './profile';
 import Profile from './dashboard';
-import Settings from './settings';
+//import Settings from './settings';
 import LogoutComponent from './logout';
 import Projects from './projects';
 import Preview from '../landing/Preview/Preview';
@@ -71,9 +71,9 @@ const Main = () => {
                 <Menu.Item>
                   <Link to="/preview">Preview</Link>
                 </Menu.Item>
-                <Menu.Item>
+                {/*<Menu.Item>
                   <Link to="/auth/settings">Settings</Link>
-                </Menu.Item>
+                </Menu.Item>*/}
                 <Menu.Item>
                   <Link to="/auth/logout">Logout</Link>
                 </Menu.Item>
@@ -92,9 +92,9 @@ const Main = () => {
                 <Route path="/auth/projects">
                   <Projects />
                 </Route>
-                <Route path="/auth/settings">
+                {/*<Route path="/auth/settings">
                   <Settings />
-                </Route>
+                </Route>*/}
                 <Route path="/preview">
                   <Preview />
                 </Route>
