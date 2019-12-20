@@ -25,7 +25,7 @@ const useFetch = url => {
 };
 
 function Preview() {
-  const res = useFetch(`http://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
   // const res = useFetch(`http://localhost:5000/user/5dfa7169950137091e4a67f2`);
 
   if (!res.response) {
