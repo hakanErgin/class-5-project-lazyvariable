@@ -14,6 +14,7 @@ const useSignUpForm = (initialValues, callback) => {
       event.preventDefault();
       //event.persist();
       console.log('last values', ref, inputs);
+      alert('Successfully saved!');
       callback();
     }
   };
@@ -31,18 +32,17 @@ const useSignUpForm = (initialValues, callback) => {
 
   function onEduDateChange(date, educationDate) {
     console.log(date, educationDate);
-    const educationStartDate = educationDate[0]
-    const educationEndDate = educationDate[1]
+    const educationStartDate = educationDate[0];
+    const educationEndDate = educationDate[1];
 
-    setInputs(inputs => ({ ...inputs, educationStartDate }))
-    setInputs(inputs => ({ ...inputs, educationEndDate }))
-
+    setInputs(inputs => ({ ...inputs, educationStartDate }));
+    setInputs(inputs => ({ ...inputs, educationEndDate }));
   }
 
   function onExpDateChange(date, experienceDate) {
     console.log(date, experienceDate);
-    const workStartDate = experienceDate[0]
-    const workEndDate = experienceDate[1]
+    const workStartDate = experienceDate[0];
+    const workEndDate = experienceDate[1];
 
     setInputs(inputs => ({ ...inputs, workStartDate }));
     setInputs(inputs => ({ ...inputs, workEndDate }));
@@ -54,7 +54,7 @@ const useSignUpForm = (initialValues, callback) => {
     inputs,
     ref,
     onEduDateChange,
-    onExpDateChange
+    onExpDateChange,
   };
 };
 

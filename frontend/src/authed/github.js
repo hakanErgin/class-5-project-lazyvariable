@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './profile/customStyle.css';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory /*Redirect*/ } from 'react-router-dom';
 
 const GithubComponent = () => {
   const [repos, setRepos] = useState([]);
-  const [show, toggleShow] = useState(false);
+  // const [show, toggleShow] = useState(false);
 
   const gitHub = [];
   useEffect(() => {

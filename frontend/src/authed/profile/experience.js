@@ -1,11 +1,30 @@
 import React, { useState, Fragment } from 'react';
 import './customStyle.css';
-import { BrowserRouter as Route, Link } from 'react-router-dom';
-import Education from './education';
+//import { BrowserRouter as Route, Link } from 'react-router-dom';
+//import Education from './education';
 import { Form, Input, Button, DatePicker, Typography, Icon, Cascader } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
+
+const useFetch = url => {
+  const [response, setResponse] = React.useState(null);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    const FetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        setResponse(json);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    FetchData();
+  }, [url]);
+  return { response, error };
+};
 
 const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }) => {
   const [inputFields, setInputFields] = useState([
@@ -37,6 +56,20 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
     values.splice(index, 1);
     setInputFields(values);
   };
+
+  const res = useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
+
+  if (!res.response) {
+    return null;
+  }
+  const workTitle = res.response.workTitle;
+  const companyName = res.response.companyName;
+  const companyLocation = res.response.companyLocation;
+  //const employmentType = res.response.employmentType;
+  //const workStartDate = res.response.workStartDate;
+  //const workEndDate = res.response.workEndDate;
+  const jobDescription = res.response.jobDescription;
+
   const options = [
     {
       value: 'Full-Time',
@@ -75,7 +108,7 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
           <Fragment key={`${inputField}~${index}`}>
             <Form.Item label="Title">
               <Input
-                placeholder=""
+                placeholder={workTitle}
                 name="workTitle"
                 onChange={handleInputChange}
                 value={inputs.workTitle}
@@ -83,7 +116,7 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
             </Form.Item>
             <Form.Item label="Company Name">
               <Input
-                placeholder=""
+                placeholder={companyName}
                 name="companyName"
                 onChange={handleInputChange}
                 value={inputs.companyName}
@@ -91,7 +124,7 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
             </Form.Item>
             <Form.Item label="Company Location">
               <Input
-                placeholder=""
+                placeholder={companyLocation}
                 name="companyLocation"
                 onChange={handleInputChange}
                 value={inputs.companyLocation}
@@ -118,7 +151,7 @@ const Experience = ({ inputs, handleSubmit, handleInputChange, onExpDateChange }
               <TextArea
                 className="newInput"
                 rows={4}
-                placeholder=""
+                placeholder={jobDescription}
                 name="jobDescription"
                 onChange={handleInputChange}
                 value={inputs.jobDescription}

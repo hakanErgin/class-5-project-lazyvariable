@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory /*Redirect*/ } from 'react-router-dom';
 import axios from 'axios';
 import './profile/customStyle.css';
 import { Collapse, Icon } from 'antd';
@@ -47,7 +47,7 @@ const Portfolio = () => {
       },
     );
   };
-  let history = useHistory();
+  let history = useHistory(); // history object which is used to navigate(to '/preview')
   const handleClick = () => {
     history.push('/preview');
   };
@@ -60,9 +60,9 @@ const Portfolio = () => {
     descriptionState.push(p.target.value);
     console.log(descriptionState);
   };
-  const handleRepositoryChange = p => {
-    repositoryState.push(p.target.value);
-  };
+  //const handleRepositoryChange = p => {
+  //  repositoryState.push(p.target.value);
+  //};
   const handleDeployedSiteChange = p => {
     deployedSiteState.push(p.target.value);
   };
@@ -132,6 +132,16 @@ const Portfolio = () => {
                         onChange={handlePhotoChange}
                       ></input>
                     </div>
+
+                    <div className="repoField">
+                      <div className="githubLabel">Repo: </div>
+                      <input
+                        type="text"
+                        className="repoInput"
+                        defaultValue={currentRepository}
+                      ></input>
+                    </div>
+
                     <div className="repoField">
                       <div className="githubLabel">Description:</div>
                       <textarea

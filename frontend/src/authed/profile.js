@@ -12,10 +12,128 @@ import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 import './profile/customStyle.css';
 
+const useFetch = url => {
+  const [response, setResponse] = React.useState(null);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    const FetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        setResponse(json);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    FetchData();
+  }, [url]);
+  return { response, error };
+};
+
 const Profile = () => {
+  const [initial, setInitial] = React.useState({});
+
   function handleClick(e) {
     console.log('click', e);
   }
+
+  React.useEffect(() => {
+    const CheckDb = async () => {
+      try {
+        const res = await useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
+        setInitial({
+          name: res.response.name,
+          about: res.response.about,
+          phone: res.response.phone,
+          country: res.response.country,
+          city: res.response.city,
+          website: res.response.website,
+          email: res.response.email,
+          workTitle: res.response.workTitle,
+          companyName: res.response.companyName,
+          companyLocation: res.response.companyLocation,
+          employmentType: res.response.employmentType,
+          jobDescription: res.response.jobDescription,
+          institution: res.response.institution,
+          experienceDate: res.response.experienceDate,
+          degree: res.response.degree,
+          fieldOfStudy: res.response.fieldOfStudy,
+          educationDescription: res.response.educationDescription,
+          skills: res.response.skills,
+        });
+      } catch (error) {
+        console.log(error);
+        setInitial({
+          name: '',
+          about: '',
+          phone: '',
+          email: '',
+          country: '',
+          city: '',
+          website: '',
+          workTitle: '',
+          companyName: '',
+          companyLocation: '',
+          employmentType: '',
+          jobDescription: '',
+          institution: '',
+          experienceDate: '',
+          degree: '',
+          fieldOfStudy: '',
+          educationDescription: '',
+          skills: '',
+        });
+      }
+    };
+    CheckDb();
+  }, []);
+
+  /*
+  const res = useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
+  let initial = {
+    name: '',
+    about: '',
+    phone: '',
+    country: '',
+    city: '',
+    website: '',
+    workTitle: '',
+    companyName: '',
+    companyLocation: '',
+    employmentType: '',
+    jobDescription: '',
+    institution: '',
+    experienceDate: '',
+    degree: '',
+    fieldOfStudy: '',
+    educationDescription: '',
+    skills: '',
+  };
+
+  if (res.response) {
+    initial = {
+      name: res.response.name,
+      about: res.response.about,
+      phone: res.response.phone,
+      country: res.response.country,
+      city: res.response.city,
+      website: res.response.website,
+      email: res.response.email,
+      workTitle: res.response.workTitle,
+      companyName: res.response.companyName,
+      companyLocation: res.response.companyLocation,
+      employmentType: res.response.employmentType,
+      jobDescription: res.response.jobDescription,
+      institution: res.response.institution,
+      experienceDate: res.response.experienceDate,
+      degree: res.response.degree,
+      fieldOfStudy: res.response.fieldOfStudy,
+      educationDescription: res.response.educationDescription,
+      skills: res.response.skills,
+    };
+  }
+  */
 
   const handleOnclick = () => {
     //  axios.post("") //it will send data to backend/mongodb after modifying it
@@ -44,28 +162,7 @@ const Profile = () => {
     handleSubmit,
     onEduDateChange,
     onExpDateChange,
-  } = useSignUpForm(
-    {
-      name: '',
-      about: '',
-      phone: '',
-      country: '',
-      city: '',
-      website: '',
-      workTitle: '',
-      companyName: '',
-      companyLocation: '',
-      employmentType: '',
-      jobDescription: '',
-      institution: '',
-      experienceDate: '',
-      degree: '',
-      fieldOfStudy: '',
-      educationDescription: '',
-      skills: '',
-    },
-    handleOnclick,
-  );
+  } = useSignUpForm(initial, handleOnclick);
 
   //console.log('dash inputs', inputs);
 
