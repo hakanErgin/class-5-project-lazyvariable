@@ -16,7 +16,7 @@ const Portfolio = () => {
   useEffect(() => {
     axios
       // .get(`http://localhost:5000/user/${localStorage.getItem('ID')}`)
-      .get(`http://https://mighty-reaches-37532.herokuapp.com//user/${localStorage.getItem('ID')}`)
+      .get(`https://https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`)
       .then(result => {
         setRepos(result.data.gitHub);
       })
