@@ -44,7 +44,7 @@ function Preview() {
         console.log(err);
       });
   }, []);
-  const res = useFetch(`http://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;
