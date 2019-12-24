@@ -31,7 +31,7 @@ const Skills = ({ inputs, handleSubmit, handleInputChange }) => {
     handleOnclick,
   ); */
 
-  const res = useFetch(`https://mighty-reaches-37532.herokuapp.com/${localStorage.getItem('ID')}`);
+  const res = useFetch(`https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;
