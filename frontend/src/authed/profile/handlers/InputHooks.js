@@ -41,7 +41,7 @@ const useSignUpForm = (initialValues, callback) => {
   React.useEffect(() => {
     const CheckDb = async () => {
       try {
-        const res = await useFetch(`https://https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
+        const res = await useFetch(`https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
         setInputs({
           name: res.response.name,
           about: res.response.about,

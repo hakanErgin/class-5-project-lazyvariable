@@ -60,7 +60,7 @@ const Education = ({
     setInputFields(values);
   };
 
-  const res = useFetch(`https://https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;
