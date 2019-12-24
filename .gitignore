@@ -9,4 +9,4 @@ reports/
 debug.log
 frontend/debug.log
 *.log
-frontend/.firebase/hosting.YnVpbGQ.cache
+frontend/.firebase/*
