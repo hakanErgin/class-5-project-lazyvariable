@@ -12,6 +12,8 @@ import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 import './profile/customStyle.css';
 
+require('dotenv').config()
+
 /*
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);

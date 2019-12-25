@@ -7,6 +7,9 @@ const { Title } = Typography;
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
+require('dotenv').config()
+
+
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
   const [error, setError] = React.useState(null);

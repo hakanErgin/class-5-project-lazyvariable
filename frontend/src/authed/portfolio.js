@@ -4,6 +4,8 @@ import axios from 'axios';
 import './profile/customStyle.css';
 import { Collapse, Icon } from 'antd';
 
+require('dotenv').config()
+
 const { Panel } = Collapse;
 const Portfolio = () => {
   const [repos, setRepos] = useState([]);

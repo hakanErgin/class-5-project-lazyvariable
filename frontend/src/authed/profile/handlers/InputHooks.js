@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'; // removed React from here just to get rid of warnings
 
+require('dotenv').config()
+
+
 const useSignUpForm = (initialValues, callback) => {
   const [inputs, setInputs] = useState({});
   const ref = useRef(inputs); //we are using useRef for state to update itself each time we enter data and click next on dashboard

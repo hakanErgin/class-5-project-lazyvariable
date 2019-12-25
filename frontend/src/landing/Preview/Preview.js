@@ -11,6 +11,9 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 
+require('dotenv').config()
+
+
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
   const [error, setError] = React.useState(null);
