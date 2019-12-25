@@ -143,7 +143,7 @@ const Profile = () => {
     //  axios.post("") //it will send data to backend/mongodb after modifying it
     // console.log('ref', ref);
     axios
-      .post(`https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`, inputs, {
+      .post(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`, inputs, {
         headers: {
           'x-auth-token': localStorage.getItem('token'),
           'Content-Type': 'application/json',

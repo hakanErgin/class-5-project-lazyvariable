@@ -16,7 +16,7 @@ const Portfolio = () => {
   useEffect(() => {
     axios
       // .get(`http://localhost:5000/user/${localStorage.getItem('ID')}`)
-      .get(`https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`)
+      .get(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`)
       .then(result => {
         setRepos(result.data.gitHub);
       })
@@ -36,7 +36,7 @@ const Portfolio = () => {
   };
   const PostButton = () => {
     axios.post(
-      `https://mighty-reaches-37532.herokuapp.com/user/github/${localStorage.getItem('ID')}`,
+      `${process.env.HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },

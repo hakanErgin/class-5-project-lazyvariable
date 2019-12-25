@@ -21,7 +21,7 @@ const Projects = () => {
   };
   const ImportButton = () => {
     axios.post(
-      `https://mighty-reaches-37532.herokuapp.com/user/github/${localStorage.getItem('ID')}`,
+      `${process.env.HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },

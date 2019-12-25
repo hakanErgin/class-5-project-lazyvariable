@@ -10,7 +10,7 @@ const CreateComponent = () => {
   const submitForm = () => {
     axios
       .post(
-        'https://mighty-reaches-37532.herokuapp.com/personal/add',
+        `${process.env.HEROKU_URI}/personal/add`,
         {
           city,
           country,

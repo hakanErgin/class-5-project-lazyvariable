@@ -44,7 +44,7 @@ function Preview() {
         console.log(err);
       });
   }, []);
-  const res = useFetch(`https://mighty-reaches-37532.herokuapp.com/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;

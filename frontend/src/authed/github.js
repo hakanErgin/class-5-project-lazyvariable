@@ -3,6 +3,8 @@ import axios from 'axios';
 import './profile/customStyle.css';
 import { useHistory /*Redirect*/ } from 'react-router-dom';
 
+require('dotenv').config()
+
 const GithubComponent = () => {
   const [repos, setRepos] = useState([]);
   // const [show, toggleShow] = useState(false);
@@ -20,7 +22,7 @@ const GithubComponent = () => {
   }, []);
   const ImportButton = () => {
     axios.post(
-      `https://mighty-reaches-37532.herokuapp.com/user/github/${localStorage.getItem('ID')}`,
+      `${process.env.HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },
