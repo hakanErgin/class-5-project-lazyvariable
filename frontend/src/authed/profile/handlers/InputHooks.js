@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'; // removed React from here just to get rid of warnings
 
-require('dotenv').config()
+// require('dotenv').config()
 
 
 const useSignUpForm = (initialValues, callback) => {
@@ -18,7 +18,7 @@ const useSignUpForm = (initialValues, callback) => {
       //event.persist();
       console.log('last values', ref, inputs);
       callback();
-      window.location.href = 'http://localhost:3000/auth/projects';
+      window.location.href = `${process.env.FIREBASE_URI}/auth/projects`;
     }
   };
 

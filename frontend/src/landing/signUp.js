@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../App.css';
 import { Redirect } from 'react-router';
 
-require('dotenv').config()
+// require('dotenv').config()
 
 const SignUp = () => {
   const [email, setEmail] = useState('');

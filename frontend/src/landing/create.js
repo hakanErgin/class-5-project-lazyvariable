@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Input, Button } from 'antd';
 
-require('dotenv').config()
+// require('dotenv').config()
 
 const CreateComponent = () => {
   const [city, setCity] = useState('');

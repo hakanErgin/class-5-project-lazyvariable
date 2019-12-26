@@ -3,7 +3,7 @@ import axios from 'axios';
 import './profile/customStyle.css';
 import { useHistory /*Redirect*/ } from 'react-router-dom';
 
-require('dotenv').config()
+// require('dotenv').config()
 
 const GithubComponent = () => {
   const [repos, setRepos] = useState([]);

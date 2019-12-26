@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 
 const LogoutComponent = () => {
   useEffect(() => {
-    localStorage.clear()((window.location.href = 'http://localhost:3000'));
+    localStorage.clear()((window.location.href = `${process.env.FIREBASE_URI}`));
     return () => {};
   });
   return (
     <div>
       <h1>
-        Go to <a href="http://localhost:3000">home</a>
+        home
       </h1>
     </div>
   );

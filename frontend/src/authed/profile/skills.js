@@ -4,7 +4,7 @@ import './customStyle.css';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
-require('dotenv').config()
+// require('dotenv').config()
 
 
 const useFetch = url => {

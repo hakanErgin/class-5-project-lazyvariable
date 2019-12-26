@@ -3,10 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 
-require('dotenv').config()
-console.log(process.env);
-console.log(process.cwd())
-console.log(__dirname)
+// require('dotenv').config()
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
