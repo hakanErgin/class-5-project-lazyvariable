@@ -1,6 +1,9 @@
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
+
+// require('dotenv').config()
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
@@ -9,7 +12,7 @@ const LoginComponent = () => {
 
   function submitForm() {
     axios
-      .post('http://localhost:5000/auth', { email, password })
+      .post(`${process.env.HEROKU_URI}/auth`, { email, password })
       .then(e => {
         if (e.data.token) {
           localStorage.setItem('token', e.data.token);

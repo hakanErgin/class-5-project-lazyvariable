@@ -7,6 +7,9 @@ const { Title } = Typography;
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
+// require('dotenv').config()
+
+
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
   const [error, setError] = React.useState(null);
@@ -60,7 +63,7 @@ const Education = ({
     setInputFields(values);
   };
 
-  const res = useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;

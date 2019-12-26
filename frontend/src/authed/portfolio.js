@@ -4,6 +4,8 @@ import axios from 'axios';
 import './profile/customStyle.css';
 import { Collapse, Icon } from 'antd';
 
+// require('dotenv').config()
+
 const { Panel } = Collapse;
 const Portfolio = () => {
   const [repos, setRepos] = useState([]);
@@ -15,7 +17,8 @@ const Portfolio = () => {
   const gitHub = [];
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/user/${localStorage.getItem('ID')}`)
+      // .get(`http://localhost:5000/user/${localStorage.getItem('ID')}`)
+      .get(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`)
       .then(result => {
         setRepos(result.data.gitHub);
       })
@@ -35,7 +38,7 @@ const Portfolio = () => {
   };
   const PostButton = () => {
     axios.post(
-      `http://localhost:5000/user/github/${localStorage.getItem('ID')}`,
+      `${process.env.HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },
@@ -49,7 +52,7 @@ const Portfolio = () => {
   };
   let history = useHistory(); // history object which is used to navigate(to '/preview')
   const handleClick = () => {
-    window.location.href = 'http://localhost:3000/preview';
+    window.location.href = `${process.env.FIREBASE_URI}/preview`;
   };
 
   const handleTitleChange = e => {
@@ -74,7 +77,7 @@ const Portfolio = () => {
     <div className="profileHeader">
       <div className="titleMin">Edit your projects details</div>
 
-      {repos.map(function(item) {
+      {repos.map(function (item) {
         const currentTitle = item.title;
         const currentDescription = item.description;
         const currentRepository = item.repository;

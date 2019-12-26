@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'; // removed React from here just to get rid of warnings
 
+// require('dotenv').config()
+
+
 const useSignUpForm = (initialValues, callback) => {
   const [inputs, setInputs] = useState({});
   const ref = useRef(inputs); //we are using useRef for state to update itself each time we enter data and click next on dashboard
@@ -15,7 +18,7 @@ const useSignUpForm = (initialValues, callback) => {
       //event.persist();
       console.log('last values', ref, inputs);
       callback();
-      window.location.href = 'http://localhost:3000/auth/projects';
+      window.location.href = `/auth/projects`;
     }
   };
 
@@ -41,7 +44,7 @@ const useSignUpForm = (initialValues, callback) => {
   React.useEffect(() => {
     const CheckDb = async () => {
       try {
-        const res = await useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
+        const res = await useFetch(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`);
         setInputs({
           name: res.response.name,
           about: res.response.about,

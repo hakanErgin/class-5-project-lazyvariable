@@ -79,7 +79,7 @@
     "lint": "./node_modules/.bin/eslint ./src",
     "firebase": "./node_modules/firebase-tools/lib/bin/firebase.js"
   },
-  "proxy": "http://localhost:5000/",
+  "proxy": "https://mighty-reaches-37532.herokuapp.com/",
   "eslintConfig": {
     "extends": "react-app"
   },

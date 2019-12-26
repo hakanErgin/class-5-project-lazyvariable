@@ -2,8 +2,12 @@ import React, { useState /*useEffect*/ } from 'react';
 import axios from 'axios';
 //import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
+
 import './profile/customStyle.css';
 //import { useHistory, Redirect } from 'react-router-dom';
+
+// require('dotenv').config()
+
 const Projects = () => {
   const [repos, setRepos] = useState([]);
   const [show, toggleShow] = useState(false);
@@ -21,7 +25,7 @@ const Projects = () => {
   };
   const ImportButton = () => {
     axios.post(
-      `http://localhost:5000/user/github/${localStorage.getItem('ID')}`,
+      `${process.env.HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },

@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../App.css';
 import { Redirect } from 'react-router';
 
+// require('dotenv').config()
+
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +14,7 @@ const SignUp = () => {
 
   const submitForm = () => {
     axios
-      .post('http://localhost:5000/user', { username, email, password }) // BEFORE MERGE: .post('http://localhost:5000/user', { email, password, name })
+      .post(`${process.env.HEROKU_URI}/user`, { username, email, password }) // BEFORE MERGE: .post('${process.env.HEROKU_URI}/user', { email, password, name })
       .then(e => {
         console.log(e.data);
         if (e.data.token) {

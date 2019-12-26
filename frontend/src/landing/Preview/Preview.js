@@ -11,6 +11,9 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 
+// require('dotenv').config()
+
+
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
   const [error, setError] = React.useState(null);
@@ -44,7 +47,7 @@ function Preview() {
         console.log(err);
       });
   }, []);
-  const res = useFetch(`http://localhost:5000/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;
@@ -196,7 +199,7 @@ function Preview() {
             <div className="workContainer">
               <div className="workInfo">
                 <div className="job">
-                  <strong>Photo:</strong> <img src={repoPhoto}></img>
+                  <strong>Photo:</strong> <img src={repoPhoto} alt=""></img>
                 </div>
                 <div className="job">
                   <strong>Name:</strong> {repoTitle}

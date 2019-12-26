@@ -9,3 +9,4 @@ reports/
 debug.log
 frontend/debug.log
 *.log
+*.cache
