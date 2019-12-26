@@ -1,30 +1,8 @@
-## Installing to Heroku cli (If not already installed on your PC, firstly install the cli)
-
-Here you can find [the link to install the heroku cli](https://devcenter.heroku.com/categories/command-line)
-
-## Running on local node.js server to test
-
-**Firstly configure your '.env' file**
-
-```
-$ npm install
-$ node server
-
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Very Important Check before all (remote check)
-
-Go to /backend folder and then:
-
+test remote
 ```
 $ git remote -v
 
 ```
-
-This command must give this result:
-
 ```
 heroku https://git.heroku.com/mighty-reaches-37532.git (fetch)
 heroku https://git.heroku.com/mighty-reaches-37532.git (push)
@@ -36,29 +14,7 @@ origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (pu
 Otherwise change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-change-a-git-remote-on-heroku) (\$ heroku git:remote -a mighty-reaches-37532
 ) and [origin remote](https://stackoverflow.com/questions/22694294/reconnect-remote-origin)
 
-## Running on heroku local server to test
-
-```
-$ heroku local
-
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Running on heroku server to see
-
-```
-$ heroku open
-
-```
-
-or just write our [heroku app name](https://mighty-reaches-37532.herokuapp.com/) to the browser
-
-## Deploying to Heroku (If you have changed anything on backend related folders)
-
-**NOTE:** While trying to deploy changes to heroku, firstly cli redirects you to browser and requires you to login to heroku with your e-mail. After logging in:
-
-**ONLY IF YOU HAVE CHANGED ANYTHING ON BACKEND FOLDER DO THIS '$ GIT PUSH HEROKU MASTER', OTHERWISE YOU CAN JUST MAKE '$ HEROKU OPEN':**
+[heroku app name](https://mighty-reaches-37532.herokuapp.com/)
 
 ```
 $ git add .
@@ -67,17 +23,7 @@ $ git commit -m "commit message"
 $ git push heroku master
 $ heroku open
 ```
-
-NOTE: Here you should see on your cli after long lines of build, this :
-"remote: Verifying deploy... done.
-To https://git.heroku.com/mighty-reaches-37532.git"
-after seeing that you can "\$ heroku open" on your cli
-
-Your app should now be running on server with the name of your app [mighty-reaches-37532](https://mighty-reaches-37532.herokuapp.com/).
-
-or
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+https://git.heroku.com/mighty-reaches-37532.git"
 
 ## Committing changes to your branch(not to master) on github
 
@@ -86,18 +32,6 @@ $ git add .
 $ git commit -m "commit message"
 $ git push
 ```
-
-**And then make a pull request to master, and wait or notify others to check your pull request**
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
 
 # class-5-project
 
