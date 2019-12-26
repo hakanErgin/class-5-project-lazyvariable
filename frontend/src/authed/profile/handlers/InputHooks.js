@@ -18,7 +18,7 @@ const useSignUpForm = (initialValues, callback) => {
       //event.persist();
       console.log('last values', ref, inputs);
       callback();
-      window.location.href = `${process.env.FIREBASE_URI}/auth/projects`;
+      window.location.href = `/auth/projects`;
     }
   };
 
