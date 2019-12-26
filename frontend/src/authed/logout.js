@@ -2,15 +2,10 @@ import React, { useEffect } from 'react';
 
 const LogoutComponent = () => {
   useEffect(() => {
-    localStorage.clear()((window.location.href = `${process.env.FIREBASE_URI}`));
-    return () => {};
+    localStorage.clear()((window.location.href = `/`));
+    return () => { };
   });
   return (
-    <div>
-      <h1>
-        home
-      </h1>
-    </div>
-  );
+    null);
 };
 export default LogoutComponent;
