@@ -8,7 +8,7 @@ import Profile from './dashboard';
 //import Settings from './settings';
 import LogoutComponent from './logout';
 import Projects from './projects';
-import Preview from '../landing/Preview/Preview';
+import Preview from './Preview/Preview';
 import GithubComponent from './github';
 import Portfolio from './portfolio';
 

@@ -11,7 +11,7 @@ import SignUp from './landing/signUp';
 import LoggedIn from './authed/main';
 import LoginComponent from './landing/login';
 import CreateComponent from './landing/create';
-import Preview from '../src/landing/Preview/Preview';
+import Preview from './authed/Preview/Preview';
 import GithubComponent from './authed/github';
 import PortfolioComponent from './authed/portfolio';
 

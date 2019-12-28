@@ -4,10 +4,10 @@ import React from 'react';
 // import Skills from './skills'
 import './customStyle.css';
 import { Form, Input, /*Button,*/ Typography } from 'antd';
+import HEROKU_URI from '../../helpers/herokuHelper' 
+
 const { Title } = Typography;
 const { TextArea } = Input;
-
-// require('dotenv').config()
 
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
@@ -31,7 +31,7 @@ const useFetch = url => {
 const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
   //console.log('personal inputs', inputs);
 
-  const res = useFetch(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;

@@ -2,11 +2,10 @@ import React, { useState /*useEffect*/ } from 'react';
 import axios from 'axios';
 //import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-
 import './profile/customStyle.css';
 //import { useHistory, Redirect } from 'react-router-dom';
 
-// require('dotenv').config()
+import HEROKU_URI from '../helpers/herokuHelper'
 
 const Projects = () => {
   const [repos, setRepos] = useState([]);
@@ -25,7 +24,7 @@ const Projects = () => {
   };
   const ImportButton = () => {
     axios.post(
-      `${process.env.HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
+      `${HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },

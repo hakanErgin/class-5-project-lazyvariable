@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../App.css';
 import { Redirect } from 'react-router';
-
-// require('dotenv').config()
+import HEROKU_URI from '../helpers/herokuHelper'
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +13,7 @@ const SignUp = () => {
 
   const submitForm = () => {
     axios
-      .post(`${process.env.HEROKU_URI}/user`, { username, email, password }) // BEFORE MERGE: .post('${process.env.HEROKU_URI}/user', { email, password, name })
+      .post(`${HEROKU_URI}/user`, { username, email, password }) // BEFORE MERGE: .post('${process.env.HEROKU_URI}/user', { email, password, name })
       .then(e => {
         console.log(e.data);
         if (e.data.token) {

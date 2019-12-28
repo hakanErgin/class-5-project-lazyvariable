@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory /*Redirect*/ } from 'react-router-dom';
+// import { useHistory /*Redirect*/ } from 'react-router-dom';
 import axios from 'axios';
 import './profile/customStyle.css';
 import { Collapse, Icon } from 'antd';
 
-// require('dotenv').config()
+import HEROKU_URI from '../helpers/herokuHelper'
+import FIREBASE_URI from '../helpers/firebaseHelper'
+
+console.log('h', HEROKU_URI);
+console.log('f', FIREBASE_URI);
+
 
 const { Panel } = Collapse;
 const Portfolio = () => {
@@ -18,7 +23,7 @@ const Portfolio = () => {
   useEffect(() => {
     axios
       // .get(`http://localhost:5000/user/${localStorage.getItem('ID')}`)
-      .get(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`)
+      .get(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`)
       .then(result => {
         setRepos(result.data.gitHub);
       })
@@ -38,7 +43,7 @@ const Portfolio = () => {
   };
   const PostButton = () => {
     axios.post(
-      `${process.env.HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
+      `${HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },
@@ -50,9 +55,9 @@ const Portfolio = () => {
       },
     );
   };
-  let history = useHistory(); // history object which is used to navigate(to '/preview')
+  // let history = useHistory(); // history object which is used to navigate(to '/preview')
   const handleClick = () => {
-    window.location.href = `${process.env.FIREBASE_URI}/preview`;
+    window.location.href = `${FIREBASE_URI}/preview`;
   };
 
   const handleTitleChange = e => {

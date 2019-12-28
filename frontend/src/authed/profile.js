@@ -12,17 +12,17 @@ import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 import './profile/customStyle.css';
 
-// require('dotenv').config()
+import HEROKU_URI from '../helpers/herokuHelper'
 
 const Profile = () => {
-  const [initial, setInitial] = React.useState({});
+  const [initial] = React.useState({});
 
   function handleClick(e) {
     console.log('click', e);
   }
   const handleOnclick = () => {
     axios
-      .post(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`, inputs, {
+      .post(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`, inputs, {
         headers: {
           'x-auth-token': localStorage.getItem('token'),
           'Content-Type': 'application/json',

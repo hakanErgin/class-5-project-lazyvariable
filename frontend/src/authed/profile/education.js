@@ -3,11 +3,12 @@ import './customStyle.css';
 //import { BrowserRouter as Route, Link } from 'react-router-dom';
 //import Skills from './skills';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
+
+import HEROKU_URI from '../../helpers/herokuHelper'
+
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
-
-// require('dotenv').config()
 
 
 const useFetch = url => {
@@ -63,7 +64,7 @@ const Education = ({
     setInputFields(values);
   };
 
-  const res = useFetch(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;
