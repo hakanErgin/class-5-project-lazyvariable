@@ -11,8 +11,7 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 
-// require('dotenv').config()
-
+import HEROKU_URI from '../../helpers/herokuHelper'
 
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
@@ -47,7 +46,7 @@ function Preview() {
         console.log(err);
       });
   }, []);
-  const res = useFetch(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;

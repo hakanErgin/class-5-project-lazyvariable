@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Input, Button } from 'antd';
 
-// require('dotenv').config()
+import HEROKU_URI from '../helpers/herokuHelper'
 
 const CreateComponent = () => {
   const [city, setCity] = useState('');
@@ -12,7 +12,7 @@ const CreateComponent = () => {
   const submitForm = () => {
     axios
       .post(
-        `${process.env.HEROKU_URI}/personal/add`,
+        `${HEROKU_URI}/personal/add`,
         {
           city,
           country,

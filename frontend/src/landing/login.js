@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 
-// require('dotenv').config()
+import HEROKU_URI from '../helpers/herokuHelper'
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +12,7 @@ const LoginComponent = () => {
 
   function submitForm() {
     axios
-      .post(`${process.env.HEROKU_URI}/auth`, { email, password })
+      .post(`${HEROKU_URI}/auth`, { email, password })
       .then(e => {
         if (e.data.token) {
           localStorage.setItem('token', e.data.token);

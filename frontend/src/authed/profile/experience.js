@@ -2,12 +2,12 @@ import React, { useState, Fragment } from 'react';
 import './customStyle.css';
 //import { BrowserRouter as Route, Link } from 'react-router-dom';
 //import Education from './education';
-import { Form, Input, Button, DatePicker, Typography, Icon, Cascader } from 'antd';
+import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
+import HEROKU_URI from '../../helpers/herokuHelper'
+
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
-
-// require('dotenv').config()
 
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
@@ -65,7 +65,7 @@ const Experience = ({
     setInputFields(values);
   };
 
-  const res = useFetch(`${process.env.HEROKU_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;
@@ -78,36 +78,36 @@ const Experience = ({
   //const workEndDate = res.response.workEndDate;
   const jobDescription = res.response.jobDescription;
 
-  const options = [
-    {
-      value: 'Full-Time',
-      label: 'Full-Time',
-    },
-    {
-      value: 'Part-Time',
-      label: 'Part-Time',
-    },
-    {
-      value: 'Self-Employed',
-      label: 'Self-Employed',
-    },
-    {
-      value: 'Freelance',
-      label: 'Freelance',
-    },
-    {
-      value: 'Internship',
-      label: 'Internship',
-    },
-    {
-      value: 'Apprenticeship',
-      label: 'Apprenticeship',
-    },
-  ];
+  // const options = [
+  //   {
+  //     value: 'Full-Time',
+  //     label: 'Full-Time',
+  //   },
+  //   {
+  //     value: 'Part-Time',
+  //     label: 'Part-Time',
+  //   },
+  //   {
+  //     value: 'Self-Employed',
+  //     label: 'Self-Employed',
+  //   },
+  //   {
+  //     value: 'Freelance',
+  //     label: 'Freelance',
+  //   },
+  //   {
+  //     value: 'Internship',
+  //     label: 'Internship',
+  //   },
+  //   {
+  //     value: 'Apprenticeship',
+  //     label: 'Apprenticeship',
+  //   },
+  // ];
 
-  function onChange(value) {
-    console.log(value);
-  }
+  // function onChange(value) {
+  //   console.log(value);
+  // }
   return (
     <div className="customStyle">
       <Title level={3}>Work experience</Title>
