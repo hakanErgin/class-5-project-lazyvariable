@@ -25,13 +25,8 @@ $ heroku open
 ```
 https://git.heroku.com/mighty-reaches-37532.git"
 
-## Committing changes to your branch(not to master) on github
+$ git push heroku yourbranch:master
 
-```
-$ git add .
-$ git commit -m "commit message"
-$ git push
-```
 
 # class-5-project
 
