@@ -1,5 +1,5 @@
 # Class-5 group project
-## GitPro - Generate your portfolio
+### GitPro - Generate your portfolio
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
 
 [Project page wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)
