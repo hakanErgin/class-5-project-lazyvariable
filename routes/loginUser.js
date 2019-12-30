@@ -16,16 +16,22 @@ router.post('/', (req, res) => {
 
   // Simple validation
   if (!email || !password) {
-    return res.status(400).json({ msg: 'Please enter all fields' });
+    res.statusMessage = "Missing Fields"
+    res.status(400).end()
   }
 
   User.findOne({ email }).then(user => {
-    if (!user) return res.status(400).json({ msg: 'User does not exist' });
+    if (!user) {
+      res.statusMessage = "Wrong username"
+      res.status(400).end()
+    }
 
     //validate password
     bcrypt.compare(password, user.password).then(isMatch => {
-      if (!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
-
+      if (!isMatch) {
+        res.statusMessage = "Wrong password"
+        res.status(400).end()
+      }
       jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 3600 }, (err, token) => {
         if (err) throw err;
         res.json({
