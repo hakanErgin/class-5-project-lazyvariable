@@ -28,13 +28,14 @@ change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-ch
 [heroku app link](https://mighty-reaches-37532.herokuapp.com/)
 
 ```
-$ git push heroku master
+-$ git push heroku master
+-$ git push heroku yourbranch:master
+
+--
+
 $ heroku open
 ```
-or
-```
-$ git push heroku yourbranch:master
-```
+
 
 ### Firebase
 
