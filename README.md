@@ -5,7 +5,7 @@ A tool for HYF students (and others) can use to generate a portfolio and use aft
 
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
 
-[Project page wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)3
+[Project page wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)
 
 [Project original repo](https://github.com/HackYourFutureBelgium/class-5-project-lazyvariable)
 
