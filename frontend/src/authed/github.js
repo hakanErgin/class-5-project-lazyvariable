@@ -43,7 +43,7 @@ const GithubComponent = () => {
       <div className="profileHeader">
         <div className="titleMin">Select the repositories you want to import</div>
         <div className="repoWrapper">
-          {repos.map(function(item) {
+          {repos.map(function (item) {
             const title = item.name;
             const description = item.description;
             const repository = item.html_url;

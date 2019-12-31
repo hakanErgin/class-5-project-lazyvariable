@@ -23,28 +23,6 @@ app.use('/user', userRouter);
 const authRouter = require('./routes/loginUser'); // to login
 app.use('/auth', authRouter);
 
-// const rootRouter = require('./routes/root'); // to list the users
-// app.use('/', rootRouter);
-
-// Adding the route to the server
-const personalRouter = require('./routes/personal');
-app.use('/personal', personalRouter);
-
-// const certificateRouter = require('./routes/certificate');
-// app.use('/certificate', certificateRouter);
-// // console.log that your server is up and running
-
-// const projectsRouter = require('./routes/projects');
-// app.use('/projects', projectsRouter);
-
-// const gitHubRouter = require('./routes/gitHub');
-// app.use('/gitHub', gitHubRouter);
-
-// create another GET route
-//app.get('/express_backend', (req, res) => {
-//  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-//});
-
 app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
