@@ -10,13 +10,13 @@ A tool for HYF students (and others) can use to generate a portfolio and use aft
 
 ---
 
-## run
+### - run
 
 - backend: ```nodemon server```
 - frontend: ```npm start```
 
 ---
-## dev
+### - dev
 ### heroku
 ```
 $ git remote -v
