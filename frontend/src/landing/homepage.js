@@ -20,7 +20,6 @@ const Homepage = () => {
               <li className="menuItem">Contact us</li>
             </ul>
             <a href="/login">
-
               <button className="loginInButton">Log in</button>
             </a>
             <a href="/signup">

@@ -59,54 +59,24 @@ const Main = () => {
                 ></div>
               </span>
               <Menu.ItemGroup>
-                <Menu.Item>
-                  <Link to="/auth/dashboard">Dashboard</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link to="/auth/profile/personal">Profile</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link to="/auth/projects">Projects</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link to="/preview">Preview</Link>
-                </Menu.Item>
-                {/*<Menu.Item>
-                  <Link to="/auth/settings">Settings</Link>
-                </Menu.Item>*/}
-                <Menu.Item>
-                  <Link to="/auth/logout">Logout</Link>
-                </Menu.Item>
+                <Menu.Item><Link to="/auth/dashboard">Dashboard</Link></Menu.Item>
+                <Menu.Item><Link to="/auth/profile/personal">Profile</Link></Menu.Item>
+                <Menu.Item><Link to="/auth/projects">Projects</Link></Menu.Item>
+                <Menu.Item><Link to="/preview">Preview</Link></Menu.Item>
+                <Menu.Item><Link to="/auth/logout">Logout</Link></Menu.Item>
               </Menu.ItemGroup>
             </Menu>
           </Sider>
           <Layout>
             <Content style={{ margin: 10 }}>
               <Switch>
-                <Route path="/auth/dashboard">
-                  <Profile />
-                </Route>
-                <Route path="/auth/profile/personal">
-                  <Dashboard />
-                </Route>
-                <Route path="/auth/projects">
-                  <Projects />
-                </Route>
-                {/*<Route path="/auth/settings">
-                  <Settings />
-                </Route>*/}
-                <Route path="/preview">
-                  <Preview />
-                </Route>
-                <Route path="/auth/github">
-                  <GithubComponent />
-                </Route>
-                <Route path="/auth/portfolio">
-                  <Portfolio />
-                </Route>
-                <Route path="/auth/logout">
-                  <LogoutComponent />
-                </Route>
+                <Route path="/auth/dashboard"><Profile /></Route>
+                <Route path="/auth/profile/personal"><Dashboard /></Route>
+                <Route path="/auth/projects"><Projects /></Route>
+                <Route path="/preview"><Preview /></Route>
+                <Route path="/auth/github"><GithubComponent /></Route>
+                <Route path="/auth/portfolio"><Portfolio /></Route>
+                <Route path="/auth/logout"><LogoutComponent /></Route>
               </Switch>
             </Content>
             <Footer>
