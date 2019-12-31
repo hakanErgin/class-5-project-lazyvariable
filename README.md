@@ -3,9 +3,9 @@
 
 A tool for HYF students (and others) can use to generate a portfolio and use after graduation.
 
-Summary: _We have worked in randomly assigned groups (of 4 or 5) for six weeks for this project._
+Summary: _We have worked in randomly assigned groups (of 4 or 5) for six weeks for this project,using MERN stack._
 
-They are able to:
+Users are able to:
 - Enter related info about themselves (personal - educational - professional details)
 - Use their github name while signing up to use their repositories 
 - Create viewable profile with these data ("Preview" route)
@@ -32,6 +32,7 @@ The application is missing elements/to be fixed include the following:
 ---
 ### - dev
 ### heroku
+_backend is hosted on heroku and is making calls to the database hosted on MongoDB Atlas_
 ```
 $ git remote -v
 ```
@@ -57,7 +58,7 @@ $ heroku open
 ```
 
 ### Firebase
-
+_frontend is hosted on firebase_
 -```firebase login``` (no need)
 
 -```npm run build```
