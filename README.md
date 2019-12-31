@@ -3,7 +3,7 @@
 
 A tool for HYF students (and others) can use to generate a portfolio and use after graduation.
 
-Summary: _We have worked in randomly assigned groups (of 4 or 5) for six weeks for this project,using MERN stack._
+__Summary:__ We have worked in randomly assigned groups (of 4 or 5) for six weeks for this project,using MERN stack.
 
 Users are able to:
 - Enter related info about themselves (personal - educational - professional details)
