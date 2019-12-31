@@ -59,6 +59,7 @@ $ heroku open
 
 ### Firebase
 _frontend is hosted on firebase_
+
 -```firebase login``` (no need)
 
 -```npm run build```
