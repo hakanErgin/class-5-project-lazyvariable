@@ -3,6 +3,19 @@
 
 A tool for HYF students (and others) can use to generate a portfolio and use after graduation.
 
+Summary: _We have worked in randomly assigned groups (of 4 or 5) for six weeks for this project._
+
+They are able to:
+- Enter related info about themselves (personal - educational - professional details)
+- Use their github name while signing up to use their repositories 
+- Create viewable profile with these data ("Preview" route)
+
+
+The application is missing elements/to be fixed include the following:
+- Responsive design
+- Cleaner DRY, modular code
+- Ability to add multiple (educational or professional experiences in profile creation) options 
+
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
 
 [Project page wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)
