@@ -1,10 +1,14 @@
 # Class-5 group project
 ### GitPro - Generate your portfolio
+
+A tool for HYF students (and others) can use to generate a portfolio and use after graduation.
+
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
 
 [Project page wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)
 
-An tool for HYF students (and others) can use to generate a portfolio and use after graduation.
+
+---
 
 ## run
 
