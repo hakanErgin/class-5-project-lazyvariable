@@ -15,6 +15,8 @@ A tool for HYF students (and others) can use to generate a portfolio and use aft
 - backend: ```nodemon server```
 - frontend: ```npm start```
 
+---
+## dev
 ### heroku
 ```
 $ git remote -v
@@ -39,7 +41,6 @@ change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-ch
 
 $ heroku open
 ```
-
 
 ### Firebase
 
