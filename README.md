@@ -16,7 +16,7 @@ The application is missing elements/to be fixed include the following:
 - Cleaner DRY, modular code
 - Ability to add multiple (educational or professional experiences in profile creation) options 
 
-[Project Link](https://portfolio-d9052.firebaseapp.com/)
+[Project Link](https://portfolio-d9052.firebaseapp.com/) _backend needs a few seconds to wake up when you login/register_
 
 [Project page wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)
 
@@ -24,13 +24,14 @@ The application is missing elements/to be fixed include the following:
 
 ---
 
-### - run
-
-- backend: ```nodemon server```
-- frontend: ```npm start```
+### - How to use the repo
+- clone
+- npm install on both ```root``` dir and ```frontend``` dir
+- to run backend: on project root dir ```nodemon server```
+- then on /frontend dir: ```npm start```
 
 ---
-### - dev
+### - Development
 ### heroku
 _backend is hosted on heroku and is making calls to the database hosted on MongoDB Atlas_
 ```
