@@ -16,7 +16,8 @@ The application is missing elements/to be fixed include the following:
 - Cleaner DRY, modular code
 - Ability to add multiple (educational or professional experiences in profile creation) options 
 
-[Project Link](https://portfolio-d9052.firebaseapp.com/) _backend needs a few seconds to wake up when you login/register_
+[Project Link](https://portfolio-d9052.firebaseapp.com/)
+(_backend needs a moment to wake up when you login/register for first time_)
 
 [Project page wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)
 
