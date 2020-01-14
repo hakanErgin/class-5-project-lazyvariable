@@ -5,10 +5,6 @@ const auth = require('../middleware/auth');
 const User = require('../models/user.model');
 require('dotenv').config();
 
-// @route   POST /user
-// @desc    Register new user
-// @access  Public
-
 // List all the users
 router.route('/all').get((req, res) => {
   User.find()
@@ -64,9 +60,6 @@ router.post('/', (req, res) => {
   });
 });
 
-// @route   GET /auth/user
-// @desc    get user data
-// @access  Private
 router.get('/user', auth, (req, res) => {
   User.findById(req.user.id)
     .select('-password')

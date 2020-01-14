@@ -1,27 +1,27 @@
-import React, { useState /*useEffect*/ } from 'react';
-import axios from 'axios';
-//import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import React, { useState /*useEffect*/ } from 'react'
+import axios from 'axios'
+//import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-import './profile/customStyle.css';
-//import { useHistory, Redirect } from 'react-router-dom';
+import './profile/customStyle.css'
+//import { useHistory, Redirect } from 'react-router-dom'
 
 import HEROKU_URI from '../helpers/herokuHelper'
 
 const Projects = () => {
-  const [repos, setRepos] = useState([]);
-  const [show, toggleShow] = useState(false);
+  const [repos, setRepos] = useState([])
+  const [show, toggleShow] = useState(false)
 
-  const gitHub = [];
+  const gitHub = []
   const FetchButton = () => {
     axios
       .get(`https://api.github.com/users/${localStorage.getItem('username')}/repos`)
       .then(result => {
-        setRepos(result.data);
+        setRepos(result.data)
       })
       .catch(err => {
-        console.log(err);
-      });
-  };
+        console.log(err)
+      })
+  }
   const ImportButton = () => {
     axios.post(
       `${HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
@@ -34,16 +34,16 @@ const Projects = () => {
           'Content-Type': 'application/json',
         },
       },
-    );
-  };
+    )
+  }
   const handleFetchClick = () => {
-    FetchButton();
-    toggleShow(!show);
-  };
-  //let history = useHistory();
+    FetchButton()
+    toggleShow(!show)
+  }
+  //let history = useHistory()
   const handleClick = () => {
-    return (window.location.href = './portfolio');
-  };
+    return (window.location.href = './portfolio')
+  }
   return (
     <div>
       <div className="profileHeader">
@@ -52,7 +52,6 @@ const Projects = () => {
         <div className="theSteps">
           <div className="steps">
             <img className="iconNumber" src="https://i.ibb.co/9g9Yp53/Component-19-1.png" alt="1" />
-
             <div className="signUpText">Import your projects</div>
             <p className="paraTitle">Retrieve your repositories from GitHub </p>
             <button className="btn-github" type="submit" onClick={handleFetchClick}>
@@ -64,10 +63,8 @@ const Projects = () => {
           </div>
           <div className="steps">
             <img className="iconNumber" src="https://i.ibb.co/cknNkS2/Component-20-1.png" alt="2" />
-
             <div className="signUpText">Edit & customize your projects</div>
             <p className="paraTitle">Edit your projects details to showcase it</p>
-
             <a href="/auth/portfolio">
               <button className="editButton" type="submit">
                 Edit
@@ -78,39 +75,33 @@ const Projects = () => {
         {show && <div className="titleMin">Select the repositories you want to import</div>}
         {show && (
           <div className="repoWrapper">
-            {repos.map(function(item) {
-              const title = item.name;
-              const description = item.description;
-              const repository = item.html_url;
+            {repos.map(function (item) {
+              const title = item.name
+              const description = item.description
+              const repository = item.html_url
               const handleGithubChange = () => {
-                gitHub.push({ title, description, repository });
-              };
+                gitHub.push({ title, description, repository })
+              }
 
               return (
-                <div>
-                  <form>
-                    <div className="repoContainer">
-                      <input type="checkbox" className="checkRepo" onChange={handleGithubChange} />
-                      <p className="repoTitle">{title}</p>
-                    </div>
-                  </form>
-                </div>
-              );
+                <div><form><div className="repoContainer">
+                  <input type="checkbox" className="checkRepo" onChange={handleGithubChange} />
+                  <p className="repoTitle">{title}</p>
+                </div></form></div>
+              )
             })}
           </div>
         )}
-        <form
-          onSubmit={event => {
-            event.preventDefault();
-            ImportButton();
-            handleClick();
-            console.log(gitHub);
-          }}
-        >
+        <form onSubmit={event => {
+          event.preventDefault()
+          ImportButton()
+          handleClick()
+          console.log(gitHub)
+        }}>
           {show && <input type="submit" className="importGithubBtn" value="import" />}
         </form>
       </div>
     </div>
-  );
-};
-export default Projects;
+  )
+}
+export default Projects

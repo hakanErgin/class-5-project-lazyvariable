@@ -1,36 +1,35 @@
-import React, { useState, useEffect } from 'react';
-// import { useHistory /*Redirect*/ } from 'react-router-dom';
-import axios from 'axios';
-import './profile/customStyle.css';
-import { Collapse, Icon } from 'antd';
+import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
+import axios from 'axios'
+import './profile/customStyle.css'
+import { Collapse, Icon } from 'antd'
 
 import HEROKU_URI from '../helpers/herokuHelper'
 import FIREBASE_URI from '../helpers/firebaseHelper'
 
-console.log('h', HEROKU_URI);
-console.log('f', FIREBASE_URI);
+console.log('h', HEROKU_URI)
+console.log('f', FIREBASE_URI)
 
-
-const { Panel } = Collapse;
+const { Panel } = Collapse
 const Portfolio = () => {
-  const [repos, setRepos] = useState([]);
-  const titleState = [];
-  const descriptionState = [];
-  const repositoryState = [];
-  const deployedSiteState = [];
-  const photoState = [];
-  const gitHub = [];
+  const [repos, setRepos] = useState([])
+  const titleState = []
+  const descriptionState = []
+  const repositoryState = []
+  const deployedSiteState = []
+  const photoState = []
+  const gitHub = []
   useEffect(() => {
     axios
       // .get(`http://localhost:5000/user/${localStorage.getItem('ID')}`)
       .get(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`)
       .then(result => {
-        setRepos(result.data.gitHub);
+        setRepos(result.data.gitHub)
       })
       .catch(err => {
-        console.log(err);
-      });
-  }, []);
+        console.log(err)
+      })
+  }, [])
   const customPanelStyle = {
     background: '#f9f9f9 0% 0% no-repeat padding-box',
     borderRadius: 4,
@@ -40,7 +39,7 @@ const Portfolio = () => {
     width: 754,
     color: '#f9f9f9',
     marginTop: 40,
-  };
+  }
   const PostButton = () => {
     axios.post(
       `${HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
@@ -53,41 +52,41 @@ const Portfolio = () => {
           'Content-Type': 'application/json',
         },
       },
-    );
-  };
-  // let history = useHistory(); // history object which is used to navigate(to '/preview')
+    )
+  }
+  // let history = useHistory() // history object which is used to navigate(to '/preview')
   const handleClick = () => {
-    window.location.href = `${FIREBASE_URI}/preview`;
-  };
+    window.location.href = `/auth/preview`
+  }
 
   const handleTitleChange = e => {
-    titleState.push(e.target.value);
-    console.log(titleState);
-  };
+    titleState.push(e.target.value)
+    console.log(titleState)
+  }
   const handleDescriptionChange = p => {
-    descriptionState.push(p.target.value);
-    console.log(descriptionState);
-  };
+    descriptionState.push(p.target.value)
+    console.log(descriptionState)
+  }
   //const handleRepositoryChange = p => {
-  //  repositoryState.push(p.target.value);
-  //};
+  //  repositoryState.push(p.target.value)
+  //}
   const handleDeployedSiteChange = p => {
-    deployedSiteState.push(p.target.value);
-  };
+    deployedSiteState.push(p.target.value)
+  }
   const handlePhotoChange = p => {
-    photoState.push(p.target.value);
-  };
+    photoState.push(p.target.value)
+  }
 
   return (
     <div className="profileHeader">
       <div className="titleMin">Edit your projects details</div>
 
       {repos.map(function (item) {
-        const currentTitle = item.title;
-        const currentDescription = item.description;
-        const currentRepository = item.repository;
-        const currentDeployedSite = item.deployedSite;
-        const currentPhoto = item.photo;
+        const currentTitle = item.title
+        const currentDescription = item.description
+        const currentRepository = item.repository
+        const currentDeployedSite = item.deployedSite
+        const currentPhoto = item.photo
 
         return (
           <Collapse
@@ -97,19 +96,16 @@ const Portfolio = () => {
           >
             <Panel header={currentTitle} key="1" style={customPanelStyle}>
               <div className="repoDetailsContainer">
-                <form
-                  onSubmit={event => {
-                    event.preventDefault();
-                    const title = titleState.slice(-1)[0];
-                    const description = descriptionState.slice(-1)[0];
-                    const repository = repositoryState.slice(-1)[0];
-                    const deployedSite = deployedSiteState.slice(-1)[0];
-                    const photo = photoState.slice(-1)[0];
-                    gitHub.push({ title, description, repository, deployedSite, photo });
-
-                    console.log(gitHub);
-                  }}
-                >
+                <form onSubmit={event => {
+                  event.preventDefault()
+                  const title = titleState.slice(-1)[0]
+                  const description = descriptionState.slice(-1)[0]
+                  const repository = repositoryState.slice(-1)[0]
+                  const deployedSite = deployedSiteState.slice(-1)[0]
+                  const photo = photoState.slice(-1)[0]
+                  gitHub.push({ title, description, repository, deployedSite, photo })
+                  console.log(gitHub)
+                }}>
                   <div className="repoDetailsWrapper">
                     <div className="repoField">
                       <div className="repoLabel">Name:</div>
@@ -120,7 +116,6 @@ const Portfolio = () => {
                         onChange={handleTitleChange}
                       ></input>
                     </div>
-
                     <div className="repoField">
                       <div className="githubLabel">deployed site: </div>
                       <input
@@ -130,7 +125,6 @@ const Portfolio = () => {
                         onChange={handleDeployedSiteChange}
                       ></input>
                     </div>
-
                     <div className="repoField">
                       <div className="githubLabel">Photo: </div>
                       <input
@@ -140,7 +134,6 @@ const Portfolio = () => {
                         onChange={handlePhotoChange}
                       ></input>
                     </div>
-
                     <div className="repoField">
                       <div className="githubLabel">Repo: </div>
                       <input
@@ -149,7 +142,6 @@ const Portfolio = () => {
                         defaultValue={currentRepository}
                       ></input>
                     </div>
-
                     <div className="repoField">
                       <div className="githubLabel">Description:</div>
                       <textarea
@@ -161,27 +153,25 @@ const Portfolio = () => {
                       ></textarea>
                     </div>
                   </div>
-
                   <input type="submit" className="repoSaveButton" value="save" />
                 </form>
               </div>
             </Panel>
           </Collapse>
-        );
+        )
       })}
-
       <form
         onSubmit={event => {
-          event.preventDefault();
-          console.log(gitHub);
-          PostButton();
-          handleClick();
+          event.preventDefault()
+          console.log(gitHub)
+          PostButton()
+          handleClick()
         }}
       >
         <input type="submit" className="submitPortfolio" value="Submit" />
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio

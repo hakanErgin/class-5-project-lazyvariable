@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'; // removed React fro
 
 import HEROKU_URI from '../../../helpers/herokuHelper'
 
-
-const useSignUpForm = (initialValues, callback) => {
+const useSignUpForm = (callback) => {
   const [inputs, setInputs] = useState({});
   const ref = useRef(inputs); //we are using useRef for state to update itself each time we enter data and click next on dashboard
 
