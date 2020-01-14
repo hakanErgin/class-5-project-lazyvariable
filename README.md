@@ -1,145 +1,68 @@
-## Installing to Heroku cli (If not already installed on your PC, firstly install the cli)
+# Class-5 group project
+### GitPro - Generate your portfolio
 
-Here you can find [the link to install the heroku cli](https://devcenter.heroku.com/categories/command-line)
+A tool for HYF students (and others) can use to generate a portfolio and use after graduation.
 
-## Running on local node.js server to test
+__Summary:__ We have worked in randomly assigned groups (of 4 or 5) for six weeks for this project,using MERN stack.
 
-**Firstly configure your '.env' file**
+Users are able to:
+- Enter related info about themselves (personal - educational - professional details)
+- Use their github name while signing up to use their repositories 
+- Create viewable profile with these data ("Preview" route)
 
-```
-$ npm install
-$ node server
 
-```
+The application is missing elements/to be fixed include the following:
+- Responsive design
+- Cleaner DRY, modular code
+- Ability to add multiple (educational or professional experiences in profile creation) options 
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+[Project Link](https://portfolio-d9052.firebaseapp.com/) _backend needs a few seconds to wake up when you login/register_
 
-## Very Important Check before all (remote check)
+[Project page wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)
 
-Go to /backend folder and then:
+[Project original repo](https://github.com/HackYourFutureBelgium/class-5-project-lazyvariable)
 
+---
+
+### - How to use the repo
+- clone
+- npm install on both ```root``` dir and ```frontend``` dir
+- to run backend: on project root dir ```nodemon server```
+- then on /frontend dir: ```npm start```
+
+---
+### - Development
+### heroku
+_backend is hosted on heroku and is making calls to the database hosted on MongoDB Atlas_
 ```
 $ git remote -v
-
 ```
-
-This command must give this result:
-
 ```
 heroku https://git.heroku.com/mighty-reaches-37532.git (fetch)
 heroku https://git.heroku.com/mighty-reaches-37532.git (push)
 origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (fetch)
 origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (push)
-
 ```
 
-Otherwise change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-change-a-git-remote-on-heroku) (\$ heroku git:remote -a mighty-reaches-37532
-) and [origin remote](https://stackoverflow.com/questions/22694294/reconnect-remote-origin)
+change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-change-a-git-remote-on-heroku) 
+```$ heroku git:remote -a mighty-reaches-37532)``` 
 
-## Running on heroku local server to test
-
-```
-$ heroku local
+[heroku app link](https://mighty-reaches-37532.herokuapp.com/)
 
 ```
+-$ git push heroku master
+-$ git push heroku yourbranch:master
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+--
 
-## Running on heroku server to see
-
-```
-$ heroku open
-
-```
-
-or just write our [heroku app name](https://mighty-reaches-37532.herokuapp.com/) to the browser
-
-## Deploying to Heroku (If you have changed anything on backend related folders)
-
-**NOTE:** While trying to deploy changes to heroku, firstly cli redirects you to browser and requires you to login to heroku with your e-mail. After logging in:
-
-**ONLY IF YOU HAVE CHANGED ANYTHING ON BACKEND FOLDER DO THIS '$ GIT PUSH HEROKU MASTER', OTHERWISE YOU CAN JUST MAKE '$ HEROKU OPEN':**
-
-```
-$ git add .
-$ git status     //for you to see which changes are added
-$ git commit -m "commit message"
-$ git push heroku master
 $ heroku open
 ```
 
-NOTE: Here you should see on your cli after long lines of build, this :
-"remote: Verifying deploy... done.
-To https://git.heroku.com/mighty-reaches-37532.git"
-after seeing that you can "\$ heroku open" on your cli
+### Firebase
+_frontend is hosted on firebase_
 
-Your app should now be running on server with the name of your app [mighty-reaches-37532](https://mighty-reaches-37532.herokuapp.com/).
+-```firebase login``` (no need)
 
-or
+-```npm run build```
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Committing changes to your branch(not to master) on github
-
-```
-$ git add .
-$ git commit -m "commit message"
-$ git push
-```
-
-**And then make a pull request to master, and wait or notify others to check your pull request**
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
-
-# class-5-project
-
-## CICD
-
-CICD is set up with CircleCI which uses docker containers to execute each step. The steps for the frontend are the equivalent of
-
-1. Continuous integration (CI)
-
-```
-docker run --rm --workdir /app -v (pwd)/frontend:/app --name tmp node yarn install
-docker run --rm --workdir /app -v (pwd)/frontend:/app --name tmp node yarn test
-docker run --rm --workdir /app -v (pwd)/frontend:/app --name tmp node yarn build
-```
-
-What this does is, it executes the three yarn (equivalent to npm) steps in an isolated container environment. What are containers? In short, the future of computing. It's not an overstatement, they are and will be everywhere. Google literally runs _everything_ in containers.
-
-2. Continuous deployment (CD)
-
-I configured the frontend to be deployed to a firebase hosting solution. For this I set up firebase-tools and added a `firebase` script to the `package.json` to avoid global installations. Next I did
-`yarn firebase init` and
-`yarn firebase login:ci` to get a token. This token is set in CircleCI as an environment variable (because it's a secret) and then used in the deploy step
-
-## Linting
-
-The frontend (and hopefully also soon the backend) should be linted. Use [this article](https://medium.com/@pppped/extend-create-react-app-with-airbnbs-eslint-config-prettier-flow-and-react-testing-library-96627e9a9672) for guidance
-
-### Edit
-
-usage
-
-backend nodemon server
-
-frontend npm start
-
-### Firebase deploy
-
--firebase login
-
--npm run build
-
--firebase deploy
-
-
-nav component https://portfolio-d9052.firebaseapp.com/nav
+-```firebase deploy```
