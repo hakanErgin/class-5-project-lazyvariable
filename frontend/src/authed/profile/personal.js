@@ -1,7 +1,4 @@
 import React from 'react';
-//import Experience from './experience';
-//import { BrowserRouter as Route, Link } from 'react-router-dom';
-// import Skills from './skills'
 import './customStyle.css';
 import { Form, Input, /*Button,*/ Typography } from 'antd';
 import HEROKU_URI from '../../helpers/herokuHelper' 

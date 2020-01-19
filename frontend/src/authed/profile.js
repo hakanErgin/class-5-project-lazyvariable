@@ -15,7 +15,6 @@ import './profile/customStyle.css';
 import HEROKU_URI from '../helpers/herokuHelper'
 
 const Profile = () => {
-  const [initial] = React.useState({});
 
   function handleClick(e) {
     console.log('click', e);
@@ -46,7 +45,7 @@ const Profile = () => {
     handleSubmit,
     onEduDateChange,
     onExpDateChange,
-  } = useSignUpForm(initial, handleOnclick);
+  } = useSignUpForm(handleOnclick);
 
   //console.log('dash inputs', inputs);
 
