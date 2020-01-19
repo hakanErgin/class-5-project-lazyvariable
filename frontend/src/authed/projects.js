@@ -5,7 +5,7 @@ import axios from 'axios'
 import './profile/customStyle.css'
 //import { useHistory, Redirect } from 'react-router-dom'
 
-import HEROKU_URI from '../helpers/herokuHelper'
+import BACKEND_URI from '../helpers/herokuHelper'
 
 const Projects = () => {
   const [repos, setRepos] = useState([])
@@ -24,7 +24,7 @@ const Projects = () => {
   }
   const ImportButton = () => {
     axios.post(
-      `${HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
+      `${BACKEND_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },

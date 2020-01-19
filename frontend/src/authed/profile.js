@@ -12,7 +12,7 @@ import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 import './profile/customStyle.css';
 
-import HEROKU_URI from '../helpers/herokuHelper'
+import BACKEND_URI from '../helpers/herokuHelper'
 
 const Profile = () => {
 
@@ -21,7 +21,7 @@ const Profile = () => {
   }
   const handleOnclick = () => {
     axios
-      .post(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`, inputs, {
+      .post(`${BACKEND_URI}/user/${localStorage.getItem('ID')}`, inputs, {
         headers: {
           'x-auth-token': localStorage.getItem('token'),
           'Content-Type': 'application/json',

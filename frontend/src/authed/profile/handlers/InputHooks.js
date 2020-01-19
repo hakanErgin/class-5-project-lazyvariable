@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'; // removed React from here just to get rid of warnings
 
-import HEROKU_URI from '../../../helpers/herokuHelper'
+import BACKEND_URI from '../../../helpers/herokuHelper'
 
 const useSignUpForm = (callback) => {
   const [inputs, setInputs] = useState({});
@@ -43,7 +43,7 @@ const useSignUpForm = (callback) => {
   React.useEffect(() => {
     const CheckDb = async () => {
       try {
-        const res = await useFetch(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`);
+        const res = await useFetch(`${BACKEND_URI}/user/${localStorage.getItem('ID')}`);
         setInputs({
           name: res.response.name,
           about: res.response.about,

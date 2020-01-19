@@ -4,10 +4,10 @@ import axios from 'axios'
 import './profile/customStyle.css'
 import { Collapse, Icon } from 'antd'
 
-import HEROKU_URI from '../helpers/herokuHelper'
+import BACKEND_URI from '../helpers/herokuHelper'
 import FIREBASE_URI from '../helpers/firebaseHelper'
 
-console.log('h', HEROKU_URI)
+console.log('h', BACKEND_URI)
 console.log('f', FIREBASE_URI)
 
 const { Panel } = Collapse
@@ -22,7 +22,7 @@ const Portfolio = () => {
   useEffect(() => {
     axios
       // .get(`http://localhost:5000/user/${localStorage.getItem('ID')}`)
-      .get(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`)
+      .get(`${BACKEND_URI}/user/${localStorage.getItem('ID')}`)
       .then(result => {
         setRepos(result.data.gitHub)
       })
@@ -42,7 +42,7 @@ const Portfolio = () => {
   }
   const PostButton = () => {
     axios.post(
-      `${HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
+      `${BACKEND_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },

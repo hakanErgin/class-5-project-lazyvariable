@@ -4,7 +4,7 @@ import './customStyle.css';
 //import Skills from './skills';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 
-import HEROKU_URI from '../../helpers/herokuHelper'
+import BACKEND_URI from '../../helpers/herokuHelper'
 
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
@@ -64,7 +64,7 @@ const Education = ({
     setInputFields(values);
   };
 
-  const res = useFetch(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${BACKEND_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;
