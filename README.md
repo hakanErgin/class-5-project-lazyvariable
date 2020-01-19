@@ -36,6 +36,7 @@ The application is missing elements/to be fixed include the following:
 ### heroku
 _backend is hosted on heroku and is making calls to the database hosted on MongoDB Atlas_
 ```
+$ heroku login
 $ git remote -v
 ```
 ```
@@ -46,7 +47,7 @@ origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (pu
 ```
 
 change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-change-a-git-remote-on-heroku) 
-```$ heroku git:remote -a mighty-reaches-37532)``` 
+```$ heroku git:remote -a mighty-reaches-37532``` 
 
 [heroku app link](https://mighty-reaches-37532.herokuapp.com/)
 
