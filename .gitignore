@@ -10,3 +10,4 @@ debug.log
 frontend/debug.log
 *.log
 *.cache
+frontend/.firebase
