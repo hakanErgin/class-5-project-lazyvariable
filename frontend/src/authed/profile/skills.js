@@ -2,7 +2,7 @@ import React from 'react';
 import './customStyle.css';
 
 import { Form, Input, Button, Typography } from 'antd';
-import BACKEND_URI from '../../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
 
 const { Title } = Typography;
 
@@ -33,7 +33,7 @@ const Skills = ({ inputs, handleSubmit, handleInputChange }) => {
     handleOnclick,
   ); */
 
-  const res = useFetch(`${BACKEND_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;

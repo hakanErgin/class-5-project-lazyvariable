@@ -3,7 +3,7 @@ import './customStyle.css';
 //import { BrowserRouter as Route, Link } from 'react-router-dom';
 //import Education from './education';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
-import BACKEND_URI from '../../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
 
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
@@ -65,7 +65,7 @@ const Experience = ({
     setInputFields(values);
   };
 
-  const res = useFetch(`${BACKEND_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;

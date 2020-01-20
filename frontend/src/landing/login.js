@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 
-import BACKEND_URI from '../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +14,7 @@ const LoginComponent = () => {
 
   function submitForm() {
     axios
-      .post(`${BACKEND_URI}/auth`, { email, password })
+      .post(`${REACT_APP_BACKEND_URI}/auth`, { email, password })
       .then(e => {
         if (e.data.token) {
           localStorage.setItem('token', e.data.token);

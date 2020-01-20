@@ -75,8 +75,8 @@ function getClientEnvironment(publicUrl) {
         // This should only be used as an escape hatch. Normally you would put
         // images into the `src` and `import` them in code to get their paths.
         PUBLIC_URL: publicUrl,
-        BACKEND_URI: process.env.BACKEND_URI,
-        FIREBASE_URI: process.env.FIREBASE_URI
+        REACT_APP_BACKEND_URI: process.env.REACT_APP_BACKEND_URI,
+        REACT_APP_FIREBASE_URI: process.env.REACT_APP_FIREBASE_URI
       },
     );
   // Stringify all values so we can feed into Webpack DefinePlugin

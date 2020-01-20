@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../App.css';
 import { Redirect } from 'react-router';
-import BACKEND_URI from '../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -15,7 +15,7 @@ const SignUp = () => {
 
   const submitForm = () => {
     axios
-      .post(`${BACKEND_URI}/user`, { username, email, password }) // BEFORE MERGE: .post('${process.env.BACKEND_URI}/user', { email, password, name })
+      .post(`${REACT_APP_BACKEND_URI}/user`, { username, email, password }) // BEFORE MERGE: .post('${process.env.REACT_APP_BACKEND_URI}/user', { email, password, name })
       .then(e => {
         console.log(e.data);
         if (e.data.token) {

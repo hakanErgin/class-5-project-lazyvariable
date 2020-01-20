@@ -11,7 +11,7 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 
-import BACKEND_URI from '../../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
 
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
@@ -46,7 +46,7 @@ function Preview() {
         console.log(err);
       });
   }, []);
-  const res = useFetch(`${BACKEND_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;
