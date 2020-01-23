@@ -10,7 +10,7 @@ import Education from './profile/education';
 import Skills from './profile/skills';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
-import './profile/customStyle.css';
+// import './profile/customStyle.css';
 
 import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
 

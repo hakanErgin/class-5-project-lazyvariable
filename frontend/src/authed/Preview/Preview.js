@@ -3,7 +3,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 //import { Timeline, Icon, Divider, Card, Col, Row } from 'antd';
-import './Preview.css';
+// import './Preview.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';

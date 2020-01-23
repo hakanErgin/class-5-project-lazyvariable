@@ -2,7 +2,7 @@ import React, { useState /*useEffect*/ } from 'react'
 import axios from 'axios'
 //import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-import './profile/customStyle.css'
+// import './profile/customStyle.css'
 //import { useHistory, Redirect } from 'react-router-dom'
 
 import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'

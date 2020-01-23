@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../App.css';
+// import '../App.css';
 import { Redirect } from 'react-router';
 import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
 

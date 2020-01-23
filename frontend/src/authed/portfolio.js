@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import './profile/customStyle.css'
+// import './profile/customStyle.css'
 import { Collapse, Icon } from 'antd'
 
 import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'

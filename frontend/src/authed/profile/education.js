@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import './customStyle.css';
+// import './customStyle.css';
 //import { BrowserRouter as Route, Link } from 'react-router-dom';
 //import Skills from './skills';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';

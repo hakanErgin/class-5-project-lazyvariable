@@ -13,7 +13,7 @@ import GithubComponent from './github';
 import Portfolio from './portfolio';
 
 import { Menu, Layout } from 'antd';
-import './profile/customStyle.css';
+// import './profile/customStyle.css';
 
 const { Footer, Sider, Content } = Layout;
 

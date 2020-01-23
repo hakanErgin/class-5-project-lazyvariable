@@ -1,5 +1,5 @@
 import React from 'react';
-import './customStyle.css';
+// import './customStyle.css';
 
 import { Form, Input, Button, Typography } from 'antd';
 import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
