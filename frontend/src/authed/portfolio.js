@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-// import './profile/customStyle.css'
 import { Collapse, Icon } from 'antd'
 
 import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
@@ -21,7 +20,6 @@ const Portfolio = () => {
   const gitHub = []
   useEffect(() => {
     axios
-      // .get(`http://localhost:5000/user/${localStorage.getItem('ID')}`)
       .get(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`)
       .then(result => {
         setRepos(result.data.gitHub)
@@ -54,7 +52,7 @@ const Portfolio = () => {
       },
     )
   }
-  // let history = useHistory() // history object which is used to navigate(to '/preview')
+
   const handleClick = () => {
     window.location.href = `/auth/preview`
   }
@@ -63,16 +61,16 @@ const Portfolio = () => {
     titleState.push(e.target.value)
     console.log(titleState)
   }
+
   const handleDescriptionChange = p => {
     descriptionState.push(p.target.value)
     console.log(descriptionState)
   }
-  //const handleRepositoryChange = p => {
-  //  repositoryState.push(p.target.value)
-  //}
+
   const handleDeployedSiteChange = p => {
     deployedSiteState.push(p.target.value)
   }
+
   const handlePhotoChange = p => {
     photoState.push(p.target.value)
   }

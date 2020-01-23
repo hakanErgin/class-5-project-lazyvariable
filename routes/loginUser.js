@@ -4,8 +4,6 @@ const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
 
 const User = require('../models/user.model');
-// const auth = require('../middleware/auth');
-
 require('dotenv').config();
 
 // @route   POST /auth

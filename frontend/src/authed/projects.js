@@ -1,9 +1,5 @@
-import React, { useState /*useEffect*/ } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-//import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-
-// import './profile/customStyle.css'
-//import { useHistory, Redirect } from 'react-router-dom'
 
 import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
 
@@ -36,13 +32,15 @@ const Projects = () => {
       },
     )
   }
+
   const handleFetchClick = () => {
     FetchButton()
     toggleShow(!show)
   }
-  //let history = useHistory()
+
   const handleClick = () => {
     return (window.location.href = './portfolio')
+
   }
   return (
     <div>

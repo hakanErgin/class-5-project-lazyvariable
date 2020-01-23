@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'; // removed React from here just to get rid of warnings
+import React, { useState, useEffect, useRef } from 'react';
 
 import REACT_APP_BACKEND_URI from '../../../helpers/herokuHelper'
 
@@ -103,11 +103,9 @@ const useSignUpForm = (callback) => {
   };
 
   const handleInputChangeCascade = (value, selectedOptions) => {
-    //setInputs(ref => ({ ...ref, [event.target.name]: event.target.value }));
     console.log(value, selectedOptions);
     const empType = selectedOptions[0];
 
-    //const { value, selectedOptions } = event.target;
     setInputs(inputs => ({ ...inputs, empType }));
 
     console.log('changed inputs', inputs);

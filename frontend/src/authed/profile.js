@@ -10,7 +10,6 @@ import Education from './profile/education';
 import Skills from './profile/skills';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
-// import './profile/customStyle.css';
 
 import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
 
@@ -34,11 +33,10 @@ const Profile = () => {
         console.log(err);
       });
 
-    //alert('Successfully saved!');
+    alert('Successfully saved!');
   };
 
   const {
-    // ref,
     inputs,
     handleInputChange,
     handleInputChangeCascade,
@@ -46,12 +44,6 @@ const Profile = () => {
     onEduDateChange,
     onExpDateChange,
   } = useSignUpForm(handleOnclick);
-
-  //console.log('dash inputs', inputs);
-
-  /* useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  }); */
 
   const [selected, setSelected] = useState('1');
 

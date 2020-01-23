@@ -1,6 +1,4 @@
 import React from 'react';
-// import './customStyle.css';
-
 import { Form, Input, Button, Typography } from 'antd';
 import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
 
@@ -26,13 +24,6 @@ const useFetch = url => {
 };
 
 const Skills = ({ inputs, handleSubmit, handleInputChange }) => {
-  /* const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
-    {
-      skills: '',
-    },
-    handleOnclick,
-  ); */
-
   const res = useFetch(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {

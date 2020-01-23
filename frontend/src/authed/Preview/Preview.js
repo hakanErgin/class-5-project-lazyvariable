@@ -1,9 +1,6 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-//import { Timeline, Icon, Divider, Card, Col, Row } from 'antd';
-// import './Preview.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +30,6 @@ const useFetch = url => {
 };
 
 function Preview() {
-  //const [github, setGithub] = React.useState([]);
   const [avatar, setAvatar] = useState();
 
   useEffect(() => {

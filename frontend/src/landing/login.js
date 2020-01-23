@@ -21,9 +21,7 @@ const LoginComponent = () => {
 
           localStorage.setItem('username', e.data.user.username);
           localStorage.setItem('ID', e.data.user.id);
-
           setLoggedIn(true);
-          //console.log(e.data.token);
         } else {
           setLoggedIn(false);
         }

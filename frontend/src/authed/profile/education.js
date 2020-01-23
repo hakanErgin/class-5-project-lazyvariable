@@ -1,7 +1,4 @@
 import React, { useState, Fragment } from 'react';
-// import './customStyle.css';
-//import { BrowserRouter as Route, Link } from 'react-router-dom';
-//import Skills from './skills';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 
 import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
@@ -71,9 +68,7 @@ const Education = ({
   }
   const institution = res.response.institution;
   const fieldOfStudy = res.response.fieldOfStudy;
-  //const educationStartDate = res.response.educationStartDate;
   const degree = res.response.degree;
-  //const educationEndDate = res.response.educationEndDate;
   const educationDescription = res.response.educationDescription;
 
   return (
@@ -135,24 +130,6 @@ const Education = ({
             <Icon type="plus" /> Add education
           </Button>
         </Form.Item>
-        {/* <Form.Item>
-          <Link to="/auth/profile/skills">
-            <Button
-              type="primary"
-              onClick={() => {
-                return (
-                  <div>
-                    <Route>
-                      <Skills />
-                    </Route>
-                  </div>
-                );
-              }}
-            >
-              Next
-            </Button>
-          </Link>
-        </Form.Item> */}
       </Form>
     </div>
   );

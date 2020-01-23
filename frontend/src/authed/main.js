@@ -5,15 +5,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Dashboard from './profile';
 import Profile from './dashboard';
-//import Settings from './settings';
 import LogoutComponent from './logout';
 import Projects from './projects';
 import Preview from './Preview/Preview';
 import GithubComponent from './github';
 import Portfolio from './portfolio';
-
 import { Menu, Layout } from 'antd';
-// import './profile/customStyle.css';
 
 const { Footer, Sider, Content } = Layout;
 

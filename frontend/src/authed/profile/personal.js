@@ -1,7 +1,6 @@
 import React from 'react';
-// import './customStyle.css';
-import { Form, Input, /*Button,*/ Typography } from 'antd';
-import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper' 
+import { Form, Input, Typography } from 'antd';
+import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -26,8 +25,6 @@ const useFetch = url => {
 };
 
 const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
-  //console.log('personal inputs', inputs);
-
   const res = useFetch(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
@@ -40,8 +37,6 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
   const phone = res.response.phone;
   const country = res.response.country;
   const city = res.response.city;
-
-  //console.log(name);
 
   return (
     <div className="customStyle">
@@ -88,7 +83,6 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
             name="country"
             onChange={handleInputChange}
             value={inputs.country}
-            //value={inputs.country}
           />
         </Form.Item>
         <Form.Item label="City">
@@ -103,24 +97,6 @@ const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
             value={inputs.website}
           />
         </Form.Item>
-        {/* <Form.Item>
-          <Link to="/auth/profile/experience">
-            <Button
-              type="primary"
-              onClick={() => {
-                return (
-                  <div>
-                    <Route>
-                      <Experience />
-                    </Route>
-                  </div>
-                );
-              }}
-            >
-              Next
-            </Button>
-          </Link>
-        </Form.Item> */}
       </Form>
     </div>
   );

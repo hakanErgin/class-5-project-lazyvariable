@@ -1,7 +1,4 @@
 import React, { useState, Fragment } from 'react';
-// import './customStyle.css';
-//import { BrowserRouter as Route, Link } from 'react-router-dom';
-//import Education from './education';
 import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
 
@@ -74,40 +71,8 @@ const Experience = ({
   const companyName = res.response.companyName;
   const companyLocation = res.response.companyLocation;
   const employmentType = res.response.employmentType;
-  //const workStartDate = res.response.workStartDate;
-  //const workEndDate = res.response.workEndDate;
   const jobDescription = res.response.jobDescription;
 
-  // const options = [
-  //   {
-  //     value: 'Full-Time',
-  //     label: 'Full-Time',
-  //   },
-  //   {
-  //     value: 'Part-Time',
-  //     label: 'Part-Time',
-  //   },
-  //   {
-  //     value: 'Self-Employed',
-  //     label: 'Self-Employed',
-  //   },
-  //   {
-  //     value: 'Freelance',
-  //     label: 'Freelance',
-  //   },
-  //   {
-  //     value: 'Internship',
-  //     label: 'Internship',
-  //   },
-  //   {
-  //     value: 'Apprenticeship',
-  //     label: 'Apprenticeship',
-  //   },
-  // ];
-
-  // function onChange(value) {
-  //   console.log(value);
-  // }
   return (
     <div className="customStyle">
       <Title level={3}>Work experience</Title>
@@ -185,24 +150,6 @@ const Experience = ({
             <Icon type="plus" /> Add work
           </Button>
         </Form.Item>
-        {/* <Form.Item>
-          <Link to="/auth/profile/education">
-            <Button
-              type="primary"
-              onClick={() => {
-                return (
-                  <div>
-                    <Route>
-                      <Education />
-                    </Route>
-                  </div>
-                );
-              }}
-            >
-              Next
-            </Button>
-          </Link>
-        </Form.Item> */}
       </Form>
     </div>
   );

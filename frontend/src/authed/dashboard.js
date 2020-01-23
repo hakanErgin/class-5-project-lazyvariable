@@ -1,5 +1,4 @@
 import React from 'react';
-// import './profile/customStyle.css';
 
 const Dashboard = () => {
   return (
