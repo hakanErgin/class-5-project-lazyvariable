@@ -2,7 +2,7 @@ import React from 'react';
 
 const Homepage = () => {
   return (
-    <div>
+    <div style={{ margin: 10 }}>
       <header>
         <div className="topBar">
           <div className="leftTop">

@@ -42,23 +42,16 @@ const LoginComponent = () => {
       {loggedIn ? (
         <Redirect to="/auth/dashboard" />
       ) : (
-          <div>
+          <div style={{ paddingTop: 10, paddingLeft: 10 }}>
             <div className="headerSignUp">
               <div className="leftSide">
                 <a href="/">
                   <img src="https://i.ibb.co/cDXz5vG/logo.png" alt="logo" border="0" />
                 </a>
                 <div className="rightTop">
-                  <ul className="navMenu">
-                    <a href="/">
-                      <li className="menuItem">Home</li>
-                    </a>
-                    <li className="menuItem">About us</li>
-                    <li className="menuItem">Contact us</li>
-                  </ul>
-                  <button className="loginInButton">Login in</button>
+                  <button className="loginInButton" disabled={true}>Log in</button>
                   <a href="/signup">
-                    <button className="signUpButton">Get started</button>
+                    <button className="signUpButton">Sign up</button>
                   </a>
                 </div>
                 <div className="titleSection">
