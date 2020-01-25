@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import axios from 'axios';
 
 import useSignUpForm from './profile/handlers/InputHooks';
 
@@ -11,30 +10,12 @@ import Skills from './profile/skills';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 
-import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../helpers/herokuHelper';
 
 const Profile = () => {
-
   function handleClick(e) {
     console.log('click', e);
   }
-  const handleOnclick = () => {
-    axios
-      .post(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`, inputs, {
-        headers: {
-          'x-auth-token': localStorage.getItem('token'),
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(e => {
-        console.log(e);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
-    alert('Successfully saved!');
-  };
 
   const {
     inputs,
@@ -42,8 +23,8 @@ const Profile = () => {
     handleInputChangeCascade,
     handleSubmit,
     onEduDateChange,
-    onExpDateChange,
-  } = useSignUpForm(handleOnclick);
+    onExpDateChange
+  } = useSignUpForm();
 
   const [selected, setSelected] = useState('1');
 
@@ -54,7 +35,11 @@ const Profile = () => {
           <div className="subTitle">Take your first step!</div>
           <div className="title">Create your resume</div>
         </div>
-        <Menu defaultSelectedKeys={selected} onClick={handleClick} mode="horizontal">
+        <Menu
+          defaultSelectedKeys={selected}
+          onClick={handleClick}
+          mode="horizontal"
+        >
           <Menu.Item key="1">
             <Link to="/auth/profile/personal">Personal Info</Link>
           </Menu.Item>

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
-import REACT_APP_BACKEND_URI from '../../../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../../../helpers/herokuHelper';
 
-const useSignUpForm = (callback) => {
+const useSignUpForm = () => {
   const [inputs, setInputs] = useState({});
   const ref = useRef(inputs); //we are using useRef for state to update itself each time we enter data and click next on dashboard
 
@@ -16,9 +17,31 @@ const useSignUpForm = (callback) => {
       event.preventDefault();
       //event.persist();
       console.log('last values', ref, inputs);
-      callback();
+      handleOnclick();
       window.location.href = `/auth/projects`;
     }
+  };
+
+  const handleOnclick = () => {
+    axios
+      .post(
+        `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`,
+        inputs,
+        {
+          headers: {
+            'x-auth-token': localStorage.getItem('token'),
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then(e => {
+        console.log(e);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    alert('Successfully saved!');
   };
 
   const useFetch = url => {
@@ -43,7 +66,9 @@ const useSignUpForm = (callback) => {
   React.useEffect(() => {
     const CheckDb = async () => {
       try {
-        const res = await useFetch(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`);
+        const res = await useFetch(
+          `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`
+        );
         setInputs({
           name: res.response.name,
           about: res.response.about,
@@ -62,7 +87,7 @@ const useSignUpForm = (callback) => {
           degree: res.response.degree,
           fieldOfStudy: res.response.fieldOfStudy,
           educationDescription: res.response.educationDescription,
-          skills: res.response.skills,
+          skills: res.response.skills
         });
       } catch (error) {
         console.log(error);
@@ -84,7 +109,7 @@ const useSignUpForm = (callback) => {
           degree: '',
           fieldOfStudy: '',
           educationDescription: '',
-          skills: '',
+          skills: ''
         });
       }
     };
@@ -93,6 +118,7 @@ const useSignUpForm = (callback) => {
 
   const handleInputChange = event => {
     event.persist();
+    console.log('handleInputChange. inputs:', inputs);
 
     //setInputs(ref => ({ ...ref, [event.target.name]: event.target.value }));
 
@@ -136,7 +162,7 @@ const useSignUpForm = (callback) => {
     inputs,
     ref,
     onEduDateChange,
-    onExpDateChange,
+    onExpDateChange
   };
 };
 
