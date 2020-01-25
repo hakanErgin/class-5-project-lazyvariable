@@ -12,7 +12,7 @@ import GithubComponent from './github';
 import Portfolio from './portfolio';
 import { Menu, Layout } from 'antd';
 
-const { Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
 const Main = () => {
   const [name, setName] = useState();
@@ -29,7 +29,7 @@ const Main = () => {
         console.log(err);
       });
   }, []);
-  
+
   return (
     <div className="alles">
       <Router>
@@ -78,12 +78,6 @@ const Main = () => {
                 <Route path="/auth/logout"><LogoutComponent /></Route>
               </Switch>
             </Content>
-            <Footer>
-              <div className="footerContainer">
-                <img className="logoMin" src="https://i.ibb.co/jgJW3wx/logomin.png" alt="logomin" />
-                <div className="copyrightText">All rights are reserved</div>
-              </div>
-            </Footer>
           </Layout>
         </Layout>
       </Router>

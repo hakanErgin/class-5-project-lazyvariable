@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 import useSignUpForm from './profile/handlers/InputHooks';
 
@@ -9,8 +10,10 @@ import Education from './profile/education';
 import Skills from './profile/skills';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
+import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
+import { Layout, Button } from 'antd';
 
-import REACT_APP_BACKEND_URI from '../helpers/herokuHelper';
+const { Footer } = Layout;
 
 const Profile = () => {
   function handleClick(e) {
@@ -27,6 +30,27 @@ const Profile = () => {
   } = useSignUpForm();
 
   const [selected, setSelected] = useState('1');
+
+  const history = useHistory();
+
+  function nextHandler() {
+    switch (window.location.pathname) {
+      case "/auth/profile/personal":
+        history.push("/auth/profile/experience");
+        break;
+      case "/auth/profile/experience":
+        history.push("/auth/profile/education");
+        break;
+      case "/auth/profile/education":
+        history.push("/auth/profile/skills");
+        break;
+      case "/auth/profile/skills":
+        console.log('hola');
+        break;
+      default:
+        return null
+    }
+  }
 
   return (
     <Router>
@@ -92,6 +116,9 @@ const Profile = () => {
           </Route>
         </Switch>
       </div>
+      <Footer style={{ bottom: 0, position: "fixed", width: "100%", padding: 10 }}>
+        <Button onClick={nextHandler}>Next</Button>
+      </Footer>
     </Router>
   );
 };
