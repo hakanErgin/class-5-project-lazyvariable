@@ -1,59 +1,22 @@
 import React from 'react';
 import { Form, Input, Typography } from 'antd';
-import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper';
-import useSignUpForm from '../profile/handlers/InputHooks';
 
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const Personal = ({ setSelected }) => {
-  const [response, setResponse] = React.useState(null);
-  const [error, setError] = React.useState(null);
-  const { handleSubmit } = useSignUpForm();
-
-  const useFetch = url => {
-    React.useEffect(() => {
-      const FetchData = async () => {
-        try {
-          const res = await fetch(url);
-          const json = await res.json();
-          console.log('json', json);
-          const { email, name, about, website, phone, country, city } = json;
-
-          setResponse(json);
-        } catch (error) {
-          setError(error);
-        }
-      };
-      FetchData();
-    }, [url]);
-    return { response, error };
-  };
-
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setResponse({ ...response, [name]: value });
-  };
-
-  const res = useFetch(
-    `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`
-  );
-
-  if (!res.response) {
-    return null;
-  }
-  const { email, name, about, website, phone, country, city } = res.response;
+const Personal = ({ inputs, handleInputChange }) => {
+  const { email, name, about, website, phone, country, city } = inputs;
 
   return (
     <div className="customStyle">
       <Title level={3}>Personal & Contact information</Title>
-      <Form onSubmit={handleSubmit} autoComplete="off">
+      <Form autoComplete="off">
         <Form.Item label="Name">
           <Input
             name="name"
             onChange={handleInputChange}
             placeholder={name}
-            value={response.name}
+            value={inputs.name}
             required
           />
         </Form.Item>
@@ -64,7 +27,7 @@ const Personal = ({ setSelected }) => {
             placeholder={about}
             name="about"
             onChange={handleInputChange}
-            value={response.about}
+            value={inputs.about}
           />
         </Form.Item>
         <Form.Item label="Telephone Number">
@@ -72,7 +35,7 @@ const Personal = ({ setSelected }) => {
             placeholder={phone}
             name="phone"
             onChange={handleInputChange}
-            value={response.phone}
+            value={inputs.phone}
           />
         </Form.Item>
         <Form.Item label="Email">
@@ -80,7 +43,7 @@ const Personal = ({ setSelected }) => {
             placeholder={email}
             name="email"
             onChange={handleInputChange}
-            value={response.email}
+            value={inputs.email}
           />
         </Form.Item>
         <Form.Item label="Country">
@@ -88,7 +51,7 @@ const Personal = ({ setSelected }) => {
             placeholder={country}
             name="country"
             onChange={handleInputChange}
-            value={response.country}
+            value={inputs.country}
           />
         </Form.Item>
         <Form.Item label="City">
@@ -96,7 +59,7 @@ const Personal = ({ setSelected }) => {
             placeholder={city}
             name="city"
             onChange={handleInputChange}
-            value={response.city}
+            value={inputs.city}
           />
         </Form.Item>
 
@@ -105,7 +68,7 @@ const Personal = ({ setSelected }) => {
             placeholder={website}
             name="website"
             onChange={handleInputChange}
-            value={response.website}
+            value={inputs.website}
           />
         </Form.Item>
       </Form>

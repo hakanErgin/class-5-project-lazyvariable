@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
-import axios from 'axios';
 
 import useSignUpForm from './profile/handlers/InputHooks';
 
@@ -29,7 +28,7 @@ const Profile = () => {
     onExpDateChange
   } = useSignUpForm();
 
-  const [selected, setSelected] = useState('1');
+  console.log('inputs', inputs);
 
   const history = useHistory();
 
@@ -59,11 +58,7 @@ const Profile = () => {
           <div className="subTitle">Take your first step!</div>
           <div className="title">Create your resume</div>
         </div>
-        <Menu
-          defaultSelectedKeys={selected}
-          onClick={handleClick}
-          mode="horizontal"
-        >
+        <Menu defaultSelectedKeys="1" onClick={handleClick} mode="horizontal">
           <Menu.Item key="1">
             <Link to="/auth/profile/personal">Personal Info</Link>
           </Menu.Item>
@@ -79,36 +74,24 @@ const Profile = () => {
         </Menu>
         <Switch>
           <Route path="/auth/profile/personal">
-            <Personal
-              setSelected={setSelected}
-              inputs={inputs}
-              handleInputChange={handleInputChange}
-              handleSubmit={handleSubmit}
-            />
+            <Personal inputs={inputs} handleInputChange={handleInputChange} />
           </Route>
           <Route path="/auth/profile/experience">
             <Experience
-              setSelected={setSelected}
               inputs={inputs}
               handleInputChange={handleInputChange}
-              handleInputChangeCascade={handleInputChangeCascade}
-              handleSubmit={handleSubmit}
               onExpDateChange={onExpDateChange}
             />
           </Route>
           <Route path="/auth/profile/education">
             <Education
-              setSelected={setSelected}
               inputs={inputs}
               handleInputChange={handleInputChange}
-              handleInputChangeCascade={handleInputChangeCascade}
-              handleSubmit={handleSubmit}
               onEduDateChange={onEduDateChange}
             />
           </Route>
           <Route path="/auth/profile/skills">
             <Skills
-              setSelected={setSelected}
               inputs={inputs}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
