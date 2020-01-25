@@ -66,19 +66,19 @@ const Main = () => {
               </Menu.ItemGroup>
             </Menu>
           </Sider>
-          <Layout>
-            <Content style={{ margin: 10 }}>
-              <Switch>
-                <Route path="/auth/dashboard"><Dashboard /></Route>
-                <Route path="/auth/profile/personal"><Profile /></Route>
-                <Route path="/auth/projects"><Projects /></Route>
-                <Route path="/auth/preview"><Preview /></Route>
-                <Route path="/auth/github"><GithubComponent /></Route>
-                <Route path="/auth/portfolio"><Portfolio /></Route>
-                <Route path="/auth/logout"><LogoutComponent /></Route>
-              </Switch>
-            </Content>
-          </Layout>
+
+          <Content style={{ margin: 10 }}>
+            <Switch>
+              <Route path="/auth/dashboard"><Dashboard /></Route>
+              <Route path="/auth/profile/"><Profile /></Route>
+              <Route path="/auth/projects"><Projects /></Route>
+              <Route path="/auth/preview"><Preview /></Route>
+              <Route path="/auth/github"><GithubComponent /></Route>
+              <Route path="/auth/portfolio"><Portfolio /></Route>
+              <Route path="/auth/logout"><LogoutComponent /></Route>
+            </Switch>
+          </Content>
+
         </Layout>
       </Router>
     </div>
