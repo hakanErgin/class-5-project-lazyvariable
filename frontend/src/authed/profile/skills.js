@@ -1,35 +1,11 @@
 import React from 'react';
 import { Form, Input, Button, Typography } from 'antd';
-import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper';
 
 const { Title } = Typography;
 
-const useFetch = url => {
-  const [response, setResponse] = React.useState(null);
-  const [error, setError] = React.useState(null);
-
-  React.useEffect(() => {
-    const FetchData = async () => {
-      try {
-        const res = await fetch(url);
-        const json = await res.json();
-        setResponse(json);
-      } catch (error) {
-        setError(error);
-      }
-    };
-    FetchData();
-  }, [url]);
-  return { response, error };
-};
-
-const Skills = ({ inputs, handleSubmit, handleInputChange }) => {
-  const res = useFetch(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`);
-
-  if (!res.response) {
-    return null;
-  }
-  const skills = res.response.skills;
+const Skills = ({ inputs, handleInputChange, handleSubmit }) => {
+  const skills = inputs.skills;
 
   return (
     <div className="customStyle">
