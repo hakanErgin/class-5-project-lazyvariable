@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './profile/customStyle.css';
-import { useHistory /*Redirect*/ } from 'react-router-dom';
-import HEROKU_URI from '../helpers/herokuHelper'
+import { useHistory } from 'react-router-dom';
+import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
 
 
 const GithubComponent = () => {
   const [repos, setRepos] = useState([]);
-  // const [show, toggleShow] = useState(false);
-
+  
   const gitHub = [];
   useEffect(() => {
     axios
@@ -22,7 +20,7 @@ const GithubComponent = () => {
   }, []);
   const ImportButton = () => {
     axios.post(
-      `${HEROKU_URI}/user/github/${localStorage.getItem('ID')}`,
+      `${REACT_APP_BACKEND_URI}/user/github/${localStorage.getItem('ID')}`,
       {
         gitHub,
       },

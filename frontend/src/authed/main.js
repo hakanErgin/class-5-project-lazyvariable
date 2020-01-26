@@ -3,19 +3,16 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Dashboard from './profile';
-import Profile from './dashboard';
-//import Settings from './settings';
+import Dashboard from './dashboard';
+import Profile from './profile';
 import LogoutComponent from './logout';
 import Projects from './projects';
 import Preview from './Preview/Preview';
 import GithubComponent from './github';
 import Portfolio from './portfolio';
-
 import { Menu, Layout } from 'antd';
-import './profile/customStyle.css';
 
-const { Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
 const Main = () => {
   const [name, setName] = useState();
@@ -32,21 +29,22 @@ const Main = () => {
         console.log(err);
       });
   }, []);
+
   return (
     <div className="alles">
       <Router>
         <Layout>
-          <Sider theme="light" style={{ paddingTop: 40 }}>
+          <Sider theme="light" style={{ paddingTop: 10, paddingLeft: 10 }}>
             <Menu selectable={false} mode="vertical">
-              <a href="/">
-                <img
-                  className="logoDashboard"
-                  src="https://i.ibb.co/cDXz5vG/logo.png"
-                  alt="element"
-                />
-              </a>
-              <span>
-                <div className="userName">{name}</div>
+              <div>
+                <a href="/">
+                  <img
+                    className="logoDashboard"
+                    src="https://i.ibb.co/cDXz5vG/logo.png"
+                    alt="element"
+                  />
+                </a></div>
+              <div>
                 <div
                   className="userPhoto"
                   style={{
@@ -57,7 +55,8 @@ const Main = () => {
                     width: 70,
                   }}
                 ></div>
-              </span>
+                <div className="userName" style={{ lineHeight: 2 }}>Hello {name}</div>
+              </div>
               <Menu.ItemGroup>
                 <Menu.Item><Link to="/auth/dashboard">Dashboard</Link></Menu.Item>
                 <Menu.Item><Link to="/auth/profile/personal">Profile</Link></Menu.Item>
@@ -67,25 +66,19 @@ const Main = () => {
               </Menu.ItemGroup>
             </Menu>
           </Sider>
-          <Layout>
-            <Content style={{ margin: 10 }}>
-              <Switch>
-                <Route path="/auth/dashboard"><Profile /></Route>
-                <Route path="/auth/profile/personal"><Dashboard /></Route>
-                <Route path="/auth/projects"><Projects /></Route>
-                <Route path="/auth/preview"><Preview /></Route>
-                <Route path="/auth/github"><GithubComponent /></Route>
-                <Route path="/auth/portfolio"><Portfolio /></Route>
-                <Route path="/auth/logout"><LogoutComponent /></Route>
-              </Switch>
-            </Content>
-            <Footer>
-              <div className="footerContainer">
-                <img className="logoMin" src="https://i.ibb.co/jgJW3wx/logomin.png" alt="logomin" />
-                <div className="copyrightText">All rights are reserved</div>
-              </div>
-            </Footer>
-          </Layout>
+
+          <Content style={{ margin: 10 }}>
+            <Switch>
+              <Route path="/auth/dashboard"><Dashboard /></Route>
+              <Route path="/auth/profile/"><Profile /></Route>
+              <Route path="/auth/projects"><Projects /></Route>
+              <Route path="/auth/preview"><Preview /></Route>
+              <Route path="/auth/github"><GithubComponent /></Route>
+              <Route path="/auth/portfolio"><Portfolio /></Route>
+              <Route path="/auth/logout"><LogoutComponent /></Route>
+            </Switch>
+          </Content>
+
         </Layout>
       </Router>
     </div>

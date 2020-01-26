@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory, withRouter } from 'react-router-dom';
 
 import useSignUpForm from './profile/handlers/InputHooks';
 
@@ -10,60 +9,66 @@ import Education from './profile/education';
 import Skills from './profile/skills';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
-import './profile/customStyle.css';
 
-import HEROKU_URI from '../helpers/herokuHelper'
+import { Layout, Button } from 'antd';
+
+const { Footer } = Layout;
 
 const Profile = () => {
-  const [initial] = React.useState({});
-
   function handleClick(e) {
-    console.log('click', e);
+    setActiveTab(e.key)
   }
-  const handleOnclick = () => {
-    axios
-      .post(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`, inputs, {
-        headers: {
-          'x-auth-token': localStorage.getItem('token'),
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(e => {
-        console.log(e);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
-    //alert('Successfully saved!');
-  };
 
   const {
-    // ref,
     inputs,
     handleInputChange,
-    handleInputChangeCascade,
     handleSubmit,
     onEduDateChange,
-    onExpDateChange,
-  } = useSignUpForm(initial, handleOnclick);
+    onExpDateChange
+  } = useSignUpForm();
 
-  //console.log('dash inputs', inputs);
+  console.log('inputs', inputs);
 
-  /* useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  }); */
+  const history = useHistory();
+  const [activeTab, setActiveTab] = useState('1')
+  const [buttonText, setButtonText] = useState('Next')
 
-  const [selected, setSelected] = useState('1');
+  function nextHandler(e) {
+    switch (activeTab) {
+      case "1":
+        setActiveTab('2');
+        history.push("/auth/profile/experience");
+        setButtonText('Next');
+        break;
+      case "2":
+        setActiveTab('3');
+        history.push("/auth/profile/education");
+        setButtonText('Next');
+        break;
+      case "3":
+        setActiveTab('4');
+        history.push("/auth/profile/skills");
+        setButtonText('Submit');
+        break;
+      case "4":
+        setActiveTab('1');
+        handleSubmit(e);
+        break;
+      default:
+        setActiveTab('1');
+        setButtonText('Next');
+        break;
+    }
+  }
 
   return (
-    <Router>
+    <div>
       <div>
         <div className="profileHeader">
           <div className="subTitle">Take your first step!</div>
           <div className="title">Create your resume</div>
         </div>
-        <Menu defaultSelectedKeys={selected} onClick={handleClick} mode="horizontal">
+        <Menu selectedKeys={activeTab} onClick={handleClick} mode="horizontal">
           <Menu.Item key="1">
             <Link to="/auth/profile/personal">Personal Info</Link>
           </Menu.Item>
@@ -79,45 +84,36 @@ const Profile = () => {
         </Menu>
         <Switch>
           <Route path="/auth/profile/personal">
-            <Personal
-              setSelected={setSelected}
-              inputs={inputs}
-              handleInputChange={handleInputChange}
-              handleSubmit={handleSubmit}
-            />
+            <Personal inputs={inputs} handleInputChange={handleInputChange} />
           </Route>
           <Route path="/auth/profile/experience">
             <Experience
-              setSelected={setSelected}
               inputs={inputs}
               handleInputChange={handleInputChange}
-              handleInputChangeCascade={handleInputChangeCascade}
-              handleSubmit={handleSubmit}
               onExpDateChange={onExpDateChange}
             />
           </Route>
           <Route path="/auth/profile/education">
             <Education
-              setSelected={setSelected}
               inputs={inputs}
               handleInputChange={handleInputChange}
-              handleInputChangeCascade={handleInputChangeCascade}
-              handleSubmit={handleSubmit}
               onEduDateChange={onEduDateChange}
             />
           </Route>
           <Route path="/auth/profile/skills">
             <Skills
-              setSelected={setSelected}
               inputs={inputs}
               handleInputChange={handleInputChange}
-              handleSubmit={handleSubmit}
             />
           </Route>
         </Switch>
       </div>
-    </Router>
+      <Footer style={{ bottom: 0, position: "fixed", width: "100%", padding: 10 }}>
+        <Button onClick={nextHandler}>{buttonText}</Button>
+      </Footer>
+    </div>
   );
 };
 
-export default Profile;
+// export default Profile
+export default withRouter(Profile);

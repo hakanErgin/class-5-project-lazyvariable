@@ -1,9 +1,6 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-//import { Timeline, Icon, Divider, Card, Col, Row } from 'antd';
-import './Preview.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +8,7 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 
-import HEROKU_URI from '../../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
 
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
@@ -33,7 +30,6 @@ const useFetch = url => {
 };
 
 function Preview() {
-  //const [github, setGithub] = React.useState([]);
   const [avatar, setAvatar] = useState();
 
   useEffect(() => {
@@ -46,7 +42,7 @@ function Preview() {
         console.log(err);
       });
   }, []);
-  const res = useFetch(`${HEROKU_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`);
 
   if (!res.response) {
     return null;

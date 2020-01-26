@@ -1,9 +1,8 @@
 import React from 'react';
-import '../App.css';
 
 const Homepage = () => {
   return (
-    <div>
+    <div style={{ margin: 10 }}>
       <header>
         <div className="topBar">
           <div className="leftTop">
@@ -12,18 +11,11 @@ const Homepage = () => {
             </a>
           </div>
           <div className="rightTop">
-            <ul className="navMenu">
-              <a href="/">
-                <li className="menuItem">Home</li>
-              </a>
-              <li className="menuItem">About us</li>
-              <li className="menuItem">Contact us</li>
-            </ul>
             <a href="/login">
               <button className="loginInButton">Log in</button>
             </a>
             <a href="/signup">
-              <button className="signUpButton">Get started</button>
+              <button className="signUpButton">Sign Up</button>
             </a>
           </div>
         </div>
