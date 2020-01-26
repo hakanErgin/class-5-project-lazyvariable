@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory, withRouter } from 'react-router-dom';
-import axios from 'axios';
-import REACT_APP_BACKEND_URI from '../helpers/herokuHelper';
 
 import useSignUpForm from './profile/handlers/InputHooks';
 
@@ -18,9 +16,7 @@ const { Footer } = Layout;
 
 const Profile = () => {
   function handleClick(e) {
-    console.log('click', e);
     setActiveTab(e.key)
-    console.log(activeTab);
   }
 
   const {
@@ -37,32 +33,30 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState('1')
   const [buttonText, setButtonText] = useState('Next')
 
-  function callFunc() {
-    handleSubmit()
-  }
-
-  function nextHandler() {
-     switch (activeTab) {
+  function nextHandler(e) {
+    switch (activeTab) {
       case "1":
-        setActiveTab('2')
-        history.push("/auth/profile/experience")
+        setActiveTab('2');
+        history.push("/auth/profile/experience");
+        setButtonText('Next');
         break;
       case "2":
-        setActiveTab('3')
-        history.push("/auth/profile/education")
+        setActiveTab('3');
+        history.push("/auth/profile/education");
+        setButtonText('Next');
         break;
       case "3":
-        setActiveTab('4')
-        history.push("/auth/profile/skills")
-        setButtonText('Submit')
+        setActiveTab('4');
+        history.push("/auth/profile/skills");
+        setButtonText('Submit');
         break;
       case "4":
-        callFunc()
-        console.log('hola')
+        setActiveTab('1');
+        handleSubmit(e);
         break;
       default:
-        setActiveTab('1')
-        setButtonText('Next')
+        setActiveTab('1');
+        setButtonText('Next');
         break;
     }
   }
@@ -110,7 +104,6 @@ const Profile = () => {
             <Skills
               inputs={inputs}
               handleInputChange={handleInputChange}
-
             />
           </Route>
         </Switch>

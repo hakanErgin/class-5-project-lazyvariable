@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Typography } from 'antd';
+import { Form, Input, Typography } from 'antd';
 
 const { Title } = Typography;
 
@@ -18,11 +18,6 @@ const Skills = ({ inputs, handleInputChange, handleSubmit }) => {
             value={inputs.skills}
             required
           />
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary submit" onClick={handleSubmit}>
-            Submit
-          </Button>
         </Form.Item>
       </Form>
     </div>
