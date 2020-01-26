@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory, withRouter } from 'react-router-dom';
 
 import useSignUpForm from './profile/handlers/InputHooks';
 
@@ -9,16 +9,19 @@ import Education from './profile/education';
 import Skills from './profile/skills';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
-import REACT_APP_BACKEND_URI from '../helpers/herokuHelper'
+
 import { Layout, Button } from 'antd';
 
 const { Footer } = Layout;
 
 const Profile = () => {
+  function handleClick(e) {
+    setActiveTab(e.key)
+  }
+
   const {
     inputs,
     handleInputChange,
-    handleInputChangeCascade,
     handleSubmit,
     onEduDateChange,
     onExpDateChange
@@ -27,34 +30,45 @@ const Profile = () => {
   console.log('inputs', inputs);
 
   const history = useHistory();
+  const [activeTab, setActiveTab] = useState('1')
+  const [buttonText, setButtonText] = useState('Next')
 
-  function nextHandler() {
-    switch (window.location.pathname) {
-      case "/auth/profile/personal":
+  function nextHandler(e) {
+    switch (activeTab) {
+      case "1":
+        setActiveTab('2');
         history.push("/auth/profile/experience");
+        setButtonText('Next');
         break;
-      case "/auth/profile/experience":
+      case "2":
+        setActiveTab('3');
         history.push("/auth/profile/education");
+        setButtonText('Next');
         break;
-      case "/auth/profile/education":
+      case "3":
+        setActiveTab('4');
         history.push("/auth/profile/skills");
+        setButtonText('Submit');
         break;
-      case "/auth/profile/skills":
-        console.log('hola');
+      case "4":
+        setActiveTab('1');
+        handleSubmit(e);
         break;
       default:
-        return null
+        setActiveTab('1');
+        setButtonText('Next');
+        break;
     }
   }
 
   return (
-    <Router>
+    <div>
       <div>
         <div className="profileHeader">
           <div className="subTitle">Take your first step!</div>
           <div className="title">Create your resume</div>
         </div>
-        <Menu defaultSelectedKeys="1" mode="horizontal">
+        <Menu selectedKeys={activeTab} onClick={handleClick} mode="horizontal">
           <Menu.Item key="1">
             <Link to="/auth/profile/personal">Personal Info</Link>
           </Menu.Item>
@@ -90,16 +104,16 @@ const Profile = () => {
             <Skills
               inputs={inputs}
               handleInputChange={handleInputChange}
-              handleSubmit={handleSubmit}
             />
           </Route>
         </Switch>
       </div>
       <Footer style={{ bottom: 0, position: "fixed", width: "100%", padding: 10 }}>
-        <Button onClick={nextHandler}>Next</Button>
+        <Button onClick={nextHandler}>{buttonText}</Button>
       </Footer>
-    </Router>
+    </div>
   );
 };
 
-export default Profile;
+// export default Profile
+export default withRouter(Profile);

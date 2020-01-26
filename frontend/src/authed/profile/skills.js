@@ -1,6 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Typography } from 'antd';
-import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper';
+import { Form, Input, Typography } from 'antd';
 
 const { Title } = Typography;
 
@@ -10,7 +9,7 @@ const Skills = ({ inputs, handleInputChange, handleSubmit }) => {
   return (
     <div className="customStyle">
       <Title level={3}>Skills</Title>
-      <Form onSubmit={handleSubmit} autoComplete="off">
+      <Form autoComplete="off">
         <Form.Item label="Describe Your Skills">
           <Input
             placeholder={skills}
@@ -19,11 +18,6 @@ const Skills = ({ inputs, handleInputChange, handleSubmit }) => {
             value={inputs.skills}
             required
           />
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary submit" onClick={handleSubmit}>
-            Submit
-          </Button>
         </Form.Item>
       </Form>
     </div>
