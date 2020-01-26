@@ -22,7 +22,8 @@ const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
   };
 
   const handleClick = () => {
-    postToGithub(newGithub);
+    const reposToPost = newGithub.length !== 0 ? newGithub : gitHub;
+    postToGithub(reposToPost);
     window.location.href = `/auth/preview`;
   };
 
