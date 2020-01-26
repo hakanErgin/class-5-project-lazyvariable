@@ -20,14 +20,7 @@ const Main = () => {
   const [name, setName] = useState();
   const [avatar, setAvatar] = useState();
 
-  const {
-    inputs,
-    setInputs,
-    handleInputChange,
-    handleSubmit,
-    handleCheckBoxChange,
-    CheckDb
-  } = useSignUpForm();
+  const { inputs, CheckDb, postToGithub } = useSignUpForm();
   console.log('inputs', inputs);
 
   useEffect(() => {
@@ -101,7 +94,7 @@ const Main = () => {
                   <Profile />
                 </Route>
                 <Route path="/auth/projects">
-                  <Projects />
+                  <Projects postToGithub={postToGithub} />
                 </Route>
                 <Route path="/auth/preview">
                   <Preview />
@@ -113,9 +106,7 @@ const Main = () => {
                   <Portfolio
                     CheckDb={CheckDb}
                     inputs={inputs}
-                    handleInputChange={handleInputChange}
-                    handleSubmit={handleSubmit}
-                    setInputs={setInputs}
+                    postToGithub={postToGithub}
                   />
                 </Route>
                 <Route path="/auth/logout">

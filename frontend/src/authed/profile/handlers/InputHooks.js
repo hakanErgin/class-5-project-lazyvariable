@@ -47,6 +47,23 @@ const useSignUpForm = () => {
     CheckDb();
   }, []);
 
+  const postToGithub = data => {
+    axios
+      .post(
+        `${REACT_APP_BACKEND_URI}/user/github/${localStorage.getItem('ID')}`,
+        { gitHub: data },
+        {
+          headers: {
+            'x-auth-token': localStorage.getItem('token'),
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then(response => console.log('response', response.config.data))
+      .catch(err => {
+        console.log(err);
+      });
+  };
   const handleInputChange = event => {
     event.persist();
     const { name, value } = event.target;
@@ -111,7 +128,8 @@ const useSignUpForm = () => {
     onExpDateChange,
     handleCheckBoxChange,
     CheckDb,
-    setInputs
+    setInputs,
+    postToGithub
   };
 };
 

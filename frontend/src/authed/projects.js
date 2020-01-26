@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import REACT_APP_BACKEND_URI from '../helpers/herokuHelper';
-
 import axios from 'axios';
 
-const Projects = ({ setInputs, inputs }) => {
+const Projects = ({ postToGithub }) => {
   const [repos, setRepos] = useState([]);
   const [show, toggleShow] = useState(false);
   const [selectedRepos, setSelectedRepos] = useState([]);
@@ -27,27 +25,12 @@ const Projects = ({ setInputs, inputs }) => {
   };
 
   const handleClick = event => {
-    axios
-      .post(
-        `${REACT_APP_BACKEND_URI}/user/github/${localStorage.getItem('ID')}`,
-        { gitHub: selectedRepos },
-        {
-          headers: {
-            'x-auth-token': localStorage.getItem('token'),
-            'Content-Type': 'application/json'
-          }
-        }
-      )
-      .then(response => console.log('response', response.config.data))
-      .catch(err => {
-        console.log(err);
-      });
+    postToGithub(selectedRepos);
     return (window.location.href = './portfolio');
   };
 
   const handleCheckBoxChange = (event, repo) => {
     event.persist();
-
     const checked = event.target.checked;
 
     if (checked) {
