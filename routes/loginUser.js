@@ -6,9 +6,6 @@ const auth = require('../middleware/auth');
 const User = require('../models/user.model');
 require('dotenv').config();
 
-// @route   POST /auth
-// @desc    Auth user / login
-// @access  Public
 router.post('/', (req, res) => {
   const { email, password } = req.body;
 
