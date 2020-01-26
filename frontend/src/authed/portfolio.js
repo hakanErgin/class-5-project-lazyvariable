@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import REACT_APP_BACKEND_URI from '../helpers/herokuHelper';
-
 import { Collapse, Icon } from 'antd';
 
 const { Panel } = Collapse;
-const Portfolio = ({
-  setInputs,
-  inputs,
-  // handleInputChange,
-  handleSubmit,
-  CheckDb
-}) => {
+const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
   useEffect(() => {
     CheckDb();
   }, []);
 
-  console.log('inputs', inputs);
   const gitHub = inputs.gitHub;
   const [newGithub, setNewGithub] = useState([]);
 
@@ -32,28 +22,13 @@ const Portfolio = ({
   };
 
   const handleClick = () => {
-    axios
-      .post(
-        `${REACT_APP_BACKEND_URI}/user/github/${localStorage.getItem('ID')}`,
-        { gitHub: newGithub },
-        {
-          headers: {
-            'x-auth-token': localStorage.getItem('token'),
-            'Content-Type': 'application/json'
-          }
-        }
-      )
-      .then(response => console.log('response', response.config.data))
-      .catch(err => {
-        console.log(err);
-      }); // window.location.href = `/auth/preview`;
+    postToGithub(newGithub);
+    window.location.href = `/auth/preview`;
   };
 
-  const handleInputChange = (event, repo, i) => {
+  const handleInputChange = (event, i) => {
     const { name, value } = event.target;
-
     const newValue = { [name]: value };
-
     const newGit = gitHub.map((git, index) => {
       if (index === i) {
         return Object.assign(git, newValue);
@@ -61,11 +36,7 @@ const Portfolio = ({
         return git;
       }
     });
-    // git[name] = value;
-    console.log('newGit', newGit);
-
     setNewGithub(newGit);
-    console.log('newGithub', newGithub);
   };
 
   return (
@@ -93,7 +64,7 @@ const Portfolio = ({
                           className="repoInput"
                           type="text"
                           value={repo.title}
-                          onChange={e => handleInputChange(e, repo.title, i)}
+                          onChange={e => handleInputChange(e, i)}
                         ></input>
                       </div>
                       <div className="repoField">
@@ -103,6 +74,7 @@ const Portfolio = ({
                           type="text"
                           className="repoInput"
                           value={repo.repository}
+                          onChange={e => handleInputChange(e, i)}
                         ></input>
                       </div>
                       <div className="repoField">
@@ -113,15 +85,10 @@ const Portfolio = ({
                           cols="50"
                           rows="10"
                           value={repo.description}
-                          onChange={handleInputChange}
+                          onChange={e => handleInputChange(e, i)}
                         ></textarea>
                       </div>
                     </div>
-                    <input
-                      type="submit"
-                      className="repoSaveButton"
-                      value="save"
-                    />
                   </form>
                 </div>
               </Panel>
