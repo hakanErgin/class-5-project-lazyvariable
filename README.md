@@ -11,10 +11,9 @@ Users are able to:
 - Create viewable profile with these data ("Preview" route)
 
 
-The application is missing elements/to be fixed include the following:
-- Responsive design
+To do:
+- Frontend design
 - Cleaner DRY, modular code
-- Ability to edit entered data
 - Ability to add multiple (educational or professional experiences in profile creation) options 
 
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
