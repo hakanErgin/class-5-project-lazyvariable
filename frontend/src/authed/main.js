@@ -90,7 +90,7 @@ const Main = () => {
                 <Route path="/auth/dashboard">
                   <Dashboard />
                 </Route>
-                <Route path="/auth/profile/personal">
+                <Route path="/auth/profile">
                   <Profile />
                 </Route>
                 <Route path="/auth/projects">

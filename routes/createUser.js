@@ -1,16 +1,15 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const auth = require('../middleware/auth');
 const User = require('../models/user.model');
 require('dotenv').config();
 
 // List all the users
-router.route('/all').get((req, res) => {
-  User.find()
-    .then(info => res.json(info))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+// router.route('/all').get((req, res) => {
+//   User.find()
+//     .then(info => res.json(info))
+//     .catch(err => res.status(400).json('Error: ' + err));
+// });
 
 // New register
 router.post('/', (req, res) => {
@@ -60,13 +59,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.get('/user', auth, (req, res) => {
-  User.findById(req.user.id)
-    .select('-password')
-    .then(user => res.json(user));
-});
-
-// Entering the data for the first time
+// Entering the data for the first time and updating
 router.route('/:id').post((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
@@ -74,7 +67,6 @@ router.route('/:id').post((req, res) => {
       info.about = req.body.about;
       info.phone = req.body.phone;
       info.email_ = req.body.email_;
-      info.picture = req.body.picture;
       info.country = req.body.country;
       info.city = req.body.city;
       info.website = req.body.website;
@@ -105,39 +97,6 @@ router.route('/github/:id').post((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.gitHub = req.body.gitHub;
-      info
-        .save()
-        .then(() => res.json('Added successfully!'))
-        .catch(err => res.status(400).json('Error: ' + err));
-    })
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-// updating the data
-router.route('/update/:id').put((req, res) => {
-  User.findByIdAndUpdate(req.params.id)
-    .then(info => {
-      info.name = req.body.name;
-      info.about = req.body.about;
-      info.phone = req.body.phone;
-      info.picture = req.body.picture;
-      info.country = req.body.country;
-      info.city = req.body.city;
-      info.website = req.body.website;
-      info.institution = req.body.institution;
-      info.fieldOfStudy = req.body.fieldOfStudy;
-      info.degree = req.body.degree;
-      info.educationStartDate = req.body.educationStartDate;
-      info.educationEndDate = req.body.educationEndDate;
-      info.educationDescription = req.body.educationDescription;
-      info.workTitle = req.body.workTitle;
-      info.companyName = req.body.companyName;
-      info.companyLocation = req.body.companyLocation;
-      info.employmentType = req.body.employmentType;
-      info.workStartDate = req.body.workStartDate;
-      info.workEndDate = req.body.workEndDate;
-      info.jobDescription = req.body.jobDescription;
-      info.skills = req.body.skills;
       info
         .save()
         .then(() => res.json('Added successfully!'))
