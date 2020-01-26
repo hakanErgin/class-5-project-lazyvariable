@@ -15,10 +15,6 @@ import { Layout, Button } from 'antd';
 const { Footer } = Layout;
 
 const Profile = () => {
-  function handleClick(e) {
-    console.log('click', e);
-  }
-
   const {
     inputs,
     handleInputChange,
@@ -58,7 +54,7 @@ const Profile = () => {
           <div className="subTitle">Take your first step!</div>
           <div className="title">Create your resume</div>
         </div>
-        <Menu defaultSelectedKeys="1" onClick={handleClick} mode="horizontal">
+        <Menu defaultSelectedKeys="1" mode="horizontal">
           <Menu.Item key="1">
             <Link to="/auth/profile/personal">Personal Info</Link>
           </Menu.Item>
