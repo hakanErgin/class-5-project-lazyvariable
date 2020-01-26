@@ -20,6 +20,7 @@ const useSignUpForm = () => {
             }
           }
         )
+        .then(response => console.log('response', response))
         .catch(err => {
           console.log(err);
         });
@@ -27,21 +28,40 @@ const useSignUpForm = () => {
     }
   };
 
+  const CheckDb = async () => {
+    try {
+      const res = await fetch(
+        `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`
+      );
+      const jsonResponse = await res.json();
+      setInputs({ ...jsonResponse });
+    } catch (error) {
+      console.log(error);
+      setInputs({});
+    }
+  };
+
   useEffect(() => {
-    const CheckDb = async () => {
-      try {
-        const res = await fetch(
-          `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`
-        );
-        const jsonResponse = await res.json();
-        setInputs({ ...jsonResponse });
-      } catch (error) {
-        console.log(error);
-        setInputs({});
-      }
-    };
     CheckDb();
   }, []);
+
+  const postToGithub = data => {
+    axios
+      .post(
+        `${REACT_APP_BACKEND_URI}/user/github/${localStorage.getItem('ID')}`,
+        { gitHub: data },
+        {
+          headers: {
+            'x-auth-token': localStorage.getItem('token'),
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then(response => console.log('response', response.config.data))
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   const handleInputChange = event => {
     event.persist();
@@ -75,7 +95,10 @@ const useSignUpForm = () => {
     handleInputChangeCascade,
     inputs,
     onEduDateChange,
-    onExpDateChange
+    onExpDateChange,
+    CheckDb,
+    setInputs,
+    postToGithub
   };
 };
 
