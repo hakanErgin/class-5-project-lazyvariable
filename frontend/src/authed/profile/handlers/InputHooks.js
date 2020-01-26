@@ -8,8 +8,6 @@ const useSignUpForm = () => {
 
   const handleSubmit = event => {
     if (event) {
-      console.log('fired! event:', event);
-
       event.preventDefault();
       axios
         .post(
@@ -64,39 +62,11 @@ const useSignUpForm = () => {
         console.log(err);
       });
   };
+
   const handleInputChange = event => {
     event.persist();
     const { name, value } = event.target;
     setInputs({ ...inputs, [name]: value });
-    console.log('inputs', inputs);
-  };
-
-  const handleCheckBoxChange = (event, repo) => {
-    event.persist();
-
-    console.log('inputs', inputs);
-    const checked = event.target.checked;
-    console.log('checked', checked);
-
-    if (checked) {
-      setInputs({
-        ...inputs,
-        gitHub: [
-          ...inputs.gitHub.concat({
-            title: repo.name,
-            description: repo.description,
-            repository: repo.html_url
-          })
-        ]
-      });
-    } else {
-      setInputs({
-        ...inputs,
-        gitHub: inputs.gitHub.filter(
-          rep => rep.title != repo.name && rep.description != repo.description
-        )
-      });
-    }
   };
 
   const handleInputChangeCascade = (value, selectedOptions) => {
@@ -126,7 +96,6 @@ const useSignUpForm = () => {
     inputs,
     onEduDateChange,
     onExpDateChange,
-    handleCheckBoxChange,
     CheckDb,
     setInputs,
     postToGithub

@@ -28,7 +28,10 @@ const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
 
   const handleInputChange = (event, i) => {
     const { name, value } = event.target;
+
     const newValue = { [name]: value };
+    console.log('newValue', newValue);
+
     const newGit = gitHub.map((git, index) => {
       if (index === i) {
         return Object.assign(git, newValue);
@@ -70,7 +73,7 @@ const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
                       <div className="repoField">
                         <div className="githubLabel">Repo: </div>
                         <input
-                          name="repo"
+                          name="repository"
                           type="text"
                           className="repoInput"
                           value={repo.repository}

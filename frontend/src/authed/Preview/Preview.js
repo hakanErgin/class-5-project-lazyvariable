@@ -8,7 +8,7 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
 
-import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper'
+import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper';
 
 const useFetch = url => {
   const [response, setResponse] = React.useState(null);
@@ -30,6 +30,7 @@ const useFetch = url => {
 };
 
 function Preview() {
+  // DRY !
   const [avatar, setAvatar] = useState();
 
   useEffect(() => {
@@ -42,12 +43,15 @@ function Preview() {
         console.log(err);
       });
   }, []);
-  const res = useFetch(`${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`);
+  const res = useFetch(
+    `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`
+  );
 
   if (!res.response) {
     return null;
   }
 
+  // DESTRUCTURING
   const email = res.response.email;
   const name = res.response.name;
   const about = res.response.about;
@@ -81,18 +85,39 @@ function Preview() {
             borderRadius: 100,
             height: 140,
             width: 140,
-            display: 'inline-block',
+            display: 'inline-block'
           }}
         ></div>
         <div className="titleAndName"></div>
         <div className="name">{name}</div>
         <div className="workTitle">{workTitle}</div>
         <div className="icons">
-          <FontAwesomeIcon className="iconn1" icon={faMapMarkerAlt} size="2x" color="#082371" />
-          <FontAwesomeIcon className="iconn2" icon={faPhoneAlt} size="2x" color="#082371" />
-          <FontAwesomeIcon className="iconn3" icon={faEnvelope} size="2x" color="#082371" />
-          <FontAwesomeIcon className="iconn4" icon={faGlobeEurope} size="2x" color="#082371" />
+          <FontAwesomeIcon
+            className="iconn1"
+            icon={faMapMarkerAlt}
+            size="2x"
+            color="#082371"
+          />
+          <FontAwesomeIcon
+            className="iconn2"
+            icon={faPhoneAlt}
+            size="2x"
+            color="#082371"
+          />
+          <FontAwesomeIcon
+            className="iconn3"
+            icon={faEnvelope}
+            size="2x"
+            color="#082371"
+          />
+          <FontAwesomeIcon
+            className="iconn4"
+            icon={faGlobeEurope}
+            size="2x"
+            color="#082371"
+          />
         </div>
+        {/* CREATE A GENERIC DIV AND ITERATE */}
         <div className="personalInfo">
           <div className="info">
             {city}, {country}
@@ -104,7 +129,11 @@ function Preview() {
         <div className="about">{about}</div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/mCtK3Df/Component-19-1.png" alt="1" />
+        <img
+          className="numberIcon"
+          src="https://i.ibb.co/mCtK3Df/Component-19-1.png"
+          alt="1"
+        />
         <div className="title1">Work Experience</div>
       </div>
       <div className="workContainer">
@@ -138,7 +167,11 @@ function Preview() {
         </div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/F7cPfLS/Component-20-1.png" alt="2" />
+        <img
+          className="numberIcon"
+          src="https://i.ibb.co/F7cPfLS/Component-20-1.png"
+          alt="2"
+        />
         <div className="title1">Education</div>
       </div>
       <div className="workContainer">
@@ -169,7 +202,11 @@ function Preview() {
         </div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/FHJgrLJ/Component-19-1.png" alt="3" />
+        <img
+          className="numberIcon"
+          src="https://i.ibb.co/FHJgrLJ/Component-19-1.png"
+          alt="3"
+        />
         <div className="title1">Skills</div>
       </div>
       <div className="workContainer">
@@ -180,14 +217,19 @@ function Preview() {
         </div>
       </div>
       <div className="titleWrapper">
-        <img className="numberIcon" src="https://i.ibb.co/BC6yWg6/Component-20-1.png" alt="4" />
+        <img
+          className="numberIcon"
+          src="https://i.ibb.co/BC6yWg6/Component-20-1.png"
+          alt="4"
+        />
         <div className="title1">Projects</div>
       </div>
 
       {projects.map(function(repo) {
+        //NOT NEEDED, JUST TYPE REPO.THING IN THE FIELDS
         const repoTitle = repo.title;
         const repoDescription = repo.description;
-        const repoDeployedSite = repo.deployedSite;
+        const repoDeployedSite = repo.repository;
         const repoPhoto = repo.photo;
         return (
           <div>
