@@ -8,6 +8,8 @@ const useSignUpForm = () => {
 
   const handleSubmit = event => {
     if (event) {
+      console.log('fired! event:', event);
+
       event.preventDefault();
       axios
         .post(
@@ -20,6 +22,7 @@ const useSignUpForm = () => {
             }
           }
         )
+        .then(response => console.log('response', response))
         .catch(err => {
           console.log(err);
         });
@@ -27,19 +30,20 @@ const useSignUpForm = () => {
     }
   };
 
+  const CheckDb = async () => {
+    try {
+      const res = await fetch(
+        `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`
+      );
+      const jsonResponse = await res.json();
+      setInputs({ ...jsonResponse });
+    } catch (error) {
+      console.log(error);
+      setInputs({});
+    }
+  };
+
   useEffect(() => {
-    const CheckDb = async () => {
-      try {
-        const res = await fetch(
-          `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`
-        );
-        const jsonResponse = await res.json();
-        setInputs({ ...jsonResponse });
-      } catch (error) {
-        console.log(error);
-        setInputs({});
-      }
-    };
     CheckDb();
   }, []);
 
@@ -47,6 +51,35 @@ const useSignUpForm = () => {
     event.persist();
     const { name, value } = event.target;
     setInputs({ ...inputs, [name]: value });
+    console.log('inputs', inputs);
+  };
+
+  const handleCheckBoxChange = (event, repo) => {
+    event.persist();
+
+    console.log('inputs', inputs);
+    const checked = event.target.checked;
+    console.log('checked', checked);
+
+    if (checked) {
+      setInputs({
+        ...inputs,
+        gitHub: [
+          ...inputs.gitHub.concat({
+            title: repo.name,
+            description: repo.description,
+            repository: repo.html_url
+          })
+        ]
+      });
+    } else {
+      setInputs({
+        ...inputs,
+        gitHub: inputs.gitHub.filter(
+          rep => rep.title != repo.name && rep.description != repo.description
+        )
+      });
+    }
   };
 
   const handleInputChangeCascade = (value, selectedOptions) => {
@@ -75,7 +108,10 @@ const useSignUpForm = () => {
     handleInputChangeCascade,
     inputs,
     onEduDateChange,
-    onExpDateChange
+    onExpDateChange,
+    handleCheckBoxChange,
+    CheckDb,
+    setInputs
   };
 };
 

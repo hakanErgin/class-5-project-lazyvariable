@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
+import useSignUpForm from './profile/handlers/InputHooks';
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Dashboard from './dashboard';
@@ -17,6 +19,16 @@ const { Sider, Content } = Layout;
 const Main = () => {
   const [name, setName] = useState();
   const [avatar, setAvatar] = useState();
+
+  const {
+    inputs,
+    setInputs,
+    handleInputChange,
+    handleSubmit,
+    handleCheckBoxChange,
+    CheckDb
+  } = useSignUpForm();
+  console.log('inputs', inputs);
 
   useEffect(() => {
     axios
@@ -43,7 +55,8 @@ const Main = () => {
                     src="https://i.ibb.co/cDXz5vG/logo.png"
                     alt="element"
                   />
-                </a></div>
+                </a>
+              </div>
               <div>
                 <div
                   className="userPhoto"
@@ -52,33 +65,65 @@ const Main = () => {
                     backgroundSize: 70,
                     borderRadius: 50,
                     height: 70,
-                    width: 70,
+                    width: 70
                   }}
                 ></div>
-                <div className="userName" style={{ lineHeight: 2 }}>Hello {name}</div>
+                <div className="userName" style={{ lineHeight: 2 }}>
+                  Hello {name}
+                </div>
               </div>
               <Menu.ItemGroup>
-                <Menu.Item><Link to="/auth/dashboard">Dashboard</Link></Menu.Item>
-                <Menu.Item><Link to="/auth/profile/personal">Profile</Link></Menu.Item>
-                <Menu.Item><Link to="/auth/projects">Projects</Link></Menu.Item>
-                <Menu.Item><Link to="/auth/preview">Preview</Link></Menu.Item>
-                <Menu.Item><Link to="/auth/logout">Logout</Link></Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/dashboard">Dashboard</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/profile/personal">Profile</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/projects">Projects</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/preview">Preview</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/auth/logout">Logout</Link>
+                </Menu.Item>
               </Menu.ItemGroup>
             </Menu>
           </Sider>
-
-          <Content style={{ margin: 10 }}>
-            <Switch>
-              <Route path="/auth/dashboard"><Dashboard /></Route>
-              <Route path="/auth/profile/"><Profile /></Route>
-              <Route path="/auth/projects"><Projects /></Route>
-              <Route path="/auth/preview"><Preview /></Route>
-              <Route path="/auth/github"><GithubComponent /></Route>
-              <Route path="/auth/portfolio"><Portfolio /></Route>
-              <Route path="/auth/logout"><LogoutComponent /></Route>
-            </Switch>
-          </Content>
-
+          <Layout>
+            <Content style={{ margin: 10 }}>
+              <Switch>
+                <Route path="/auth/dashboard">
+                  <Dashboard />
+                </Route>
+                <Route path="/auth/profile/personal">
+                  <Profile />
+                </Route>
+                <Route path="/auth/projects">
+                  <Projects />
+                </Route>
+                <Route path="/auth/preview">
+                  <Preview />
+                </Route>
+                <Route path="/auth/github">
+                  <GithubComponent />
+                </Route>
+                <Route path="/auth/portfolio">
+                  <Portfolio
+                    CheckDb={CheckDb}
+                    inputs={inputs}
+                    handleInputChange={handleInputChange}
+                    handleSubmit={handleSubmit}
+                    setInputs={setInputs}
+                  />
+                </Route>
+                <Route path="/auth/logout">
+                  <LogoutComponent />
+                </Route>
+              </Switch>
+            </Content>
+          </Layout>
         </Layout>
       </Router>
     </div>
