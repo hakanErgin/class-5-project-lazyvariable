@@ -36,7 +36,7 @@ const Homepage = () => {
               <br /> Build your portfolio with a few clicks!
             </h1>
           </Col>
-          <Col xs>
+          <Col xs id="toggleImg">
             <img
               src="https://i.ibb.co/3vQC1vV/Group-58-2x.png"
               alt="Group-58-2x"
