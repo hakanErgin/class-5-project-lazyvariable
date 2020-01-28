@@ -1,86 +1,104 @@
-import React from 'react';
+import React from "react"
+import "./homepage.css"
+import { Button } from "antd"
+import { Grid, Row, Col } from "react-flexbox-grid"
+// import { cardList } from "./homepageHelper"
+
+const logo = require("../uploads/logo.png")
 
 const Homepage = () => {
   return (
-    <div style={{ margin: 10 }}>
-      <header>
-        <div className="topBar">
-          <div className="leftTop">
+    <div>
+      <Grid>
+        <Row id="header">
+          <Col xs={2}>
             <a href="/">
-              <img src="https://i.ibb.co/cDXz5vG/logo.png" alt="logo" border="0" />
+              <img src={logo} alt="logo" />
             </a>
-          </div>
-          <div className="rightTop">
-            <a href="/login">
-              <button className="loginInButton">Log in</button>
-            </a>
-            <a href="/signup">
-              <button className="signUpButton">Sign Up</button>
-            </a>
-          </div>
-        </div>
-        <div className="heroSection">
-          <div className="heroTitle">
-            <div className="subTitle">Are you a developer?</div>
-            <div className="title">
-              Build your generated <br />
-              portfolio in few clicks<span className="titleEndPoint">.</span>
+          </Col>
+          <Col xs={4}>
+            <div>
+              <Button target href="/login">
+                Log in
+              </Button>
+              <Button target href="/signup">
+                Sign Up
+              </Button>
             </div>
-            <a href="/signup">
-              <button className="getStartedButton">Get started</button>
-            </a>
-          </div>
-          <div className="heroPicture">
-            <img src="https://i.ibb.co/3vQC1vV/Group-58-2x.png" alt="Group-58-2x" border="0" />
-          </div>
-        </div>
-      </header>
-      <main>
-        <div>
-          <div className="subTitle2">Features that we have</div>
-          <div className="title2">
-            Why GitPro?<span className="titleEndPoint">.</span>
-          </div>
-          <div className="features">
-            <div className="featuresContainer">
-              <div className="firstRowFeatures">
-                <div className="feature">
-                  <img src="https://i.ibb.co/py6f7Wz/resume.png" alt="Group-58-2x" border="0" />
-                  <p>Build your resume using your Linkedin</p>
-                </div>
-                <div className="feature">
-                  <img src="https://i.ibb.co/dMZMrNd/employee.png" alt="Group-58-2x" border="0" />
-                  <p>Edit your personal information</p>
-                </div>
-                <div className="feature">
-                  <img src="https://i.ibb.co/1Zqtwp9/github.png" alt="Group-58-2x" border="0" />
-                  <p>Retrieve your repositories from GitHub</p>
-                </div>
-              </div>
-
-              <div className="secondRowFeatures">
-                <div className="feature1">
-                  <img src="https://i.ibb.co/gzd76pT/management.png" alt="Group-58-2x" border="0" />
-                  <p>Edit your repository information</p>
-                </div>
-                <div className="feature">
-                  <img src="https://i.ibb.co/Rhm0wJ3/list.png" alt="Group-58-2x" border="0" />
-                  <p>Easily accessible by the employers</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      <footer>
-        <div className="footerContainer">
-          <img className="logoMin" src="https://i.ibb.co/jgJW3wx/logomin.png" alt="logomin" />
-          <div className="copyrightText">All rights are reserved</div>
-        </div>
-      </footer>
+          </Col>
+        </Row>
+      </Grid>
+      <Grid id="mid-section">
+        <Row between="xs">
+          <Col xs>
+            <h1>
+              Are you a developer?
+              <br /> Build your portfolio with a few clicks!
+            </h1>
+          </Col>
+          <Col xs>
+            <img
+              src="https://i.ibb.co/3vQC1vV/Group-58-2x.png"
+              alt="Group-58-2x"
+              border="0"
+            />
+          </Col>
+          <Grid>
+            <Row center="xs">
+              <Col xs>
+                <img
+                  src="https://i.ibb.co/py6f7Wz/resume.png"
+                  alt="Group-58-2x"
+                  border="0"
+                />
+                <h3>Build your resume</h3>
+              </Col>
+              <Col xs>
+                <img
+                  src="https://i.ibb.co/dMZMrNd/employee.png"
+                  alt="Group-58-2x"
+                  border="0"
+                />
+                <h3>Edit your personal information</h3>
+              </Col>
+              <Col xs>
+                <img
+                  src="https://i.ibb.co/1Zqtwp9/github.png"
+                  alt="Group-58-2x"
+                  border="0"
+                />
+                <h3>Retrieve your repositories from GitHub</h3>
+              </Col>
+              <Col xs>
+                <img
+                  src="https://i.ibb.co/gzd76pT/management.png"
+                  alt="Group-58-2x"
+                  border="0"
+                />
+                <h3>Edit your repository information</h3>
+              </Col>
+              <Col xs>
+                <img
+                  src="https://i.ibb.co/Rhm0wJ3/list.png"
+                  alt="Group-58-2x"
+                  border="0"
+                />
+                <h3>Easily accessible by the employers</h3>
+              </Col>
+            </Row>
+          </Grid>
+        </Row>
+      </Grid>
+      <Grid>
+        <Row center="xs">
+          <Col xs>
+            <img src="https://i.ibb.co/jgJW3wx/logomin.png" alt="logomin" />
+            <p>All rights are reserved</p>
+          </Col>
+        </Row>
+      </Grid>
     </div>
-  );
-};
+  )
+}
 
-export default Homepage;
+export default Homepage

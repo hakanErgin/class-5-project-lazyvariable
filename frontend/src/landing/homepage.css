@@ -1,0 +1,22 @@
+@media only screen and (min-width: 776px) {
+  #mid-section {
+    background-color: rgba(250, 238, 215, 0.616);
+  }
+}
+
+#header {
+  justify-content: space-between;
+  padding: 5px;
+}
+
+#mid-section {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+}
+
+h1:first-of-type {
+  text-align: right;
+}

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Collapse, Icon } from 'antd';
+import React, { useState, useEffect } from "react";
+import { Collapse, Icon } from "antd";
 
 const { Panel } = Collapse;
 const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
@@ -11,13 +11,13 @@ const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
   const [newGithub, setNewGithub] = useState([]);
 
   const customPanelStyle = {
-    background: '#f9f9f9 0% 0% no-repeat padding-box',
+    background: "#f9f9f9 0% 0% no-repeat padding-box",
     borderRadius: 4,
     marginBottom: 24,
     border: 0,
-    overflow: 'hidden',
+    overflow: "hidden",
     width: 754,
-    color: '#f9f9f9',
+    color: "#f9f9f9",
     marginTop: 40
   };
 
@@ -31,7 +31,7 @@ const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
     const { name, value } = event.target;
 
     const newValue = { [name]: value };
-    console.log('newValue', newValue);
+    console.log("newValue", newValue);
 
     const newGit = gitHub.map((git, index) => {
       if (index === i) {
@@ -52,7 +52,7 @@ const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
           return (
             <Collapse
               bordered={false}
-              defaultActiveKey={['0']}
+              defaultActiveKey={["0"]}
               expandIcon={({ isActive }) => (
                 <Icon type="caret-right" rotate={isActive ? 90 : 0} />
               )}
