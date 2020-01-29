@@ -1,0 +1,32 @@
+#mainComponent #sider {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+#mainComponent #userPhoto {
+  margin: 10px;
+  background-size: 70px;
+  border-radius: 50px;
+  height: 70px;
+  width: 70px;
+}
+
+#mainComponent #userName {
+  line-height: 20px;
+}
+
+#mainComponent #content {
+  margin: 10px;
+}
+
+#mainComponent .layout:first-of-type {
+  background: none;
+}
+#mainComponent #mainLayout {
+  background: rgba(250, 238, 215, 0.616);
+  border-top-left-radius: 10px;
+}
+
+#mainComponent #siderMenu {
+  border-right: none;
+}

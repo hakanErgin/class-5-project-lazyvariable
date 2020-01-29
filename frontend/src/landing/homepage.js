@@ -1,5 +1,5 @@
 import React from "react"
-import "./homepage.css"
+import "../styles/homepage.css"
 import { Button } from "antd"
 import { Grid, Row, Col } from "react-flexbox-grid"
 // import { cardList } from "./homepageHelper"
@@ -8,7 +8,7 @@ const logo = require("../uploads/logo.png")
 
 const Homepage = () => {
   return (
-    <div>
+    <div id="homepage">
       <Grid>
         <Row id="header">
           <Col xs={2}>

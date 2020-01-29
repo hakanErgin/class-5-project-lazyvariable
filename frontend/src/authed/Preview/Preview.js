@@ -1,178 +1,152 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from "react"
+import { useState, useEffect } from "react"
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faGlobeEurope } from '@fortawesome/free-solid-svg-icons';
+import REACT_APP_BACKEND_URI from "../../helpers/herokuHelper"
 
-import REACT_APP_BACKEND_URI from '../../helpers/herokuHelper';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faPhoneAlt,
+  faEnvelope,
+  faMapMarkerAlt,
+  faGlobeEurope
+} from "@fortawesome/free-solid-svg-icons"
+
+import { Grid, Row, Col } from "react-flexbox-grid"
+import { Card } from "antd"
+
+import "../../styles/preview.css"
 
 const useFetch = url => {
-  const [response, setResponse] = React.useState(null);
-  const [error, setError] = React.useState(null);
-
-  React.useEffect(() => {
-    const FetchData = async () => {
-      try {
-        const res = await fetch(url);
-        const json = await res.json();
-        setResponse(json);
-      } catch (error) {
-        setError(error);
-      }
-    };
-    FetchData();
-  }, [url]);
-  return { response, error };
-};
-
-function Preview() {
-  // DRY !
-  const [avatar, setAvatar] = useState();
+  const [response, setResponse] = useState(null)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    axios
-      .get(`https://api.github.com/users/${localStorage.getItem('username')}`)
-      .then(result => {
-        setAvatar(result.data.avatar_url);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
+    const FetchData = async () => {
+      try {
+        const resp = await fetch(url)
+        const json = await resp.json()
+        setResponse(json)
+      } catch (error) {
+        setError(error)
+      }
+    }
+    FetchData()
+  }, [url])
+  return { response, error }
+}
+
+function Preview(avatar) {
   const res = useFetch(
-    `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`
-  );
+    `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem("ID")}`
+  )
 
   if (!res.response) {
-    return null;
+    return null
   }
 
-  // DESTRUCTURING
-  const email = res.response.email;
-  const name = res.response.name;
-  const about = res.response.about;
-  const website = res.response.website;
-  const phone = res.response.phone;
-  const country = res.response.country;
-  const city = res.response.city;
-  const institution = res.response.institution;
-  const fieldOfStudy = res.response.fieldOfStudy;
-  const educationStartDate = res.response.educationStartDate;
-  const degree = res.response.degree;
-  const educationEndDate = res.response.educationEndDate;
-  const educationDescription = res.response.educationDescription;
-  const workTitle = res.response.workTitle;
-  const companyName = res.response.companyName;
-  const companyLocation = res.response.companyLocation;
-  const employmentType = res.response.employmentType;
-  const workStartDate = res.response.workStartDate;
-  const workEndDate = res.response.workEndDate;
-  const jobDescription = res.response.jobDescription;
-  const skills = res.response.skills;
-  const projects = res.response.gitHub;
-  return (
-    <div className="preview">
-      <div className="personalContainer">
-        <div
-          className="personPhoto"
-          style={{
-            backgroundImage: `url(${avatar}) `,
-            backgroundSize: 140,
-            borderRadius: 100,
-            height: 140,
-            width: 140,
-            display: 'inline-block'
-          }}
-        ></div>
-        <div className="titleAndName"></div>
-        <div className="name">{name}</div>
-        <div className="workTitle">{workTitle}</div>
-        <div className="icons">
-          <FontAwesomeIcon
-            className="iconn1"
-            icon={faMapMarkerAlt}
-            size="2x"
-            color="#082371"
-          />
-          <FontAwesomeIcon
-            className="iconn2"
-            icon={faPhoneAlt}
-            size="2x"
-            color="#082371"
-          />
-          <FontAwesomeIcon
-            className="iconn3"
-            icon={faEnvelope}
-            size="2x"
-            color="#082371"
-          />
-          <FontAwesomeIcon
-            className="iconn4"
-            icon={faGlobeEurope}
-            size="2x"
-            color="#082371"
-          />
-        </div>
-        {/* CREATE A GENERIC DIV AND ITERATE */}
-        <div className="personalInfo">
-          <div className="info">
-            {city}, {country}
-          </div>
-          <div className="info">{phone}</div>
-          <div className="info">{email}</div>
-          <div className="info">{website}</div>
-        </div>
-        <div className="about">{about}</div>
-      </div>
-      <div className="titleWrapper">
-        <img
-          className="numberIcon"
-          src="https://i.ibb.co/mCtK3Df/Component-19-1.png"
-          alt="1"
-        />
-        <div className="title1">Work Experience</div>
-      </div>
-      <div className="workContainer">
-        <div className="workInfo">
-          <div className="job">
-            <strong>Job title:</strong> {workTitle}
-          </div>
-          <div className="job">
-            <strong>Employment type:</strong> {employmentType}
-          </div>
+  const {
+    email,
+    name,
+    about,
+    website,
+    phone,
+    country,
+    city,
+    institution,
+    fieldOfStudy,
+    educationStartDate,
+    degree,
+    educationEndDate,
+    educationDescription,
+    workTitle,
+    companyName,
+    companyLocation,
+    employmentType,
+    workStartDate,
+    workEndDate,
+    jobDescription,
+    skills,
+    gitHub
+  } = res.response
 
-          <div className="job">
-            <strong>Company:</strong> {companyName}
-          </div>
-          <div className="job">
-            <strong>Start date: </strong>
-            {workStartDate}
-          </div>
-          <div className="job">
-            <strong>Company location:</strong> {companyLocation}
-          </div>
-          <div className="job">
-            <strong>End date: </strong>
-            {workEndDate}
-          </div>
-          <div className="job">
-            <strong>Description: </strong>
-            <br />
-            {jobDescription}
-          </div>
-        </div>
-      </div>
+  return (
+    <div id="preview">
+      <Grid fluid className="personalField1">
+        <img src={avatar.avatar} alt={"avatar"} />
+        <h1>{name}</h1>
+        <h2>{workTitle}</h2>
+        <Row className="personalField1">
+          <Col>
+            <FontAwesomeIcon
+              className="iconn1"
+              icon={faMapMarkerAlt}
+              size="2x"
+              color="#082371"
+            />
+            <div className="info">
+              {city}, {country}
+            </div>
+          </Col>
+          <Col>
+            <FontAwesomeIcon
+              className="iconn2"
+              icon={faPhoneAlt}
+              size="2x"
+              color="#082371"
+            />
+            <div className="info">{phone}</div>
+          </Col>
+          <Col>
+            <FontAwesomeIcon
+              className="iconn3"
+              icon={faEnvelope}
+              size="2x"
+              color="#082371"
+            />
+            <div className="info">{email}</div>
+          </Col>
+          <Col>
+            <FontAwesomeIcon
+              className="iconn4"
+              icon={faGlobeEurope}
+              size="2x"
+              color="#082371"
+            />
+            <div className="info">{website}</div>
+          </Col>
+        </Row>
+        <Col className="about">{about}</Col>
+      </Grid>
+      <Grid fluid id="cards">
+        <Card
+          title="Work Experience"
+          extra={
+            <img
+              className="numberIcon"
+              src="https://i.ibb.co/mCtK3Df/Component-19-1.png"
+              alt="1"
+            />
+          }
+        >
+          <strong>Job title:</strong> {workTitle}
+          <strong>Employment type:</strong> {employmentType}
+          <strong>Company:</strong> {companyName}
+          <strong>Start date: </strong>
+          {workStartDate}
+          <strong>Company location:</strong> {companyLocation}
+          <strong>End date: </strong>
+          {workEndDate}
+          <strong>Description: </strong>
+          {jobDescription}
+        </Card>
+      </Grid>
       <div className="titleWrapper">
         <img
           className="numberIcon"
           src="https://i.ibb.co/F7cPfLS/Component-20-1.png"
           alt="2"
         />
-        <div className="title1">Education</div>
+        <h3 className="title1">Education</h3>
       </div>
       <div className="workContainer">
         <div className="workInfo">
@@ -207,7 +181,7 @@ function Preview() {
           src="https://i.ibb.co/FHJgrLJ/Component-19-1.png"
           alt="3"
         />
-        <div className="title1">Skills</div>
+        <h3 className="title1">Skills</h3>
       </div>
       <div className="workContainer">
         <div className="workInfo">
@@ -222,38 +196,29 @@ function Preview() {
           src="https://i.ibb.co/BC6yWg6/Component-20-1.png"
           alt="4"
         />
-        <div className="title1">Projects</div>
+        <h3 className="title1">Projects</h3>
       </div>
-
-      {projects.map(function(repo) {
-        //NOT NEEDED, JUST TYPE REPO.THING IN THE FIELDS
-        const repoTitle = repo.title;
-        const repoDescription = repo.description;
-        const repoDeployedSite = repo.repository;
-        const repoPhoto = repo.photo;
+      {gitHub.map(repo => {
         return (
           <div>
             <div className="workContainer">
               <div className="workInfo">
                 <div className="job">
-                  <strong>Photo:</strong> <img src={repoPhoto} alt=""></img>
+                  <strong>Name:</strong> {repo.title}
                 </div>
                 <div className="job">
-                  <strong>Name:</strong> {repoTitle}
+                  <strong>Description:</strong> {repo.description}
                 </div>
                 <div className="job">
-                  <strong>Description:</strong> {repoDescription}
-                </div>
-                <div className="job">
-                  <strong>Deployed site:</strong>
-                  <a href={repoDeployedSite}> {repoDeployedSite} </a>
+                  <strong>URL:</strong>
+                  <a href={repo.repository}> {repo.repository} </a>
                 </div>
               </div>
             </div>
           </div>
-        );
+        )
       })}
     </div>
-  );
+  )
 }
-export default Preview;
+export default Preview
