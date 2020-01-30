@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, useHistory, withRouter } from 'react-router-dom';
+import React, { useState } from "react"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+  withRouter
+} from "react-router-dom" //needs Router
 
-import useSignUpForm from './profile/handlers/InputHooks';
+import useSignUpForm from "./profile/handlers/InputHooks"
 
-import Personal from './profile/personal';
-import Experience from './profile/experience';
-import Education from './profile/education';
-import Skills from './profile/skills';
-import { Menu } from 'antd';
-import 'antd/dist/antd.css';
+import Personal from "./profile/personal"
+import Experience from "./profile/experience"
+import Education from "./profile/education"
+import Skills from "./profile/skills"
+import { Menu } from "antd"
+import "antd/dist/antd.css"
 
-import { Layout, Button } from 'antd';
+import { Layout, Button } from "antd"
 
-const { Footer } = Layout;
+const { Footer } = Layout
 
 const Profile = () => {
   function handleClick(e) {
@@ -25,39 +32,39 @@ const Profile = () => {
     handleSubmit,
     onEduDateChange,
     onExpDateChange
-  } = useSignUpForm();
+  } = useSignUpForm()
 
-  console.log('inputs', inputs);
+  console.log("inputs", inputs)
 
-  const history = useHistory();
-  const [activeTab, setActiveTab] = useState('1')
-  const [buttonText, setButtonText] = useState('Next')
+  const history = useHistory()
+  const [activeTab, setActiveTab] = useState("1")
+  const [buttonText, setButtonText] = useState("Next")
 
   function nextHandler(e) {
     switch (activeTab) {
       case "1":
-        setActiveTab('2');
-        history.push("/auth/profile/experience");
-        setButtonText('Next');
-        break;
+        setActiveTab("2")
+        history.push("/auth/profile/experience")
+        setButtonText("Next")
+        break
       case "2":
-        setActiveTab('3');
-        history.push("/auth/profile/education");
-        setButtonText('Next');
-        break;
+        setActiveTab("3")
+        history.push("/auth/profile/education")
+        setButtonText("Next")
+        break
       case "3":
-        setActiveTab('4');
-        history.push("/auth/profile/skills");
-        setButtonText('Submit');
-        break;
+        setActiveTab("4")
+        history.push("/auth/profile/skills")
+        setButtonText("Submit")
+        break
       case "4":
-        setActiveTab('1');
-        handleSubmit(e);
-        break;
+        setActiveTab("1")
+        handleSubmit(e)
+        break
       default:
-        setActiveTab('1');
-        setButtonText('Next');
-        break;
+        setActiveTab("1")
+        setButtonText("Next")
+        break
     }
   }
 
@@ -101,19 +108,18 @@ const Profile = () => {
             />
           </Route>
           <Route path="/auth/profile/skills">
-            <Skills
-              inputs={inputs}
-              handleInputChange={handleInputChange}
-            />
+            <Skills inputs={inputs} handleInputChange={handleInputChange} />
           </Route>
         </Switch>
       </div>
-      <Footer style={{ bottom: 0, position: "fixed", width: "100%", padding: 10 }}>
+      <Footer
+        style={{ bottom: 0, position: "fixed", width: "100%", padding: 10 }}
+      >
         <Button onClick={nextHandler}>{buttonText}</Button>
       </Footer>
     </div>
-  );
-};
+  )
+}
 
 // export default Profile
-export default withRouter(Profile);
+export default withRouter(Profile)

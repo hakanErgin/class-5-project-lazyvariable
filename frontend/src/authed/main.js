@@ -1,20 +1,19 @@
 import React from "react"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
-import "../styles/main.css"
-
-import useSignUpForm from "./profile/handlers/InputHooks"
-
-import { useState, useEffect } from "react"
 import axios from "axios"
-import Dashboard from "./dashboard"
-import Profile from "./profile"
-import LogoutComponent from "./logout"
-import Projects from "./projects"
-import Preview from "./Preview/Preview"
-import GithubComponent from "./github"
-import Portfolio from "./portfolio"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { useState, useEffect } from "react"
 import { Menu, Layout } from "antd"
+
 import "../styles/main.css"
+
+import useSignUpForm from "./main/profile/handlers/InputHooks"
+import Dashboard from "./main/dashboard"
+import Profile from "./main/profile"
+import LogoutComponent from "./main/logout"
+import Projects from "./main/projects"
+import Preview from "./main/preview"
+import GithubComponent from "./main/projects/github"
+import Portfolio from "./main/projects/portfolio"
 
 const { Sider, Content } = Layout
 

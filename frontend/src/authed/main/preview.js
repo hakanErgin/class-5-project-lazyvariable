@@ -201,4 +201,5 @@ function Preview(avatar) {
     </div>
   )
 }
+
 export default Preview

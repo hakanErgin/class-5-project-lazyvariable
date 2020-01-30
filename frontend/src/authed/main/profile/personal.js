@@ -1,6 +1,6 @@
 import React from "react"
 import { Form, Input, Typography } from "antd"
-import "../../styles/personal.css"
+import "../../../styles/personal.css"
 
 const { Title } = Typography
 

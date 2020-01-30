@@ -129,7 +129,7 @@ const Projects = ({ postToGithub }) => {
             value="import"
             onClick={handleClick}
           >
-            Click
+            Submit
           </button>
         )}
       </div>
