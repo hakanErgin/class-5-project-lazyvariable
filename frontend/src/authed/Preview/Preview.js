@@ -16,6 +16,8 @@ import { Card } from "antd"
 
 import "../../styles/preview.css"
 
+const icons = [faPhoneAlt, faEnvelope, faMapMarkerAlt, faGlobeEurope]
+
 const useFetch = url => {
   const [response, setResponse] = useState(null)
   const [error, setError] = useState(null)
@@ -77,57 +79,35 @@ function Preview(avatar) {
         <h2>{workTitle}</h2>
         <Row className="personalField1">
           <Col>
-            <FontAwesomeIcon
-              className="iconn1"
-              icon={faMapMarkerAlt}
-              size="2x"
-              color="#082371"
-            />
+            <FontAwesomeIcon icon={faMapMarkerAlt} size="2x" color="#082371" />
             <div className="info">
               {city}, {country}
             </div>
           </Col>
           <Col>
-            <FontAwesomeIcon
-              className="iconn2"
-              icon={faPhoneAlt}
-              size="2x"
-              color="#082371"
-            />
+            <FontAwesomeIcon icon={faPhoneAlt} size="2x" color="#082371" />
             <div className="info">{phone}</div>
           </Col>
           <Col>
-            <FontAwesomeIcon
-              className="iconn3"
-              icon={faEnvelope}
-              size="2x"
-              color="#082371"
-            />
+            <FontAwesomeIcon icon={faEnvelope} size="2x" color="#082371" />
             <div className="info">{email}</div>
           </Col>
           <Col>
-            <FontAwesomeIcon
-              className="iconn4"
-              icon={faGlobeEurope}
-              size="2x"
-              color="#082371"
-            />
+            <FontAwesomeIcon icon={faGlobeEurope} size="2x" color="#082371" />
             <div className="info">{website}</div>
           </Col>
         </Row>
         <Col className="about">{about}</Col>
       </Grid>
       <Grid fluid id="cards">
-        <Card
-          title="Work Experience"
-          extra={
-            <img
-              className="numberIcon"
-              src="https://i.ibb.co/mCtK3Df/Component-19-1.png"
-              alt="1"
-            />
-          }
-        >
+        <img
+          className="numberIcon"
+          src="https://i.ibb.co/mCtK3Df/Component-19-1.png"
+          alt="1"
+        />
+        {/* move this img inside */}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <h3>Work Experience</h3>
           <strong>Job title:</strong> {workTitle}
           <strong>Employment type:</strong> {employmentType}
           <strong>Company:</strong> {companyName}
@@ -138,7 +118,7 @@ function Preview(avatar) {
           {workEndDate}
           <strong>Description: </strong>
           {jobDescription}
-        </Card>
+        </div>
       </Grid>
       <div className="titleWrapper">
         <img
