@@ -1,37 +1,37 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react"
+import axios from "axios"
 
 const Projects = ({ postToGithub }) => {
-  const [repos, setRepos] = useState([]);
-  const [show, toggleShow] = useState(false);
-  const [selectedRepos, setSelectedRepos] = useState([]);
+  const [repos, setRepos] = useState([])
+  const [show, toggleShow] = useState(false)
+  const [selectedRepos, setSelectedRepos] = useState([])
 
   const FetchRepos = () => {
     axios
       .get(
-        `https://api.github.com/users/${localStorage.getItem('username')}/repos`
+        `https://api.github.com/users/${localStorage.getItem("username")}/repos`
       )
       .then(result => {
-        setRepos(result.data);
+        setRepos(result.data)
       })
       .catch(err => {
-        console.log(err);
-      });
-  };
+        console.log(err)
+      })
+  }
 
   const handleFetchClick = () => {
-    FetchRepos();
-    toggleShow(!show);
-  };
+    FetchRepos()
+    toggleShow(!show)
+  }
 
   const handleClick = event => {
-    postToGithub(selectedRepos);
-    return (window.location.href = './portfolio');
-  };
+    postToGithub(selectedRepos)
+    return (window.location.href = "./portfolio")
+  }
 
   const handleCheckBoxChange = (event, repo) => {
-    event.persist();
-    const checked = event.target.checked;
+    event.persist()
+    const checked = event.target.checked
 
     if (checked) {
       setSelectedRepos([
@@ -41,15 +41,15 @@ const Projects = ({ postToGithub }) => {
           description: repo.description,
           repository: repo.html_url
         }
-      ]);
+      ])
     } else {
       setSelectedRepos([
         selectedRepos.filter(
-          rep => rep.title != repo.name && rep.description != repo.description
+          rep => rep.title !== repo.name && rep.description !== repo.description
         )
-      ]);
+      ])
     }
-  };
+  }
 
   return (
     <div>
@@ -118,7 +118,7 @@ const Projects = ({ postToGithub }) => {
                     </div>
                   </form>
                 </div>
-              );
+              )
             })}
           </div>
         )}
@@ -134,6 +134,6 @@ const Projects = ({ postToGithub }) => {
         )}
       </div>
     </div>
-  );
-};
-export default Projects;
+  )
+}
+export default Projects

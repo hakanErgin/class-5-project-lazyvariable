@@ -26,3 +26,8 @@
     display: none;
   }
 }
+
+/* shared values between components */
+.personalComponent {
+  text-transform: capitalize;
+}
