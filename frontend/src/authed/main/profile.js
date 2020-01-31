@@ -34,7 +34,7 @@ const Profile = () => {
     onExpDateChange
   } = useSignUpForm()
 
-  console.log("inputs", inputs)
+  // console.log("inputs", inputs)
 
   const history = useHistory()
   const [activeTab, setActiveTab] = useState("1")

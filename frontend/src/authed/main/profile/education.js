@@ -1,24 +1,21 @@
 import React from "react"
 import { Form, Input, DatePicker, Typography } from "antd"
+import fields from "./handlers/fieldData"
 
 const { Title } = Typography
 const { RangePicker } = DatePicker
 
+const fieldsArray = Object.values(fields[2])[0]
+// console.log(fieldsArray)
+
 const Education = ({ inputs, handleInputChange, onEduDateChange }) => {
   // ADDING MORE EDUCATION IS NOT SUPPORTED ATM
 
-  const fields = [
-    { institution: "Institution" },
-    { fieldOfStudy: "Field of study" },
-    { degree: "Degree" },
-    { educationDescription: "Description" }
-  ]
-
-  const formFromFields = fields.map(field => {
+  const formFromFields = fieldsArray.map((field, key) => {
     const objKey = Object.keys(field)
 
     return (
-      <Form.Item label={field[objKey]}>
+      <Form.Item label={field[objKey]} key={key}>
         <Input
           name={objKey}
           placeholder={objKey}

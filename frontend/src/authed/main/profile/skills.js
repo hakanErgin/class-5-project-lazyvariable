@@ -1,10 +1,10 @@
-import React from 'react';
-import { Form, Input, Typography } from 'antd';
+import React from "react"
+import { Form, Input, Typography } from "antd"
 
-const { Title } = Typography;
+const { Title } = Typography
 
-const Skills = ({ inputs, handleInputChange, handleSubmit }) => {
-  const skills = inputs.skills;
+const Skills = ({ inputs, handleInputChange }) => {
+  const skills = inputs.skills
 
   return (
     <div className="customStyle">
@@ -21,7 +21,7 @@ const Skills = ({ inputs, handleInputChange, handleSubmit }) => {
         </Form.Item>
       </Form>
     </div>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

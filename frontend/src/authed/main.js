@@ -18,23 +18,20 @@ import Portfolio from "./main/projects/portfolio"
 const { Sider, Content } = Layout
 
 const Main = () => {
-  const [name, setName] = useState()
-  const [avatar, setAvatar] = useState()
+  const {
+    inputs,
+    CheckDb,
+    postToGithub,
+    name,
+    avatar,
+    setPicAndName
+  } = useSignUpForm()
 
-  const { inputs, CheckDb, postToGithub } = useSignUpForm()
   console.log("inputs", inputs)
 
   useEffect(() => {
-    axios
-      .get(`https://api.github.com/users/${localStorage.getItem("username")}`)
-      .then(result => {
-        setName(result.data.name)
-        setAvatar(result.data.avatar_url)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+    setPicAndName()
+  })
 
   return (
     <div id="mainComponent">
@@ -92,7 +89,7 @@ const Main = () => {
                   <Projects postToGithub={postToGithub} />
                 </Route>
                 <Route path="/auth/preview">
-                  <Preview avatar={avatar} />
+                  <Preview avatar={avatar} inputs={inputs} CheckDb={CheckDb} />
                 </Route>
                 <Route path="/auth/github">
                   <GithubComponent />

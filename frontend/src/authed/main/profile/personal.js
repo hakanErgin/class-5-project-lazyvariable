@@ -1,23 +1,17 @@
 import React from "react"
 import { Form, Input, Typography } from "antd"
 import "../../../styles/personal.css"
+import fields from "./handlers/fieldData"
+
+const fieldsArray = Object.values(fields[0])[0]
+// console.log(fieldsArray)
 
 const { Title } = Typography
 
 const Personal = ({ inputs, handleInputChange }) => {
-  const fields = [
-    "name",
-    "email",
-    "about",
-    "website",
-    "phone",
-    "country",
-    "city"
-  ]
-
-  const formFromFields = fields.map(field => {
+  const formFromFields = fieldsArray.map((field, key) => {
     return (
-      <Form.Item label={field}>
+      <Form.Item label={field} key={key}>
         <Input
           name={field}
           placeholder={field}

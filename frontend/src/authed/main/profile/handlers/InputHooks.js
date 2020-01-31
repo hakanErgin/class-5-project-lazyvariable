@@ -89,6 +89,21 @@ const useSignUpForm = () => {
     setInputs({ ...inputs, workStartDate, workEndDate })
   }
 
+  const [name, setName] = useState()
+  const [avatar, setAvatar] = useState()
+
+  function setPicAndName() {
+    axios
+      .get(`https://api.github.com/users/${localStorage.getItem("username")}`)
+      .then(result => {
+        setName(result.data.name)
+        setAvatar(result.data.avatar_url)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
   return {
     handleSubmit,
     handleInputChange,
@@ -98,7 +113,10 @@ const useSignUpForm = () => {
     onExpDateChange,
     CheckDb,
     setInputs,
-    postToGithub
+    postToGithub,
+    name,
+    avatar,
+    setPicAndName
   }
 }
 
