@@ -11,9 +11,9 @@ Users are able to:
 - Create viewable profile with these data ("Preview" route)
 
 
-To do:
+WIP:
 - Frontend design
-- Cleaner DRY, modular code
+- Cleaner DRY, modular code (ALMOST THERE)
 - Ability to add multiple (educational or professional experiences in profile creation) options 
 
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
