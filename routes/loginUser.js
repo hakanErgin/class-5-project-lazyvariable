@@ -15,9 +15,7 @@ router.post('/', (req, res) => {
     res.status(400).end();
   }
 
-  User.findOne({ personalFields: { email } }).then(user => {
-    console.log({ personalFields: { email } });
-
+  User.findOne({ 'personalFields.email': email }).then(user => {
     console.log('user', user);
 
     if (!user) {
@@ -26,7 +24,7 @@ router.post('/', (req, res) => {
     }
 
     //validate password
-    bcrypt.compare(password, user.password).then(isMatch => {
+    bcrypt.compare(password, user.personalFields.password).then(isMatch => {
       if (!isMatch) {
         res.statusMessage = 'Wrong password';
         res.status(400).end();
@@ -41,8 +39,7 @@ router.post('/', (req, res) => {
             token,
             user: {
               id: user.id,
-              email: user.email,
-              username: user.username
+              personalFields: user.personalFields
             }
           });
         }

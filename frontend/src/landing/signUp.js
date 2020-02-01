@@ -18,7 +18,6 @@ const SignUp = () => {
         personalFields: { username, email, password }
       })
       .then(e => {
-        console.log('EEEEEE', e);
         if (e.data.token) {
           localStorage.setItem('token', e.data.token);
           localStorage.setItem('username', e.data.user.personalFields.username);
