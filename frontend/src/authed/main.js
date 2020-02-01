@@ -1,21 +1,21 @@
-import React from "react"
-import axios from "axios"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
-import { useState, useEffect } from "react"
-import { Menu, Layout } from "antd"
+import React from 'react';
+import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Menu, Layout } from 'antd';
 
-import "../styles/main.css"
+import '../styles/main.css';
 
-import useSignUpForm from "./main/profile/handlers/InputHooks"
-import Dashboard from "./main/dashboard"
-import Profile from "./main/profile"
-import LogoutComponent from "./main/logout"
-import Projects from "./main/projects"
-import Preview from "./main/preview"
-import GithubComponent from "./main/projects/github"
-import Portfolio from "./main/projects/portfolio"
+import useSignUpForm from './main/profile/handlers/InputHooks';
+import Dashboard from './main/dashboard';
+import Profile from './main/profile';
+import LogoutComponent from './main/logout';
+import Projects from './main/projects';
+import Preview from './main/preview';
+import GithubComponent from './main/projects/github';
+import Portfolio from './main/projects/portfolio';
 
-const { Sider, Content } = Layout
+const { Sider, Content } = Layout;
 
 const Main = () => {
   const {
@@ -25,13 +25,11 @@ const Main = () => {
     name,
     avatar,
     setPicAndName
-  } = useSignUpForm()
-
-  console.log("inputs", inputs)
+  } = useSignUpForm();
 
   useEffect(() => {
-    setPicAndName()
-  })
+    setPicAndName();
+  });
 
   return (
     <div id="mainComponent">
@@ -110,7 +108,7 @@ const Main = () => {
         </Layout>
       </Router>
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

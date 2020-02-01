@@ -1,25 +1,23 @@
-import React from "react"
-import { useState, useEffect } from "react"
-import fields from "./profile/handlers/fieldData"
-import cardData from "./profile/handlers/cardData"
+import React from 'react';
+import { useState, useEffect } from 'react';
+import fields from './profile/handlers/fieldData';
+import cardData from './profile/handlers/cardData';
 
-import { Grid, Row, Col } from "react-flexbox-grid"
-import { Card, Icon, Tooltip } from "antd"
-import "../../styles/preview.css"
-const { Meta } = Card
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Card, Icon, Tooltip } from 'antd';
+import '../../styles/preview.css';
+const { Meta } = Card;
 
-const [personalFields, experienceFields, educationFields, numbers] = fields.map(
-  e => e[Object.keys(e)]
-)
-console.log(personalFields, experienceFields, educationFields, numbers)
+const { personalFields, experienceFields, educationFields, numbers } = fields;
+console.log(personalFields, experienceFields, educationFields, numbers);
 
 const Preview = ({ avatar, inputs, CheckDb }) => {
   useEffect(() => {
-    CheckDb()
-  }, [])
+    CheckDb();
+  }, []);
 
   if (!inputs || !avatar) {
-    return null
+    return null;
   }
 
   const {
@@ -45,7 +43,7 @@ const Preview = ({ avatar, inputs, CheckDb }) => {
     educationEndDate,
     skills,
     gitHub
-  } = inputs
+  } = inputs;
 
   const { metaCard } = cardData(
     name,
@@ -70,9 +68,9 @@ const Preview = ({ avatar, inputs, CheckDb }) => {
     educationEndDate,
     skills,
     gitHub
-  )
+  );
 
-  console.log(inputs)
+  console.log(inputs);
 
   return (
     <div id="preview">
@@ -83,7 +81,7 @@ const Preview = ({ avatar, inputs, CheckDb }) => {
         <p>Card content</p>
       </Card>
     </div>
-  )
-}
+  );
+};
 
-export default Preview
+export default Preview;

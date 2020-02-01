@@ -11,33 +11,42 @@ router.post('/', (req, res) => {
 
   // Simple validation
   if (!email || !password) {
-    res.statusMessage = "Missing Fields"
-    res.status(400).end()
+    res.statusMessage = 'Missing Fields';
+    res.status(400).end();
   }
 
-  User.findOne({ email }).then(user => {
+  User.findOne({ personalFields: { email } }).then(user => {
+    console.log({ personalFields: { email } });
+
+    console.log('user', user);
+
     if (!user) {
-      res.statusMessage = "Wrong username"
-      res.status(400).end()
+      res.statusMessage = 'Wrong username';
+      res.status(400).end();
     }
 
     //validate password
     bcrypt.compare(password, user.password).then(isMatch => {
       if (!isMatch) {
-        res.statusMessage = "Wrong password"
-        res.status(400).end()
+        res.statusMessage = 'Wrong password';
+        res.status(400).end();
       }
-      jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 3600 }, (err, token) => {
-        if (err) throw err;
-        res.json({
-          token,
-          user: {
-            id: user.id,
-            email: user.email,
-            username: user.username,
-          },
-        });
-      });
+      jwt.sign(
+        { id: user.id },
+        process.env.JWT_SECRET,
+        { expiresIn: 3600 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({
+            token,
+            user: {
+              id: user.id,
+              email: user.email,
+              username: user.username
+            }
+          });
+        }
+      );
     });
   });
 });
