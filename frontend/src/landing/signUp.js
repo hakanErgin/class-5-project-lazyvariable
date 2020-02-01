@@ -29,7 +29,7 @@ const SignUp = () => {
         }
       })
       .catch(err => {
-        setErrorMessage(err);
+        setErrorMessage(err.response.statusText);
       });
   };
   const handleEmailChange = e => {

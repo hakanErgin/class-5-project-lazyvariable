@@ -16,8 +16,6 @@ router.post('/', (req, res) => {
   }
 
   User.findOne({ 'personalFields.email': email }).then(user => {
-    console.log('user', user);
-
     if (!user) {
       res.statusMessage = 'Wrong username';
       res.status(400).end();

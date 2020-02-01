@@ -19,51 +19,50 @@ router.post('/', (req, res) => {
   }
 
   // Check for existing user
-  User.findOne({ email: personalFields.email }).then(user => {
-    if (user) {
-      res.statusMessage = 'User already exists';
-      res.status(400).end();
-    }
+  const user = async () => await User.findOne({ email: personalFields.email });
+  if (user) {
+    res.statusMessage = 'User already exists';
+    res.status(400).end();
+  }
 
-    const newUser = new User({ personalFields });
+  const newUser = new User({ personalFields });
 
-    // create salt & hash
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(newUser.personalFields.password, salt, (err, hash) => {
-        if (err) throw err;
-        newUser.personalFields.password = hash;
-        console.log('newUser', newUser);
-        newUser.save().then(user => {
-          jwt.sign(
-            { id: user.id },
-            process.env.JWT_SECRET,
-            { expiresIn: 3600 },
-            (err, token) => {
-              if (err) throw err;
+  // create salt & hash
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(newUser.personalFields.password, salt, (err, hash) => {
+      if (err) throw err;
+      newUser.personalFields.password = hash;
+      newUser.save().then(user => {
+        jwt.sign(
+          { id: user.id },
+          process.env.JWT_SECRET,
+          { expiresIn: 3600 },
+          (err, token) => {
+            if (err) throw err;
+            res.json({
+              token,
+              user: {
+                id: user.id,
+                personalFields: user.personalFields
+              }
+            });
+            console.log(
+              'res json:',
               res.json({
                 token,
                 user: {
                   id: user.id,
                   personalFields: user.personalFields
                 }
-              });
-              console.log(
-                'res json:',
-                res.json({
-                  token,
-                  user: {
-                    id: user.id,
-                    personalFields: user.personalFields
-                  }
-                })
-              );
-            }
-          );
-        });
+              })
+            );
+          }
+        );
       });
     });
   });
 });
+// });
 
 // Entering the data for the first time and updating
 router.route('/:id').post((req, res) => {
