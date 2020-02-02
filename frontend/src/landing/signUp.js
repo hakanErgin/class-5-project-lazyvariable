@@ -30,7 +30,7 @@ const SignUp = () => {
         }
       })
       .catch(err => {
-        setErrorMessage(err.response.statusText);
+        setErrorMessage(err.response.data.message);
       });
   };
   const handleEmailChange = e => {

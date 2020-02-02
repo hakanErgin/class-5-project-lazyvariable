@@ -9,16 +9,10 @@ require("dotenv").config();
 router.post("/", (req, res) => {
   const { email, password } = req.body;
 
-  // Simple validation
-  if (!email || !password) {
-    res.statusMessage = "Missing Fields";
-    res.status(400).end();
-  }
-
   User.findOne({ "personalFields.email": email })
     .then(user => {
       if (!user) {
-        res.statusMessage = "Wrong username";
+        res.statusMessage = "Wrong username/password";
         res.status(400).end();
       }
 
@@ -27,7 +21,7 @@ router.post("/", (req, res) => {
         .compare(password, user.personalFields.password)
         .then(isMatch => {
           if (!isMatch) {
-            res.statusMessage = "Wrong password";
+            res.statusMessage = "Wrong username/password";
             res.status(400).end();
           }
           jwt.sign(

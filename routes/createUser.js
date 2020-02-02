@@ -8,63 +8,47 @@ require("dotenv").config();
 router.post("/", (req, res) => {
   const personalFields = req.body.personalFields;
 
-  // Simple validation
-  if (
-    !personalFields.username ||
-    !personalFields.email ||
-    !personalFields.password
-  ) {
-    res.statusMessage = "Missing Fields";
-    res.status(400).end();
-  }
-
   // Check for existing user
-  const user = async () =>
-    await User.findOne({ email: personalFields.email }).catch(error =>
-      console.log(error)
-    );
+  User.findOne({ email: personalFields.email }).then(user => {
+    console.log(user);
 
-  const newUser = new User({ personalFields });
+    const newUser = new User({ personalFields });
 
-  // create salt & hash
-  bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(newUser.personalFields.password, salt, (err, hash) => {
-      if (err) throw err;
-      newUser.personalFields.password = hash;
-      newUser
-        .save()
-        .then(user => {
-          jwt.sign(
-            { id: user.id },
-            process.env.JWT_SECRET,
-            { expiresIn: 3600 },
-            (err, token) => {
-              if (err) throw err;
-              res.json({
-                token,
-                user: {
-                  id: user.id,
-                  personalFields: user.personalFields
-                }
-              });
-              console.log(
-                "res json:",
+    // create salt & hash
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(newUser.personalFields.password, salt, (err, hash) => {
+        if (err) throw err;
+        newUser.personalFields.password = hash;
+        newUser
+          .save()
+          .then(user => {
+            jwt.sign(
+              { id: user.id },
+              process.env.JWT_SECRET,
+              { expiresIn: 3600 },
+              (err, token) => {
+                if (err) throw err;
                 res.json({
                   token,
                   user: {
                     id: user.id,
                     personalFields: user.personalFields
                   }
-                })
-              );
-            }
-          );
-        })
-        .catch(err => err);
+                });
+              }
+            );
+          })
+          .catch(err => {
+            res.status(500).send({
+              status: 500,
+              message: "Username in use",
+              type: "internal"
+            });
+          });
+      });
     });
   });
 });
-// });
 
 // Entering the data for the first time and updating
 router.route("/:id").post((req, res) => {
