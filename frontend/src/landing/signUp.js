@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Redirect } from 'react-router';
-import REACT_APP_BACKEND_URI from '../helpers/herokuHelper';
+import React, { useState } from "react";
+import axios from "axios";
+import { Redirect } from "react-router";
+import REACT_APP_BACKEND_URI from "../helpers/herokuHelper";
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
   const [registered, setRegistered] = useState(false);
 
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const submitForm = () => {
     axios
@@ -19,9 +19,9 @@ const SignUp = () => {
       })
       .then(e => {
         if (e.data.token) {
-          localStorage.setItem('token', e.data.token);
-          localStorage.setItem('username', e.data.user.personalFields.username);
-          localStorage.setItem('ID', e.data.user.id);
+          localStorage.setItem("token", e.data.token);
+          localStorage.setItem("username", e.data.user.personalFields.username);
+          localStorage.setItem("ID", e.data.user.id);
 
           setRegistered(true);
         } else {
@@ -29,7 +29,7 @@ const SignUp = () => {
         }
       })
       .catch(err => {
-        setErrorMessage(err.response.statusText);
+        setErrorMessage(err.response.data.message);
       });
   };
   const handleEmailChange = e => {
@@ -113,7 +113,7 @@ const SignUp = () => {
                 ></input>
                 <br />
                 {errorMessage && (
-                  <div style={{ paddingTop: '20px', color: 'red' }}>
+                  <div style={{ paddingTop: "20px", color: "red" }}>
                     {errorMessage}
                   </div>
                 )}
