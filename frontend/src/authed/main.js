@@ -1,7 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Menu, Layout } from 'antd';
 
 import '../styles/main.css';
@@ -28,8 +27,9 @@ const Main = () => {
   } = useSignUpForm();
 
   useEffect(() => {
+    CheckDb();
     setPicAndName();
-  });
+  }, []);
 
   return (
     <div id="mainComponent">

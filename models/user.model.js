@@ -37,7 +37,12 @@ const userSchema = new Schema(
         description: { type: String }
       }
     ],
-    skills: [String],
+    //find a better way to store skills
+    skills: [
+      {
+        skills: { type: String }
+      }
+    ],
     gitHub: [
       {
         title: { type: String },

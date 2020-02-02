@@ -15,8 +15,6 @@ const LoginComponent = () => {
     axios
       .post(`${REACT_APP_BACKEND_URI}/auth`, { email, password })
       .then(e => {
-        console.log('eeee', e);
-
         if (e.data.token) {
           localStorage.setItem('token', e.data.token);
           localStorage.setItem('username', e.data.user.personalFields.username);

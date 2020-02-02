@@ -29,16 +29,13 @@ const useSignUpForm = () => {
   };
 
   const CheckDb = async () => {
-    console.log('id', localStorage.getItem('ID'));
-
     try {
       const res = await fetch(
         `${REACT_APP_BACKEND_URI}/user/${localStorage.getItem('ID')}`
       );
       const jsonResponse = await res.json();
-      console.log('jsonResponse', jsonResponse);
-
-      setInputs({ ...jsonResponse });
+      await setInputs({ ...jsonResponse });
+      return jsonResponse;
     } catch (error) {
       console.log(error);
       setInputs({});
