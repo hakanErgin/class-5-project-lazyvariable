@@ -1,11 +1,11 @@
-const router = require('express').Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../models/user.model');
-require('dotenv').config();
+const router = require("express").Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const User = require("../models/user.model");
+require("dotenv").config();
 
 // New register
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
   const personalFields = req.body.personalFields;
 
   // Simple validation
@@ -14,26 +14,26 @@ router.post('/', (req, res) => {
     !personalFields.email ||
     !personalFields.password
   ) {
-    res.statusMessage = 'Missing Fields';
+    res.statusMessage = "Missing Fields";
     res.status(400).end();
   }
 
   // Check for existing user
-  User.findOne({ email: personalFields.email }).then(user => {
-    if (user) {
-      res.statusMessage = 'User already exists';
-      res.status(400).end();
-    }
+  const user = async () =>
+    await User.findOne({ email: personalFields.email }).catch(error =>
+      console.log(error)
+    );
 
-    const newUser = new User({ personalFields });
+  const newUser = new User({ personalFields });
 
-    // create salt & hash
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(newUser.personalFields.password, salt, (err, hash) => {
-        if (err) throw err;
-        newUser.personalFields.password = hash;
-        console.log('newUser', newUser);
-        newUser.save().then(user => {
+  // create salt & hash
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(newUser.personalFields.password, salt, (err, hash) => {
+      if (err) throw err;
+      newUser.personalFields.password = hash;
+      newUser
+        .save()
+        .then(user => {
           jwt.sign(
             { id: user.id },
             process.env.JWT_SECRET,
@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
                 }
               });
               console.log(
-                'res json:',
+                "res json:",
                 res.json({
                   token,
                   user: {
@@ -59,14 +59,15 @@ router.post('/', (req, res) => {
               );
             }
           );
-        });
-      });
+        })
+        .catch(err => err);
     });
   });
 });
+// });
 
 // Entering the data for the first time and updating
-router.route('/:id').post((req, res) => {
+router.route("/:id").post((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.personalFields = req.body.personalFields;
@@ -75,30 +76,30 @@ router.route('/:id').post((req, res) => {
       info.skills = req.body.skills;
       info
         .save()
-        .then(() => res.json('Added successfully!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+        .then(() => res.json("Added successfully!"))
+        .catch(err => res.status(400).json("Error: " + err));
     })
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json("Error: " + err));
 });
 
 // Entering Github data
-router.route('/github/:id').post((req, res) => {
+router.route("/github/:id").post((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.gitHub = req.body.gitHub;
       info
         .save()
-        .then(() => res.json('Added successfully!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+        .then(() => res.json("Added successfully!"))
+        .catch(err => res.status(400).json("Error: " + err));
     })
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json("Error: " + err));
 });
 
 // Getting specified data by ID
-router.route('/:id').get((req, res) => {
+router.route("/:id").get((req, res) => {
   User.findById(req.params.id)
     .then(user => res.json(user))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json("Error: " + err));
 });
 
 module.exports = router;

@@ -1,63 +1,64 @@
-const router = require('express').Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const auth = require('../middleware/auth');
+const router = require("express").Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const auth = require("../middleware/auth");
 
-const User = require('../models/user.model');
-require('dotenv').config();
+const User = require("../models/user.model");
+require("dotenv").config();
 
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
   const { email, password } = req.body;
 
   // Simple validation
   if (!email || !password) {
-    res.statusMessage = 'Missing Fields';
+    res.statusMessage = "Missing Fields";
     res.status(400).end();
   }
 
-  User.findOne({ personalFields: { email } }).then(user => {
-    console.log({ personalFields: { email } });
-
-    console.log('user', user);
-
-    if (!user) {
-      res.statusMessage = 'Wrong username';
-      res.status(400).end();
-    }
-
-    //validate password
-    bcrypt.compare(password, user.password).then(isMatch => {
-      if (!isMatch) {
-        res.statusMessage = 'Wrong password';
+  User.findOne({ "personalFields.email": email })
+    .then(user => {
+      if (!user) {
+        res.statusMessage = "Wrong username";
         res.status(400).end();
       }
-      jwt.sign(
-        { id: user.id },
-        process.env.JWT_SECRET,
-        { expiresIn: 3600 },
-        (err, token) => {
-          if (err) throw err;
-          res.json({
-            token,
-            user: {
-              id: user.id,
-              email: user.email,
-              username: user.username
+
+      //validate password
+      bcrypt
+        .compare(password, user.personalFields.password)
+        .then(isMatch => {
+          if (!isMatch) {
+            res.statusMessage = "Wrong password";
+            res.status(400).end();
+          }
+          jwt.sign(
+            { id: user.id },
+            process.env.JWT_SECRET,
+            { expiresIn: 3600 },
+            (err, token) => {
+              if (err) throw err;
+              res.json({
+                token,
+                user: {
+                  id: user.id,
+                  personalFields: user.personalFields
+                }
+              });
             }
-          });
-        }
-      );
-    });
-  });
+          );
+        })
+        .catch(err => err);
+    })
+    .catch(err => err);
 });
 
 // @route   GET /auth/user
 // @desc    get user data & validate user constantly
 // @access  Private
-router.get('/user', auth, (req, res) => {
+router.get("/user", auth, (req, res) => {
   User.findById(req.user.id)
-    .select('-password') // disregard the password
-    .then(user => res.json(user));
+    .select("-password") // disregard the password
+    .then(user => res.json(user))
+    .catch(err => err);
 });
 
 module.exports = router;
