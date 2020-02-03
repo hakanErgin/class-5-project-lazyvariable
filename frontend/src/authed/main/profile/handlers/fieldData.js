@@ -20,7 +20,8 @@ const fields = {
     { fieldOfStudy: 'Field of study' },
     { degree: 'Degree' },
     { educationDescription: 'Description' }
-  ]
+  ],
+  skills: []
 
   // numbers: [
   //   { 1: 'https://i.ibb.co/mCtK3Df/Component-19-1.png' },

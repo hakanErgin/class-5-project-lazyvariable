@@ -69,7 +69,10 @@ const useSignUpForm = () => {
     const { name, value } = event.target;
     console.log('name', name, 'value', value, 'type:', type);
 
-    setInputs({ ...inputs, [type]: { ...inputs[type], [name]: value } });
+    setInputs({
+      ...inputs,
+      [type]: { ...inputs[type], ...inputs[type][0], [name]: value }
+    });
   };
 
   function onDateChange(date, experienceDate, type) {

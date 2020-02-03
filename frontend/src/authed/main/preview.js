@@ -52,21 +52,19 @@ const Preview = ({ avatar, CheckDb }) => {
     if (key === 'personalFields') {
       return;
     }
-
-    let input = inputs[key];
     // this [0] should be removed if we want to support arrays
-
-    if (typeof input === 'object') {
-      input = input[0];
-    }
+    let input = inputs[key][0];
     let val = [];
     let keyToPrint = [];
     fields[key].map(childField => {
       const objKeys = Object.keys(childField)[0];
+      if (!input) {
+        return;
+      }
       val.push(input[objKeys]);
       keyToPrint.push(childField[objKeys]);
     });
-    res.push(combineArr(keyToPrint, val, key));
+    val.length != 0 && res.push(combineArr(keyToPrint, val, key));
   });
 
   return (

@@ -12,6 +12,7 @@ const fieldsArray = Object.values(fields[type]);
 
 const Education = ({ inputs, handleInputChange, onDateChange }) => {
   // ADDING MORE EDUCATION IS NOT SUPPORTED ATM
+  console.log('inputs from edu', inputs);
 
   const formFromFields = fieldsArray.map((field, key) => {
     const objKey = Object.keys(field);
@@ -26,7 +27,7 @@ const Education = ({ inputs, handleInputChange, onDateChange }) => {
           onChange={e => {
             handleInputChange(e, type);
           }}
-          value={inputs[objKey]}
+          value={inputs.length > 0 ? inputs[0][objKey] : inputs[objKey]}
         />
       </Form.Item>
     );
