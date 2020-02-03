@@ -1,46 +1,59 @@
-# Class-5 group project
+# Class-5 Graduation Project
 
 ### GitPro - Generate your portfolio
 
-A tool for HYF students (and others) can use to generate a portfolio and use after graduation.
+A tool for HYF students (and everyone else) can use to generate a portfolio, to use after their graduation.
 
-**Summary:** We have worked in randomly assigned groups (of 4 or 5) for six weeks for this project,using MERN stack.
+**Description:** The user is be able to create their `CV` by filling the fields and their `Portfolio` importing their projects from github.
 
 Users are able to:
 
 - Enter related info about themselves (personal - educational - professional details)
-- Use their github name while signing up to use their repositories
-- Create viewable profile with these data ("Preview" route)
+- Use their github name while signing up, later access their repositories
+- View and edit this data
+
+**Project Summary:** It started as a group project. Due to bugs and instability issues with essential functions I decided to work on it, which essentially resulted in rebuilding from scratch.
+
+Added/Changed:
+
+- Fixed lots of bugs
+- Re-built the data sctructure for better results (instead of flat)
+- Removed hard-coded CSS & Added responsive features
+- Added ability to edit/update your data
 
 WIP:
 
-- Frontend design
-- Cleaner DRY, modular code (ALMOST THERE)
-- Ability to add multiple (educational or professional experiences in profile creation) options
+- Refactor and DRY - most of it is done!
+- Working on the `/preview` and format the view
+
+To do:
+
+- Multiple options for `education` and `experiences`
+- Ability export as a nicely formatted document or URL
 
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
 (_backend needs a moment to wake up when you login/register for first time_)
 
-[Project page wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)
+[Project wiki](https://github.com/HackYourFutureBelgium/class-5-project/wiki/lazyvariable)
 
 [Project original repo](https://github.com/HackYourFutureBelgium/class-5-project-lazyvariable)
 
 ---
 
-### - How to use the repo
+### - Development - How to use the repo
 
-- clone
-- npm install on both `root` dir and `frontend` dir
-- to run backend: on project root dir `nodemon server`
-- then on /frontend dir: `npm start`
+- clone repo
+- npm install on both `root` and `frontend` dirs
+- to run server: on root `nodemon server`
+- then on /frontend, `npm start` for frontend
 
 ---
 
-### - Development
+### - Deployment
 
 ### heroku
 
-_backend is hosted on heroku and is making calls to the database hosted on MongoDB Atlas_
+_server_
 
 ```
 $ heroku login
@@ -50,8 +63,8 @@ $ git remote -v
 ```
 heroku https://git.heroku.com/mighty-reaches-37532.git (fetch)
 heroku https://git.heroku.com/mighty-reaches-37532.git (push)
-origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (fetch)
-origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (push)
+origin git@github.com:hakanErgin/class-5-project-lazyvariable.git (fetch)
+origin git@github.com:hakanErgin/class-5-project-lazyvariable.git (push)
 ```
 
 change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-change-a-git-remote-on-heroku)
@@ -70,9 +83,9 @@ $ heroku open
 
 ### Firebase
 
-_frontend is hosted on firebase_
+_frontend_
 
--`firebase login` (no need)
+-`firebase login` (no need after first time)
 
 -`npm run build`
 
