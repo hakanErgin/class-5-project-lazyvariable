@@ -4,7 +4,7 @@
 
 A tool for HYF students (and everyone else) can use to generate a portfolio, to use after their graduation.
 
-**Description:** The user is be able to create their `CV` by filling the fields and their `Portfolio` importing their projects from github.
+##Description:## The user is be able to create their `CV` by filling the fields and their `Portfolio` importing their projects from github.
 
 Users are able to:
 
@@ -12,21 +12,21 @@ Users are able to:
 - Use their github name while signing up, later access their repositories
 - View and edit this data
 
-**Project Summary:** It started as a group project. Due to bugs and instability issues with essential functions I decided to work on it, which essentially resulted in rebuilding from scratch.
+##Project Summary:## It started as a group project. Due to bugs and instability issues with essential functions I decided to work on it, which essentially resulted in rebuilding from scratch.
 
-Added/Changed:
+**Added/Changed:**
 
 - Fixed lots of bugs
 - Re-built the data sctructure for better results (instead of flat)
 - Removed hard-coded CSS & Added responsive features
 - Added ability to edit/update your data
 
-WIP:
+**WIP:**
 
 - Refactor and DRY - most of it is done!
 - Working on the `/preview` and format the view
 
-To do:
+**To do:**
 
 - Multiple options for `education` and `experiences`
 - Ability export as a nicely formatted document or URL
