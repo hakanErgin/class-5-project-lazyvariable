@@ -33,19 +33,25 @@ const Education = ({ inputs, handleInputChange, onDateChange }) => {
     );
   });
 
+  function date() {
+    return (
+      <Form.Item label="Date">
+        <RangePicker
+          onChange={(e, date) => {
+            onDateChange(e, date, type);
+          }}
+          name="educationDate"
+        />
+      </Form.Item>
+    );
+  }
+
   return (
     <div id="educationComponent">
       <Title level={3}>Education</Title>
       <Form autoComplete="off">
         {formFromFields}
-        <Form.Item label="Date">
-          <RangePicker
-            onChange={(e, date) => {
-              onDateChange(e, date, type);
-            }}
-            name="educationDate"
-          />
-        </Form.Item>
+        {date()}
       </Form>
     </div>
   );

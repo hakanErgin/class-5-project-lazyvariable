@@ -15,17 +15,6 @@ const userSchema = new Schema(
       city: { type: String },
       website: { type: String }
     },
-
-    educationFields: [
-      {
-        institution: { type: String },
-        fieldOfStudy: { type: String },
-        degree: { type: String },
-        startDate: { type: String },
-        endDate: { type: String },
-        description: { type: String }
-      }
-    ],
     experienceFields: [
       {
         workTitle: { type: String },
@@ -34,7 +23,17 @@ const userSchema = new Schema(
         employmentType: { type: String },
         startDate: { type: String },
         endDate: { type: String },
-        description: { type: String }
+        experienceDescription: { type: String }
+      }
+    ],
+    educationFields: [
+      {
+        institution: { type: String },
+        fieldOfStudy: { type: String },
+        degree: { type: String },
+        startDate: { type: String },
+        endDate: { type: String },
+        educationDescription: { type: String }
       }
     ],
     //find a better way to store skills
