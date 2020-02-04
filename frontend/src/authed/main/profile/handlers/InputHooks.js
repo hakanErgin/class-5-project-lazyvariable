@@ -64,7 +64,6 @@ const useSignUpForm = () => {
       });
   };
 
-  // this works for personal
   // const handleInputChange = (event, type) => {
   //   event.persist();
   //   const { name, value } = event.target;
@@ -83,7 +82,13 @@ const useSignUpForm = () => {
 
     setInputs({
       ...inputs,
-      [type]: { ...inputs[type][0], [name]: value }
+      [type]: {
+        ...inputs[type],
+        0: {
+          ...inputs[type][0],
+          [name]: value
+        }
+      }
     });
   };
 
