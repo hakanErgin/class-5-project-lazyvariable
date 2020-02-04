@@ -27,7 +27,7 @@ const Education = ({ inputs, handleInputChange, onDateChange }) => {
           onChange={e => {
             handleInputChange(e, type);
           }}
-          value={inputs[0][objKey]}
+          value={inputs.length > 0 ? inputs[0][objKey] : inputs[objKey]}
         />
       </Form.Item>
     );
