@@ -39,7 +39,7 @@ const userSchema = new Schema(
     //find a better way to store skills
     skills: [
       {
-        skills: { type: String }
+        type: String
       }
     ],
     gitHub: [

@@ -6,7 +6,7 @@ A tool for HYF students (and everyone else) can use to generate a portfolio, to 
 
 ## Description:
 
-The user is be able to create their `CV` by filling the fields and their `Portfolio` importing their projects from github.
+The user is be able to create their `CV` by filling the fields and their `Portfolio` importing their projects from github. And then they can view "Preview" their info. They should then be able to have this printed out in a nice format.
 
 **Users are able to:**
 
@@ -16,7 +16,7 @@ The user is be able to create their `CV` by filling the fields and their `Portfo
 
 ## Project Summary:
 
-It started as a group project. Due to bugs and instability issues with essential functions I decided to keep working on it, which then resulted in rebuilding from scratch.
+It started as a group project. Due to bugs and instability issues with essential functions I decided to keep working on it, which then resulted in rebuilding it.
 
 **Added/Changed:**
 
@@ -35,6 +35,7 @@ It started as a group project. Due to bugs and instability issues with essential
 - Multiple options for `education` and `experiences`
 - Ability export as a nicely formatted document or URL
 - Naming conventions
+- Check if user does not have avatar/name on github
 
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
 (_backend needs a moment to wake up when you login/register for first time_)

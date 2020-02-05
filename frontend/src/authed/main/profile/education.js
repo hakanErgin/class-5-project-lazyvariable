@@ -6,9 +6,7 @@ const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
 const type = 'educationFields';
-
 const fieldsArray = Object.values(fields[type]);
-// console.log(fieldsArray)
 
 const Education = ({ inputs, handleInputChange, onDateChange }) => {
   // ADDING MORE EDUCATION IS NOT SUPPORTED ATM

@@ -13,7 +13,7 @@ const fields = {
     { companyName: 'Company Name' },
     { companyLocation: 'Location' },
     { employmentType: 'Employment type' },
-    { jobDescription: 'Description' }
+    { experienceDescription: 'Description' }
   ],
   educationFields: [
     { institution: 'Institution' },
@@ -21,7 +21,7 @@ const fields = {
     { degree: 'Degree' },
     { educationDescription: 'Description' }
   ],
-  skills: []
+  skills: [{}]
 
   // numbers: [
   //   { 1: 'https://i.ibb.co/mCtK3Df/Component-19-1.png' },

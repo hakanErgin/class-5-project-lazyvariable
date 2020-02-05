@@ -9,6 +9,9 @@ const fieldsArray = Object.values(fields[type]);
 const { Title } = Typography;
 
 const Personal = ({ inputs, handleInputChange }) => {
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   const formFromFields = fieldsArray.map((field, key) => {
     if (!inputs) {
       return null;
@@ -17,7 +20,7 @@ const Personal = ({ inputs, handleInputChange }) => {
       <Form.Item label={field} key={key}>
         <Input
           name={field}
-          placeholder={field}
+          placeholder={capitalizeFirstLetter(field)}
           onChange={e => {
             handleInputChange(e, type);
           }}

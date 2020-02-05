@@ -31,7 +31,8 @@ const Profile = () => {
     handlePersonalInputChange,
     handleInputChange,
     handleSubmit,
-    onDateChange
+    onDateChange,
+    handleSkillsInputChange
   } = useSignUpForm();
   console.log('inputs from profile', inputs);
 
@@ -112,7 +113,7 @@ const Profile = () => {
           <Route path="/auth/profile/skills">
             <Skills
               inputs={inputs.skills}
-              handleInputChange={handleInputChange}
+              handleSkillsInputChange={handleSkillsInputChange}
             />
           </Route>
         </Switch>

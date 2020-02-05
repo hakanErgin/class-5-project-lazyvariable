@@ -9,14 +9,14 @@ const type = 'experienceFields';
 const fieldsArray = Object.values(fields[type]);
 
 const Experience = ({ inputs, handleInputChange, onDateChange }) => {
-  // ADDING MORE EXPERIENCES IS NOT SUPPORTED ATM
+  // ADDING MORE experience IS NOT SUPPORTED ATM
+  console.log('inputs from edu', inputs);
 
   const formFromFields = fieldsArray.map((field, key) => {
     const objKey = Object.keys(field);
     if (!inputs) {
       return null;
     }
-
     return (
       <Form.Item label={field[objKey]} key={key}>
         <Input
@@ -25,25 +25,31 @@ const Experience = ({ inputs, handleInputChange, onDateChange }) => {
           onChange={e => {
             handleInputChange(e, type);
           }}
-          value={inputs[0][objKey]}
+          value={inputs.length > 0 ? inputs[0][objKey] : inputs[objKey]}
         />
       </Form.Item>
     );
   });
 
+  function date() {
+    return (
+      <Form.Item label="Date">
+        <RangePicker
+          onChange={(e, date) => {
+            onDateChange(e, date, type);
+          }}
+          name="experienceDate"
+        />
+      </Form.Item>
+    );
+  }
+
   return (
     <div id="experienceComponent">
-      <Title level={3}>Work experience</Title>
+      <Title level={3}>Experience</Title>
       <Form autoComplete="off">
         {formFromFields}
-        <Form.Item label="Date">
-          <RangePicker
-            onChange={(e, date) => {
-              onDateChange(e, date, type);
-            }}
-            name="experienceDate"
-          />
-        </Form.Item>
+        {date()}
       </Form>
     </div>
   );

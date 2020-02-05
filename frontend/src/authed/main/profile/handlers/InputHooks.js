@@ -75,6 +75,17 @@ const useSignUpForm = () => {
     });
   };
 
+  const handleSkillsInputChange = (event, type) => {
+    event.persist();
+    const { name, value } = event.target;
+    console.log('name', name, 'value', value, 'type:', type);
+
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  };
+
   const handleInputChange = (event, type) => {
     event.persist();
     const { name, value } = event.target;
@@ -134,7 +145,8 @@ const useSignUpForm = () => {
     name,
     avatar,
     setPicAndName,
-    handlePersonalInputChange
+    handlePersonalInputChange,
+    handleSkillsInputChange
   };
 };
 
