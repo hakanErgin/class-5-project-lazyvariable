@@ -32,6 +32,8 @@ const Preview = ({ avatar, CheckDb }) => {
     city
   } = inputs.personalFields;
 
+  console.log('inputs', inputs);
+
   // function to combine two arrays(keys and values) in one object. to be completely renamed
   const combineArr = (keys, values, type) => {
     const result = {};
@@ -48,24 +50,42 @@ const Preview = ({ avatar, CheckDb }) => {
   let res = [];
 
   Object.keys(fields).map(key => {
+    // this [0] should be removed if we want to support arrays
+    let input = inputs[key][0];
+
     //we handle personal information in the MetaCard
     if (key === 'personalFields') {
       return;
+    } else if (key === 'skills') {
+      res.push({ skills: inputs[key] });
     }
-    // this [0] should be removed if we want to support arrays
-    let input = inputs[key][0];
+
+    console.log('input', input);
+
     let val = [];
     let keyToPrint = [];
+
     fields[key].map(childField => {
+      console.log('childField', childField);
+
       const objKeys = Object.keys(childField)[0];
+
+      console.log('objKeys', objKeys);
+
       if (!input) {
         return;
       }
       val.push(input[objKeys]);
       keyToPrint.push(childField[objKeys]);
     });
+    if (input['startDate'] && input['endDate']) {
+      keyToPrint.push('Dates');
+      val.push(`${input['startDate']} - ${input['endDate']}`);
+    }
     val.length != 0 && res.push(combineArr(keyToPrint, val, key));
   });
+
+  console.log('res', res);
 
   return (
     <div id="preview">

@@ -10,6 +10,8 @@ const setTitle = type => {
       return 'Experiences';
     case 'educationFields':
       return 'Education';
+    case 'skills':
+      return 'Skills';
     default:
       return 'Other';
   }
@@ -25,7 +27,9 @@ const InfoCard = ({ data }) => {
       <h3>{title}</h3>
 
       {Object.keys(values).map(item => {
-        return values[item] && <div>{`${item}: ${values[item]}`}</div>;
+        const keyValuePair =
+          type !== 'skills' ? `${item}: ${values[item]}` : values[item];
+        return values[item] && <div>{keyValuePair}</div>;
       })}
     </Card>
   );
