@@ -5,6 +5,7 @@ import userFields from './profile/handlers/fieldData';
 import '../../styles/preview.css';
 import MetaCard from './profile/handlers/MetaCard';
 import InfoCard from './profile/handlers/InfoCard';
+import GitHubCard from './profile/handlers/GitHubCard';
 
 const Preview = ({ avatar, CheckDb }) => {
   const [inputs, setInputs] = useState({});
@@ -32,7 +33,6 @@ const Preview = ({ avatar, CheckDb }) => {
     city
   } = inputs.personalFields;
 
-  console.log('inputs', inputs);
   const fields = {
     ...userFields,
     gitHub: [
@@ -50,50 +50,48 @@ const Preview = ({ avatar, CheckDb }) => {
       const key = keys[i];
       result[key] = values[i];
     }
-    const completeResult = { [type]: result };
-    return completeResult;
+    return { [type]: result };
   };
 
   //storage for the mapping. To be renamed
   let res = [];
 
   Object.keys(fields).map(key => {
-    // this [0] should be removed if we want to support arrays
-    let input = inputs[key][0];
+    switch (key) {
+      //we handle personal information in the MetaCard
+      case 'personalFields':
+        break;
+      case 'skills':
+        res.push({ skills: inputs[key] });
+        break;
+      case 'gitHub':
+        const values = [];
+        inputs[key].map(input => {
+          values.push(input);
+        });
+        res.push({ Github: values });
+        break;
+      default:
+        let val = [];
+        let keyToPrint = [];
 
-    //we handle personal information in the MetaCard
-    if (key === 'personalFields') {
-      return;
-    } else if (key === 'skills') {
-      res.push({ skills: inputs[key] });
+        inputs[key].map(input => {
+          if (!input) {
+            return;
+          }
+          fields[key].map(childField => {
+            const objKeys = Object.keys(childField)[0];
+            val.push(input[objKeys]);
+            keyToPrint.push(childField[objKeys]);
+          });
+          if (input['startDate'] && input['endDate']) {
+            keyToPrint.push('Dates');
+            val.push(`${input['startDate']} - ${input['endDate']}`);
+          }
+        });
+        val.length != 0 && res.push(combineArr(keyToPrint, val, key));
     }
-
-    console.log('input', input);
-
-    let val = [];
-    let keyToPrint = [];
-
-    fields[key].map(childField => {
-      console.log('childField', childField);
-
-      const objKeys = Object.keys(childField)[0];
-
-      console.log('objKeys', objKeys);
-
-      if (!input) {
-        return;
-      }
-      val.push(input[objKeys]);
-      keyToPrint.push(childField[objKeys]);
-    });
-    if (input['startDate'] && input['endDate']) {
-      keyToPrint.push('Dates');
-      val.push(`${input['startDate']} - ${input['endDate']}`);
-    }
-    val.length != 0 && res.push(combineArr(keyToPrint, val, key));
   });
-
-  console.log('res', res);
 
   return (
     <div id="preview">
@@ -101,7 +99,7 @@ const Preview = ({ avatar, CheckDb }) => {
         data={{ avatar, name, email, about, website, phone, country, city }}
       />
       {res.map(r => {
-        return <InfoCard data={r} />;
+        return r['Github'] ? <GitHubCard data={r} /> : <InfoCard data={r} />;
       })}
     </div>
   );
