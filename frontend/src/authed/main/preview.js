@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import fields from './profile/handlers/fieldData';
+import userFields from './profile/handlers/fieldData';
 
 import '../../styles/preview.css';
 import MetaCard from './profile/handlers/MetaCard';
@@ -33,6 +33,14 @@ const Preview = ({ avatar, CheckDb }) => {
   } = inputs.personalFields;
 
   console.log('inputs', inputs);
+  const fields = {
+    ...userFields,
+    gitHub: [
+      { title: 'Project Name' },
+      { description: 'Description' },
+      { repository: 'Link' }
+    ]
+  };
 
   // function to combine two arrays(keys and values) in one object. to be completely renamed
   const combineArr = (keys, values, type) => {
