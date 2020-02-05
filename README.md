@@ -37,6 +37,7 @@ It started as a group project. Due to bugs and instability issues with essential
 - Naming conventions
 - Check if user does not have avatar/name on github
 
+
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
 (_backend needs a moment to wake up when you login/register for first time_)
 
