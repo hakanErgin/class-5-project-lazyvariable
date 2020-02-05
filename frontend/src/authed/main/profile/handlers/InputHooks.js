@@ -64,16 +64,16 @@ const useSignUpForm = () => {
       });
   };
 
-  // const handleInputChange = (event, type) => {
-  //   event.persist();
-  //   const { name, value } = event.target;
-  //   console.log('name', name, 'value', value, 'type:', type);
+  const handlePersonalInputChange = (event, type) => {
+    event.persist();
+    const { name, value } = event.target;
+    console.log('name', name, 'value', value, 'type:', type);
 
-  //   setInputs({
-  //     ...inputs,
-  //     [type]: { ...inputs[type], ...inputs[type][0], [name]: value }
-  //   });
-  // };
+    setInputs({
+      ...inputs,
+      [type]: { ...inputs[type], ...inputs[type][0], [name]: value }
+    });
+  };
 
   const handleInputChange = (event, type) => {
     event.persist();
@@ -82,13 +82,12 @@ const useSignUpForm = () => {
 
     setInputs({
       ...inputs,
-      [type]: {
-        ...inputs[type],
-        0: {
+      [type]: [
+        {
           ...inputs[type][0],
           [name]: value
         }
-      }
+      ]
     });
   };
 
@@ -96,9 +95,16 @@ const useSignUpForm = () => {
     console.log('date', date, 'experienceDate', experienceDate, 'type', type);
     const startDate = experienceDate[0];
     const endDate = experienceDate[1];
+
     setInputs({
       ...inputs,
-      [type]: { ...inputs[type][0], startDate, endDate }
+      [type]: [
+        {
+          ...inputs[type][0],
+          startDate,
+          endDate
+        }
+      ]
     });
   }
 
@@ -127,7 +133,8 @@ const useSignUpForm = () => {
     postToGithub,
     name,
     avatar,
-    setPicAndName
+    setPicAndName,
+    handlePersonalInputChange
   };
 };
 

@@ -28,6 +28,7 @@ const Profile = () => {
 
   const {
     inputs,
+    handlePersonalInputChange,
     handleInputChange,
     handleSubmit,
     onDateChange
@@ -91,7 +92,7 @@ const Profile = () => {
           <Route path="/auth/profile/personal">
             <Personal
               inputs={inputs.personalFields}
-              handleInputChange={handleInputChange}
+              handleInputChange={handlePersonalInputChange}
             />
           </Route>
           <Route path="/auth/profile/experience">
