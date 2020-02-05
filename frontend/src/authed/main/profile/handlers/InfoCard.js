@@ -21,9 +21,8 @@ const InfoCard = ({ data }) => {
   const title = setTitle(type);
 
   return (
-    <Card size="small">
+    <Card>
       <h3>{title}</h3>
-
       {Object.keys(values).map(item => {
         return values[item] && <div>{`${item}: ${values[item]}`}</div>;
       })}

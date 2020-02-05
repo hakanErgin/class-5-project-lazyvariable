@@ -40,9 +40,9 @@ const LoginComponent = () => {
       {loggedIn ? (
         <Redirect to="/auth/dashboard" />
       ) : (
-        <div style={{ paddingTop: 10, paddingLeft: 10 }}>
-          <div className="headerSignUp">
-            <div className="leftSide">
+        <div>
+          <div>
+            <div>
               <a href="/">
                 <img
                   src="https://i.ibb.co/cDXz5vG/logo.png"
@@ -50,42 +50,38 @@ const LoginComponent = () => {
                   border="0"
                 />
               </a>
-              <div className="rightTop">
-                <button className="loginInButton" disabled={true}>
-                  Log in
-                </button>
+              <div>
+                <button disabled={true}>Log in</button>
                 <a href="/signup">
-                  <button className="signUpButton">Sign up</button>
+                  <button>Sign up</button>
                 </a>
               </div>
-              <div className="titleSection">
-                <div className="subTitle">Easy and free!</div>
-                <div className="title">
+              <div>
+                <div>Easy and free!</div>
+                <div>
                   Take the first step
                   <br />
-                  into your future<span className="titleEndPoint">.</span>
+                  into your future<span>.</span>
                 </div>
               </div>
             </div>
-            <div className="rightSide">
+            <div>
               <form
                 onSubmit={e => {
                   e.preventDefault();
                   submitForm();
                 }}
               >
-                <div className="signupTitle">Sign in</div>
-                <div className="signUpLabel">Email</div>
+                <div>Sign in</div>
+                <div>Email</div>
                 <input
-                  className="signUpInput"
                   type="email"
                   required
                   onChange={handleEmailChange}
                   value={email}
                 ></input>
-                <div className="signUpLabel">Password</div>
+                <div>Password</div>
                 <input
-                  className="signUpInput"
                   type="password"
                   required
                   onChange={handlePasswordChange}
@@ -93,27 +89,12 @@ const LoginComponent = () => {
                 ></input>
                 <br />
                 {errorMessage && (
-                  <div style={{ paddingTop: '20px', color: 'red' }}>
-                    {errorMessage}
-                  </div>
+                  <div style={{ color: 'red' }}>{errorMessage}</div>
                 )}
-                <button className="signUpSubmit" type="submit">
-                  Submit
-                </button>
+                <button type="submit">Submit</button>
               </form>
             </div>
           </div>
-
-          <footer>
-            <div className="footerContainer">
-              <img
-                className="logoMin"
-                src="https://i.ibb.co/jgJW3wx/logomin.png"
-                alt="logomin"
-              />
-              <div className="copyrightText">All rights are reserved</div>
-            </div>
-          </footer>
         </div>
       )}
     </div>

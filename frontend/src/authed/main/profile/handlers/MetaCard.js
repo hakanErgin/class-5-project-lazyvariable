@@ -7,7 +7,6 @@ const { Meta } = Card;
 const MetaCard = ({ data }) => {
   return (
     <Card
-      style={{ width: '70vw' }}
       actions={[
         <a href={`mailto:${data.email}`}>
           <Tooltip title="Email">

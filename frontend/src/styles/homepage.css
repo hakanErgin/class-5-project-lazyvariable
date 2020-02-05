@@ -4,6 +4,10 @@
   }
 }
 
+#homepage {
+  height: 100%;
+}
+
 #homepage #header {
   justify-content: space-between;
   padding: 5px;

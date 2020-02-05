@@ -1,32 +1,57 @@
-#mainComponent #sider {
-  padding-top: 10px;
-  padding-left: 10px;
+#sider {
+  margin: 2.5em;
 }
 
-#mainComponent #userPhoto {
-  margin: 10px;
-  background-size: 70px;
+#userPhoto {
+  background-size: 5em;
   border-radius: 50px;
-  height: 70px;
-  width: 70px;
+  height: 5em;
+  width: 5em;
 }
 
-#mainComponent #userName {
-  line-height: 20px;
+#userName {
+  line-height: 3em;
 }
 
-#mainComponent #content {
-  margin: 10px;
+#content {
+  margin: 2.5em 5em;
 }
 
 #mainComponent .layout:first-of-type {
   background: none;
 }
-#mainComponent #mainLayout {
-  background: rgba(250, 238, 215, 0.616);
-  border-top-left-radius: 10px;
+
+#mainComponent {
+  height: 100vh;
 }
 
-#mainComponent #siderMenu {
+#mainLayout {
+  background: rgba(250, 238, 215, 0.616);
+  border-radius: 50px;
+  height: 100%;
+  margin: 1.5em;
+  width: 70%;
+  flex: none;
+}
+
+form {
+  width: 90%;
+}
+
+#siderMenu {
   border-right: none;
+}
+
+#name-and-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  bottom: 25px;
+  left: 70%;
+  position: fixed;
+  width: fit-content;
+  background-color: white;
 }

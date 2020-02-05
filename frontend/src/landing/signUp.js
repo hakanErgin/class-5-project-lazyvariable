@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Redirect } from "react-router";
-import REACT_APP_BACKEND_URI from "../helpers/herokuHelper";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Redirect } from 'react-router';
+import REACT_APP_BACKEND_URI from '../helpers/herokuHelper';
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
   const [registered, setRegistered] = useState(false);
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
 
   const submitForm = () => {
     axios
@@ -19,9 +19,9 @@ const SignUp = () => {
       })
       .then(e => {
         if (e.data.token) {
-          localStorage.setItem("token", e.data.token);
-          localStorage.setItem("username", e.data.user.personalFields.username);
-          localStorage.setItem("ID", e.data.user.id);
+          localStorage.setItem('token', e.data.token);
+          localStorage.setItem('username', e.data.user.personalFields.username);
+          localStorage.setItem('ID', e.data.user.id);
 
           setRegistered(true);
         } else {
@@ -48,9 +48,9 @@ const SignUp = () => {
       {registered ? (
         <Redirect to="/auth/dashboard" />
       ) : (
-        <div style={{ paddingTop: 10, paddingLeft: 10 }}>
-          <div className="headerSignUp">
-            <div className="leftSide">
+        <div>
+          <div>
+            <div>
               <a href="/">
                 <img
                   src="https://i.ibb.co/cDXz5vG/logo.png"
@@ -58,54 +58,47 @@ const SignUp = () => {
                   border="0"
                 />
               </a>
-              <div className="rightTop">
+              <div>
                 <a href="/login">
-                  <button className="loginInButton">Log in</button>
+                  <button>Log in</button>
                 </a>
                 <a href="/signup">
-                  <button className="signUpButton" disabled={true}>
-                    Sign up
-                  </button>
+                  <button disabled={true}>Sign up</button>
                 </a>
               </div>
-              <div className="titleSection">
-                <div className="subTitle">Easy and free!</div>
-                <div className="title">
+              <div>
+                <div>Easy and free!</div>
+                <div>
                   Take the first step
                   <br />
-                  into your future<span className="titleEndPoint">.</span>
+                  into your future<span>.</span>
                 </div>
               </div>
             </div>
-            <div className="rightSide">
+            <div>
               <form
                 onSubmit={e => {
                   e.preventDefault();
                   submitForm();
                 }}
               >
-                <div className="signupTitle">Sign up</div>
-                <div className="signUpLabel">
-                  GitHub username to import your repositories
-                </div>
+                <div>Sign up</div>
+                <div>GitHub username to import your repositories</div>
                 <input
-                  className="signUpInput"
                   type="text"
                   required
                   onChange={handleUsernameChange}
                   value={username}
                 ></input>
-                <div className="signUpLabel">Email</div>
+                <div>Email</div>
                 <input
-                  className="signUpInput"
                   type="email"
                   required
                   onChange={handleEmailChange}
                   value={email}
                 ></input>
-                <div className="signUpLabel">Password</div>
+                <div>Password</div>
                 <input
-                  className="signUpInput"
                   type="password"
                   required
                   onChange={handlePasswordChange}
@@ -113,27 +106,12 @@ const SignUp = () => {
                 ></input>
                 <br />
                 {errorMessage && (
-                  <div style={{ paddingTop: "20px", color: "red" }}>
-                    {errorMessage}
-                  </div>
+                  <div style={{ color: 'red' }}>{errorMessage}</div>
                 )}
-                <button className="signUpSubmit" type="submit">
-                  Submit
-                </button>
+                <button type="submit">Submit</button>
               </form>
             </div>
           </div>
-
-          <footer>
-            <div className="footerContainer">
-              <img
-                className="logoMin"
-                src="https://i.ibb.co/jgJW3wx/logomin.png"
-                alt="logomin"
-              />
-              <div className="copyrightText">All rights are reserved</div>
-            </div>
-          </footer>
         </div>
       )}
     </div>

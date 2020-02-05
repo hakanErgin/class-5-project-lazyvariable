@@ -118,11 +118,9 @@ const Profile = () => {
           </Route>
         </Switch>
       </div>
-      <Footer
-        style={{ bottom: 0, position: 'fixed', width: '100%', padding: 10 }}
-      >
+      <footer>
         <Button onClick={nextHandler}>{buttonText}</Button>
-      </Footer>
+      </footer>
     </div>
   );
 };

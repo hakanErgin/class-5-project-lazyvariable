@@ -37,16 +37,14 @@ const Main = () => {
         <Layout className="layout">
           <Sider id="sider" theme="light">
             <Menu id="siderMenu" selectable={false} mode="vertical">
-              <div>
-                <a href="/">
+              <div id="name-and-avatar">
+                <a href="/auth/dashboard">
                   <img
                     className="logoDashboard"
                     src="https://i.ibb.co/cDXz5vG/logo.png"
                     alt="element"
                   />
                 </a>
-              </div>
-              <div>
                 <div
                   id="userPhoto"
                   style={{
@@ -56,9 +54,6 @@ const Main = () => {
                 <div id="userName">Hello {name}</div>
               </div>
               <Menu.ItemGroup>
-                <Menu.Item>
-                  <Link to="/auth/dashboard">Dashboard</Link>
-                </Menu.Item>
                 <Menu.Item>
                   <Link to="/auth/profile/personal">Profile</Link>
                 </Menu.Item>
