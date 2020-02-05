@@ -1,7 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Card, Icon, Tooltip } from 'antd';
-import fields from './fieldData';
+import { Card } from 'antd';
 
 // change wording. these are fews just for example purpose
 const setTitle = type => {
@@ -10,6 +8,8 @@ const setTitle = type => {
       return 'Experiences';
     case 'educationFields':
       return 'Education';
+    case 'skills':
+      return 'Skills';
     default:
       return 'Other';
   }
@@ -24,7 +24,9 @@ const InfoCard = ({ data }) => {
     <Card>
       <h3>{title}</h3>
       {Object.keys(values).map(item => {
-        return values[item] && <div>{`${item}: ${values[item]}`}</div>;
+        const keyValuePair =
+          type !== 'skills' ? `${item}: ${values[item]}` : values[item];
+        return values[item] && <div>{keyValuePair}</div>;
       })}
     </Card>
   );
