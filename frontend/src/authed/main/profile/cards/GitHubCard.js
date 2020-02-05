@@ -1,16 +1,8 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Card, Icon, Tooltip } from 'antd';
-import fields from './fieldData';
-
-// change wording. these are fews just for example purpose
+import { Card } from 'antd';
 
 const GitHubCard = ({ data }) => {
-  const type = Object.keys(data)[0];
-  //   const values = data[type];
-  //   const title = setTitle(type);
   const gitHubData = data.Github;
-  console.log('gitHubData', gitHubData);
 
   return gitHubData.map(git => {
     return (

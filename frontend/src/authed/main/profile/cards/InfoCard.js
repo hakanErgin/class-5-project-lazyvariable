@@ -1,7 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Card, Icon, Tooltip } from 'antd';
-import fields from './fieldData';
+import { Card } from 'antd';
 
 // change wording. these are fews just for example purpose
 const setTitle = type => {
