@@ -1,21 +1,20 @@
-import React from "react"
-import axios from "axios"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
-import { useState, useEffect } from "react"
-import { Menu, Layout } from "antd"
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Menu, Layout } from 'antd';
 
-import "../styles/main.css"
+import '../styles/main.css';
 
-import useSignUpForm from "./main/profile/handlers/InputHooks"
-import Dashboard from "./main/dashboard"
-import Profile from "./main/profile"
-import LogoutComponent from "./main/logout"
-import Projects from "./main/projects"
-import Preview from "./main/preview"
-import GithubComponent from "./main/projects/github"
-import Portfolio from "./main/projects/portfolio"
+import useSignUpForm from './main/profile/handlers/InputHooks';
+import Dashboard from './main/dashboard';
+import Profile from './main/profile';
+import LogoutComponent from './main/logout';
+import Projects from './main/projects';
+import Preview from './main/preview';
+import GithubComponent from './main/projects/github';
+import Portfolio from './main/projects/portfolio';
 
-const { Sider, Content } = Layout
+const { Sider, Content } = Layout;
 
 const Main = () => {
   const {
@@ -25,13 +24,12 @@ const Main = () => {
     name,
     avatar,
     setPicAndName
-  } = useSignUpForm()
-
-  console.log("inputs", inputs)
+  } = useSignUpForm();
 
   useEffect(() => {
-    setPicAndName()
-  })
+    CheckDb();
+    setPicAndName();
+  }, []);
 
   return (
     <div id="mainComponent">
@@ -39,16 +37,14 @@ const Main = () => {
         <Layout className="layout">
           <Sider id="sider" theme="light">
             <Menu id="siderMenu" selectable={false} mode="vertical">
-              <div>
-                <a href="/">
+              <div id="name-and-avatar">
+                <a href="/auth/dashboard">
                   <img
                     className="logoDashboard"
                     src="https://i.ibb.co/cDXz5vG/logo.png"
                     alt="element"
                   />
                 </a>
-              </div>
-              <div>
                 <div
                   id="userPhoto"
                   style={{
@@ -58,9 +54,6 @@ const Main = () => {
                 <div id="userName">Hello {name}</div>
               </div>
               <Menu.ItemGroup>
-                <Menu.Item>
-                  <Link to="/auth/dashboard">Dashboard</Link>
-                </Menu.Item>
                 <Menu.Item>
                   <Link to="/auth/profile/personal">Profile</Link>
                 </Menu.Item>
@@ -110,7 +103,7 @@ const Main = () => {
         </Layout>
       </Router>
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

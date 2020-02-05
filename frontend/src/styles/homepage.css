@@ -4,6 +4,10 @@
   }
 }
 
+#homepage {
+  height: 100%;
+}
+
 #homepage #header {
   justify-content: space-between;
   padding: 5px;
@@ -22,6 +26,31 @@
 }
 
 @media only screen and (max-width: 720px) {
+  #homepage h1:first-of-type {
+    text-align: left;
+    padding: 0 1em 0.5em 1em;
+  }
+
+  #homepage .rows {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  #homepage .cols {
+    display: inline-flex;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+  }
+
+  #homepage h3 {
+    margin-left: 1em;
+  }
+
+  #homepage #secondGrid {
+    margin-left: 1em;
+  }
   #homepage #toggleImg {
     display: none;
   }
