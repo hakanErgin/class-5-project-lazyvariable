@@ -10,16 +10,33 @@ const fieldsArray = Object.values(fields[type]);
 
 const Experience = ({ inputs, handleInputChange, onDateChange }) => {
   // ADDING MORE experience IS NOT SUPPORTED ATM
-  console.log('inputs from edu', inputs);
 
   const formFromFields = fieldsArray.map((field, key) => {
     const objKey = Object.keys(field);
     if (!inputs) {
       return null;
     }
+
+    if (objKey == 'experienceDescription') {
+      return (
+        <Form.Item label={field[objKey]} key={key}>
+          <Input.TextArea
+            id={objKey}
+            name={objKey}
+            placeholder={field[objKey]}
+            onChange={e => {
+              handleInputChange(e, type);
+            }}
+            value={inputs.length > 0 ? inputs[0][objKey] : inputs[objKey]}
+          />
+        </Form.Item>
+      );
+    }
+
     return (
       <Form.Item label={field[objKey]} key={key}>
         <Input
+          id={objKey}
           name={objKey}
           placeholder={field[objKey]}
           onChange={e => {

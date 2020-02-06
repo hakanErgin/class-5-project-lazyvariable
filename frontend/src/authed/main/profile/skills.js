@@ -12,14 +12,13 @@ const Skills = ({ inputs, handleSkillsInputChange }) => {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-  console.log();
 
   return (
     <div className="customStyle">
       <Title level={3}>Skills</Title>
       <Form autoComplete="off">
         <Form.Item label="Describe Your Skills">
-          <Input
+          <Input.TextArea
             name={field}
             placeholder={capitalizeFirstLetter(field)}
             onChange={e => {

@@ -27,15 +27,15 @@
 
 #mainLayout {
   background: rgba(250, 238, 215, 0.616);
-  border-radius: 50px;
-  height: 100%;
-  margin: 1.5em;
-  width: 70%;
-  flex: none;
+  height: 100vh;
+}
+
+#content {
+  width: 60vw;
 }
 
 form {
-  width: 90%;
+  width: 100%;
 }
 
 #siderMenu {
@@ -49,9 +49,12 @@ form {
 }
 
 footer {
-  bottom: 25px;
-  left: 70%;
   position: fixed;
-  width: fit-content;
-  background-color: white;
+  bottom: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  place-content: space-between;
 }

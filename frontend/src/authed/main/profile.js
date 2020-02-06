@@ -14,12 +14,10 @@ import Personal from './profile/personal';
 import Experience from './profile/experience';
 import Education from './profile/education';
 import Skills from './profile/skills';
-import { Menu } from 'antd';
+import { Menu, Typography, Button } from 'antd';
 import 'antd/dist/antd.css';
 
-import { Layout, Button } from 'antd';
-
-const { Footer } = Layout;
+const { Title } = Typography;
 
 const Profile = () => {
   function handleClick(e) {
@@ -34,7 +32,6 @@ const Profile = () => {
     onDateChange,
     handleSkillsInputChange
   } = useSignUpForm();
-  console.log('inputs from profile', inputs);
 
   const history = useHistory();
   const [activeTab, setActiveTab] = useState('1');
@@ -71,11 +68,16 @@ const Profile = () => {
   return (
     <div>
       <div>
-        <div className="profileHeader">
-          <div className="subTitle">Take your first step!</div>
-          <div className="title">Create your resume</div>
+        <div className="header">
+          <Title level={1}>Profile</Title>
+          <div>Take your first step! Create your resume</div>
         </div>
-        <Menu selectedKeys={activeTab} onClick={handleClick} mode="horizontal">
+        <Menu
+          id="profile-menu"
+          selectedKeys={activeTab}
+          onClick={handleClick}
+          mode="horizontal"
+        >
           <Menu.Item key="1">
             <Link to="/auth/profile/personal">Personal Info</Link>
           </Menu.Item>
@@ -117,10 +119,10 @@ const Profile = () => {
             />
           </Route>
         </Switch>
+        <footer>
+          <Button onClick={nextHandler}>{buttonText}</Button>
+        </footer>
       </div>
-      <footer>
-        <Button onClick={nextHandler}>{buttonText}</Button>
-      </footer>
     </div>
   );
 };

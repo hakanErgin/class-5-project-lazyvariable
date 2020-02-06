@@ -48,8 +48,12 @@ const Preview = ({ avatar, CheckDb }) => {
       <MetaCard
         data={{ avatar, name, email, about, website, phone, country, city }}
       />
-      {preview.map(r => {
-        return r['Github'] ? <GitHubCard data={r} /> : <InfoCard data={r} />;
+      {preview.map((r, key) => {
+        return r['Github'] ? (
+          <GitHubCard data={r} key={key} />
+        ) : (
+          <InfoCard data={r} key={key} />
+        );
       })}
     </div>
   );
