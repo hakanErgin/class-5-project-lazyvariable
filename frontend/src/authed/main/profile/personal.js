@@ -34,7 +34,6 @@ const Personal = ({ inputs, handleInputChange }) => {
 
   return (
     <div className="personalComponent">
-      <div></div>
       <Title level={3}>personal & contact information</Title>
       <Form autoComplete="off">{formFromFields}</Form>
     </div>

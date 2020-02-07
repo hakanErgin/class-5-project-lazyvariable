@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-  withRouter
-} from 'react-router-dom'; //needs Router
+import { Switch, Route, Link, useHistory, withRouter } from 'react-router-dom'; // for some reason may need BrowserRouter as Router
 
 import useSignUpForm from './profile/handlers/InputHooks';
 
