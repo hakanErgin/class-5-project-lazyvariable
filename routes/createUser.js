@@ -1,17 +1,15 @@
-const router = require("express").Router();
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const User = require("../models/user.model");
-require("dotenv").config();
+const router = require('express').Router();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const User = require('../models/user.model');
+require('dotenv').config();
 
 // New register
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   const personalFields = req.body.personalFields;
 
   // Check for existing user
   User.findOne({ email: personalFields.email }).then(user => {
-    console.log(user);
-
     const newUser = new User({ personalFields });
 
     // create salt & hash
@@ -41,8 +39,8 @@ router.post("/", (req, res) => {
           .catch(err => {
             res.status(500).send({
               status: 500,
-              message: "Username in use",
-              type: "internal"
+              message: 'Username in use',
+              type: 'internal'
             });
           });
       });
@@ -52,7 +50,7 @@ router.post("/", (req, res) => {
 // });
 
 // Entering the data for the first time and updating
-router.route("/:id").post((req, res) => {
+router.route('/:id').post((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.personalFields = req.body.personalFields;
@@ -61,30 +59,30 @@ router.route("/:id").post((req, res) => {
       info.skills = req.body.skills;
       info
         .save()
-        .then(() => res.json("Added successfully!"))
-        .catch(err => res.status(400).json("Error: " + err));
+        .then(() => res.json('Added successfully!'))
+        .catch(err => res.status(400).json('Error: ' + err));
     })
-    .catch(err => res.status(400).json("Error: " + err));
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // Entering Github data
-router.route("/github/:id").post((req, res) => {
+router.route('/github/:id').post((req, res) => {
   User.findByIdAndUpdate(req.params.id)
     .then(info => {
       info.gitHub = req.body.gitHub;
       info
         .save()
-        .then(() => res.json("Added successfully!"))
-        .catch(err => res.status(400).json("Error: " + err));
+        .then(() => res.json('Added successfully!'))
+        .catch(err => res.status(400).json('Error: ' + err));
     })
-    .catch(err => res.status(400).json("Error: " + err));
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // Getting specified data by ID
-router.route("/:id").get((req, res) => {
+router.route('/:id').get((req, res) => {
   User.findById(req.params.id)
     .then(user => res.json(user))
-    .catch(err => res.status(400).json("Error: " + err));
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;

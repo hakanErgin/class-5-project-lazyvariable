@@ -6,6 +6,7 @@ const { Panel } = Collapse;
 const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
   useEffect(() => {
     CheckDb();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const gitHub = inputs.gitHub;

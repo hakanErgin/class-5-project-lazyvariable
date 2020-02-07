@@ -21,7 +21,7 @@ const Education = ({ inputs, handleInputChange, onDateChange }) => {
       return (
         <Form.Item label={field[objKey]} key={key}>
           <Input.TextArea
-            className={objKey}
+            className={objKey[0]}
             name={objKey}
             placeholder={field[objKey]}
             onChange={e => {
@@ -36,7 +36,7 @@ const Education = ({ inputs, handleInputChange, onDateChange }) => {
     return (
       <Form.Item label={field[objKey]} key={key}>
         <Input
-          className={objKey}
+          className={objKey[0]}
           name={objKey}
           placeholder={field[objKey]}
           onChange={e => {

@@ -16,6 +16,7 @@ const GithubComponent = () => {
         setRepos(result.data);
       })
       .catch(err => err);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const ImportButton = () => {
     axios.post(
@@ -70,7 +71,6 @@ const GithubComponent = () => {
             event.preventDefault();
             ImportButton();
             handleClick();
-            console.log(gitHub);
           }}
         >
           <input type="submit" className="importGithubBtn" value="import" />

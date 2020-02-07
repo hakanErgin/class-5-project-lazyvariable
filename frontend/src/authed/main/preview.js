@@ -17,6 +17,7 @@ const Preview = ({ avatar, CheckDb }) => {
         setInputs(inputs);
       })
       .then(() => inputs && setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
