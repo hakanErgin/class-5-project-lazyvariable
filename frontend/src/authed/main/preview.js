@@ -51,7 +51,10 @@ const Preview = ({ avatar, CheckDb }) => {
       />
       {preview.map((r, key) => {
         return r['Github'] ? (
-          <GitHubCard data={r} key={key} />
+          <div key={key}>
+            Github repos
+            <GitHubCard data={r} />
+          </div>
         ) : (
           <InfoCard data={r} key={key} />
         );
