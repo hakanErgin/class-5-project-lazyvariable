@@ -20,10 +20,8 @@ const useSignUpForm = () => {
             }
           }
         )
-        .then(response => console.log('response', response))
-        .catch(err => {
-          console.log(err);
-        });
+        .then(response => response)
+        .catch(err => err);
       window.location.href = `/auth/projects`;
     }
   };
@@ -37,8 +35,7 @@ const useSignUpForm = () => {
       await setInputs({ ...jsonResponse });
       return jsonResponse;
     } catch (error) {
-      console.log(error);
-      setInputs({});
+      return error;
     }
   };
 
@@ -58,16 +55,13 @@ const useSignUpForm = () => {
           }
         }
       )
-      .then(response => console.log('response', response.config.data))
-      .catch(err => {
-        console.log(err);
-      });
+      .then(response => response)
+      .catch(err => err);
   };
 
   const handlePersonalInputChange = (event, type) => {
     event.persist();
     const { name, value } = event.target;
-    console.log('name', name, 'value', value, 'type:', type);
 
     setInputs({
       ...inputs,
@@ -78,7 +72,6 @@ const useSignUpForm = () => {
   const handleSkillsInputChange = (event, type) => {
     event.persist();
     const { name, value } = event.target;
-    console.log('name', name, 'value', value, 'type:', type);
 
     setInputs({
       ...inputs,
@@ -89,7 +82,6 @@ const useSignUpForm = () => {
   const handleInputChange = (event, type) => {
     event.persist();
     const { name, value } = event.target;
-    console.log('name', name, 'value', value, 'type:', type);
 
     setInputs({
       ...inputs,
@@ -103,7 +95,6 @@ const useSignUpForm = () => {
   };
 
   function onDateChange(date, experienceDate, type) {
-    console.log('date', date, 'experienceDate', experienceDate, 'type', type);
     const startDate = experienceDate[0];
     const endDate = experienceDate[1];
 
@@ -129,9 +120,7 @@ const useSignUpForm = () => {
         setName(result.data.name);
         setAvatar(result.data.avatar_url);
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => err);
   }
 
   return {

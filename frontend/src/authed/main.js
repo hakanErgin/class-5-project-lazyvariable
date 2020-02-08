@@ -29,6 +29,7 @@ const Main = () => {
   useEffect(() => {
     CheckDb();
     setPicAndName();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

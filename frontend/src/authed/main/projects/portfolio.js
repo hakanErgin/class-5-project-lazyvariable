@@ -1,48 +1,48 @@
-import React, { useState, useEffect } from "react"
-import { Collapse, Icon } from "antd"
+import React, { useState, useEffect } from 'react';
+import { Collapse, Icon } from 'antd';
 
-const { Panel } = Collapse
+const { Panel } = Collapse;
 
 const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
   useEffect(() => {
-    CheckDb()
-  }, [])
+    CheckDb();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const gitHub = inputs.gitHub
-  const [newGithub, setNewGithub] = useState([])
+  const gitHub = inputs.gitHub;
+  const [newGithub, setNewGithub] = useState([]);
 
   const customPanelStyle = {
-    background: "#f9f9f9 0% 0% no-repeat padding-box",
+    background: '#f9f9f9 0% 0% no-repeat padding-box',
     borderRadius: 4,
     marginBottom: 24,
     border: 0,
-    overflow: "hidden",
+    overflow: 'hidden',
     width: 754,
-    color: "#f9f9f9",
+    color: '#f9f9f9',
     marginTop: 40
-  }
+  };
 
   const handleClick = () => {
-    const reposToPost = newGithub.length !== 0 ? newGithub : gitHub
-    postToGithub(reposToPost)
-    window.location.href = `/auth/preview`
-  }
+    const reposToPost = newGithub.length !== 0 ? newGithub : gitHub;
+    postToGithub(reposToPost);
+    window.location.href = `/auth/preview`;
+  };
 
   const handleInputChange = (event, i) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
 
-    const newValue = { [name]: value }
-    console.log("newValue", newValue)
+    const newValue = { [name]: value };
 
     const newGit = gitHub.map((git, index) => {
       if (index === i) {
-        return Object.assign(git, newValue)
+        return Object.assign(git, newValue);
       } else {
-        return git
+        return git;
       }
-    })
-    setNewGithub(newGit)
-  }
+    });
+    setNewGithub(newGit);
+  };
 
   return (
     <div className="profileHeader">
@@ -53,7 +53,7 @@ const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
           return (
             <Collapse
               bordered={false}
-              defaultActiveKey={["0"]}
+              defaultActiveKey={['0']}
               expandIcon={({ isActive }) => (
                 <Icon type="caret-right" rotate={isActive ? 90 : 0} />
               )}
@@ -98,18 +98,18 @@ const Portfolio = ({ inputs, CheckDb, postToGithub }) => {
                 </div>
               </Panel>
             </Collapse>
-          )
+          );
         })}
       <form
         onSubmit={event => {
-          event.preventDefault()
-          handleClick()
+          event.preventDefault();
+          handleClick();
         }}
       >
         <input type="submit" className="submitPortfolio" value="Submit" />
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Portfolio
+export default Portfolio;

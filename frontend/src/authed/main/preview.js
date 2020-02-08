@@ -17,6 +17,7 @@ const Preview = ({ avatar, CheckDb }) => {
         setInputs(inputs);
       })
       .then(() => inputs && setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
@@ -48,8 +49,15 @@ const Preview = ({ avatar, CheckDb }) => {
       <MetaCard
         data={{ avatar, name, email, about, website, phone, country, city }}
       />
-      {preview.map(r => {
-        return r['Github'] ? <GitHubCard data={r} /> : <InfoCard data={r} />;
+      {preview.map((r, key) => {
+        return r['Github'] ? (
+          <div key={key}>
+            Github repos
+            <GitHubCard data={r} />
+          </div>
+        ) : (
+          <InfoCard data={r} key={key} />
+        );
       })}
     </div>
   );

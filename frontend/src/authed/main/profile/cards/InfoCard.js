@@ -23,10 +23,10 @@ const InfoCard = ({ data }) => {
   return (
     <Card>
       <h3>{title}</h3>
-      {Object.keys(values).map(item => {
+      {Object.keys(values).map((item, key) => {
         const keyValuePair =
           type !== 'skills' ? `${item}: ${values[item]}` : values[item];
-        return values[item] && <div>{keyValuePair}</div>;
+        return values[item] && <div key={key}>{keyValuePair}</div>;
       })}
     </Card>
   );
