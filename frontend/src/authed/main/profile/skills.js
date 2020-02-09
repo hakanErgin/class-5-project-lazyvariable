@@ -20,6 +20,7 @@ const Skills = ({ inputs, handleSkillsInputChange }) => {
         <Form.Item label="Describe Your Skills">
           <Input.TextArea
             name={field}
+            rows={4}
             placeholder={capitalizeFirstLetter(field)}
             onChange={e => {
               handleSkillsInputChange(e, field);

@@ -17,12 +17,13 @@ const Experience = ({ inputs, handleInputChange, onDateChange }) => {
       return null;
     }
 
-    if ({ objKey } === 'experienceDescription') {
+    if (objKey[0] === 'experienceDescription') {
       return (
         <Form.Item label={field[objKey]} key={key}>
           <Input.TextArea
             className={objKey[0]}
             name={objKey}
+            rows={4}
             placeholder={field[objKey]}
             onChange={e => {
               handleInputChange(e, type);

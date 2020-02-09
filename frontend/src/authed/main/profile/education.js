@@ -16,13 +16,15 @@ const Education = ({ inputs, handleInputChange, onDateChange }) => {
     if (!inputs) {
       return null;
     }
+    console.log(objKey[0]);
 
-    if ({ objKey } === 'educationDescription') {
+    if (objKey[0] === 'educationDescription') {
       return (
         <Form.Item label={field[objKey]} key={key}>
           <Input.TextArea
             className={objKey[0]}
             name={objKey}
+            rows={4}
             placeholder={field[objKey]}
             onChange={e => {
               handleInputChange(e, type);
