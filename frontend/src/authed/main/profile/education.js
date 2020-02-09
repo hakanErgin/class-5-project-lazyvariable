@@ -16,11 +16,10 @@ const Education = ({ inputs, handleInputChange, onDateChange }) => {
     if (!inputs) {
       return null;
     }
-    console.log(objKey[0]);
 
     if (objKey[0] === 'educationDescription') {
       return (
-        <Form.Item label={field[objKey]} key={key}>
+        <Form.Item label={field[objKey]} key={key} className="forms">
           <Input.TextArea
             className={objKey[0]}
             name={objKey}
@@ -36,7 +35,7 @@ const Education = ({ inputs, handleInputChange, onDateChange }) => {
     }
 
     return (
-      <Form.Item label={field[objKey]} key={key}>
+      <Form.Item label={field[objKey]} key={key} className="forms">
         <Input
           className={objKey[0]}
           name={objKey}
@@ -64,7 +63,7 @@ const Education = ({ inputs, handleInputChange, onDateChange }) => {
   }
 
   return (
-    <div id="educationComponent">
+    <div className="profileComponents">
       <Title level={3}>Education</Title>
       <Form autoComplete="off">
         {formFromFields}

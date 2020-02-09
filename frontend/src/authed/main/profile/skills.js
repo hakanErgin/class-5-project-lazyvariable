@@ -14,10 +14,10 @@ const Skills = ({ inputs, handleSkillsInputChange }) => {
   }
 
   return (
-    <div className="customStyle">
+    <div className="profileComponents">
       <Title level={3}>Skills</Title>
       <Form autoComplete="off">
-        <Form.Item label="Describe Your Skills">
+        <Form.Item label="Describe Your Skills" className="forms">
           <Input.TextArea
             name={field}
             rows={4}

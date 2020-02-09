@@ -36,64 +36,62 @@ const LoginComponent = () => {
   };
 
   return (
-    <div>
+    <div className="loginSignin">
       {loggedIn ? (
         <Redirect to="/auth/dashboard" />
       ) : (
         <div>
           <div>
+            <a href="/">
+              <img
+                src="https://i.ibb.co/cDXz5vG/logo.png"
+                alt="logo"
+                border="0"
+              />
+            </a>
             <div>
-              <a href="/">
-                <img
-                  src="https://i.ibb.co/cDXz5vG/logo.png"
-                  alt="logo"
-                  border="0"
-                />
+              <button disabled={true}>Log in</button>
+              <a href="/signup">
+                <button>Sign up</button>
               </a>
-              <div>
-                <button disabled={true}>Log in</button>
-                <a href="/signup">
-                  <button>Sign up</button>
-                </a>
-              </div>
-              <div>
-                <div>Easy and free!</div>
-                <div>
-                  Take the first step
-                  <br />
-                  into your future<span>.</span>
-                </div>
-              </div>
             </div>
             <div>
-              <form
-                onSubmit={e => {
-                  e.preventDefault();
-                  submitForm();
-                }}
-              >
-                <div>Sign in</div>
-                <div>Email</div>
-                <input
-                  type="email"
-                  required
-                  onChange={handleEmailChange}
-                  value={email}
-                ></input>
-                <div>Password</div>
-                <input
-                  type="password"
-                  required
-                  onChange={handlePasswordChange}
-                  value={password}
-                ></input>
+              <div>Easy and free!</div>
+              <div>
+                Take the first step
                 <br />
-                {errorMessage && (
-                  <div style={{ color: 'red' }}>{errorMessage}</div>
-                )}
-                <button type="submit">Submit</button>
-              </form>
+                into your future<span>.</span>
+              </div>
             </div>
+          </div>
+          <div>
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                submitForm();
+              }}
+            >
+              <div>Sign in</div>
+              <div>Email</div>
+              <input
+                type="email"
+                required
+                onChange={handleEmailChange}
+                value={email}
+              ></input>
+              <div>Password</div>
+              <input
+                type="password"
+                required
+                onChange={handlePasswordChange}
+                value={password}
+              ></input>
+              <br />
+              {errorMessage && (
+                <div style={{ color: 'red' }}>{errorMessage}</div>
+              )}
+              <button type="submit">Submit</button>
+            </form>
           </div>
         </div>
       )}

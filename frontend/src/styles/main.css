@@ -52,15 +52,6 @@ footer {
   place-content: space-between;
 }
 
-.personalComponent {
-  text-transform: capitalize;
-}
-
-.formOverflow {
-  max-height: 75vh;
-  overflow-y: auto;
-}
-
 * {
   font-size: 18px;
 }
@@ -71,10 +62,24 @@ label {
 
 @media only screen and (min-width: 1200px) {
   #content {
-    width: 45vw;
+    min-width: 45vw;
+    max-width: 60vw;
   }
 }
 
+.forms,
 #profile-menu {
-  margin-bottom: 1em;
+  margin-bottom: 10px !important;
+  max-width: 50vw;
+}
+
+@media only screen and (max-width: 1000px) {
+  .forms,
+  #profile-menu {
+    max-width: 80vw;
+  }
+}
+
+.profileComponents {
+  text-transform: capitalize;
 }
