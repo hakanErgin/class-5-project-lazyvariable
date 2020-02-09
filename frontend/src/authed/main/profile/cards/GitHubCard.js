@@ -6,11 +6,15 @@ const GitHubCard = ({ data }) => {
 
   return gitHubData.map((git, key) => {
     return (
-      <Card size="small" className="githubCard" key={key}>
-        <h3>{git.title}</h3>
+      <Card
+        type="inner"
+        className="card"
+        key={key}
+        extra={<a href={git.repository}>Link</a>}
+        title={git.title}
+      >
         <div>
           <span>{git.description}</span>
-          <a href={git.repository}>Link</a>
         </div>
       </Card>
     );

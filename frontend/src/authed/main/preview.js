@@ -6,6 +6,7 @@ import '../../styles/preview.css';
 import MetaCard from './profile/cards/MetaCard';
 import InfoCard from './profile/cards/InfoCard';
 import GitHubCard from './profile/cards/GitHubCard';
+import { Card } from 'antd';
 
 const Preview = ({ avatar, CheckDb }) => {
   const [inputs, setInputs] = useState({});
@@ -51,10 +52,9 @@ const Preview = ({ avatar, CheckDb }) => {
       />
       {preview.map((r, key) => {
         return r['Github'] ? (
-          <div key={key}>
-            Github repos
+          <Card title="Github Projects" key={key} className="card">
             <GitHubCard data={r} />
-          </div>
+          </Card>
         ) : (
           <InfoCard data={r} key={key} />
         );

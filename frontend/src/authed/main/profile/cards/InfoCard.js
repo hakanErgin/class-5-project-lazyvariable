@@ -21,8 +21,7 @@ const InfoCard = ({ data }) => {
   const title = setTitle(type);
 
   return (
-    <Card>
-      <h3>{title}</h3>
+    <Card title={title} className="card">
       {Object.keys(values).map((item, key) => {
         const keyValuePair =
           type !== 'skills' ? `${item}: ${values[item]}` : values[item];
