@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import REACT_APP_BACKEND_URI from '../../../../helpers/herokuHelper';
 
-const useSignUpForm = () => {
+const InputHandler = () => {
   const [inputs, setInputs] = useState({});
 
   const handleSubmit = event => {
@@ -139,4 +139,4 @@ const useSignUpForm = () => {
   };
 };
 
-export default useSignUpForm;
+export default InputHandler;

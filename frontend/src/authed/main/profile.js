@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Switch, Route, Link, useHistory, withRouter } from 'react-router-dom'; // for some reason may need BrowserRouter as Router
 
-import useSignUpForm from './profile/handlers/InputHooks';
+import InputHandler from './profile/handlers/InputHandler';
 
 import Personal from './profile/personal';
 import Experience from './profile/experience';
@@ -24,7 +24,7 @@ const Profile = () => {
     handleSubmit,
     onDateChange,
     handleSkillsInputChange
-  } = useSignUpForm();
+  } = InputHandler();
 
   const history = useHistory();
   const [activeTab, setActiveTab] = useState('1');

@@ -5,7 +5,7 @@ import { Menu, Layout } from 'antd';
 
 import '../styles/main.css';
 
-import useSignUpForm from './main/profile/handlers/InputHooks';
+import InputHandler from './main/profile/handlers/InputHandler';
 import Dashboard from './main/dashboard';
 import Profile from './main/profile';
 import LogoutComponent from './main/logout';
@@ -24,7 +24,7 @@ const Main = () => {
     name,
     avatar,
     setPicAndName
-  } = useSignUpForm();
+  } = InputHandler();
 
   useEffect(() => {
     CheckDb();
@@ -80,7 +80,7 @@ const Main = () => {
                   <Profile />
                 </Route>
                 <Route path="/auth/projects">
-                  <Projects postToGithub={postToGithub} />
+                  <Projects CheckDb={CheckDb} postToGithub={postToGithub} />
                 </Route>
                 <Route path="/auth/preview">
                   <Preview avatar={avatar} inputs={inputs} CheckDb={CheckDb} />

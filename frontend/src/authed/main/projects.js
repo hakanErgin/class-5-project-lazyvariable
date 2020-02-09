@@ -1,12 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Typography } from 'antd';
 
 const { Title } = Typography;
-const Projects = ({ postToGithub }) => {
+const Projects = ({ postToGithub, CheckDb }) => {
   const [repos, setRepos] = useState([]);
   const [show, toggleShow] = useState(false);
   const [selectedRepos, setSelectedRepos] = useState([]);
+  const [inputs, setInputs] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    CheckDb()
+      .then(inputs => {
+        setInputs(inputs);
+        inputs['gitHub'] &&
+          inputs['gitHub'].forEach(repo => {
+            console.log('repo from effect', repo);
+            selectedRepos[0] && selectedRepos[0].length === 0
+              ? setSelectedRepos([repo])
+              : setSelectedRepos([...selectedRepos, repo]);
+          });
+      })
+      .then(() => inputs && setLoading(false));
+  }, []);
+
+  if (loading) {
+    return null;
+  }
+
+  const isAlreadyImported = name => {
+    const isSame = title => title === name;
+    let titles = [];
+    inputs['gitHub'].forEach(repo => {
+      titles.push(repo.title);
+    });
+    return titles.some(isSame);
+  };
+  console.log('inputs[gitHub]', inputs['gitHub']);
+  console.log('selectedRepos', selectedRepos);
 
   const FetchRepos = () => {
     axios
@@ -25,11 +57,15 @@ const Projects = ({ postToGithub }) => {
   };
 
   const handleClick = event => {
+    console.log('selectedRepos to post', selectedRepos);
+
     postToGithub(selectedRepos);
     return (window.location.href = './portfolio');
   };
 
   const handleCheckBoxChange = (event, repo) => {
+    console.log('repo selected', repo);
+
     event.persist();
     const checked = event.target.checked;
 
@@ -77,7 +113,7 @@ const Projects = ({ postToGithub }) => {
           <div>Edit & customize your projects</div>
           <p>Edit your projects details to showcase it</p>
           <a href="/auth/portfolio">
-            <button type="submit">Edit</button>
+            <button disabled={inputs['gitHub'].length === 0}>Edit</button>
           </a>
         </div>
       </div>
@@ -93,6 +129,7 @@ const Projects = ({ postToGithub }) => {
                       name={repo.name}
                       type="checkbox"
                       onChange={e => handleCheckBoxChange(e, repo)}
+                      defaultChecked={isAlreadyImported(repo.name)}
                     />
                     <p>{repo.name}</p>
                   </div>
@@ -103,7 +140,16 @@ const Projects = ({ postToGithub }) => {
         </div>
       )}
       {show && (
-        <button type="button" value="import" onClick={handleClick}>
+        <button
+          type="button"
+          value="import"
+          onClick={handleClick}
+          disabled={
+            !selectedRepos ||
+            selectedRepos.length === 0 ||
+            selectedRepos[0].length === 0
+          }
+        >
           Submit
         </button>
       )}

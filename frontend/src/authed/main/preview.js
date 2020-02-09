@@ -51,13 +51,22 @@ const Preview = ({ avatar, CheckDb }) => {
         data={{ avatar, name, email, about, website, phone, country, city }}
       />
       {preview.map((r, key) => {
-        return r['Github'] ? (
-          <Card title="Github Projects" key={key} className="card">
-            <GitHubCard data={r} />
-          </Card>
-        ) : (
-          <InfoCard data={r} key={key} />
-        );
+        if (r['Github'] && r['Github'].length !== 0) {
+          return (
+            <Card title="Github Projects" key={key} className="card">
+              <GitHubCard data={r} />
+            </Card>
+          );
+        } else if (r && Object.values(r)[0].length !== 0) {
+          // make sure that an empty card doesn't appear after inserting and then deleting data
+          const firstChild = Object.values(r)[0];
+          let notEmptyFields = 0;
+          Object.values(firstChild).forEach(field => {
+            field && notEmptyFields++;
+          });
+          return notEmptyFields !== 0 && <InfoCard data={r} key={key} />;
+        }
+        return;
       })}
     </div>
   );
