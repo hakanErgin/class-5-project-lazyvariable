@@ -2,11 +2,11 @@
 
 ### GitPro - Generate your portfolio
 
-A tool for HYF students (and everyone else) can use to generate a portfolio, to use after their graduation.
+A tool for HYF students (and other developers) can use to easily create a portfolio.
 
 ## Description:
 
-The user is be able to create their `CV` by filling the fields and their `Portfolio` importing their projects from github. And then they can view "Preview" their info. They should then be able to have this printed out in a nice format.
+The user is be able to create their `CV` by filling the fields and their `Portfolio` importing their projects from github. For the moment they can view this information on `Preview`. They should then be able to have this printed out in a nice format.
 
 **Users are able to:**
 
@@ -16,7 +16,7 @@ The user is be able to create their `CV` by filling the fields and their `Portfo
 
 ## Project Summary:
 
-It started as a group project. Due to bugs and instability issues with essential functions I decided to keep working on it, which then resulted in rebuilding it.
+Started as a group project. Due to bugs and instabilities with essential functions, I kept working on it personally and have rebuilt the app.
 
 **Added/Changed:**
 
@@ -24,19 +24,14 @@ It started as a group project. Due to bugs and instability issues with essential
 - Re-built the data sctructure for better results (instead of flat)
 - Removed hard-coded CSS & Added responsive features
 - Added ability to edit/update your data
+- Refactored (almost all the code) to DRY
 
-**WIP:**
-
-- Refactor and DRY - most of it is done!
-- Working on the `/preview` and format the view
-
-**To do:**
+**To do/WIP:**
 
 - Multiple options for `education` and `experiences`
 - Ability export as a nicely formatted document or URL
 - Naming conventions
-- Check if user does not have avatar/name on github
-
+- Error handling when user does not have avatar/name on github
 
 [Project Link](https://portfolio-d9052.firebaseapp.com/)
 (_backend needs a moment to wake up when you login/register for first time_)
