@@ -30,10 +30,6 @@
   height: 100vh;
 }
 
-#content {
-  width: 60vw;
-}
-
 form {
   width: 100%;
 }
@@ -57,4 +53,21 @@ footer {
   display: flex;
   align-items: center;
   place-content: space-between;
+}
+
+.personalComponent {
+  text-transform: capitalize;
+}
+
+.formOverflow {
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+* {
+  font-size: 18px;
+}
+
+#content {
+  width: 60vw;
 }
