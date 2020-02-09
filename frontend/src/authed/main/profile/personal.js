@@ -1,6 +1,5 @@
 import React from 'react';
 import { Form, Input, Typography } from 'antd';
-import '../../../styles/personal.css';
 import fields from './handlers/fieldData';
 
 const type = 'personalFields';
@@ -35,7 +34,9 @@ const Personal = ({ inputs, handleInputChange }) => {
   return (
     <div className="personalComponent">
       <Title level={3}>personal & contact information</Title>
-      <Form autoComplete="off">{formFromFields}</Form>
+      <Form autoComplete="off" className="formOverflow">
+        {formFromFields}
+      </Form>
     </div>
   );
 };

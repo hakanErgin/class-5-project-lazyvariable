@@ -36,7 +36,7 @@ const Main = () => {
     <div id="mainComponent">
       <Router>
         <Layout className="layout">
-          <Sider id="sider" theme="light">
+          <Sider id="sider" theme="light" breakpoint="lg" collapsedWidth="0">
             <Menu id="siderMenu" selectable={false} mode="vertical">
               <div id="name-and-avatar">
                 <a href="/auth/dashboard">
