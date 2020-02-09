@@ -59,7 +59,7 @@ const Profile = () => {
   }
 
   return (
-    <div id="profileComponent">
+    <div>
       <div className="header">
         <Title level={1}>Profile</Title>
         <div>Take your first step! Create your resume</div>

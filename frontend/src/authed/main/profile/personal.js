@@ -16,7 +16,7 @@ const Personal = ({ inputs, handleInputChange }) => {
       return null;
     }
     return (
-      <Form.Item label={field} key={key}>
+      <Form.Item label={field} key={key} className="forms">
         <Input
           name={field}
           placeholder={capitalizeFirstLetter(field)}
@@ -32,7 +32,7 @@ const Personal = ({ inputs, handleInputChange }) => {
   });
 
   return (
-    <div className="personalComponent">
+    <div className="profileComponents">
       <Title level={3}>personal & contact information</Title>
       <Form autoComplete="off" className="formOverflow">
         {formFromFields}

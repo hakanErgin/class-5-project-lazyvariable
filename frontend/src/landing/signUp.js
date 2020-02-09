@@ -44,7 +44,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="loginSignin">
       {registered ? (
         <Redirect to="/auth/dashboard" />
       ) : (

@@ -1,8 +1,9 @@
 #sider {
-  margin: 2.5em;
+  margin: 2.5em 1.5em;
 }
 
 #userPhoto {
+  margin: 1.5em 0;
   background-size: 5em;
   border-radius: 50px;
   height: 5em;
@@ -30,10 +31,6 @@
   height: 100vh;
 }
 
-form {
-  width: 100%;
-}
-
 #siderMenu {
   border-right: none;
 }
@@ -55,19 +52,34 @@ footer {
   place-content: space-between;
 }
 
-.personalComponent {
-  text-transform: capitalize;
-}
-
-.formOverflow {
-  max-height: 75vh;
-  overflow-y: auto;
-}
-
 * {
   font-size: 18px;
 }
 
-#content {
-  width: 60vw;
+label {
+  font-size: 16px !important;
+}
+
+@media only screen and (min-width: 1200px) {
+  #content {
+    min-width: 45vw;
+    max-width: 60vw;
+  }
+}
+
+.forms,
+#profile-menu {
+  margin-bottom: 10px !important;
+  max-width: 50vw;
+}
+
+@media only screen and (max-width: 1000px) {
+  .forms,
+  #profile-menu {
+    max-width: 80vw;
+  }
+}
+
+.profileComponents {
+  text-transform: capitalize;
 }

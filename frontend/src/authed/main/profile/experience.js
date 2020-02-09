@@ -17,12 +17,13 @@ const Experience = ({ inputs, handleInputChange, onDateChange }) => {
       return null;
     }
 
-    if ({ objKey } === 'experienceDescription') {
+    if (objKey[0] === 'experienceDescription') {
       return (
-        <Form.Item label={field[objKey]} key={key}>
+        <Form.Item label={field[objKey]} key={key} className="forms">
           <Input.TextArea
             className={objKey[0]}
             name={objKey}
+            rows={4}
             placeholder={field[objKey]}
             onChange={e => {
               handleInputChange(e, type);
@@ -34,7 +35,7 @@ const Experience = ({ inputs, handleInputChange, onDateChange }) => {
     }
 
     return (
-      <Form.Item label={field[objKey]} key={key}>
+      <Form.Item label={field[objKey]} key={key} className="forms">
         <Input
           className={objKey[0]}
           name={objKey}
@@ -62,7 +63,7 @@ const Experience = ({ inputs, handleInputChange, onDateChange }) => {
   }
 
   return (
-    <div id="experienceComponent">
+    <div className="profileComponents">
       <Title level={3}>Experience</Title>
       <Form autoComplete="off">
         {formFromFields}
