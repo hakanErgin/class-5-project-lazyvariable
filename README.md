@@ -6,7 +6,7 @@ A tool for HYF students (and other developers) can use to easily create a portfo
 
 ## Description:
 
-The user is be able to create their `CV` by filling the fields and their `Portfolio` importing their projects from github. For the moment they can view this information on `Preview`. They should then be able to have this printed out in a nice format.
+The user is able to create their `CV` by filling the fields and their `Portfolio` importing their projects from github. For the moment they can view this information on `Preview`. They should then be able to have this printed out in a nice format.
 
 **Users are able to:**
 
@@ -16,7 +16,7 @@ The user is be able to create their `CV` by filling the fields and their `Portfo
 
 ## Project Summary:
 
-Started as a group project. Due to bugs and instabilities with essential functions, I kept working on it personally and have rebuilt the app.
+Started as a group project. Due to bugs and instabilities with essential functions, I kept working on it and have rebuilt the app.
 
 **Added/Changed:**
 
