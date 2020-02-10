@@ -21,10 +21,10 @@ Started as a group project. Due to bugs and instabilities with essential functio
 **Added/Changed:**
 
 - Fixed lots of bugs
-- Re-built the data sctructure for better results (instead of flat)
+- Rebuilt the data sctructure for better results (instead of flat)
 - Removed hard-coded CSS & Added responsive features
 - Added ability to edit/update your data
-- Refactored (almost all the code) to DRY
+- Refactored (almost all the app) to DRY
 
 **To do/WIP:**
 
