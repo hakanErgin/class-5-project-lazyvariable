@@ -11,7 +11,7 @@ The user is able to create their `CV` by filling the fields and their `Portfolio
 **Users are able to:**
 
 - Enter related info about themselves (personal - educational - professional details)
-- Use their github name while signing up, later access their repositories
+- Use their github name while signing up and later accessing their repositories
 - View and edit this data
 
 ## Project Summary:
@@ -21,10 +21,10 @@ Started as a group project. Due to bugs and instabilities with essential functio
 **Added/Changed:**
 
 - Fixed lots of bugs
-- Rebuilt the data sctructure for better results (instead of flat)
+- Rebuilt the data sctructure for better results (instead of flat data)
 - Removed hard-coded CSS & Added responsive features
 - Added ability to edit/update your data
-- Refactored (almost all the app) to DRY
+- Refactored 
 
 **To do/WIP:**
 
